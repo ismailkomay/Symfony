@@ -1,3 +1,7 @@
+fdr_admin:
+    resource: "@FdrAdminBundle/Resources/config/routing.yml"
+    prefix:   /
+
 app:
     resource: @AppBundle/Controller/
     type:     annotation
