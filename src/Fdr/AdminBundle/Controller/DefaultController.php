@@ -10,4 +10,8 @@ class DefaultController extends Controller
     {
         return $this->render('FdrAdminBundle:Default:index.html.twig', array('name' => $name));
     }
+    public function komayAction($name)
+    {
+        return $this->render('FdrAdminBundle:Default:index.html.twig', array('name' => $name));
+    }
 }
