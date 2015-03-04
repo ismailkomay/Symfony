@@ -229,3 +229,5 @@ web/bundles/framework/images/blue_picto_more.gif
 web/bundles/framework/images/blue_picto_less.gif
 web/bundles/framework/images/grey_magnifier.png
 web/bundles/framework/css/structure.css
+app/cache/dev/profiler/index.csv
+app/logs/dev.log
