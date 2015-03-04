@@ -17,6 +17,7 @@
       <parameter key="DoctrineBundle">Doctrine\Bundle\DoctrineBundle\DoctrineBundle</parameter>
       <parameter key="SensioFrameworkExtraBundle">Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle</parameter>
       <parameter key="AppBundle">AppBundle\AppBundle</parameter>
+      <parameter key="FdrAdminBundle">Fdr\AdminBundle\FdrAdminBundle</parameter>
       <parameter key="DebugBundle">Symfony\Bundle\DebugBundle\DebugBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
@@ -2956,6 +2957,10 @@
       <call method="addPath">
         <argument>C:\wamp\www\Symfony\vendor\doctrine\doctrine-bundle/Resources/views</argument>
         <argument>Doctrine</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\wamp\www\Symfony\src\Fdr\AdminBundle/Resources/views</argument>
+        <argument>FdrAdmin</argument>
       </call>
       <call method="addPath">
         <argument>C:\wamp\www\Symfony\vendor\symfony\symfony\src\Symfony\Bundle\DebugBundle/Resources/views</argument>
