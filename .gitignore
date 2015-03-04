@@ -216,3 +216,16 @@ pip-log.txt
 #Mr Developer
 .mr.developer.cfg
 /nbproject/private/
+web/bundles/framework/css/body.css
+web/bundles/framework/css/exception.css
+web/bundles/sensiodistribution/webconfigurator/images/notification.gif
+web/bundles/sensiodistribution/webconfigurator/images/faviconn.ico
+web/bundles/sensiodistribution/webconfigurator/images/favicon.ico
+web/bundles/sensiodistribution/webconfigurator/images/blue-arrow.png
+web/bundles/sensiodistribution/webconfigurator/css/install.css
+web/bundles/sensiodistribution/webconfigurator/css/configurator.css
+web/bundles/framework/images/logo_symfony.png
+web/bundles/framework/images/blue_picto_more.gif
+web/bundles/framework/images/blue_picto_less.gif
+web/bundles/framework/images/grey_magnifier.png
+web/bundles/framework/css/structure.css
