@@ -7,11 +7,17 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Peage
  *
- * @ORM\Table()
+ * @ORM\Table(name="peage")
  * @ORM\Entity(repositoryClass="Fdr\AdminBundle\Entity\PeageRepository")
  */
 class Peage
 {
+    /**
+   * @ORM\ManyToOne(targetEntity="FeuilleDeRoute",inversedBy="peages")
+   * @ORM\JoinColumn(nullable=false)
+   */
+  
+    private $feuilleDeRoute;
     /**
      * @var integer
      *
@@ -180,5 +186,28 @@ class Peage
     public function getChampSup2()
     {
         return $this->champSup2;
+    }
+
+    /**
+     * Set feuilleDeRoute
+     *
+     * @param \Fdr\AdminBundle\Entity\FeuilleDeRoute $feuilleDeRoute
+     * @return Peage
+     */
+    public function setFeuilleDeRoute(\Fdr\AdminBundle\Entity\FeuilleDeRoute $feuilleDeRoute)
+    {
+        $this->feuilleDeRoute = $feuilleDeRoute;
+    
+        return $this;
+    }
+
+    /**
+     * Get feuilleDeRoute
+     *
+     * @return \Fdr\AdminBundle\Entity\FeuilleDeRoute 
+     */
+    public function getFeuilleDeRoute()
+    {
+        return $this->feuilleDeRoute;
     }
 }

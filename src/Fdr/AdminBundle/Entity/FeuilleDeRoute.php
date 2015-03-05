@@ -3,15 +3,75 @@
 namespace Fdr\AdminBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Doctrine\Common\Collections\ArrayCollection;
 /**
  * FeuilleDeRoute
  *
- * @ORM\Table()
+ * @ORM\Table(name="feuillederoute")
  * @ORM\Entity(repositoryClass="Fdr\AdminBundle\Entity\FeuilleDeRouteRepository")
  */
 class FeuilleDeRoute
 {
+    /**
+   * @ORM\ManyToOne(targetEntity="Vehicule",inversedBy="feuilleDeRoutes")
+   * @ORM\JoinColumn(nullable=false)
+   */
+  private $vehicule;
+  
+   /**
+   * @ORM\ManyToOne(targetEntity="Prestation",inversedBy="feuilleDeRoutes")
+   * @ORM\JoinColumn(nullable=false)
+   */
+  private $prestation;
+  
+  /**
+   * @ORM\OneToMany(targetEntity="BonCarburantHuile",mappedBy="feuilleDeRoute")
+   * @ORM\JoinColumn(nullable=false)
+   */
+    private $bonCarburantHuiles;
+  
+    /**
+   * @ORM\ManyToMany(targetEntity="Manutentionnaire",mappedBy="feuilleDeRoutes")
+   * @ORM\JoinColumn(nullable=true)
+   */
+    private $manutentionnaires;
+    /**
+   * @ORM\ManyToMany(targetEntity="Chauffeur",mappedBy="feuilleDeRoutes")
+   * @ORM\JoinColumn(nullable=false)
+   */
+    private $chauffeurs;
+    /**
+   * @ORM\ManyToMany(targetEntity="Utilisateur",mappedBy="feuilleDeRoutes")
+   * @ORM\JoinColumn(nullable=false)
+   */
+    private $utilisateurs;
+    
+    /**
+    * @ORM\ManyToOne(targetEntity="Depot", inversedBy="feuilleDeRoutes")
+	* @ORM\JoinColumn(nullable=false)
+    */
+    private $depot;
+
+     /**
+   * @ORM\OneToMany(targetEntity="Modification",mappedBy="feuilleDeRoute")
+   * @ORM\JoinColumn(nullable=true)
+   */
+    private $modifications;
+    /**
+   * @ORM\OneToMany(targetEntity="Peage",mappedBy="feuilleDeRoute")
+   * @ORM\JoinColumn(nullable=true)
+   */
+    private $peages;
+    
+    public function __construct() {
+        $this->modifications = new ArrayCollection() ;
+        $this->peages = new ArrayCollection() ;
+        $this->bonCarburantHuiles = new ArrayCollection() ;
+        $this->manutentionnaires = new ArrayCollection() ;
+        $this->chauffeurs = new ArrayCollection() ;
+        $this->utilisateurs = new ArrayCollection() ;
+    }
+
     /**
      * @var integer
      *
@@ -900,5 +960,272 @@ class FeuilleDeRoute
     public function getChampSup4()
     {
         return $this->champSup4;
+    }
+
+    /**
+     * Add modifications
+     *
+     * @param \Fdr\AdminBundle\Entity\Modification $modifications
+     * @return FeuilleDeRoute
+     */
+    public function addModification(\Fdr\AdminBundle\Entity\Modification $modifications)
+    {
+        $this->modifications[] = $modifications;
+    
+        return $this;
+    }
+
+    /**
+     * Remove modifications
+     *
+     * @param \Fdr\AdminBundle\Entity\Modification $modifications
+     */
+    public function removeModification(\Fdr\AdminBundle\Entity\Modification $modifications)
+    {
+        $this->modifications->removeElement($modifications);
+    }
+
+    /**
+     * Get modifications
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getModifications()
+    {
+        return $this->modifications;
+    }
+
+    /**
+     * Add peages
+     *
+     * @param \Fdr\AdminBundle\Entity\Peage $peages
+     * @return FeuilleDeRoute
+     */
+    public function addPeage(\Fdr\AdminBundle\Entity\Peage $peages)
+    {
+        $this->peages[] = $peages;
+    
+        return $this;
+    }
+
+    /**
+     * Remove peages
+     *
+     * @param \Fdr\AdminBundle\Entity\Peage $peages
+     */
+    public function removePeage(\Fdr\AdminBundle\Entity\Peage $peages)
+    {
+        $this->peages->removeElement($peages);
+    }
+
+    /**
+     * Get peages
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getPeages()
+    {
+        return $this->peages;
+    }
+
+    /**
+     * Set depot
+     *
+     * @param \Fdr\AdminBundle\Entity\Depot $depot
+     * @return FeuilleDeRoute
+     */
+    public function setDepot(\Fdr\AdminBundle\Entity\Depot $depot)
+    {
+        $this->depot = $depot;
+    
+        return $this;
+    }
+
+    /**
+     * Get depot
+     *
+     * @return \Fdr\AdminBundle\Entity\Depot 
+     */
+    public function getDepot()
+    {
+        return $this->depot;
+    }
+
+    /**
+     * Set vehicule
+     *
+     * @param \Fdr\AdminBundle\Entity\Vehicule $vehicule
+     * @return FeuilleDeRoute
+     */
+    public function setVehicule(\Fdr\AdminBundle\Entity\Vehicule $vehicule)
+    {
+        $this->vehicule = $vehicule;
+    
+        return $this;
+    }
+
+    /**
+     * Get vehicule
+     *
+     * @return \Fdr\AdminBundle\Entity\Vehicule 
+     */
+    public function getVehicule()
+    {
+        return $this->vehicule;
+    }
+
+    /**
+     * Set prestation
+     *
+     * @param \Fdr\AdminBundle\Entity\Prestation $prestation
+     * @return FeuilleDeRoute
+     */
+    public function setPrestation(\Fdr\AdminBundle\Entity\Prestation $prestation)
+    {
+        $this->prestation = $prestation;
+    
+        return $this;
+    }
+
+    /**
+     * Get prestation
+     *
+     * @return \Fdr\AdminBundle\Entity\Prestation 
+     */
+    public function getPrestation()
+    {
+        return $this->prestation;
+    }
+
+    /**
+     * Add bonCarburantHuiles
+     *
+     * @param \Fdr\AdminBundle\Entity\BonCarburantHuile $bonCarburantHuiles
+     * @return FeuilleDeRoute
+     */
+    public function addBonCarburantHuile(\Fdr\AdminBundle\Entity\BonCarburantHuile $bonCarburantHuiles)
+    {
+        $this->bonCarburantHuiles[] = $bonCarburantHuiles;
+    
+        return $this;
+    }
+
+    /**
+     * Remove bonCarburantHuiles
+     *
+     * @param \Fdr\AdminBundle\Entity\BonCarburantHuile $bonCarburantHuiles
+     */
+    public function removeBonCarburantHuile(\Fdr\AdminBundle\Entity\BonCarburantHuile $bonCarburantHuiles)
+    {
+        $this->bonCarburantHuiles->removeElement($bonCarburantHuiles);
+    }
+
+    /**
+     * Get bonCarburantHuiles
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getBonCarburantHuiles()
+    {
+        return $this->bonCarburantHuiles;
+    }
+
+    /**
+     * Add manutentionnaires
+     *
+     * @param \Fdr\AdminBundle\Entity\Manutentionnaire $manutentionnaires
+     * @return FeuilleDeRoute
+     */
+    public function addManutentionnaire(\Fdr\AdminBundle\Entity\Manutentionnaire $manutentionnaires)
+    {
+        $this->manutentionnaires[] = $manutentionnaires;
+    
+        return $this;
+    }
+
+    /**
+     * Remove manutentionnaires
+     *
+     * @param \Fdr\AdminBundle\Entity\Manutentionnaire $manutentionnaires
+     */
+    public function removeManutentionnaire(\Fdr\AdminBundle\Entity\Manutentionnaire $manutentionnaires)
+    {
+        $this->manutentionnaires->removeElement($manutentionnaires);
+    }
+
+    /**
+     * Get manutentionnaires
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getManutentionnaires()
+    {
+        return $this->manutentionnaires;
+    }
+
+    /**
+     * Add chauffeurs
+     *
+     * @param \Fdr\AdminBundle\Entity\Chauffeur $chauffeurs
+     * @return FeuilleDeRoute
+     */
+    public function addChauffeur(\Fdr\AdminBundle\Entity\Chauffeur $chauffeurs)
+    {
+        $this->chauffeurs[] = $chauffeurs;
+    
+        return $this;
+    }
+
+    /**
+     * Remove chauffeurs
+     *
+     * @param \Fdr\AdminBundle\Entity\Chauffeur $chauffeurs
+     */
+    public function removeChauffeur(\Fdr\AdminBundle\Entity\Chauffeur $chauffeurs)
+    {
+        $this->chauffeurs->removeElement($chauffeurs);
+    }
+
+    /**
+     * Get chauffeurs
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getChauffeurs()
+    {
+        return $this->chauffeurs;
+    }
+
+    /**
+     * Add utilisateurs
+     *
+     * @param \Fdr\AdminBundle\Entity\Utilisateur $utilisateurs
+     * @return FeuilleDeRoute
+     */
+    public function addUtilisateur(\Fdr\AdminBundle\Entity\Utilisateur $utilisateurs)
+    {
+        $this->utilisateurs[] = $utilisateurs;
+    
+        return $this;
+    }
+
+    /**
+     * Remove utilisateurs
+     *
+     * @param \Fdr\AdminBundle\Entity\Utilisateur $utilisateurs
+     */
+    public function removeUtilisateur(\Fdr\AdminBundle\Entity\Utilisateur $utilisateurs)
+    {
+        $this->utilisateurs->removeElement($utilisateurs);
+    }
+
+    /**
+     * Get utilisateurs
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getUtilisateurs()
+    {
+        return $this->utilisateurs;
     }
 }

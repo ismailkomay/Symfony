@@ -3,15 +3,29 @@
 namespace Fdr\AdminBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Doctrine\Common\Collections\ArrayCollection;
 /**
  * Depot
  *
- * @ORM\Table()
+ * @ORM\Table(name="depot")
  * @ORM\Entity(repositoryClass="Fdr\AdminBundle\Entity\DepotRepository")
  */
 class Depot
 {
+     /**
+    * @ORM\OneToMany(targetEntity="FeuilledeRoute",mappedBy="depot")
+   * @ORM\JoinColumn(nullable=true)
+    */
+     private $feuilleDeRoutes;
+    /**
+   * @ORM\ManyToOne(targetEntity="Fdr\AdminBundle\Entity\Filiale", cascade={"remove"},inversedBy="depots")
+   * @ORM\JoinColumn(nullable=false)
+   */
+    public function __construct() {
+        $this->feuilleDeRoutes = new ArrayCollection() ;
+    }
+    private $filiale;
+  
     /**
      * @var integer
      *
@@ -180,5 +194,61 @@ class Depot
     public function getChamp2()
     {
         return $this->champ2;
+    }
+
+    /**
+     * Set filiale
+     *
+     * @param \Fdr\AdminBundle\Entity\Filiale $filiale
+     * @return Depot
+     */
+    public function setFiliale(\Fdr\AdminBundle\Entity\Filiale $filiale)
+    {
+        $this->filiale = $filiale;
+    
+        return $this;
+    }
+
+    /**
+     * Get filiale
+     *
+     * @return \Fdr\AdminBundle\Entity\Filiale 
+     */
+    public function getFiliale()
+    {
+        return $this->filiale;
+    }
+
+    /**
+     * Add feuilleDeRoutes
+     *
+     * @param \Fdr\AdminBundle\Entity\FeuilledeRoute $feuilleDeRoutes
+     * @return Depot
+     */
+    public function addFeuilleDeRoute(\Fdr\AdminBundle\Entity\FeuilledeRoute $feuilleDeRoutes)
+    {
+        $this->feuilleDeRoutes[] = $feuilleDeRoutes;
+    
+        return $this;
+    }
+
+    /**
+     * Remove feuilleDeRoutes
+     *
+     * @param \Fdr\AdminBundle\Entity\FeuilledeRoute $feuilleDeRoutes
+     */
+    public function removeFeuilleDeRoute(\Fdr\AdminBundle\Entity\FeuilledeRoute $feuilleDeRoutes)
+    {
+        $this->feuilleDeRoutes->removeElement($feuilleDeRoutes);
+    }
+
+    /**
+     * Get feuilleDeRoutes
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getFeuilleDeRoutes()
+    {
+        return $this->feuilleDeRoutes;
     }
 }

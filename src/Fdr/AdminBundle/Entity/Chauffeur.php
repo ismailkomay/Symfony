@@ -3,7 +3,7 @@
 namespace Fdr\AdminBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Doctrine\Common\Collections\ArrayCollection;
 /**
  * Chauffeur
  *
@@ -12,6 +12,22 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Chauffeur
 {
+    /**
+   * @ORM\ManyToMany(targetEntity="FeuilleDeRoute",inversedBy="chauffeurs")
+   * @ORM\JoinColumn(nullable=true)
+   */
+    private $feuilleDeRoutes;
+     /**
+    * @ORM\OneToMany(targetEntity="Indisponibilite",mappedBy="chauffeur")
+   * @ORM\JoinColumn(nullable=true)
+    */
+     private $indisponibilites;
+     
+     public function __construct() {
+        $this->indisponibilites = new ArrayCollection() ;
+        $this->feuilleDeRoutes = new ArrayCollection() ;
+    }
+     
     /**
      * @var integer
      *
@@ -92,4 +108,310 @@ class Chauffeur
     private $champssupp2;
 
 
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set nom
+     *
+     * @param string $nom
+     * @return Chauffeur
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+    
+        return $this;
+    }
+
+    /**
+     * Get nom
+     *
+     * @return string 
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    /**
+     * Set prenom
+     *
+     * @param string $prenom
+     * @return Chauffeur
+     */
+    public function setPrenom($prenom)
+    {
+        $this->prenom = $prenom;
+    
+        return $this;
+    }
+
+    /**
+     * Get prenom
+     *
+     * @return string 
+     */
+    public function getPrenom()
+    {
+        return $this->prenom;
+    }
+
+    /**
+     * Set tel
+     *
+     * @param string $tel
+     * @return Chauffeur
+     */
+    public function setTel($tel)
+    {
+        $this->tel = $tel;
+    
+        return $this;
+    }
+
+    /**
+     * Get tel
+     *
+     * @return string 
+     */
+    public function getTel()
+    {
+        return $this->tel;
+    }
+
+    /**
+     * Set cin
+     *
+     * @param string $cin
+     * @return Chauffeur
+     */
+    public function setCin($cin)
+    {
+        $this->cin = $cin;
+    
+        return $this;
+    }
+
+    /**
+     * Get cin
+     *
+     * @return string 
+     */
+    public function getCin()
+    {
+        return $this->cin;
+    }
+
+    /**
+     * Set adresse
+     *
+     * @param string $adresse
+     * @return Chauffeur
+     */
+    public function setAdresse($adresse)
+    {
+        $this->adresse = $adresse;
+    
+        return $this;
+    }
+
+    /**
+     * Get adresse
+     *
+     * @return string 
+     */
+    public function getAdresse()
+    {
+        return $this->adresse;
+    }
+
+    /**
+     * Set dateembauche
+     *
+     * @param \DateTime $dateembauche
+     * @return Chauffeur
+     */
+    public function setDateembauche($dateembauche)
+    {
+        $this->dateembauche = $dateembauche;
+    
+        return $this;
+    }
+
+    /**
+     * Get dateembauche
+     *
+     * @return \DateTime 
+     */
+    public function getDateembauche()
+    {
+        return $this->dateembauche;
+    }
+
+    /**
+     * Set disponibilite
+     *
+     * @param boolean $disponibilite
+     * @return Chauffeur
+     */
+    public function setDisponibilite($disponibilite)
+    {
+        $this->disponibilite = $disponibilite;
+    
+        return $this;
+    }
+
+    /**
+     * Get disponibilite
+     *
+     * @return boolean 
+     */
+    public function getDisponibilite()
+    {
+        return $this->disponibilite;
+    }
+
+    /**
+     * Set typeconvention
+     *
+     * @param string $typeconvention
+     * @return Chauffeur
+     */
+    public function setTypeconvention($typeconvention)
+    {
+        $this->typeconvention = $typeconvention;
+    
+        return $this;
+    }
+
+    /**
+     * Get typeconvention
+     *
+     * @return string 
+     */
+    public function getTypeconvention()
+    {
+        return $this->typeconvention;
+    }
+
+    /**
+     * Set champssupp1
+     *
+     * @param string $champssupp1
+     * @return Chauffeur
+     */
+    public function setChampssupp1($champssupp1)
+    {
+        $this->champssupp1 = $champssupp1;
+    
+        return $this;
+    }
+
+    /**
+     * Get champssupp1
+     *
+     * @return string 
+     */
+    public function getChampssupp1()
+    {
+        return $this->champssupp1;
+    }
+
+    /**
+     * Set champssupp2
+     *
+     * @param string $champssupp2
+     * @return Chauffeur
+     */
+    public function setChampssupp2($champssupp2)
+    {
+        $this->champssupp2 = $champssupp2;
+    
+        return $this;
+    }
+
+    /**
+     * Get champssupp2
+     *
+     * @return string 
+     */
+    public function getChampssupp2()
+    {
+        return $this->champssupp2;
+    }
+
+    /**
+     * Add indisponibilites
+     *
+     * @param \Fdr\AdminBundle\Entity\Indisponibilite $indisponibilites
+     * @return Chauffeur
+     */
+    public function addIndisponibilite(\Fdr\AdminBundle\Entity\Indisponibilite $indisponibilites)
+    {
+        $this->indisponibilites[] = $indisponibilites;
+    
+        return $this;
+    }
+
+    /**
+     * Remove indisponibilites
+     *
+     * @param \Fdr\AdminBundle\Entity\Indisponibilite $indisponibilites
+     */
+    public function removeIndisponibilite(\Fdr\AdminBundle\Entity\Indisponibilite $indisponibilites)
+    {
+        $this->indisponibilites->removeElement($indisponibilites);
+    }
+
+    /**
+     * Get indisponibilites
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getIndisponibilites()
+    {
+        return $this->indisponibilites;
+    }
+
+    /**
+     * Add feuilleDeRoutes
+     *
+     * @param \Fdr\AdminBundle\Entity\FeuilleDeRoute $feuilleDeRoutes
+     * @return Chauffeur
+     */
+    public function addFeuilleDeRoute(\Fdr\AdminBundle\Entity\FeuilleDeRoute $feuilleDeRoutes)
+    {
+        $this->feuilleDeRoutes[] = $feuilleDeRoutes;
+    
+        return $this;
+    }
+
+    /**
+     * Remove feuilleDeRoutes
+     *
+     * @param \Fdr\AdminBundle\Entity\FeuilleDeRoute $feuilleDeRoutes
+     */
+    public function removeFeuilleDeRoute(\Fdr\AdminBundle\Entity\FeuilleDeRoute $feuilleDeRoutes)
+    {
+        $this->feuilleDeRoutes->removeElement($feuilleDeRoutes);
+    }
+
+    /**
+     * Get feuilleDeRoutes
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getFeuilleDeRoutes()
+    {
+        return $this->feuilleDeRoutes;
+    }
 }

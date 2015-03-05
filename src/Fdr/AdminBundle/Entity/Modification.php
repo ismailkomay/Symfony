@@ -7,11 +7,23 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Modification
  *
- * @ORM\Table()
+ * @ORM\Table(name="modification")
  * @ORM\Entity(repositoryClass="Fdr\AdminBundle\Entity\ModificationRepository")
  */
 class Modification
 {
+    /**
+   * @ORM\ManyToOne(targetEntity="Utilisateur",inversedBy="modifications")
+   * @ORM\JoinColumn(nullable=false)
+   */
+  
+    private $utilisateur;
+    /**
+   * @ORM\ManyToOne(targetEntity="FeuilleDeRoute",inversedBy="modifications")
+   * @ORM\JoinColumn(nullable=false)
+   */
+  
+    private $feuilleDeRoute;
     /**
      * @var integer
      *
@@ -180,5 +192,51 @@ class Modification
     public function getChampSup2()
     {
         return $this->champSup2;
+    }
+
+    /**
+     * Set utilisateur
+     *
+     * @param \Fdr\AdminBundle\Entity\Utilisateur $utilisateur
+     * @return Modification
+     */
+    public function setUtilisateur(\Fdr\AdminBundle\Entity\Utilisateur $utilisateur)
+    {
+        $this->utilisateur = $utilisateur;
+    
+        return $this;
+    }
+
+    /**
+     * Get utilisateur
+     *
+     * @return \Fdr\AdminBundle\Entity\Utilisateur 
+     */
+    public function getUtilisateur()
+    {
+        return $this->utilisateur;
+    }
+
+    /**
+     * Set feuilleDeRoute
+     *
+     * @param \Fdr\AdminBundle\Entity\FeuilleDeRoute $feuilleDeRoute
+     * @return Modification
+     */
+    public function setFeuilleDeRoute(\Fdr\AdminBundle\Entity\FeuilleDeRoute $feuilleDeRoute)
+    {
+        $this->feuilleDeRoute = $feuilleDeRoute;
+    
+        return $this;
+    }
+
+    /**
+     * Get feuilleDeRoute
+     *
+     * @return \Fdr\AdminBundle\Entity\FeuilleDeRoute 
+     */
+    public function getFeuilleDeRoute()
+    {
+        return $this->feuilleDeRoute;
     }
 }

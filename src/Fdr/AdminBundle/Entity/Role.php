@@ -1,17 +1,27 @@
 <?php
 
 namespace Fdr\AdminBundle\Entity;
-
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Role
  *
- * @ORM\Table()
+ * @ORM\Table(name="role")
  * @ORM\Entity(repositoryClass="Fdr\AdminBundle\Entity\RoleRepository")
  */
 class Role
 {
+    
+    /**
+   * @ORM\OneToMany(targetEntity="Utilisateur",mappedBy="role")
+   * @ORM\JoinColumn(nullable=true)
+   */
+    private $utilisateurs;
+    
+    public function __construct() {
+        $this->utilisateurs = new ArrayCollection() ;
+    }
     /**
      * @var integer
      *
@@ -960,5 +970,38 @@ class Role
     public function getChampSup4()
     {
         return $this->champSup4;
+    }
+
+    /**
+     * Add utilisateurs
+     *
+     * @param \Fdr\AdminBundle\Entity\Utilisateur $utilisateurs
+     * @return Role
+     */
+    public function addUtilisateur(\Fdr\AdminBundle\Entity\Utilisateur $utilisateurs)
+    {
+        $this->utilisateurs[] = $utilisateurs;
+    
+        return $this;
+    }
+
+    /**
+     * Remove utilisateurs
+     *
+     * @param \Fdr\AdminBundle\Entity\Utilisateur $utilisateurs
+     */
+    public function removeUtilisateur(\Fdr\AdminBundle\Entity\Utilisateur $utilisateurs)
+    {
+        $this->utilisateurs->removeElement($utilisateurs);
+    }
+
+    /**
+     * Get utilisateurs
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getUtilisateurs()
+    {
+        return $this->utilisateurs;
     }
 }

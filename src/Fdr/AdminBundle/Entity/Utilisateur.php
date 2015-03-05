@@ -1,17 +1,42 @@
 <?php
 
 namespace Fdr\AdminBundle\Entity;
-
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Utilisateur
  *
- * @ORM\Table()
+ * @ORM\Table(name="utilisateur")
  * @ORM\Entity(repositoryClass="Fdr\AdminBundle\Entity\UtilisateurRepository")
  */
 class Utilisateur
 {
+    /**
+   * @ORM\OneToMany(targetEntity="Modification",mappedBy="utilisateur")
+   * @ORM\JoinColumn(nullable=true)
+   */
+    private $modifications;
+    /**
+   * @ORM\ManyToMany(targetEntity="FeuilleDeRoute",inversedBy="utilisateurs")
+   * @ORM\JoinColumn(nullable=true)
+   */
+    private $feuilleDeRoutes;
+    
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->feuilleDeRoutes = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->modifications = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    /**
+   * @ORM\ManyToOne(targetEntity="Role",inversedBy="utilisateurs")
+   * @ORM\JoinColumn(nullable=true)
+   */
+  
+    private $role;
     /**
      * @var integer
      *
@@ -330,5 +355,94 @@ class Utilisateur
     public function getChampSup2()
     {
         return $this->champSup2;
+    }
+
+    /**
+     * Set role
+     *
+     * @param \Fdr\AdminBundle\Entity\Role $role
+     * @return Utilisateur
+     */
+    public function setRole(\Fdr\AdminBundle\Entity\Role $role = null)
+    {
+        $this->role = $role;
+    
+        return $this;
+    }
+
+    /**
+     * Get role
+     *
+     * @return \Fdr\AdminBundle\Entity\Role 
+     */
+    public function getRole()
+    {
+        return $this->role;
+    }
+
+    /**
+     * Add feuilleDeRoutes
+     *
+     * @param \Fdr\AdminBundle\Entity\FeuilleDeRoute $feuilleDeRoutes
+     * @return Utilisateur
+     */
+    public function addFeuilleDeRoute(\Fdr\AdminBundle\Entity\FeuilleDeRoute $feuilleDeRoutes)
+    {
+        $this->feuilleDeRoutes[] = $feuilleDeRoutes;
+    
+        return $this;
+    }
+
+    /**
+     * Remove feuilleDeRoutes
+     *
+     * @param \Fdr\AdminBundle\Entity\FeuilleDeRoute $feuilleDeRoutes
+     */
+    public function removeFeuilleDeRoute(\Fdr\AdminBundle\Entity\FeuilleDeRoute $feuilleDeRoutes)
+    {
+        $this->feuilleDeRoutes->removeElement($feuilleDeRoutes);
+    }
+
+    /**
+     * Get feuilleDeRoutes
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getFeuilleDeRoutes()
+    {
+        return $this->feuilleDeRoutes;
+    }
+
+    /**
+     * Add modifications
+     *
+     * @param \Fdr\AdminBundle\Entity\Modification $modifications
+     * @return Utilisateur
+     */
+    public function addModification(\Fdr\AdminBundle\Entity\Modification $modifications)
+    {
+        $this->modifications[] = $modifications;
+    
+        return $this;
+    }
+
+    /**
+     * Remove modifications
+     *
+     * @param \Fdr\AdminBundle\Entity\Modification $modifications
+     */
+    public function removeModification(\Fdr\AdminBundle\Entity\Modification $modifications)
+    {
+        $this->modifications->removeElement($modifications);
+    }
+
+    /**
+     * Get modifications
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getModifications()
+    {
+        return $this->modifications;
     }
 }

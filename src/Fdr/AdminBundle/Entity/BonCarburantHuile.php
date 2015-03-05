@@ -7,11 +7,22 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * BonCarburantHuile
  *
- * @ORM\Table()
+ * @ORM\Table(name="boncarburanthuile")
  * @ORM\Entity(repositoryClass="Fdr\AdminBundle\Entity\BonCarburantHuileRepository")
  */
 class BonCarburantHuile
 {
+     /**
+   * @ORM\ManyToOne(targetEntity="FeuilleDeRoute",inversedBy="bonCarburantHuiles")
+   * @ORM\JoinColumn(nullable=false)
+   */
+    private $feuilleDeRoute;
+     /**
+   * @ORM\ManyToOne(targetEntity="TypeConsommation",inversedBy="bonCarburantHuiles")
+   * @ORM\JoinColumn(nullable=false)
+   */
+  
+    private $typeConsommation;
     /**
      * @var integer
      *
@@ -240,5 +251,51 @@ class BonCarburantHuile
     public function getChampSup2()
     {
         return $this->champSup2;
+    }
+
+    /**
+     * Set typeConsommation
+     *
+     * @param \Fdr\AdminBundle\Entity\TypeConsommation $typeConsommation
+     * @return BonCarburantHuile
+     */
+    public function setTypeConsommation(\Fdr\AdminBundle\Entity\TypeConsommation $typeConsommation)
+    {
+        $this->typeConsommation = $typeConsommation;
+    
+        return $this;
+    }
+
+    /**
+     * Get typeConsommation
+     *
+     * @return \Fdr\AdminBundle\Entity\TypeConsommation 
+     */
+    public function getTypeConsommation()
+    {
+        return $this->typeConsommation;
+    }
+
+    /**
+     * Set feuilleDeRoute
+     *
+     * @param \Fdr\AdminBundle\Entity\FeuilleDeRoute $feuilleDeRoute
+     * @return BonCarburantHuile
+     */
+    public function setFeuilleDeRoute(\Fdr\AdminBundle\Entity\FeuilleDeRoute $feuilleDeRoute)
+    {
+        $this->feuilleDeRoute = $feuilleDeRoute;
+    
+        return $this;
+    }
+
+    /**
+     * Get feuilleDeRoute
+     *
+     * @return \Fdr\AdminBundle\Entity\FeuilleDeRoute 
+     */
+    public function getFeuilleDeRoute()
+    {
+        return $this->feuilleDeRoute;
     }
 }

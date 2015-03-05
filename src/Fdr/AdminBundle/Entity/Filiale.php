@@ -3,15 +3,25 @@
 namespace Fdr\AdminBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Filiale
  *
- * @ORM\Table()
+ * @ORM\Table(name="filiale")
  * @ORM\Entity(repositoryClass="Fdr\AdminBundle\Entity\FilialeRepository")
  */
 class Filiale
 {
+     /**
+   * @ORM\OneToMany(targetEntity="Depot",mappedBy="filiale")
+   * @ORM\JoinColumn(nullable=true)
+   */
+    private $depots;
+    
+    public function __construct() {
+        $this->depots = new ArrayCollection() ;
+    }
     /**
      * @var integer
      *
@@ -180,5 +190,38 @@ class Filiale
     public function getChampSup2()
     {
         return $this->champSup2;
+    }
+
+    /**
+     * Add depots
+     *
+     * @param \Fdr\AdminBundle\Entity\Depot $depots
+     * @return Filiale
+     */
+    public function addDepot(\Fdr\AdminBundle\Entity\Depot $depots)
+    {
+        $this->depots[] = $depots;
+    
+        return $this;
+    }
+
+    /**
+     * Remove depots
+     *
+     * @param \Fdr\AdminBundle\Entity\Depot $depots
+     */
+    public function removeDepot(\Fdr\AdminBundle\Entity\Depot $depots)
+    {
+        $this->depots->removeElement($depots);
+    }
+
+    /**
+     * Get depots
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getDepots()
+    {
+        return $this->depots;
     }
 }

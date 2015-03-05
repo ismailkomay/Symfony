@@ -3,15 +3,24 @@
 namespace Fdr\AdminBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Doctrine\Common\Collections\ArrayCollection;
 /**
  * TypeConsommation
  *
- * @ORM\Table()
+ * @ORM\Table(name="typeconsommation")
  * @ORM\Entity(repositoryClass="Fdr\AdminBundle\Entity\TypeConsommationRepository")
  */
 class TypeConsommation
 {
+    /**
+   * @ORM\OneToMany(targetEntity="BonCarburantHuile",mappedBy="typeConsommation")
+   * @ORM\JoinColumn(nullable=true)
+   */
+    private $bonCarburantHuiles;
+    
+    public function __construct() {
+        $this->bonCarburantHuiles = new ArrayCollection() ;
+    }
     /**
      * @var integer
      *
@@ -210,5 +219,38 @@ class TypeConsommation
     public function getChampSup2()
     {
         return $this->champSup2;
+    }
+
+    /**
+     * Add bonCarburantHuiles
+     *
+     * @param \Fdr\AdminBundle\Entity\BonCarburantHuile $bonCarburantHuiles
+     * @return TypeConsommation
+     */
+    public function addBonCarburantHuile(\Fdr\AdminBundle\Entity\BonCarburantHuile $bonCarburantHuiles)
+    {
+        $this->bonCarburantHuiles[] = $bonCarburantHuiles;
+    
+        return $this;
+    }
+
+    /**
+     * Remove bonCarburantHuiles
+     *
+     * @param \Fdr\AdminBundle\Entity\BonCarburantHuile $bonCarburantHuiles
+     */
+    public function removeBonCarburantHuile(\Fdr\AdminBundle\Entity\BonCarburantHuile $bonCarburantHuiles)
+    {
+        $this->bonCarburantHuiles->removeElement($bonCarburantHuiles);
+    }
+
+    /**
+     * Get bonCarburantHuiles
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getBonCarburantHuiles()
+    {
+        return $this->bonCarburantHuiles;
     }
 }
