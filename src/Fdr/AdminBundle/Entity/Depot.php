@@ -21,10 +21,11 @@ class Depot
    * @ORM\ManyToOne(targetEntity="Fdr\AdminBundle\Entity\Filiale", cascade={"remove"},inversedBy="depots")
    * @ORM\JoinColumn(nullable=false)
    */
+    private $filiale;
+    
     public function __construct() {
         $this->feuilleDeRoutes = new ArrayCollection() ;
     }
-    private $filiale;
   
     /**
      * @var integer
