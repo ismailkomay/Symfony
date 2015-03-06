@@ -12,3 +12,5 @@ af8c6d,::1,GET,http://localhost/Symfony/web/app_dev.php/hello/worldz,1425461009,
 0b8f86,::1,GET,http://localhost/Symfony/web/app_dev.php/hello/worldz,1425477585,
 4b9dd0,::1,GET,http://localhost/Symfony/web/app_dev.php/,1425478340,10582e
 10582e,::1,GET,http://localhost/Symfony/web/app_dev.php/,1425478340,
+54f7b2,127.0.0.1,GET,http://localhost/Symfony/web/app_dev.php/hello/mimi,1425631645,662907
+662907,127.0.0.1,GET,http://localhost/Symfony/web/app_dev.php/hello/mimi,1425631645,

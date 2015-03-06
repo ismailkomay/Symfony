@@ -12,6 +12,17 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Client
 {
+    /**
+   * @ORM\OneToMany(targetEntity="ClientFdrV",mappedBy="client")
+   * @ORM\JoinColumn(nullable=true)
+   */
+    private $clientFdrVs;
+    /**
+   * @ORM\OneToMany(targetEntity="ClientFdrF",mappedBy="client")
+   * @ORM\JoinColumn(nullable=true)
+   */
+    private $clientFdrFs;
+    
      /**
    * @ORM\ManyToMany(targetEntity="Secteur",inversedBy="clients")
    * @ORM\JoinColumn(nullable=true)
@@ -23,6 +34,8 @@ class Client
     public function __construct()
     {
         $this->secteurs = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->clientFdrVs = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->clientFdrFs = new \Doctrine\Common\Collections\ArrayCollection();
     }
     /**
      * @var integer
@@ -496,5 +509,38 @@ class Client
     public function getSecteurs()
     {
         return $this->secteurs;
+    }
+
+    /**
+     * Add clientFdrVs
+     *
+     * @param \Fdr\AdminBundle\Entity\ClientFdrV $clientFdrVs
+     * @return Client
+     */
+    public function addClientFdrV(\Fdr\AdminBundle\Entity\ClientFdrV $clientFdrVs)
+    {
+        $this->clientFdrVs[] = $clientFdrVs;
+    
+        return $this;
+    }
+
+    /**
+     * Remove clientFdrVs
+     *
+     * @param \Fdr\AdminBundle\Entity\ClientFdrV $clientFdrVs
+     */
+    public function removeClientFdrV(\Fdr\AdminBundle\Entity\ClientFdrV $clientFdrVs)
+    {
+        $this->clientFdrVs->removeElement($clientFdrVs);
+    }
+
+    /**
+     * Get clientFdrVs
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getClientFdrVs()
+    {
+        return $this->clientFdrVs;
     }
 }

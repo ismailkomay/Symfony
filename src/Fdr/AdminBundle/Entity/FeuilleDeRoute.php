@@ -58,6 +58,16 @@ class FeuilleDeRoute
    */
     private $modifications;
     /**
+   * @ORM\OneToMany(targetEntity="ClientFdrV",mappedBy="feuilleDeRoute")
+   * @ORM\JoinColumn(nullable=true)
+   */
+    private $clientFdrVs;
+    /**
+   * @ORM\OneToMany(targetEntity="ClientFdrF",mappedBy="feuilleDeRoute")
+   * @ORM\JoinColumn(nullable=true)
+   */
+    private $clientFdrFs;
+    /**
    * @ORM\OneToMany(targetEntity="Peage",mappedBy="feuilleDeRoute")
    * @ORM\JoinColumn(nullable=true)
    */
@@ -70,6 +80,8 @@ class FeuilleDeRoute
         $this->manutentionnaires = new ArrayCollection() ;
         $this->chauffeurs = new ArrayCollection() ;
         $this->utilisateurs = new ArrayCollection() ;
+        $this->clientFdrVs = new ArrayCollection() ;
+        $this->clientFdrFs = new ArrayCollection() ;
     }
 
     /**
@@ -1227,5 +1239,38 @@ class FeuilleDeRoute
     public function getUtilisateurs()
     {
         return $this->utilisateurs;
+    }
+
+    /**
+     * Add clientFdrVs
+     *
+     * @param \Fdr\AdminBundle\Entity\ClientFdrV $clientFdrVs
+     * @return FeuilleDeRoute
+     */
+    public function addClientFdrV(\Fdr\AdminBundle\Entity\ClientFdrV $clientFdrVs)
+    {
+        $this->clientFdrVs[] = $clientFdrVs;
+    
+        return $this;
+    }
+
+    /**
+     * Remove clientFdrVs
+     *
+     * @param \Fdr\AdminBundle\Entity\ClientFdrV $clientFdrVs
+     */
+    public function removeClientFdrV(\Fdr\AdminBundle\Entity\ClientFdrV $clientFdrVs)
+    {
+        $this->clientFdrVs->removeElement($clientFdrVs);
+    }
+
+    /**
+     * Get clientFdrVs
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getClientFdrVs()
+    {
+        return $this->clientFdrVs;
     }
 }
