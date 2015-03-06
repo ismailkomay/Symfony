@@ -103,9 +103,9 @@ class Chauffeur
     /**
      * @var string
      *
-     * @ORM\Column(name="champssupp2", type="string", length=100, nullable=false)
+     * @ORM\Column(name="etatContrat", type="string", length=100, nullable=false)
      */
-    private $champssupp2;
+    private $etatContrat;
 
 
 
@@ -326,28 +326,6 @@ class Chauffeur
         return $this->champssupp1;
     }
 
-    /**
-     * Set champssupp2
-     *
-     * @param string $champssupp2
-     * @return Chauffeur
-     */
-    public function setChampssupp2($champssupp2)
-    {
-        $this->champssupp2 = $champssupp2;
-    
-        return $this;
-    }
-
-    /**
-     * Get champssupp2
-     *
-     * @return string 
-     */
-    public function getChampssupp2()
-    {
-        return $this->champssupp2;
-    }
 
     /**
      * Add indisponibilites
@@ -413,5 +391,28 @@ class Chauffeur
     public function getFeuilleDeRoutes()
     {
         return $this->feuilleDeRoutes;
+    }
+
+    /**
+     * Set etatContrat
+     *
+     * @param string $etatContrat
+     * @return Chauffeur
+     */
+    public function setEtatContrat($etatContrat)
+    {
+        $this->etatContrat = $etatContrat;
+    
+        return $this;
+    }
+
+    /**
+     * Get etatContrat
+     *
+     * @return string 
+     */
+    public function getEtatContrat()
+    {
+        return $this->etatContrat;
     }
 }

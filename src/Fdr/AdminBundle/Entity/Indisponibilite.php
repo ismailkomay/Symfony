@@ -52,9 +52,10 @@ class Indisponibilite
     /**
      * @var string
      *
-     * @ORM\Column(name="etatContrat", type="string", length=100, nullable=false)
+     * @ORM\Column(name="champssupp1", type="string", length=100, nullable=false)
      */
-    private $etatContrat;
+    private $champssupp1;
+    
 
     /**
      * @var string
@@ -144,29 +145,7 @@ class Indisponibilite
         return $this->datefin;
     }
 
-    /**
-     * Set etatContrat
-     *
-     * @param string $etatContrat
-     * @return Indisponibilite
-     */
-    public function setEtatContrat($etatContrat)
-    {
-        $this->etatContrat = $etatContrat;
     
-        return $this;
-    }
-
-    /**
-     * Get etatContrat
-     *
-     * @return string 
-     */
-    public function getEtatContrat()
-    {
-        return $this->etatContrat;
-    }
-
     /**
      * Set champssupp2
      *
@@ -211,5 +190,28 @@ class Indisponibilite
     public function getChauffeur()
     {
         return $this->chauffeur;
+    }
+
+    /**
+     * Set champssupp1
+     *
+     * @param string $champssupp1
+     * @return Indisponibilite
+     */
+    public function setChampssupp1($champssupp1)
+    {
+        $this->champssupp1 = $champssupp1;
+    
+        return $this;
+    }
+
+    /**
+     * Get champssupp1
+     *
+     * @return string 
+     */
+    public function getChampssupp1()
+    {
+        return $this->champssupp1;
     }
 }
