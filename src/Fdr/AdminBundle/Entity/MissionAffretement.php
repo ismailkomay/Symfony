@@ -38,37 +38,37 @@ class MissionAffretement
     private $id;
 
     /**
-     * @var string
+     * @var boolean
      *
-     * @ORM\Column(name="ecc", type="string", length=10, nullable=false)
+     * @ORM\Column(name="ecc", type="boolean", nullable=true)
      */
     private $ecc;
 
     /**
-     * @var string
+     * @var boolean
      *
-     * @ORM\Column(name="ect", type="string", length=10, nullable=false)
+     * @ORM\Column(name="ect",  type="boolean", nullable=true)
      */
     private $ect;
 
     /**
-     * @var string
+     * @var boolean
      *
-     * @ORM\Column(name="ebl", type="string", length=10, nullable=false)
+     * @ORM\Column(name="ebl", type="boolean", nullable=true)
      */
     private $ebl;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="espece", type="string", length=10, nullable=false)
+     * @ORM\Column(name="espece", type="boolean", nullable=false)
      */
     private $espece;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="autredoc", type="string", length=10, nullable=false)
+     * @ORM\Column(name="autredoc", type="string", length=100, nullable=false)
      */
     private $autredoc;
 
@@ -117,7 +117,7 @@ class MissionAffretement
     /**
      * @var string
      *
-     * @ORM\Column(name="naturemarchandise", type="string", length=255, nullable=false)
+     * @ORM\Column(name="naturemarchandise", type="string", length=255, nullable=true)
      */
     private $naturemarchandise;
 
@@ -152,7 +152,7 @@ class MissionAffretement
     /**
      * @var string
      *
-     * @ORM\Column(name="motifremise", type="string", length=100, nullable=false)
+     * @ORM\Column(name="motifremise", type="string", length=100, nullable=true)
      */
     private $motifremise;
 
@@ -166,7 +166,7 @@ class MissionAffretement
     /**
      * @var string
      *
-     * @ORM\Column(name="nombnq", type="string", length=100, nullable=false)
+     * @ORM\Column(name="nombnq", type="string", length=100, nullable=true)
      */
     private $nombnq;
 
@@ -180,28 +180,28 @@ class MissionAffretement
     /**
      * @var string
      *
-     * @ORM\Column(name="champssupp1", type="string", length=100, nullable=false)
+     * @ORM\Column(name="remarques", type="string", length=100, nullable=true)
      */
-    private $champssupp1;
+    private $remarques;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="champssupp2", type="string", length=100, nullable=false)
+     * @ORM\Column(name="champssupp2", type="string", length=100, nullable=true)
      */
     private $champssupp2;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="champssupp3", type="string", length=100, nullable=false)
+     * @ORM\Column(name="champssupp3", type="string", length=100, nullable=true)
      */
     private $champssupp3;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="champssupp4", type="string", length=100, nullable=false)
+     * @ORM\Column(name="champssupp4", type="string", length=100, nullable=true)
      */
     private $champssupp4;
 
@@ -220,7 +220,7 @@ class MissionAffretement
     /**
      * Set ecc
      *
-     * @param string $ecc
+     * @param boolean $ecc
      * @return MissionAffretement
      */
     public function setEcc($ecc)
@@ -233,7 +233,7 @@ class MissionAffretement
     /**
      * Get ecc
      *
-     * @return string 
+     * @return boolean 
      */
     public function getEcc()
     {
@@ -243,7 +243,7 @@ class MissionAffretement
     /**
      * Set ect
      *
-     * @param string $ect
+     * @param boolean $ect
      * @return MissionAffretement
      */
     public function setEct($ect)
@@ -256,7 +256,7 @@ class MissionAffretement
     /**
      * Get ect
      *
-     * @return string 
+     * @return boolean 
      */
     public function getEct()
     {
@@ -266,7 +266,7 @@ class MissionAffretement
     /**
      * Set ebl
      *
-     * @param string $ebl
+     * @param boolean $ebl
      * @return MissionAffretement
      */
     public function setEbl($ebl)
@@ -279,7 +279,8 @@ class MissionAffretement
     /**
      * Get ebl
      *
-     * @return string 
+     * @return boolean
+     *  
      */
     public function getEbl()
     {
@@ -289,7 +290,7 @@ class MissionAffretement
     /**
      * Set espece
      *
-     * @param string $espece
+     * @param boolean $espece
      * @return MissionAffretement
      */
     public function setEspece($espece)
@@ -302,7 +303,7 @@ class MissionAffretement
     /**
      * Get espece
      *
-     * @return string 
+     * @return boolean 
      */
     public function getEspece()
     {
@@ -678,26 +679,26 @@ class MissionAffretement
     }
 
     /**
-     * Set champssupp1
+     * Set remarques
      *
-     * @param string $champssupp1
+     * @param string $remarques
      * @return MissionAffretement
      */
-    public function setChampssupp1($champssupp1)
+    public function setRemarques($remarques)
     {
-        $this->champssupp1 = $champssupp1;
+        $this->remarques = $remarques;
     
         return $this;
     }
 
     /**
-     * Get champssupp1
+     * Get remarques
      *
      * @return string 
      */
-    public function getChampssupp1()
+    public function getRemarques()
     {
-        return $this->champssupp1;
+        return $this->remarques;
     }
 
     /**
@@ -836,5 +837,10 @@ class MissionAffretement
     public function getClient()
     {
         return $this->client;
+    }
+    
+    public function __toString()
+    {
+        return "AFF-".$this->id;
     }
 }

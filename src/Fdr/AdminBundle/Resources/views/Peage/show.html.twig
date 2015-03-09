@@ -1,0 +1,48 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Peage</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Numcarte</th>
+                <td>{{ entity.numCarte }}</td>
+            </tr>
+            <tr>
+                <th>Datepassage</th>
+                <td>{{ entity.datePassage|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Montant</th>
+                <td>{{ entity.montant }}</td>
+            </tr>
+            <tr>
+                <th>Champsup1</th>
+                <td>{{ entity.champSup1 }}</td>
+            </tr>
+            <tr>
+                <th>Champsup2</th>
+                <td>{{ entity.champSup2 }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('peage') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('peage_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

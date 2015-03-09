@@ -13,7 +13,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 class Depot
 {
      /**
-    * @ORM\OneToMany(targetEntity="FeuilledeRoute",mappedBy="depot")
+    * @ORM\OneToMany(targetEntity="FeuilleDeRoute",mappedBy="depot")
    * @ORM\JoinColumn(nullable=true)
     */
      private $feuilleDeRoutes;
@@ -46,28 +46,28 @@ class Depot
     /**
      * @var string
      *
-     * @ORM\Column(name="libelle", type="string", length=100)
+     * @ORM\Column(name="libelle", type="string", length=100,nullable=false)
      */
     private $libelle;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="adresse", type="string", length=255)
+     * @ORM\Column(name="adresse", type="string", length=255, nullable=true)
      */
     private $adresse;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="champ1", type="string", length=100)
+     * @ORM\Column(name="champ1", type="string", length=100, nullable=true)
      */
     private $champ1;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="champ2", type="string", length=100)
+     * @ORM\Column(name="champ2", type="string", length=100, nullable=true)
      */
     private $champ2;
 
@@ -223,10 +223,10 @@ class Depot
     /**
      * Add feuilleDeRoutes
      *
-     * @param \Fdr\AdminBundle\Entity\FeuilledeRoute $feuilleDeRoutes
+     * @param \Fdr\AdminBundle\Entity\FeuilleDeRoute $feuilleDeRoutes
      * @return Depot
      */
-    public function addFeuilleDeRoute(\Fdr\AdminBundle\Entity\FeuilledeRoute $feuilleDeRoutes)
+    public function addFeuilleDeRoute(\Fdr\AdminBundle\Entity\FeuilleDeRoute $feuilleDeRoutes)
     {
         $this->feuilleDeRoutes[] = $feuilleDeRoutes;
     
@@ -236,9 +236,9 @@ class Depot
     /**
      * Remove feuilleDeRoutes
      *
-     * @param \Fdr\AdminBundle\Entity\FeuilledeRoute $feuilleDeRoutes
+     * @param \Fdr\AdminBundle\Entity\FeuilleDeRoute $feuilleDeRoutes
      */
-    public function removeFeuilleDeRoute(\Fdr\AdminBundle\Entity\FeuilledeRoute $feuilleDeRoutes)
+    public function removeFeuilleDeRoute(\Fdr\AdminBundle\Entity\FeuilleDeRoute $feuilleDeRoutes)
     {
         $this->feuilleDeRoutes->removeElement($feuilleDeRoutes);
     }
@@ -251,5 +251,10 @@ class Depot
     public function getFeuilleDeRoutes()
     {
         return $this->feuilleDeRoutes;
+    }
+    
+    public function __toString()
+    {
+        return $this->libelle;
     }
 }

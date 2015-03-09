@@ -32,10 +32,10 @@ class __TwigTemplate_afc2455ef1f3f33e8065bd0d167ac9e55c1547abd3660e5352d5c47c021
         $this->parent->display($context, array_merge($this->blocks, $blocks));
     }
 
-    // line 3
+    // line 2
     public function block_body($context, array $blocks = array())
     {
-        // line 4
+        // line 3
         echo "    Homepage.
 ";
     }
@@ -52,6 +52,6 @@ class __TwigTemplate_afc2455ef1f3f33e8065bd0d167ac9e55c1547abd3660e5352d5c47c021
 
     public function getDebugInfo()
     {
-        return array (  39 => 4,  36 => 3,  11 => 1,);
+        return array (  39 => 3,  36 => 2,  11 => 1,);
     }
 }

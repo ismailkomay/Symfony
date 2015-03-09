@@ -117,35 +117,35 @@ class FeuilleDeRoute
     /**
      * @var integer
      *
-     * @ORM\Column(name="nombreManutention", type="integer")
+     * @ORM\Column(name="nombreManutention", type="integer", nullable=true)
      */
     private $nombreManutention;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="nombreManutentionChauf1", type="integer")
+     * @ORM\Column(name="nombreManutentionChauf1", type="integer", nullable=true)
      */
     private $nombreManutentionChauf1;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="nombreManutentionChauf2", type="integer")
+     * @ORM\Column(name="nombreManutentionChauf2", type="integer", nullable=true)
      */
     private $nombreManutentionChauf2;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="nomManExterne1", type="string", length=100)
+     * @ORM\Column(name="nomManExterne1", type="string", length=100, nullable=true)
      */
     private $nomManExterne1;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="nomManExterne2", type="string", length=100)
+     * @ORM\Column(name="nomManExterne2", type="string", length=100, nullable=true)
      */
     private $nomManExterne2;
 
@@ -168,131 +168,131 @@ class FeuilleDeRoute
      *
      * @ORM\Column(name="etat", type="string", length=100)
      */
-    private $etat;
+    private $etat='cloture';
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="calcDiffKm", type="integer")
+     * @ORM\Column(name="calcDiffKm", type="integer", nullable=true)
      */
     private $calcDiffKm;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="calcKmParcourus", type="integer")
+     * @ORM\Column(name="calcKmParcourus", type="integer", nullable=true)
      */
     private $calcKmParcourus;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="calcNbRepas", type="integer")
+     * @ORM\Column(name="calcNbRepas", type="integer", nullable=true)
      */
     private $calcNbRepas;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="calcNbPetitDej", type="integer")
+     * @ORM\Column(name="calcNbPetitDej", type="integer", nullable=true)
      */
     private $calcNbPetitDej;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="calcNbDecoucher", type="integer")
+     * @ORM\Column(name="calcNbDecoucher", type="integer", nullable=true)
      */
     private $calcNbDecoucher;
 
     /**
      * @var float
      *
-     * @ORM\Column(name="calcQuantite", type="float")
+     * @ORM\Column(name="calcQuantite", type="float", nullable=true)
      */
     private $calcQuantite;
 
     /**
      * @var float
      *
-     * @ORM\Column(name="calcMontantCarburant", type="float")
+     * @ORM\Column(name="calcMontantCarburant", type="float", nullable=true)
      */
     private $calcMontantCarburant;
 
     /**
      * @var float
      *
-     * @ORM\Column(name="calcMontantPeage", type="float")
+     * @ORM\Column(name="calcMontantPeage", type="float", nullable=true)
      */
     private $calcMontantPeage;
 
     /**
      * @var float
      *
-     * @ORM\Column(name="calcNbJours", type="float")
+     * @ORM\Column(name="calcNbJours", type="float", nullable=true)
      */
     private $calcNbJours;
 
     /**
      * @var boolean
      *
-     * @ORM\Column(name="primeRemorque", type="boolean")
+     * @ORM\Column(name="primeRemorque", type="boolean", nullable=true)
      */
     private $primeRemorque;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="remarques", type="text")
+     * @ORM\Column(name="remarques", type="text", nullable=true)
      */
     private $remarques;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="agentSaisie", type="string", length=100)
+     * @ORM\Column(name="agentSaisie", type="string", length=100, nullable=true)
      */
     private $agentSaisie;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="operationnel", type="string", length=100)
+     * @ORM\Column(name="operationnel", type="string", length=100, nullable=true)
      */
     private $operationnel;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="surveillant", type="string", length=100)
+     * @ORM\Column(name="surveillant", type="string", length=100, nullable=true)
      */
     private $surveillant;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="champSup1", type="string", length=100)
+     * @ORM\Column(name="champSup1", type="string", length=100, nullable=true)
      */
     private $champSup1;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="champSup2", type="string", length=100)
+     * @ORM\Column(name="champSup2", type="string", length=100, nullable=true)
      */
     private $champSup2;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="champSup3", type="string", length=100)
+     * @ORM\Column(name="champSup3", type="string", length=100, nullable=true)
      */
     private $champSup3;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="champSup4", type="string", length=100)
+     * @ORM\Column(name="champSup4", type="string", length=100, nullable=true)
      */
     private $champSup4;
 
@@ -1272,5 +1272,10 @@ class FeuilleDeRoute
     public function getClientFdrVs()
     {
         return $this->clientFdrVs;
+    }
+    
+    public function __toString()
+    {
+        return "FDR-".$this->id;
     }
 }

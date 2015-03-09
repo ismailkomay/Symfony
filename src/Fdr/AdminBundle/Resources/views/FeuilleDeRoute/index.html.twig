@@ -1,0 +1,97 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>FeuilleDeRoute list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Dategeneree</th>
+                <th>Datedebutmission</th>
+                <th>Datefinmission</th>
+                <th>Nombremanutention</th>
+                <th>Nombremanutentionchauf1</th>
+                <th>Nombremanutentionchauf2</th>
+                <th>Nommanexterne1</th>
+                <th>Nommanexterne2</th>
+                <th>Compteurreel</th>
+                <th>Compteurfinal</th>
+                <th>Etat</th>
+                <th>Calcdiffkm</th>
+                <th>Calckmparcourus</th>
+                <th>Calcnbrepas</th>
+                <th>Calcnbpetitdej</th>
+                <th>Calcnbdecoucher</th>
+                <th>Calcquantite</th>
+                <th>Calcmontantcarburant</th>
+                <th>Calcmontantpeage</th>
+                <th>Calcnbjours</th>
+                <th>Primeremorque</th>
+                <th>Remarques</th>
+                <th>Agentsaisie</th>
+                <th>Operationnel</th>
+                <th>Surveillant</th>
+                <th>Champsup1</th>
+                <th>Champsup2</th>
+                <th>Champsup3</th>
+                <th>Champsup4</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('feuillederoute_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{% if entity.dateGeneree %}{{ entity.dateGeneree|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.dateDebutMission %}{{ entity.dateDebutMission|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.dateFinMission %}{{ entity.dateFinMission|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.nombreManutention }}</td>
+                <td>{{ entity.nombreManutentionChauf1 }}</td>
+                <td>{{ entity.nombreManutentionChauf2 }}</td>
+                <td>{{ entity.nomManExterne1 }}</td>
+                <td>{{ entity.nomManExterne2 }}</td>
+                <td>{{ entity.compteurReel }}</td>
+                <td>{{ entity.compteurFinal }}</td>
+                <td>{{ entity.etat }}</td>
+                <td>{{ entity.calcDiffKm }}</td>
+                <td>{{ entity.calcKmParcourus }}</td>
+                <td>{{ entity.calcNbRepas }}</td>
+                <td>{{ entity.calcNbPetitDej }}</td>
+                <td>{{ entity.calcNbDecoucher }}</td>
+                <td>{{ entity.calcQuantite }}</td>
+                <td>{{ entity.calcMontantCarburant }}</td>
+                <td>{{ entity.calcMontantPeage }}</td>
+                <td>{{ entity.calcNbJours }}</td>
+                <td>{{ entity.primeRemorque }}</td>
+                <td>{{ entity.remarques }}</td>
+                <td>{{ entity.agentSaisie }}</td>
+                <td>{{ entity.operationnel }}</td>
+                <td>{{ entity.surveillant }}</td>
+                <td>{{ entity.champSup1 }}</td>
+                <td>{{ entity.champSup2 }}</td>
+                <td>{{ entity.champSup3 }}</td>
+                <td>{{ entity.champSup4 }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('feuillederoute_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('feuillederoute_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('feuillederoute_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

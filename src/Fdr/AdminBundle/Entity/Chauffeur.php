@@ -54,7 +54,7 @@ class Chauffeur
     /**
      * @var string
      *
-     * @ORM\Column(name="tel", type="string", length=100, nullable=false)
+     * @ORM\Column(name="tel", type="string", length=100, nullable=true)
      */
     private $tel;
 
@@ -68,7 +68,7 @@ class Chauffeur
     /**
      * @var string
      *
-     * @ORM\Column(name="adresse", type="string", length=255, nullable=false)
+     * @ORM\Column(name="adresse", type="string", length=255, nullable=true)
      */
     private $adresse;
 
@@ -82,9 +82,9 @@ class Chauffeur
     /**
      * @var boolean
      *
-     * @ORM\Column(name="disponibilite", type="boolean", nullable=false)
+     * @ORM\Column(name="disponibilite", type="boolean", nullable=true)
      */
-    private $disponibilite;
+    private $disponibilite=true;
 
     /**
      * @var string
@@ -96,7 +96,7 @@ class Chauffeur
     /**
      * @var string
      *
-     * @ORM\Column(name="champssupp1", type="string", length=100, nullable=false)
+     * @ORM\Column(name="champssupp1", type="string", length=100, nullable=true)
      */
     private $champssupp1;
 
@@ -414,5 +414,10 @@ class Chauffeur
     public function getEtatContrat()
     {
         return $this->etatContrat;
+    }
+    
+    public function __toString()
+    {
+        return $this->nom." ".$this->prenom ;
     }
 }

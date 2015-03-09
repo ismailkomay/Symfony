@@ -52,7 +52,7 @@ class Manutentionnaire
     /**
      * @var string
      *
-     * @ORM\Column(name="type", type="string", length=100, nullable=false)
+     * @ORM\Column(name="type", type="string", length=100, nullable=true)
      */
     private $type;
 
@@ -66,28 +66,28 @@ class Manutentionnaire
     /**
      * @var string
      *
-     * @ORM\Column(name="tel", type="string", length=100, nullable=false)
+     * @ORM\Column(name="tel", type="string", length=100, nullable=true)
      */
     private $tel;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="adresse", type="string", length=255, nullable=false)
+     * @ORM\Column(name="adresse", type="string", length=255, nullable=true)
      */
     private $adresse;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="champssupp1", type="string", length=100, nullable=false)
+     * @ORM\Column(name="champssupp1", type="string", length=100, nullable=true)
      */
     private $champssupp1;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="champssupp2", type="string", length=100, nullable=false)
+     * @ORM\Column(name="champssupp2", type="string", length=100, nullable=true)
      */
     private $champssupp2;
 
@@ -348,5 +348,10 @@ class Manutentionnaire
     public function getFeuilleDeRoutes()
     {
         return $this->feuilleDeRoutes;
+    }
+    
+    public function __toString()
+    {
+        return $this->nom." ".$this->prenom;
     }
 }

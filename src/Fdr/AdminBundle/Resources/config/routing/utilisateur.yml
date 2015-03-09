@@ -1,0 +1,30 @@
+utilisateur:
+    path:     /
+    defaults: { _controller: "FdrAdminBundle:Utilisateur:index" }
+
+utilisateur_show:
+    path:     /{id}/show
+    defaults: { _controller: "FdrAdminBundle:Utilisateur:show" }
+
+utilisateur_new:
+    path:     /new
+    defaults: { _controller: "FdrAdminBundle:Utilisateur:new" }
+
+utilisateur_create:
+    path:     /create
+    defaults: { _controller: "FdrAdminBundle:Utilisateur:create" }
+    methods:  POST
+
+utilisateur_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "FdrAdminBundle:Utilisateur:edit" }
+
+utilisateur_update:
+    path:     /{id}/update
+    defaults: { _controller: "FdrAdminBundle:Utilisateur:update" }
+    methods:  [POST, PUT]
+
+utilisateur_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "FdrAdminBundle:Utilisateur:delete" }
+    methods:  [POST, DELETE]

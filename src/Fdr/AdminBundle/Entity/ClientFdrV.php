@@ -178,4 +178,10 @@ class ClientFdrV
     {
         return $this->feuilleDeRoute;
     }
+    
+    public function __toString()
+    {
+        return $this->id."-".$this->client."-".$this->feuilleDeRoute;
+    }
+    
 }

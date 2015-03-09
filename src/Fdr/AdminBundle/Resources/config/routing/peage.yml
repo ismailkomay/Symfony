@@ -1,0 +1,30 @@
+peage:
+    path:     /
+    defaults: { _controller: "FdrAdminBundle:Peage:index" }
+
+peage_show:
+    path:     /{id}/show
+    defaults: { _controller: "FdrAdminBundle:Peage:show" }
+
+peage_new:
+    path:     /new
+    defaults: { _controller: "FdrAdminBundle:Peage:new" }
+
+peage_create:
+    path:     /create
+    defaults: { _controller: "FdrAdminBundle:Peage:create" }
+    methods:  POST
+
+peage_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "FdrAdminBundle:Peage:edit" }
+
+peage_update:
+    path:     /{id}/update
+    defaults: { _controller: "FdrAdminBundle:Peage:update" }
+    methods:  [POST, PUT]
+
+peage_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "FdrAdminBundle:Peage:delete" }
+    methods:  [POST, DELETE]

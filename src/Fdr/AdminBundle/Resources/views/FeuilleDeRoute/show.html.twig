@@ -1,0 +1,144 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>FeuilleDeRoute</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Dategeneree</th>
+                <td>{{ entity.dateGeneree|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Datedebutmission</th>
+                <td>{{ entity.dateDebutMission|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Datefinmission</th>
+                <td>{{ entity.dateFinMission|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Nombremanutention</th>
+                <td>{{ entity.nombreManutention }}</td>
+            </tr>
+            <tr>
+                <th>Nombremanutentionchauf1</th>
+                <td>{{ entity.nombreManutentionChauf1 }}</td>
+            </tr>
+            <tr>
+                <th>Nombremanutentionchauf2</th>
+                <td>{{ entity.nombreManutentionChauf2 }}</td>
+            </tr>
+            <tr>
+                <th>Nommanexterne1</th>
+                <td>{{ entity.nomManExterne1 }}</td>
+            </tr>
+            <tr>
+                <th>Nommanexterne2</th>
+                <td>{{ entity.nomManExterne2 }}</td>
+            </tr>
+            <tr>
+                <th>Compteurreel</th>
+                <td>{{ entity.compteurReel }}</td>
+            </tr>
+            <tr>
+                <th>Compteurfinal</th>
+                <td>{{ entity.compteurFinal }}</td>
+            </tr>
+            <tr>
+                <th>Etat</th>
+                <td>{{ entity.etat }}</td>
+            </tr>
+            <tr>
+                <th>Calcdiffkm</th>
+                <td>{{ entity.calcDiffKm }}</td>
+            </tr>
+            <tr>
+                <th>Calckmparcourus</th>
+                <td>{{ entity.calcKmParcourus }}</td>
+            </tr>
+            <tr>
+                <th>Calcnbrepas</th>
+                <td>{{ entity.calcNbRepas }}</td>
+            </tr>
+            <tr>
+                <th>Calcnbpetitdej</th>
+                <td>{{ entity.calcNbPetitDej }}</td>
+            </tr>
+            <tr>
+                <th>Calcnbdecoucher</th>
+                <td>{{ entity.calcNbDecoucher }}</td>
+            </tr>
+            <tr>
+                <th>Calcquantite</th>
+                <td>{{ entity.calcQuantite }}</td>
+            </tr>
+            <tr>
+                <th>Calcmontantcarburant</th>
+                <td>{{ entity.calcMontantCarburant }}</td>
+            </tr>
+            <tr>
+                <th>Calcmontantpeage</th>
+                <td>{{ entity.calcMontantPeage }}</td>
+            </tr>
+            <tr>
+                <th>Calcnbjours</th>
+                <td>{{ entity.calcNbJours }}</td>
+            </tr>
+            <tr>
+                <th>Primeremorque</th>
+                <td>{{ entity.primeRemorque }}</td>
+            </tr>
+            <tr>
+                <th>Remarques</th>
+                <td>{{ entity.remarques }}</td>
+            </tr>
+            <tr>
+                <th>Agentsaisie</th>
+                <td>{{ entity.agentSaisie }}</td>
+            </tr>
+            <tr>
+                <th>Operationnel</th>
+                <td>{{ entity.operationnel }}</td>
+            </tr>
+            <tr>
+                <th>Surveillant</th>
+                <td>{{ entity.surveillant }}</td>
+            </tr>
+            <tr>
+                <th>Champsup1</th>
+                <td>{{ entity.champSup1 }}</td>
+            </tr>
+            <tr>
+                <th>Champsup2</th>
+                <td>{{ entity.champSup2 }}</td>
+            </tr>
+            <tr>
+                <th>Champsup3</th>
+                <td>{{ entity.champSup3 }}</td>
+            </tr>
+            <tr>
+                <th>Champsup4</th>
+                <td>{{ entity.champSup4 }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('feuillederoute') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('feuillederoute_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

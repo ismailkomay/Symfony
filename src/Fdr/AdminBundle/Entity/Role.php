@@ -41,7 +41,7 @@ class Role
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="string", length=255)
+     * @ORM\Column(name="description", type="string", length=255, nullable=true)
      */
     private $description;
 
@@ -221,11 +221,11 @@ class Role
     private $cRUDTypeConsommation;
 
     /**
-     * @var string
+     * @var boolean
      *
-     * @ORM\Column(name="champSup1", type="string", length=100)
+     * @ORM\Column(name="administrer", type="boolean", nullable=true)
      */
-    private $champSup1;
+    private $administrer;
 
     /**
      * @var string
@@ -881,26 +881,26 @@ class Role
     }
 
     /**
-     * Set champSup1
+     * Set sdministrer
      *
-     * @param string $champSup1
+     * @param boolean $champSup1
      * @return Role
      */
-    public function setChampSup1($champSup1)
+    public function setAdministrer($champSup1)
     {
-        $this->champSup1 = $champSup1;
+        $this->administrer = $champSup1;
     
         return $this;
     }
 
     /**
-     * Get champSup1
+     * Get administrer
      *
-     * @return string 
+     * @return boolean 
      */
-    public function getChampSup1()
+    public function getAdministrer()
     {
-        return $this->champSup1;
+        return $this->administrer;
     }
 
     /**
@@ -1003,5 +1003,10 @@ class Role
     public function getUtilisateurs()
     {
         return $this->utilisateurs;
+    }
+    
+    public function __toString()
+    {
+        return $this->nomRole;
     }
 }

@@ -35,14 +35,14 @@ class BonCarburantHuile
     /**
      * @var string
      *
-     * @ORM\Column(name="lieu", type="string", length=100)
+     * @ORM\Column(name="lieu", type="string", length=100, nullable=false)
      */
     private $lieu;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date", type="datetime")
+     * @ORM\Column(name="date", type="datetime", nullable=false)
      */
     private $date;
 
@@ -70,14 +70,14 @@ class BonCarburantHuile
     /**
      * @var string
      *
-     * @ORM\Column(name="champSup1", type="string", length=100)
+     * @ORM\Column(name="champSup1", type="string", length=100, nullable=true)
      */
     private $champSup1;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="champSup2", type="string", length=100)
+     * @ORM\Column(name="champSup2", type="string", length=100,nullable=true)
      */
     private $champSup2;
 
@@ -297,5 +297,10 @@ class BonCarburantHuile
     public function getFeuilleDeRoute()
     {
         return $this->feuilleDeRoute;
+    }
+    
+    public function __toString()
+    {
+        return $this->id;
     }
 }

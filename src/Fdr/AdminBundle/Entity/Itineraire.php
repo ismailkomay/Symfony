@@ -47,7 +47,7 @@ class Itineraire
     /**
      * @var string
      *
-     * @ORM\Column(name="remarques", type="string", length=255, nullable=false)
+     * @ORM\Column(name="remarques", type="string", length=255, nullable=true)
      */
     private $remarques;
 
@@ -56,19 +56,19 @@ class Itineraire
      *
      * @ORM\Column(name="disponible", type="boolean", nullable=false)
      */
-    private $disponible;
+    private $disponible=true;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="champssupp1", type="string", length=100, nullable=false)
+     * @ORM\Column(name="champssupp1", type="string", length=100, nullable=true)
      */
     private $champssupp1;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="champssupp2", type="string", length=100, nullable=false)
+     * @ORM\Column(name="champssupp2", type="string", length=100, nullable=true)
      */
     private $champssupp2;
 
@@ -253,5 +253,10 @@ class Itineraire
     public function getMissionAffretements()
     {
         return $this->missionAffretements;
+    }
+    
+    public function __toString()
+    {
+        return $this->depart."<->".$this->arrivee;
     }
 }

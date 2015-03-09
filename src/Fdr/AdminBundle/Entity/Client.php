@@ -3,7 +3,7 @@
 namespace Fdr\AdminBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Client
  *
@@ -49,28 +49,28 @@ class Client
     /**
      * @var string
      *
-     * @ORM\Column(name="nomresponsable", type="string", length=100, nullable=false)
+     * @ORM\Column(name="nomresponsable", type="string", length=100, nullable=true)
      */
     private $nomresponsable;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="prenomresponsable", type="string", length=100, nullable=false)
+     * @ORM\Column(name="prenomresponsable", type="string", length=100, nullable=true)
      */
     private $prenomresponsable;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="tel", type="string", length=100, nullable=false)
+     * @ORM\Column(name="tel", type="string", length=100, nullable=true)
      */
     private $tel;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="adresse", type="string", length=255, nullable=false)
+     * @ORM\Column(name="adresse", type="string", length=255, nullable=true)
      */
     private $adresse;
 
@@ -83,43 +83,43 @@ class Client
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="email", type="string", length=100, nullable=false)
+     * @Assert\Email()
+     * @ORM\Column(name="email", type="string", length=100, nullable=true)
      */
     private $email;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="fax", type="string", length=100, nullable=false)
+     * @ORM\Column(name="fax", type="string", length=100, nullable=true)
      */
     private $fax;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="nomentreprise", type="string", length=100, nullable=false)
+     * @ORM\Column(name="nomentreprise", type="string", length=100, nullable=true)
      */
     private $nomentreprise;
 
     /**
      * @var boolean
      *
-     * @ORM\Column(name="encompte", type="boolean", nullable=false)
+     * @ORM\Column(name="encompte", type="boolean", nullable=true)
      */
     private $encompte;
 
     /**
      * @var boolean
      *
-     * @ORM\Column(name="clientaffret", type="boolean", nullable=false)
+     * @ORM\Column(name="clientaffret", type="boolean", nullable=true)
      */
     private $clientaffret;
 
     /**
      * @var boolean
      *
-     * @ORM\Column(name="clientramass", type="boolean", nullable=false)
+     * @ORM\Column(name="clientramass", type="boolean", nullable=true)
      */
     private $clientramass;
 
@@ -133,14 +133,14 @@ class Client
     /**
      * @var string
      *
-     * @ORM\Column(name="champssupp1", type="string", length=100, nullable=false)
+     * @ORM\Column(name="champssupp1", type="string", length=100, nullable=true)
      */
     private $champssupp1;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="champssupp2", type="string", length=100, nullable=false)
+     * @ORM\Column(name="champssupp2", type="string", length=100, nullable=true)
      */
     private $champssupp2;
 
@@ -542,5 +542,11 @@ class Client
     public function getClientFdrVs()
     {
         return $this->clientFdrVs;
+    }
+    
+    public function __toString()
+    {
+        $sortie = (empty($this->nomresponsable))?$this->nomentreprise:($this->nomresponsable." ".$this->nomresponsable);
+        return$sortie;
     }
 }

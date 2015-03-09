@@ -1,0 +1,124 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>MissionAffretement</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Ecc</th>
+                <td>{{ entity.ecc }}</td>
+            </tr>
+            <tr>
+                <th>Ect</th>
+                <td>{{ entity.ect }}</td>
+            </tr>
+            <tr>
+                <th>Ebl</th>
+                <td>{{ entity.ebl }}</td>
+            </tr>
+            <tr>
+                <th>Espece</th>
+                <td>{{ entity.espece }}</td>
+            </tr>
+            <tr>
+                <th>Autredoc</th>
+                <td>{{ entity.autredoc }}</td>
+            </tr>
+            <tr>
+                <th>Valdeclassurance</th>
+                <td>{{ entity.valdeclassurance }}</td>
+            </tr>
+            <tr>
+                <th>Bonlivraison</th>
+                <td>{{ entity.bonlivraison }}</td>
+            </tr>
+            <tr>
+                <th>Numexpedition</th>
+                <td>{{ entity.numexpedition }}</td>
+            </tr>
+            <tr>
+                <th>Dateramassage</th>
+                <td>{{ entity.dateramassage|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Lieuramassage</th>
+                <td>{{ entity.lieuramassage }}</td>
+            </tr>
+            <tr>
+                <th>Nbrecolis</th>
+                <td>{{ entity.nbrecolis }}</td>
+            </tr>
+            <tr>
+                <th>Naturemarchandise</th>
+                <td>{{ entity.naturemarchandise }}</td>
+            </tr>
+            <tr>
+                <th>Datelivraison</th>
+                <td>{{ entity.datelivraison|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Lieulivraison</th>
+                <td>{{ entity.lieulivraison }}</td>
+            </tr>
+            <tr>
+                <th>Montantfacture</th>
+                <td>{{ entity.montantfacture }}</td>
+            </tr>
+            <tr>
+                <th>Remise</th>
+                <td>{{ entity.remise }}</td>
+            </tr>
+            <tr>
+                <th>Motifremise</th>
+                <td>{{ entity.motifremise }}</td>
+            </tr>
+            <tr>
+                <th>Montantregle</th>
+                <td>{{ entity.montantregle }}</td>
+            </tr>
+            <tr>
+                <th>Nombnq</th>
+                <td>{{ entity.nombnq }}</td>
+            </tr>
+            <tr>
+                <th>Numcheque</th>
+                <td>{{ entity.numcheque }}</td>
+            </tr>
+            <tr>
+                <th>Champssupp1</th>
+                <td>{{ entity.champssupp1 }}</td>
+            </tr>
+            <tr>
+                <th>Champssupp2</th>
+                <td>{{ entity.champssupp2 }}</td>
+            </tr>
+            <tr>
+                <th>Champssupp3</th>
+                <td>{{ entity.champssupp3 }}</td>
+            </tr>
+            <tr>
+                <th>Champssupp4</th>
+                <td>{{ entity.champssupp4 }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('missionaffretement') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('missionaffretement_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

@@ -3,6 +3,7 @@
 namespace Fdr\AdminBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Utilisateur
@@ -90,6 +91,13 @@ class Utilisateur
 
     /**
      * @var string
+     * @Assert\Email()
+     * @ORM\Column(name="email", type="string", length=100, nullable=true)
+     */
+    private $email;
+    
+    /**
+     * @var string
      *
      * @ORM\Column(name="tel", type="string", length=100)
      */
@@ -98,21 +106,21 @@ class Utilisateur
     /**
      * @var string
      *
-     * @ORM\Column(name="adresse", type="string", length=255)
+     * @ORM\Column(name="adresse", type="string", length=255, nullable=true)
      */
     private $adresse;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="champSup1", type="string", length=100)
+     * @ORM\Column(name="champSup1", type="string", length=100, nullable=true)
      */
     private $champSup1;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="champSup2", type="string", length=100)
+     * @ORM\Column(name="champSup2", type="string", length=100, nullable=true)
      */
     private $champSup2;
 
@@ -444,5 +452,33 @@ class Utilisateur
     public function getModifications()
     {
         return $this->modifications;
+    }
+    
+    public function __toString()
+    {
+        return $this->nom."-".$this->prenom;
+    }
+
+    /**
+     * Set email
+     *
+     * @param string $email
+     * @return Utilisateur
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string 
+     */
+    public function getEmail()
+    {
+        return $this->email;
     }
 }

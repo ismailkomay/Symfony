@@ -51,14 +51,14 @@ class Peage
     /**
      * @var string
      *
-     * @ORM\Column(name="champSup1", type="string", length=100)
+     * @ORM\Column(name="champSup1", type="string", length=100, nullable=true)
      */
     private $champSup1;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="champSup2", type="string", length=100)
+     * @ORM\Column(name="champSup2", type="string", length=100, nullable=true)
      */
     private $champSup2;
 
@@ -209,5 +209,10 @@ class Peage
     public function getFeuilleDeRoute()
     {
         return $this->feuilleDeRoute;
+    }
+    
+    public function __toString()
+    {
+        return "Peage : ".$this->id."/ montant:".$this->montant;
     }
 }

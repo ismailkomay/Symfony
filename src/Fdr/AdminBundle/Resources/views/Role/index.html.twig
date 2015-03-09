@@ -1,0 +1,101 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Role list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nomrole</th>
+                <th>Description</th>
+                <th>Crudfdr</th>
+                <th>Crudfdrpanne</th>
+                <th>Crudfdragence</th>
+                <th>Crudclientcompefdl</th>
+                <th>Crudclientnoncomptefdl</th>
+                <th>Affectationvehiculeaffr</th>
+                <th>Cloturerfdr</th>
+                <th>Cloturerfdraffr</th>
+                <th>Confrecdocctm</th>
+                <th>Confrecdocclient</th>
+                <th>Editcompteur</th>
+                <th>Pourcentageassurance</th>
+                <th>Crudclient</th>
+                <th>Crudvehicule</th>
+                <th>Crudchauffeur</th>
+                <th>Crudutilisateur</th>
+                <th>Cruddepot</th>
+                <th>Crudfiliale</th>
+                <th>Crudmanutentionnaire</th>
+                <th>Crudindisponibilite</th>
+                <th>Cruditineraire</th>
+                <th>Crudprestation</th>
+                <th>Crudtypeprestation</th>
+                <th>Crudsecteur</th>
+                <th>Crudtypeconsommation</th>
+                <th>Champsup1</th>
+                <th>Champsup2</th>
+                <th>Champsup3</th>
+                <th>Champsup4</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('role_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.nomRole }}</td>
+                <td>{{ entity.description }}</td>
+                <td>{{ entity.cRUDFDR }}</td>
+                <td>{{ entity.cRUDFDRPanne }}</td>
+                <td>{{ entity.cRUDFDRAgence }}</td>
+                <td>{{ entity.cRUDClientCompeFDL }}</td>
+                <td>{{ entity.cRUDClientNonCompteFDL }}</td>
+                <td>{{ entity.affectationVehiculeAffr }}</td>
+                <td>{{ entity.cloturerFDR }}</td>
+                <td>{{ entity.cloturerFDRAffr }}</td>
+                <td>{{ entity.confRecDocCtm }}</td>
+                <td>{{ entity.confRecDocClient }}</td>
+                <td>{{ entity.editCompteur }}</td>
+                <td>{{ entity.pourcentageAssurance }}</td>
+                <td>{{ entity.cRUDClient }}</td>
+                <td>{{ entity.cRUDVehicule }}</td>
+                <td>{{ entity.cRUDChauffeur }}</td>
+                <td>{{ entity.cRUDUtilisateur }}</td>
+                <td>{{ entity.cRUDDepot }}</td>
+                <td>{{ entity.cRUDFiliale }}</td>
+                <td>{{ entity.cRUDManutentionnaire }}</td>
+                <td>{{ entity.cRUDIndisponibilite }}</td>
+                <td>{{ entity.cRUDItineraire }}</td>
+                <td>{{ entity.cRUDPrestation }}</td>
+                <td>{{ entity.cRUDTypePrestation }}</td>
+                <td>{{ entity.cRUDSecteur }}</td>
+                <td>{{ entity.cRUDTypeConsommation }}</td>
+                <td>{{ entity.champSup1 }}</td>
+                <td>{{ entity.champSup2 }}</td>
+                <td>{{ entity.champSup3 }}</td>
+                <td>{{ entity.champSup4 }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('role_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('role_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('role_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

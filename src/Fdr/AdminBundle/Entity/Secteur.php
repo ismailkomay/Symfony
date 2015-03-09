@@ -3,7 +3,7 @@
 namespace Fdr\AdminBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Secteur
  *
@@ -42,6 +42,10 @@ class Secteur
      * @var string
      *
      * @ORM\Column(name="type", type="string", length=100, nullable=false)
+     * @Assert\Choice(
+     *     choices = { "secteur", "ligne" },
+     *     message = "Secteur invalide."
+     * )
      */
     private $type;
 
@@ -55,14 +59,14 @@ class Secteur
     /**
      * @var string
      *
-     * @ORM\Column(name="champssupp1", type="string", length=100, nullable=false)
+     * @ORM\Column(name="champssupp1", type="string", length=100, nullable=true)
      */
     private $champssupp1;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="champssupp2", type="string", length=100, nullable=false)
+     * @ORM\Column(name="champssupp2", type="string", length=100, nullable=true)
      */
     private $champssupp2;
 
@@ -265,5 +269,10 @@ class Secteur
     public function getClients()
     {
         return $this->clients;
+    }
+    
+    public function __toString()
+    {
+        return $this->libelle;
     }
 }

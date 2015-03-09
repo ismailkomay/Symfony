@@ -61,14 +61,14 @@ class TypeConsommation
     /**
      * @var string
      *
-     * @ORM\Column(name="champSup1", type="string", length=100)
+     * @ORM\Column(name="champSup1", type="string", length=100, nullable=true)
      */
     private $champSup1;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="champSup2", type="string", length=100)
+     * @ORM\Column(name="champSup2", type="string", length=100, nullable=true)
      */
     private $champSup2;
 
@@ -252,5 +252,10 @@ class TypeConsommation
     public function getBonCarburantHuiles()
     {
         return $this->bonCarburantHuiles;
+    }
+    
+    public function __toString()
+    {
+        return $this->produit;
     }
 }

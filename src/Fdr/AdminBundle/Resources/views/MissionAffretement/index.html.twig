@@ -1,0 +1,87 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>MissionAffretement list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Ecc</th>
+                <th>Ect</th>
+                <th>Ebl</th>
+                <th>Espece</th>
+                <th>Autredoc</th>
+                <th>Valdeclassurance</th>
+                <th>Bonlivraison</th>
+                <th>Numexpedition</th>
+                <th>Dateramassage</th>
+                <th>Lieuramassage</th>
+                <th>Nbrecolis</th>
+                <th>Naturemarchandise</th>
+                <th>Datelivraison</th>
+                <th>Lieulivraison</th>
+                <th>Montantfacture</th>
+                <th>Remise</th>
+                <th>Motifremise</th>
+                <th>Montantregle</th>
+                <th>Nombnq</th>
+                <th>Numcheque</th>
+                <th>Champssupp1</th>
+                <th>Champssupp2</th>
+                <th>Champssupp3</th>
+                <th>Champssupp4</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('missionaffretement_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.ecc }}</td>
+                <td>{{ entity.ect }}</td>
+                <td>{{ entity.ebl }}</td>
+                <td>{{ entity.espece }}</td>
+                <td>{{ entity.autredoc }}</td>
+                <td>{{ entity.valdeclassurance }}</td>
+                <td>{{ entity.bonlivraison }}</td>
+                <td>{{ entity.numexpedition }}</td>
+                <td>{% if entity.dateramassage %}{{ entity.dateramassage|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.lieuramassage }}</td>
+                <td>{{ entity.nbrecolis }}</td>
+                <td>{{ entity.naturemarchandise }}</td>
+                <td>{% if entity.datelivraison %}{{ entity.datelivraison|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.lieulivraison }}</td>
+                <td>{{ entity.montantfacture }}</td>
+                <td>{{ entity.remise }}</td>
+                <td>{{ entity.motifremise }}</td>
+                <td>{{ entity.montantregle }}</td>
+                <td>{{ entity.nombnq }}</td>
+                <td>{{ entity.numcheque }}</td>
+                <td>{{ entity.champssupp1 }}</td>
+                <td>{{ entity.champssupp2 }}</td>
+                <td>{{ entity.champssupp3 }}</td>
+                <td>{{ entity.champssupp4 }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('missionaffretement_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('missionaffretement_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('missionaffretement_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

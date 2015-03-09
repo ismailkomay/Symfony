@@ -50,21 +50,21 @@ class Modification
     /**
      * @var string
      *
-     * @ORM\Column(name="remarque", type="text")
+     * @ORM\Column(name="remarque", type="text", nullable=true)
      */
     private $remarque;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="champSup1", type="string", length=100)
+     * @ORM\Column(name="champSup1", type="string", length=100, nullable=true)
      */
     private $champSup1;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="champSup2", type="string", length=100)
+     * @ORM\Column(name="champSup2", type="string", length=100, nullable=true)
      */
     private $champSup2;
 
@@ -238,5 +238,10 @@ class Modification
     public function getFeuilleDeRoute()
     {
         return $this->feuilleDeRoute;
+    }
+    
+    public function __toString()
+    {
+        return "Modif-".$this->id."-Par ".$this->utilisateur.":".$this->motif;
     }
 }

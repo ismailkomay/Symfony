@@ -1,0 +1,152 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Role</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Nomrole</th>
+                <td>{{ entity.nomRole }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ entity.description }}</td>
+            </tr>
+            <tr>
+                <th>Crudfdr</th>
+                <td>{{ entity.cRUDFDR }}</td>
+            </tr>
+            <tr>
+                <th>Crudfdrpanne</th>
+                <td>{{ entity.cRUDFDRPanne }}</td>
+            </tr>
+            <tr>
+                <th>Crudfdragence</th>
+                <td>{{ entity.cRUDFDRAgence }}</td>
+            </tr>
+            <tr>
+                <th>Crudclientcompefdl</th>
+                <td>{{ entity.cRUDClientCompeFDL }}</td>
+            </tr>
+            <tr>
+                <th>Crudclientnoncomptefdl</th>
+                <td>{{ entity.cRUDClientNonCompteFDL }}</td>
+            </tr>
+            <tr>
+                <th>Affectationvehiculeaffr</th>
+                <td>{{ entity.affectationVehiculeAffr }}</td>
+            </tr>
+            <tr>
+                <th>Cloturerfdr</th>
+                <td>{{ entity.cloturerFDR }}</td>
+            </tr>
+            <tr>
+                <th>Cloturerfdraffr</th>
+                <td>{{ entity.cloturerFDRAffr }}</td>
+            </tr>
+            <tr>
+                <th>Confrecdocctm</th>
+                <td>{{ entity.confRecDocCtm }}</td>
+            </tr>
+            <tr>
+                <th>Confrecdocclient</th>
+                <td>{{ entity.confRecDocClient }}</td>
+            </tr>
+            <tr>
+                <th>Editcompteur</th>
+                <td>{{ entity.editCompteur }}</td>
+            </tr>
+            <tr>
+                <th>Pourcentageassurance</th>
+                <td>{{ entity.pourcentageAssurance }}</td>
+            </tr>
+            <tr>
+                <th>Crudclient</th>
+                <td>{{ entity.cRUDClient }}</td>
+            </tr>
+            <tr>
+                <th>Crudvehicule</th>
+                <td>{{ entity.cRUDVehicule }}</td>
+            </tr>
+            <tr>
+                <th>Crudchauffeur</th>
+                <td>{{ entity.cRUDChauffeur }}</td>
+            </tr>
+            <tr>
+                <th>Crudutilisateur</th>
+                <td>{{ entity.cRUDUtilisateur }}</td>
+            </tr>
+            <tr>
+                <th>Cruddepot</th>
+                <td>{{ entity.cRUDDepot }}</td>
+            </tr>
+            <tr>
+                <th>Crudfiliale</th>
+                <td>{{ entity.cRUDFiliale }}</td>
+            </tr>
+            <tr>
+                <th>Crudmanutentionnaire</th>
+                <td>{{ entity.cRUDManutentionnaire }}</td>
+            </tr>
+            <tr>
+                <th>Crudindisponibilite</th>
+                <td>{{ entity.cRUDIndisponibilite }}</td>
+            </tr>
+            <tr>
+                <th>Cruditineraire</th>
+                <td>{{ entity.cRUDItineraire }}</td>
+            </tr>
+            <tr>
+                <th>Crudprestation</th>
+                <td>{{ entity.cRUDPrestation }}</td>
+            </tr>
+            <tr>
+                <th>Crudtypeprestation</th>
+                <td>{{ entity.cRUDTypePrestation }}</td>
+            </tr>
+            <tr>
+                <th>Crudsecteur</th>
+                <td>{{ entity.cRUDSecteur }}</td>
+            </tr>
+            <tr>
+                <th>Crudtypeconsommation</th>
+                <td>{{ entity.cRUDTypeConsommation }}</td>
+            </tr>
+            <tr>
+                <th>Champsup1</th>
+                <td>{{ entity.champSup1 }}</td>
+            </tr>
+            <tr>
+                <th>Champsup2</th>
+                <td>{{ entity.champSup2 }}</td>
+            </tr>
+            <tr>
+                <th>Champsup3</th>
+                <td>{{ entity.champSup3 }}</td>
+            </tr>
+            <tr>
+                <th>Champsup4</th>
+                <td>{{ entity.champSup4 }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('role') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('role_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

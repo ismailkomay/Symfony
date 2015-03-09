@@ -1,0 +1,30 @@
+modification:
+    path:     /
+    defaults: { _controller: "FdrAdminBundle:Modification:index" }
+
+modification_show:
+    path:     /{id}/show
+    defaults: { _controller: "FdrAdminBundle:Modification:show" }
+
+modification_new:
+    path:     /new
+    defaults: { _controller: "FdrAdminBundle:Modification:new" }
+
+modification_create:
+    path:     /create
+    defaults: { _controller: "FdrAdminBundle:Modification:create" }
+    methods:  POST
+
+modification_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "FdrAdminBundle:Modification:edit" }
+
+modification_update:
+    path:     /{id}/update
+    defaults: { _controller: "FdrAdminBundle:Modification:update" }
+    methods:  [POST, PUT]
+
+modification_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "FdrAdminBundle:Modification:delete" }
+    methods:  [POST, DELETE]

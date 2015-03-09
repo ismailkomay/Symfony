@@ -1,0 +1,30 @@
+itineraire:
+    path:     /
+    defaults: { _controller: "FdrAdminBundle:Itineraire:index" }
+
+itineraire_show:
+    path:     /{id}/show
+    defaults: { _controller: "FdrAdminBundle:Itineraire:show" }
+
+itineraire_new:
+    path:     /new
+    defaults: { _controller: "FdrAdminBundle:Itineraire:new" }
+
+itineraire_create:
+    path:     /create
+    defaults: { _controller: "FdrAdminBundle:Itineraire:create" }
+    methods:  POST
+
+itineraire_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "FdrAdminBundle:Itineraire:edit" }
+
+itineraire_update:
+    path:     /{id}/update
+    defaults: { _controller: "FdrAdminBundle:Itineraire:update" }
+    methods:  [POST, PUT]
+
+itineraire_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "FdrAdminBundle:Itineraire:delete" }
+    methods:  [POST, DELETE]

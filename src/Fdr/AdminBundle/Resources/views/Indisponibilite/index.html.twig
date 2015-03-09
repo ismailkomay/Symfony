@@ -1,0 +1,49 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Indisponibilite list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Motif</th>
+                <th>Datedebut</th>
+                <th>Datefin</th>
+                <th>Champssupp1</th>
+                <th>Champssupp2</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('indisponibilite_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.motif }}</td>
+                <td>{% if entity.datedebut %}{{ entity.datedebut|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.datefin %}{{ entity.datefin|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.champssupp1 }}</td>
+                <td>{{ entity.champssupp2 }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('indisponibilite_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('indisponibilite_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('indisponibilite_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

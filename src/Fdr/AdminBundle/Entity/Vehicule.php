@@ -48,14 +48,14 @@ class Vehicule
     /**
      * @var boolean
      *
-     * @ORM\Column(name="remorque", type="boolean", nullable=false)
+     * @ORM\Column(name="remorque", type="boolean", nullable=true)
      */
     private $remorque;
 
     /**
      * @var boolean
      *
-     * @ORM\Column(name="actif", type="boolean", nullable=false)
+     * @ORM\Column(name="actif", type="boolean", nullable=true)
      */
     private $actif;
 
@@ -81,16 +81,22 @@ class Vehicule
     private $matricule;
 
     /**
+     * @var boolean
+     *
+     * @ORM\Column(name="fonctionnel", type="boolean", nullable=true)
+     */
+    private $fonctionnel=true;
+    /**
      * @var string
      *
-     * @ORM\Column(name="champssupp1", type="string", length=100, nullable=false)
+     * @ORM\Column(name="champssupp1", type="string", length=100, nullable=true)
      */
     private $champssupp1;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="champssupp2", type="string", length=100, nullable=false)
+     * @ORM\Column(name="champssupp2", type="string", length=100, nullable=true)
      */
     private $champssupp2;
 
@@ -344,5 +350,46 @@ class Vehicule
     public function getFeuilleDeRoutes()
     {
         return $this->feuilleDeRoutes;
+    }
+    
+    public function __toString()
+    {
+        return $this->matricule."-".$this->compteur;
+    }
+
+    /**
+     * Set fonctionnel
+     *
+     * @param boolean $fonctioonnel
+     * @return Vehicule
+     */
+    public function setFonctioonnel($fonctionnel)
+    {
+        $this->fonctionnel = $fonctionnel;
+
+        return $this;
+    }
+
+    /**
+     * Get fonctionnel
+     *
+     * @return boolean 
+     */
+    public function getFonctionnel()
+    {
+        return $this->fonctionnel;
+    }
+
+    /**
+     * Set fonctionnel
+     *
+     * @param boolean $fonctionnel
+     * @return Vehicule
+     */
+    public function setFonctionnel($fonctionnel)
+    {
+        $this->fonctionnel = $fonctionnel;
+
+        return $this;
     }
 }

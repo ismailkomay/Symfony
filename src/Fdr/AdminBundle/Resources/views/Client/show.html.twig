@@ -1,0 +1,84 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Client</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Nomresponsable</th>
+                <td>{{ entity.nomresponsable }}</td>
+            </tr>
+            <tr>
+                <th>Prenomresponsable</th>
+                <td>{{ entity.prenomresponsable }}</td>
+            </tr>
+            <tr>
+                <th>Tel</th>
+                <td>{{ entity.tel }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ entity.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Cin</th>
+                <td>{{ entity.cin }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ entity.email }}</td>
+            </tr>
+            <tr>
+                <th>Fax</th>
+                <td>{{ entity.fax }}</td>
+            </tr>
+            <tr>
+                <th>Nomentreprise</th>
+                <td>{{ entity.nomentreprise }}</td>
+            </tr>
+            <tr>
+                <th>Encompte</th>
+                <td>{{ entity.encompte }}</td>
+            </tr>
+            <tr>
+                <th>Clientaffret</th>
+                <td>{{ entity.clientaffret }}</td>
+            </tr>
+            <tr>
+                <th>Clientramass</th>
+                <td>{{ entity.clientramass }}</td>
+            </tr>
+            <tr>
+                <th>Numcompte</th>
+                <td>{{ entity.numcompte }}</td>
+            </tr>
+            <tr>
+                <th>Champssupp1</th>
+                <td>{{ entity.champssupp1 }}</td>
+            </tr>
+            <tr>
+                <th>Champssupp2</th>
+                <td>{{ entity.champssupp2 }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('client') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('client_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

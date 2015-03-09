@@ -1,0 +1,30 @@
+boncarburanthuile:
+    path:     /
+    defaults: { _controller: "FdrAdminBundle:BonCarburantHuile:index" }
+
+boncarburanthuile_show:
+    path:     /{id}/show
+    defaults: { _controller: "FdrAdminBundle:BonCarburantHuile:show" }
+
+boncarburanthuile_new:
+    path:     /new
+    defaults: { _controller: "FdrAdminBundle:BonCarburantHuile:new" }
+
+boncarburanthuile_create:
+    path:     /create
+    defaults: { _controller: "FdrAdminBundle:BonCarburantHuile:create" }
+    methods:  POST
+
+boncarburanthuile_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "FdrAdminBundle:BonCarburantHuile:edit" }
+
+boncarburanthuile_update:
+    path:     /{id}/update
+    defaults: { _controller: "FdrAdminBundle:BonCarburantHuile:update" }
+    methods:  [POST, PUT]
+
+boncarburanthuile_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "FdrAdminBundle:BonCarburantHuile:delete" }
+    methods:  [POST, DELETE]

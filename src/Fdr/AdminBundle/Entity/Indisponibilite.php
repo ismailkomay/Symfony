@@ -52,7 +52,7 @@ class Indisponibilite
     /**
      * @var string
      *
-     * @ORM\Column(name="champssupp1", type="string", length=100, nullable=false)
+     * @ORM\Column(name="champssupp1", type="string", length=100, nullable=false, nullable=true)
      */
     private $champssupp1;
     
@@ -60,7 +60,7 @@ class Indisponibilite
     /**
      * @var string
      *
-     * @ORM\Column(name="champssupp2", type="string", length=100, nullable=false)
+     * @ORM\Column(name="champssupp2", type="string", length=100, nullable=false, nullable=true)
      */
     private $champssupp2;
 
@@ -213,5 +213,10 @@ class Indisponibilite
     public function getChampssupp1()
     {
         return $this->champssupp1;
+    }
+    
+    public function __toString()
+    {
+        return $this->chauffeur."/".$this->motif."(".$this->datedebut."->".$this->datefin.")";
     }
 }
