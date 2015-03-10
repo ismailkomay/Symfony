@@ -18,11 +18,19 @@ class TypePrestation
    * @ORM\JoinColumn(nullable=true)
    */
     private $prestations;
+   
+    
     public function __construct() {
         $this->prestations = new ArrayCollection() ;
+        $this->feuilleDeRoutes = new ArrayCollection();
     }
-
-
+    
+ /**
+   * @ORM\OneToMany(targetEntity="FeuilleDeRoute",mappedBy="typePrestation")
+   * @ORM\JoinColumn(nullable=true)
+   */
+    private $feuilleDeRoutes;
+    
     
     /**
      * @var integer
@@ -171,5 +179,38 @@ class TypePrestation
     public function __toString()
     {
         return $this->libelle;
+    }
+
+    /**
+     * Add feuilleDeRoutes
+     *
+     * @param \Fdr\AdminBundle\Entity\FeuilleDeRoute $feuilleDeRoutes
+     * @return TypePrestation
+     */
+    public function addFeuilleDeRoute(\Fdr\AdminBundle\Entity\FeuilleDeRoute $feuilleDeRoutes)
+    {
+        $this->feuilleDeRoutes[] = $feuilleDeRoutes;
+    
+        return $this;
+    }
+
+    /**
+     * Remove feuilleDeRoutes
+     *
+     * @param \Fdr\AdminBundle\Entity\FeuilleDeRoute $feuilleDeRoutes
+     */
+    public function removeFeuilleDeRoute(\Fdr\AdminBundle\Entity\FeuilleDeRoute $feuilleDeRoutes)
+    {
+        $this->feuilleDeRoutes->removeElement($feuilleDeRoutes);
+    }
+
+    /**
+     * Get feuilleDeRoutes
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getFeuilleDeRoutes()
+    {
+        return $this->feuilleDeRoutes;
     }
 }

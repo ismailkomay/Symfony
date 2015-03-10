@@ -64,10 +64,10 @@ class Vehicule extends \Fdr\AdminBundle\Entity\Vehicule implements \Doctrine\ORM
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Vehicule' . "\0" . 'feuilleDeRoutes', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Vehicule' . "\0" . 'id', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Vehicule' . "\0" . 'tonnage', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Vehicule' . "\0" . 'type', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Vehicule' . "\0" . 'remorque', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Vehicule' . "\0" . 'actif', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Vehicule' . "\0" . 'vidange', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Vehicule' . "\0" . 'compteur', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Vehicule' . "\0" . 'matricule', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Vehicule' . "\0" . 'champssupp1', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Vehicule' . "\0" . 'champssupp2');
+            return array('__isInitialized__', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Vehicule' . "\0" . 'feuilleDeRoutes', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Vehicule' . "\0" . 'id', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Vehicule' . "\0" . 'tonnage', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Vehicule' . "\0" . 'type', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Vehicule' . "\0" . 'remorque', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Vehicule' . "\0" . 'actif', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Vehicule' . "\0" . 'vidange', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Vehicule' . "\0" . 'compteur', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Vehicule' . "\0" . 'matricule', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Vehicule' . "\0" . 'fonctionnel', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Vehicule' . "\0" . 'champssupp1', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Vehicule' . "\0" . 'champssupp2');
         }
 
-        return array('__isInitialized__', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Vehicule' . "\0" . 'feuilleDeRoutes', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Vehicule' . "\0" . 'id', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Vehicule' . "\0" . 'tonnage', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Vehicule' . "\0" . 'type', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Vehicule' . "\0" . 'remorque', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Vehicule' . "\0" . 'actif', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Vehicule' . "\0" . 'vidange', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Vehicule' . "\0" . 'compteur', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Vehicule' . "\0" . 'matricule', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Vehicule' . "\0" . 'champssupp1', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Vehicule' . "\0" . 'champssupp2');
+        return array('__isInitialized__', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Vehicule' . "\0" . 'feuilleDeRoutes', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Vehicule' . "\0" . 'id', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Vehicule' . "\0" . 'tonnage', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Vehicule' . "\0" . 'type', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Vehicule' . "\0" . 'remorque', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Vehicule' . "\0" . 'actif', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Vehicule' . "\0" . 'vidange', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Vehicule' . "\0" . 'compteur', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Vehicule' . "\0" . 'matricule', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Vehicule' . "\0" . 'fonctionnel', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Vehicule' . "\0" . 'champssupp1', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Vehicule' . "\0" . 'champssupp2');
     }
 
     /**
@@ -428,6 +428,39 @@ class Vehicule extends \Fdr\AdminBundle\Entity\Vehicule implements \Doctrine\ORM
         $this->__initializer__ && $this->__initializer__->__invoke($this, '__toString', array());
 
         return parent::__toString();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setFonctioonnel($fonctionnel)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setFonctioonnel', array($fonctionnel));
+
+        return parent::setFonctioonnel($fonctionnel);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getFonctionnel()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getFonctionnel', array());
+
+        return parent::getFonctionnel();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setFonctionnel($fonctionnel)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setFonctionnel', array($fonctionnel));
+
+        return parent::setFonctionnel($fonctionnel);
     }
 
 }

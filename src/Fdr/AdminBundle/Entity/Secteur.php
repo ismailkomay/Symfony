@@ -13,6 +13,11 @@ use Symfony\Component\Validator\Constraints as Assert;
 class Secteur
 {
     /**
+   * @ORM\OneToMany(targetEntity="FeuilleDeRoute",mappedBy="secteur")
+   * @ORM\JoinColumn(nullable=true)
+   */
+    private $feuilleDeRoutes;
+    /**
    * @ORM\ManyToMany(targetEntity="Client",mappedBy="secteurs")
    * @ORM\JoinColumn(nullable=true)
    */
@@ -34,7 +39,7 @@ class Secteur
     /**
      * @var string
      *
-     * @ORM\Column(name="code", type="string", length=100, nullable=false)
+     * @ORM\Column(name="code", type="string", length=100, nullable=false,unique=true)
      */
     private $code;
 
@@ -55,6 +60,25 @@ class Secteur
      * @ORM\Column(name="libelle", type="string", length=100, nullable=false)
      */
     private $libelle;
+     /**
+     * @var string
+     *
+     * @ORM\Column(name="depart", type="string", length=100, nullable=false)
+     */
+    private $depart;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="arrivee", type="string", length=100, nullable=false)
+     */
+    private $arrivee;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="remarques", type="string", length=255, nullable=true)
+     */
+    private $remarques;
 
     /**
      * @var string
@@ -78,6 +102,7 @@ class Secteur
     {
         $this->prestations = new \Doctrine\Common\Collections\ArrayCollection();
         $this->clients = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->feuilleDeRoutes = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -89,6 +114,74 @@ class Secteur
     {
         return $this->id;
     }
+ /**
+     * Set depart
+     *
+     * @param string $depart
+     * @return Itineraire
+     */
+    public function setDepart($depart)
+    {
+        $this->depart = $depart;
+    
+        return $this;
+    }
+
+    /**
+     * Get depart
+     *
+     * @return string 
+     */
+    public function getDepart()
+    {
+        return $this->depart;
+    }
+
+    /**
+     * Set arrivee
+     *
+     * @param string $arrivee
+     * @return Itineraire
+     */
+    public function setArrivee($arrivee)
+    {
+        $this->arrivee = $arrivee;
+    
+        return $this;
+    }
+
+    /**
+     * Get arrivee
+     *
+     * @return string 
+     */
+    public function getArrivee()
+    {
+        return $this->arrivee;
+    }
+    /**
+     * Set remarques
+     *
+     * @param string $remarques
+     * @return Itineraire
+     */
+    public function setRemarques($remarques)
+    {
+        $this->remarques = $remarques;
+    
+        return $this;
+    }
+
+    /**
+     * Get remarques
+     *
+     * @return string 
+     */
+    public function getRemarques()
+    {
+        return $this->remarques;
+    }
+
 
     /**
      * Set code
@@ -274,5 +367,38 @@ class Secteur
     public function __toString()
     {
         return $this->libelle;
+    }
+
+    /**
+     * Add feuilleDeRoutes
+     *
+     * @param \Fdr\AdminBundle\Entity\FeuilleDeRoute $feuilleDeRoutes
+     * @return Secteur
+     */
+    public function addFeuilleDeRoute(\Fdr\AdminBundle\Entity\FeuilleDeRoute $feuilleDeRoutes)
+    {
+        $this->feuilleDeRoutes[] = $feuilleDeRoutes;
+    
+        return $this;
+    }
+
+    /**
+     * Remove feuilleDeRoutes
+     *
+     * @param \Fdr\AdminBundle\Entity\FeuilleDeRoute $feuilleDeRoutes
+     */
+    public function removeFeuilleDeRoute(\Fdr\AdminBundle\Entity\FeuilleDeRoute $feuilleDeRoutes)
+    {
+        $this->feuilleDeRoutes->removeElement($feuilleDeRoutes);
+    }
+
+    /**
+     * Get feuilleDeRoutes
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getFeuilleDeRoutes()
+    {
+        return $this->feuilleDeRoutes;
     }
 }

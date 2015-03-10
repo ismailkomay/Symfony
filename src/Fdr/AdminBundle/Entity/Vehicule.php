@@ -57,7 +57,7 @@ class Vehicule
      *
      * @ORM\Column(name="actif", type="boolean", nullable=true)
      */
-    private $actif;
+    private $disponibilite=true;
 
     /**
      * @var integer
@@ -79,13 +79,6 @@ class Vehicule
      * @ORM\Column(name="matricule", type="string", length=100, nullable=false)
      */
     private $matricule;
-
-    /**
-     * @var boolean
-     *
-     * @ORM\Column(name="fonctionnel", type="boolean", nullable=true)
-     */
-    private $fonctionnel=true;
     /**
      * @var string
      *
@@ -184,12 +177,12 @@ class Vehicule
     /**
      * Set actif
      *
-     * @param boolean $actif
+     * @param boolean $disponibilite
      * @return Vehicule
      */
-    public function setActif($actif)
+    public function setDisponibilite($disponibilite)
     {
-        $this->actif = $actif;
+        $this->actif = $disponibilite;
     
         return $this;
     }
@@ -199,7 +192,7 @@ class Vehicule
      *
      * @return boolean 
      */
-    public function getActif()
+    public function getDisponibilite()
     {
         return $this->actif;
     }
@@ -356,40 +349,5 @@ class Vehicule
     {
         return $this->matricule."-".$this->compteur;
     }
-
-    /**
-     * Set fonctionnel
-     *
-     * @param boolean $fonctioonnel
-     * @return Vehicule
-     */
-    public function setFonctioonnel($fonctionnel)
-    {
-        $this->fonctionnel = $fonctionnel;
-
-        return $this;
-    }
-
-    /**
-     * Get fonctionnel
-     *
-     * @return boolean 
-     */
-    public function getFonctionnel()
-    {
-        return $this->fonctionnel;
-    }
-
-    /**
-     * Set fonctionnel
-     *
-     * @param boolean $fonctionnel
-     * @return Vehicule
-     */
-    public function setFonctionnel($fonctionnel)
-    {
-        $this->fonctionnel = $fonctionnel;
-
-        return $this;
-    }
+    
 }

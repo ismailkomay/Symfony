@@ -12,11 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Prestation
 {
-    /**
-   * @ORM\OneToMany(targetEntity="FeuilleDeRoute",mappedBy="prestation")
-   * @ORM\JoinColumn(nullable=true)
-   */
-    private $feuilleDeRoutes;
+    
     
     /**
    * @ORM\ManyToOne(targetEntity="TypePrestation" ,inversedBy="prestations")
@@ -43,7 +39,7 @@ class Prestation
     /**
      * @var string
      *
-     * @ORM\Column(name="code", type="string", length=100, nullable=false)
+     * @ORM\Column(name="code", type="string", length=100, nullable=false, unique=true)
      */
     private $code;
 
@@ -259,6 +255,6 @@ class Prestation
     }
     public function __toString()
     {
-        return $this->code;
+        return $this->typePrestation." ".$this->secteur." ".$this->code;
     }
 }

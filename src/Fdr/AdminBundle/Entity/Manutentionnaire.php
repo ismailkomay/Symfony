@@ -45,14 +45,14 @@ class Manutentionnaire
     /**
      * @var string
      *
-     * @ORM\Column(name="matricule", type="string", length=100, nullable=false)
+     * @ORM\Column(name="matricule", type="string", length=100, nullable=true)
      */
     private $matricule;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="type", type="string", length=100, nullable=true)
+     * @ORM\Column(name="type", type="string", length=100, nullable=false)
      */
     private $type;
 

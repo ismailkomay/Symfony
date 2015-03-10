@@ -40,7 +40,7 @@ class __TwigTemplate_17a494988a3ad00f6a6eef3028c93e2f835803ef595d45b7f0531082e48
 
     ";
         // line 6
-        echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form');
+        echo         $this->env->getExtension('form')->renderer->renderBlock($this->getContext($context, "form"), 'form');
         echo "
 
         <ul class=\"record_actions\">

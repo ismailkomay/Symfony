@@ -54,7 +54,7 @@ class __TwigTemplate_5c83017be8554c382541b0b4b931cc98d7026c3d120de5c1a7fa8fae2f0
         ";
         // line 19
         $context['_parent'] = (array) $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["entities"]) ? $context["entities"] : $this->getContext($context, "entities")));
+        $context['_seq'] = twig_ensure_traversable($this->getContext($context, "entities"));
         foreach ($context['_seq'] as $context["_key"] => $context["entity"]) {
             // line 20
             echo "            <tr>

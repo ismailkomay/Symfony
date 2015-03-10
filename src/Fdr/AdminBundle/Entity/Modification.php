@@ -50,7 +50,7 @@ class Modification
     /**
      * @var string
      *
-     * @ORM\Column(name="remarque", type="text", nullable=true)
+     * @ORM\Column(name="remarque", type="text", nullable=false)
      */
     private $remarque;
 

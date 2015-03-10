@@ -15,9 +15,9 @@ class TypeConsommationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('type')
-            ->add('agence')
-            ->add('produit')
+            ->add('type','choice',array('choices'=>array('interne'=>'Interne','externe'=>'Externe')))
+            ->add('agence','choice',array('choices'=>array('casa'=>'Agence Casa','marrakech'=>'Agence Marrakech','fes'=>'Agence Fes')))
+            ->add('produit','choice',array('choices'=>array('gazoil'=>'Gazoil','essence'=>'Essence')))
             ->add('prixUnitaire')
 //            ->add('champSup1')
 //            ->add('champSup2')

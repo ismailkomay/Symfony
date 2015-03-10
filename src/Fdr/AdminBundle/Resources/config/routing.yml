@@ -1,3 +1,7 @@
+fdr_admin_feuillederoute:
+    resource: "@FdrAdminBundle/Resources/config/routing/feuillederoute.yml"
+    prefix:   /feuillederoute
+
 fdr_admin_vehicule:
     resource: "@FdrAdminBundle/Resources/config/routing/vehicule.yml"
     prefix:   /vehicule

@@ -18,11 +18,7 @@ class MissionAffretement
    */
   private $feuilleDeRoute;
   
-  /**
-   * @ORM\ManyToOne(targetEntity="Itineraire",inversedBy="missionAffretements")
-   * @ORM\JoinColumn(nullable=false)
-   */
-  private $itineraire;
+  
   /**
    * @ORM\ManyToOne(targetEntity="Client")
    * @ORM\JoinColumn(nullable=false)
@@ -59,37 +55,37 @@ class MissionAffretement
     private $ebl;
 
     /**
-     * @var string
+     * @var boolean
      *
-     * @ORM\Column(name="espece", type="boolean", nullable=false)
+     * @ORM\Column(name="espece", type="boolean", nullable=true)
      */
     private $espece;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="autredoc", type="string", length=100, nullable=false)
+     * @ORM\Column(name="autredoc", type="string", length=100, nullable=true)
      */
     private $autredoc;
 
     /**
      * @var float
      *
-     * @ORM\Column(name="valdeclassurance", type="float", precision=10, scale=0, nullable=false)
+     * @ORM\Column(name="valdeclassurance", type="float", precision=10, scale=0, nullable=true)
      */
     private $valdeclassurance;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="bonlivraison", type="string", length=100, nullable=false)
+     * @ORM\Column(name="bonlivraison", type="string", length=100, nullable=true)
      */
     private $bonlivraison;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="numexpedition", type="string", length=100, nullable=false)
+     * @ORM\Column(name="numexpedition", type="string", length=100, nullable=true)
      */
     private $numexpedition;
 
@@ -110,7 +106,7 @@ class MissionAffretement
     /**
      * @var integer
      *
-     * @ORM\Column(name="nbrecolis", type="integer", nullable=false)
+     * @ORM\Column(name="nbrecolis", type="integer", nullable=true)
      */
     private $nbrecolis;
 
@@ -145,7 +141,7 @@ class MissionAffretement
     /**
      * @var integer
      *
-     * @ORM\Column(name="remise", type="integer", nullable=false)
+     * @ORM\Column(name="remise", type="integer", nullable=true)
      */
     private $remise;
 
@@ -159,7 +155,7 @@ class MissionAffretement
     /**
      * @var boolean
      *
-     * @ORM\Column(name="montantregle", type="boolean", nullable=false)
+     * @ORM\Column(name="montantregle", type="boolean", nullable=true)
      */
     private $montantregle;
 
@@ -173,7 +169,7 @@ class MissionAffretement
     /**
      * @var string
      *
-     * @ORM\Column(name="numcheque", type="string", length=100, nullable=false)
+     * @ORM\Column(name="numcheque", type="string", length=100, nullable=true)
      */
     private $numcheque;
 
@@ -183,6 +179,20 @@ class MissionAffretement
      * @ORM\Column(name="remarques", type="string", length=100, nullable=true)
      */
     private $remarques;
+    
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="confRecDocClient",  type="boolean", nullable=true)
+     */
+    private $confRecDocClient;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="confRecDocCtm", type="boolean", nullable=true)
+     */
+    private $confRecDocCtm;
 
     /**
      * @var string
@@ -793,29 +803,7 @@ class MissionAffretement
         return $this->feuilleDeRoute;
     }
 
-    /**
-     * Set itineraire
-     *
-     * @param \Fdr\AdminBundle\Entity\Itineraire $itineraire
-     * @return MissionAffretement
-     */
-    public function setItineraire(\Fdr\AdminBundle\Entity\Itineraire $itineraire)
-    {
-        $this->itineraire = $itineraire;
-    
-        return $this;
-    }
-
-    /**
-     * Get itineraire
-     *
-     * @return \Fdr\AdminBundle\Entity\Itineraire 
-     */
-    public function getItineraire()
-    {
-        return $this->itineraire;
-    }
-
+   
     /**
      * Set client
      *
@@ -842,5 +830,51 @@ class MissionAffretement
     public function __toString()
     {
         return "AFF-".$this->id;
+    }
+
+    /**
+     * Set confRecDocClient
+     *
+     * @param boolean $confRecDocClient
+     * @return MissionAffretement
+     */
+    public function setConfRecDocClient($confRecDocClient)
+    {
+        $this->confRecDocClient = $confRecDocClient;
+    
+        return $this;
+    }
+
+    /**
+     * Get confRecDocClient
+     *
+     * @return boolean 
+     */
+    public function getConfRecDocClient()
+    {
+        return $this->confRecDocClient;
+    }
+
+    /**
+     * Set confRecDocCtm
+     *
+     * @param boolean $confRecDocCtm
+     * @return MissionAffretement
+     */
+    public function setConfRecDocCtm($confRecDocCtm)
+    {
+        $this->confRecDocCtm = $confRecDocCtm;
+    
+        return $this;
+    }
+
+    /**
+     * Get confRecDocCtm
+     *
+     * @return boolean 
+     */
+    public function getConfRecDocCtm()
+    {
+        return $this->confRecDocCtm;
     }
 }

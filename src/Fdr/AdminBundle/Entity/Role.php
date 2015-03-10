@@ -34,7 +34,7 @@ class Role
     /**
      * @var string
      *
-     * @ORM\Column(name="nomRole", type="string", length=100)
+     * @ORM\Column(name="nomRole", type="string", length=100 , nullable=true)
      */
     private $nomRole;
 
@@ -48,203 +48,203 @@ class Role
     /**
      * @var string
      *
-     * @ORM\Column(name="CRUDFDR", type="string", length=100)
+     * @ORM\Column(name="CRUDFDR", type="string", length=100 , nullable=true)
      */
     private $cRUDFDR;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="CRUDFDRPanne", type="string", length=100)
+     * @ORM\Column(name="CRUDFDRPanne", type="string", length=100 , nullable=true)
      */
     private $cRUDFDRPanne;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="CRUDFDRAgence", type="string", length=100)
+     * @ORM\Column(name="CRUDFDRAgence", type="string", length=100 , nullable=true)
      */
     private $cRUDFDRAgence;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="CRUDClientCompeFDL", type="string", length=100)
+     * @ORM\Column(name="CRUDClientCompeFDL", type="string", length=100 , nullable=true)
      */
     private $cRUDClientCompeFDL;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="CRUDClientNonCompteFDL", type="string", length=100)
+     * @ORM\Column(name="CRUDClientNonCompteFDL", type="string", length=100 , nullable=true)
      */
     private $cRUDClientNonCompteFDL;
 
     /**
      * @var boolean
      *
-     * @ORM\Column(name="affectationVehiculeAffr", type="boolean")
+     * @ORM\Column(name="affectationVehiculeAffr", type="boolean", nullable=true, nullable=true)
      */
     private $affectationVehiculeAffr;
 
     /**
      * @var boolean
      *
-     * @ORM\Column(name="cloturerFDR", type="boolean")
+     * @ORM\Column(name="cloturerFDR", type="boolean", nullable=true)
      */
     private $cloturerFDR;
 
     /**
      * @var boolean
      *
-     * @ORM\Column(name="cloturerFDRAffr", type="boolean")
+     * @ORM\Column(name="cloturerFDRAffr", type="boolean", nullable=true)
      */
     private $cloturerFDRAffr;
 
     /**
      * @var boolean
      *
-     * @ORM\Column(name="confRecDocCtm", type="boolean")
+     * @ORM\Column(name="confRecDocCtm", type="boolean", nullable=true)
      */
     private $confRecDocCtm;
 
     /**
      * @var boolean
      *
-     * @ORM\Column(name="confRecDocClient", type="boolean")
+     * @ORM\Column(name="confRecDocClient", type="boolean", nullable=true)
      */
     private $confRecDocClient;
 
     /**
      * @var boolean
      *
-     * @ORM\Column(name="editCompteur", type="boolean")
+     * @ORM\Column(name="editCompteur", type="boolean", nullable=true)
      */
     private $editCompteur;
 
     /**
      * @var boolean
      *
-     * @ORM\Column(name="pourcentageAssurance", type="boolean")
+     * @ORM\Column(name="pourcentageAssurance", type="boolean", nullable=true)
      */
     private $pourcentageAssurance;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="CRUDClient", type="string", length=100)
+     * @ORM\Column(name="CRUDClient", type="string", length=100 , nullable=true)
      */
     private $cRUDClient;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="CRUDVehicule", type="string", length=100)
+     * @ORM\Column(name="CRUDVehicule", type="string", length=100 , nullable=true)
      */
     private $cRUDVehicule;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="CRUDChauffeur", type="string", length=100)
+     * @ORM\Column(name="CRUDChauffeur", type="string", length=100 , nullable=true)
      */
     private $cRUDChauffeur;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="CRUDUtilisateur", type="string", length=100)
+     * @ORM\Column(name="CRUDUtilisateur", type="string", length=100 , nullable=true)
      */
     private $cRUDUtilisateur;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="CRUDDepot", type="string", length=100)
+     * @ORM\Column(name="CRUDDepot", type="string", length=100 , nullable=true)
      */
     private $cRUDDepot;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="CRUDFiliale", type="string", length=100)
+     * @ORM\Column(name="CRUDFiliale", type="string", length=100 , nullable=true)
      */
     private $cRUDFiliale;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="CRUDManutentionnaire", type="string", length=100)
+     * @ORM\Column(name="CRUDManutentionnaire", type="string", length=100 , nullable=true)
      */
     private $cRUDManutentionnaire;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="CRUDIndisponibilite", type="string", length=100)
+     * @ORM\Column(name="CRUDIndisponibilite", type="string", length=100 , nullable=true)
      */
     private $cRUDIndisponibilite;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="CRUDItineraire", type="string", length=100)
+     * @ORM\Column(name="CRUDItineraire", type="string", length=100 , nullable=true)
      */
     private $cRUDItineraire;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="CRUDPrestation", type="string", length=100)
+     * @ORM\Column(name="CRUDPrestation", type="string", length=100 , nullable=true)
      */
     private $cRUDPrestation;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="CRUDTypePrestation", type="string", length=100)
+     * @ORM\Column(name="CRUDTypePrestation", type="string", length=100 , nullable=true)
      */
     private $cRUDTypePrestation;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="CRUDSecteur", type="string", length=100)
+     * @ORM\Column(name="CRUDSecteur", type="string", length=100 , nullable=true)
      */
     private $cRUDSecteur;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="CRUDTypeConsommation", type="string", length=100)
+     * @ORM\Column(name="CRUDTypeConsommation", type="string", length=100 , nullable=true)
      */
     private $cRUDTypeConsommation;
 
     /**
      * @var boolean
      *
-     * @ORM\Column(name="administrer", type="boolean", nullable=true)
+     * @ORM\Column(name="administrer", type="boolean", nullable=true, nullable=true)
      */
     private $administrer;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="champSup2", type="string", length=100)
+     * @ORM\Column(name="champSup2", type="string", length=100 , nullable=true)
      */
     private $champSup2;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="champSup3", type="string", length=100)
+     * @ORM\Column(name="champSup3", type="string", length=100 , nullable=true)
      */
     private $champSup3;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="champSup4", type="string", length=100)
+     * @ORM\Column(name="champSup4", type="string", length=100 , nullable=true)
      */
     private $champSup4;
 

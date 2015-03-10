@@ -20,7 +20,7 @@ class SecteurType extends AbstractType
             ->add('libelle')
 //            ->add('champssupp1')
 //            ->add('champssupp2')
-            ->add('clients')
+//            ->add('clients')
         ;
     }
     

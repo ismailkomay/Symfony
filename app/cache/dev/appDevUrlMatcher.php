@@ -127,6 +127,66 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        if (0 === strpos($pathinfo, '/feuillederoute')) {
+            // feuillederoute
+            if (rtrim($pathinfo, '/') === '/feuillederoute') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'feuillederoute');
+                }
+
+                return array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\FeuilleDeRouteController::indexAction',  '_route' => 'feuillederoute',);
+            }
+
+            // feuillederoute_show
+            if (preg_match('#^/feuillederoute/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'feuillederoute_show')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\FeuilleDeRouteController::showAction',));
+            }
+
+            // feuillederoute_new
+            if ($pathinfo === '/feuillederoute/new') {
+                return array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\FeuilleDeRouteController::newAction',  '_route' => 'feuillederoute_new',);
+            }
+
+            // feuillederoute_create
+            if ($pathinfo === '/feuillederoute/create') {
+                if ($this->context->getMethod() != 'POST') {
+                    $allow[] = 'POST';
+                    goto not_feuillederoute_create;
+                }
+
+                return array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\FeuilleDeRouteController::createAction',  '_route' => 'feuillederoute_create',);
+            }
+            not_feuillederoute_create:
+
+            // feuillederoute_edit
+            if (preg_match('#^/feuillederoute/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'feuillederoute_edit')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\FeuilleDeRouteController::editAction',));
+            }
+
+            // feuillederoute_update
+            if (preg_match('#^/feuillederoute/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
+                    $allow = array_merge($allow, array('POST', 'PUT'));
+                    goto not_feuillederoute_update;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'feuillederoute_update')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\FeuilleDeRouteController::updateAction',));
+            }
+            not_feuillederoute_update:
+
+            // feuillederoute_delete
+            if (preg_match('#^/feuillederoute/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
+                    $allow = array_merge($allow, array('POST', 'DELETE'));
+                    goto not_feuillederoute_delete;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'feuillederoute_delete')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\FeuilleDeRouteController::deleteAction',));
+            }
+            not_feuillederoute_delete:
+
+        }
+
         if (0 === strpos($pathinfo, '/vehicule')) {
             // vehicule
             if (rtrim($pathinfo, '/') === '/vehicule') {
@@ -976,126 +1036,63 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        if (0 === strpos($pathinfo, '/f')) {
-            if (0 === strpos($pathinfo, '/filiale')) {
-                // filiale
-                if (rtrim($pathinfo, '/') === '/filiale') {
-                    if (substr($pathinfo, -1) !== '/') {
-                        return $this->redirect($pathinfo.'/', 'filiale');
-                    }
-
-                    return array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\FilialeController::indexAction',  '_route' => 'filiale',);
+        if (0 === strpos($pathinfo, '/filiale')) {
+            // filiale
+            if (rtrim($pathinfo, '/') === '/filiale') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'filiale');
                 }
 
-                // filiale_show
-                if (preg_match('#^/filiale/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'filiale_show')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\FilialeController::showAction',));
-                }
-
-                // filiale_new
-                if ($pathinfo === '/filiale/new') {
-                    return array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\FilialeController::newAction',  '_route' => 'filiale_new',);
-                }
-
-                // filiale_create
-                if ($pathinfo === '/filiale/create') {
-                    if ($this->context->getMethod() != 'POST') {
-                        $allow[] = 'POST';
-                        goto not_filiale_create;
-                    }
-
-                    return array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\FilialeController::createAction',  '_route' => 'filiale_create',);
-                }
-                not_filiale_create:
-
-                // filiale_edit
-                if (preg_match('#^/filiale/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'filiale_edit')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\FilialeController::editAction',));
-                }
-
-                // filiale_update
-                if (preg_match('#^/filiale/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
-                    if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
-                        $allow = array_merge($allow, array('POST', 'PUT'));
-                        goto not_filiale_update;
-                    }
-
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'filiale_update')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\FilialeController::updateAction',));
-                }
-                not_filiale_update:
-
-                // filiale_delete
-                if (preg_match('#^/filiale/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
-                    if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
-                        $allow = array_merge($allow, array('POST', 'DELETE'));
-                        goto not_filiale_delete;
-                    }
-
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'filiale_delete')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\FilialeController::deleteAction',));
-                }
-                not_filiale_delete:
-
+                return array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\FilialeController::indexAction',  '_route' => 'filiale',);
             }
 
-            if (0 === strpos($pathinfo, '/feuillederoute')) {
-                // feuillederoute
-                if (rtrim($pathinfo, '/') === '/feuillederoute') {
-                    if (substr($pathinfo, -1) !== '/') {
-                        return $this->redirect($pathinfo.'/', 'feuillederoute');
-                    }
-
-                    return array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\FeuilleDeRouteController::indexAction',  '_route' => 'feuillederoute',);
-                }
-
-                // feuillederoute_show
-                if (preg_match('#^/feuillederoute/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'feuillederoute_show')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\FeuilleDeRouteController::showAction',));
-                }
-
-                // feuillederoute_new
-                if ($pathinfo === '/feuillederoute/new') {
-                    return array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\FeuilleDeRouteController::newAction',  '_route' => 'feuillederoute_new',);
-                }
-
-                // feuillederoute_create
-                if ($pathinfo === '/feuillederoute/create') {
-                    if ($this->context->getMethod() != 'POST') {
-                        $allow[] = 'POST';
-                        goto not_feuillederoute_create;
-                    }
-
-                    return array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\FeuilleDeRouteController::createAction',  '_route' => 'feuillederoute_create',);
-                }
-                not_feuillederoute_create:
-
-                // feuillederoute_edit
-                if (preg_match('#^/feuillederoute/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'feuillederoute_edit')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\FeuilleDeRouteController::editAction',));
-                }
-
-                // feuillederoute_update
-                if (preg_match('#^/feuillederoute/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
-                    if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
-                        $allow = array_merge($allow, array('POST', 'PUT'));
-                        goto not_feuillederoute_update;
-                    }
-
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'feuillederoute_update')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\FeuilleDeRouteController::updateAction',));
-                }
-                not_feuillederoute_update:
-
-                // feuillederoute_delete
-                if (preg_match('#^/feuillederoute/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
-                    if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
-                        $allow = array_merge($allow, array('POST', 'DELETE'));
-                        goto not_feuillederoute_delete;
-                    }
-
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'feuillederoute_delete')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\FeuilleDeRouteController::deleteAction',));
-                }
-                not_feuillederoute_delete:
-
+            // filiale_show
+            if (preg_match('#^/filiale/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'filiale_show')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\FilialeController::showAction',));
             }
+
+            // filiale_new
+            if ($pathinfo === '/filiale/new') {
+                return array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\FilialeController::newAction',  '_route' => 'filiale_new',);
+            }
+
+            // filiale_create
+            if ($pathinfo === '/filiale/create') {
+                if ($this->context->getMethod() != 'POST') {
+                    $allow[] = 'POST';
+                    goto not_filiale_create;
+                }
+
+                return array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\FilialeController::createAction',  '_route' => 'filiale_create',);
+            }
+            not_filiale_create:
+
+            // filiale_edit
+            if (preg_match('#^/filiale/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'filiale_edit')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\FilialeController::editAction',));
+            }
+
+            // filiale_update
+            if (preg_match('#^/filiale/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
+                    $allow = array_merge($allow, array('POST', 'PUT'));
+                    goto not_filiale_update;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'filiale_update')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\FilialeController::updateAction',));
+            }
+            not_filiale_update:
+
+            // filiale_delete
+            if (preg_match('#^/filiale/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
+                    $allow = array_merge($allow, array('POST', 'DELETE'));
+                    goto not_filiale_delete;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'filiale_delete')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\FilialeController::deleteAction',));
+            }
+            not_filiale_delete:
 
         }
 

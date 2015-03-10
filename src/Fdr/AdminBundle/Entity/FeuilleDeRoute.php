@@ -4,6 +4,7 @@ namespace Fdr\AdminBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints\DateTime;
 /**
  * FeuilleDeRoute
  *
@@ -19,10 +20,16 @@ class FeuilleDeRoute
   private $vehicule;
   
    /**
-   * @ORM\ManyToOne(targetEntity="Prestation",inversedBy="feuilleDeRoutes")
+   * @ORM\ManyToOne(targetEntity="TypePrestation",inversedBy="feuilleDeRoutes")
    * @ORM\JoinColumn(nullable=false)
    */
-  private $prestation;
+  private $typePrestation;
+ 
+  /**
+   * @ORM\ManyToOne(targetEntity="Secteur",inversedBy="feuilleDeRoutes")
+   * @ORM\JoinColumn(nullable=true)
+   */
+  private $secteur;
   
   /**
    * @ORM\OneToMany(targetEntity="BonCarburantHuile",mappedBy="feuilleDeRoute")
@@ -82,6 +89,11 @@ class FeuilleDeRoute
         $this->utilisateurs = new ArrayCollection() ;
         $this->clientFdrVs = new ArrayCollection() ;
         $this->clientFdrFs = new ArrayCollection() ;
+        $this->dateFinMission= new \DateTime('0000');
+                //('2010-10-02');
+        //$this->dateFinMission= $this->dateFinMission->format('Y-m-d h:i:s');
+        
+        
     }
 
     /**
@@ -1086,29 +1098,7 @@ class FeuilleDeRoute
         return $this->vehicule;
     }
 
-    /**
-     * Set prestation
-     *
-     * @param \Fdr\AdminBundle\Entity\Prestation $prestation
-     * @return FeuilleDeRoute
-     */
-    public function setPrestation(\Fdr\AdminBundle\Entity\Prestation $prestation)
-    {
-        $this->prestation = $prestation;
     
-        return $this;
-    }
-
-    /**
-     * Get prestation
-     *
-     * @return \Fdr\AdminBundle\Entity\Prestation 
-     */
-    public function getPrestation()
-    {
-        return $this->prestation;
-    }
-
     /**
      * Add bonCarburantHuiles
      *
@@ -1277,5 +1267,84 @@ class FeuilleDeRoute
     public function __toString()
     {
         return "FDR-".$this->id;
+    }
+
+    /**
+     * Set typePrestation
+     *
+     * @param \Fdr\AdminBundle\Entity\TypePrestation $typePrestation
+     * @return FeuilleDeRoute
+     */
+    public function setTypePrestation(\Fdr\AdminBundle\Entity\TypePrestation $typePrestation)
+    {
+        $this->typePrestation = $typePrestation;
+    
+        return $this;
+    }
+
+    /**
+     * Get typePrestation
+     *
+     * @return \Fdr\AdminBundle\Entity\TypePrestation 
+     */
+    public function getTypePrestation()
+    {
+        return $this->typePrestation;
+    }
+
+    /**
+     * Set secteur
+     *
+     * @param \Fdr\AdminBundle\Entity\Secteur $secteur
+     * @return FeuilleDeRoute
+     */
+    public function setSecteur(\Fdr\AdminBundle\Entity\Secteur $secteur = null)
+    {
+        $this->secteur = $secteur;
+    
+        return $this;
+    }
+
+    /**
+     * Get secteur
+     *
+     * @return \Fdr\AdminBundle\Entity\Secteur 
+     */
+    public function getSecteur()
+    {
+        return $this->secteur;
+    }
+
+    /**
+     * Add clientFdrFs
+     *
+     * @param \Fdr\AdminBundle\Entity\ClientFdrF $clientFdrFs
+     * @return FeuilleDeRoute
+     */
+    public function addClientFdrF(\Fdr\AdminBundle\Entity\ClientFdrF $clientFdrFs)
+    {
+        $this->clientFdrFs[] = $clientFdrFs;
+    
+        return $this;
+    }
+
+    /**
+     * Remove clientFdrFs
+     *
+     * @param \Fdr\AdminBundle\Entity\ClientFdrF $clientFdrFs
+     */
+    public function removeClientFdrF(\Fdr\AdminBundle\Entity\ClientFdrF $clientFdrFs)
+    {
+        $this->clientFdrFs->removeElement($clientFdrFs);
+    }
+
+    /**
+     * Get clientFdrFs
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getClientFdrFs()
+    {
+        return $this->clientFdrFs;
     }
 }

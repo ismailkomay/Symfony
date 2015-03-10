@@ -21,7 +21,6 @@ class ChauffeurType extends AbstractType
             ->add('cin')
             ->add('adresse')
             ->add('dateembauche')
-            ->add('disponibilite')
             ->add('typeconvention','choice',array('choices'=>array(
                 'cdd'=>'CDD',
                 'cdi'=>'CDI',

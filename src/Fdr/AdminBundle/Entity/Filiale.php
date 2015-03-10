@@ -34,7 +34,7 @@ class Filiale
     /**
      * @var string
      *
-     * @ORM\Column(name="code", type="string", length=100)
+     * @ORM\Column(name="code", type="string", length=100, unique=true)
      */
     private $code;
 

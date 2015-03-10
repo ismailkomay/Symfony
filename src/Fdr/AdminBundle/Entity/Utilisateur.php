@@ -99,7 +99,7 @@ class Utilisateur
     /**
      * @var string
      *
-     * @ORM\Column(name="tel", type="string", length=100)
+     * @ORM\Column(name="tel", type="string", length=100, nullable=true)
      */
     private $tel;
 
