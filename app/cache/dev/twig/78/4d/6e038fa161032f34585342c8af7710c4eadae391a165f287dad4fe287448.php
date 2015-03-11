@@ -45,58 +45,48 @@ class __TwigTemplate_784d6e038fa161032f34585342c8af7710c4eadae391a165f287dad4fe2
                 <th>Motif</th>
                 <th>Datemaj</th>
                 <th>Remarque</th>
-                <th>Champsup1</th>
-                <th>Champsup2</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         ";
-        // line 19
+        // line 17
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["entities"]) ? $context["entities"] : $this->getContext($context, "entities")));
         foreach ($context['_seq'] as $context["_key"] => $context["entity"]) {
-            // line 20
+            // line 18
             echo "            <tr>
                 <td><a href=\"";
-            // line 21
+            // line 19
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("modification_show", array("id" => $this->getAttribute($context["entity"], "id", array()))), "html", null, true);
             echo "\">";
             echo twig_escape_filter($this->env, $this->getAttribute($context["entity"], "id", array()), "html", null, true);
             echo "</a></td>
                 <td>";
-            // line 22
+            // line 20
             echo twig_escape_filter($this->env, $this->getAttribute($context["entity"], "motif", array()), "html", null, true);
             echo "</td>
                 <td>";
-            // line 23
+            // line 21
             if ($this->getAttribute($context["entity"], "dateMaj", array())) {
                 echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute($context["entity"], "dateMaj", array()), "Y-m-d H:i:s"), "html", null, true);
             }
             echo "</td>
                 <td>";
-            // line 24
+            // line 22
             echo twig_escape_filter($this->env, $this->getAttribute($context["entity"], "remarque", array()), "html", null, true);
-            echo "</td>
-                <td>";
-            // line 25
-            echo twig_escape_filter($this->env, $this->getAttribute($context["entity"], "champSup1", array()), "html", null, true);
-            echo "</td>
-                <td>";
-            // line 26
-            echo twig_escape_filter($this->env, $this->getAttribute($context["entity"], "champSup2", array()), "html", null, true);
             echo "</td>
                 <td>
                 <ul>
                     <li>
                         <a href=\"";
-            // line 30
+            // line 26
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("modification_show", array("id" => $this->getAttribute($context["entity"], "id", array()))), "html", null, true);
             echo "\">show</a>
                     </li>
                     <li>
                         <a href=\"";
-            // line 33
+            // line 29
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("modification_edit", array("id" => $this->getAttribute($context["entity"], "id", array()))), "html", null, true);
             echo "\">edit</a>
                     </li>
@@ -108,14 +98,14 @@ class __TwigTemplate_784d6e038fa161032f34585342c8af7710c4eadae391a165f287dad4fe2
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['entity'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 39
+        // line 35
         echo "        </tbody>
     </table>
 
         <ul>
         <li>
             <a href=\"";
-        // line 44
+        // line 40
         echo $this->env->getExtension('routing')->getPath("modification_new");
         echo "\">
                 Create a new entry
@@ -137,6 +127,6 @@ class __TwigTemplate_784d6e038fa161032f34585342c8af7710c4eadae391a165f287dad4fe2
 
     public function getDebugInfo()
     {
-        return array (  119 => 44,  112 => 39,  100 => 33,  94 => 30,  87 => 26,  83 => 25,  79 => 24,  73 => 23,  69 => 22,  63 => 21,  60 => 20,  56 => 19,  39 => 4,  36 => 3,  11 => 1,);
+        return array (  109 => 40,  102 => 35,  90 => 29,  84 => 26,  77 => 22,  71 => 21,  67 => 20,  61 => 19,  58 => 18,  54 => 17,  39 => 4,  36 => 3,  11 => 1,);
     }
 }

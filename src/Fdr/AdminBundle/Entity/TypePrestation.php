@@ -44,7 +44,7 @@ class TypePrestation
     /**
      * @var string
      *
-     * @ORM\Column(name="libelle", type="string", length=100, nullable=false)
+     * @ORM\Column(name="libelle", type="string", length=100, nullable=false, unique=true)
      */
     private $libelle;
 

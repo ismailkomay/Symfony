@@ -236,41 +236,13 @@ class __TwigTemplate_a9a14944ae2e46c8d9323f7773db33af7f9d1ae5d6eb0e50fddf779371b
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "cRUDTypeConsommation", array()), "html", null, true);
         echo "</td>
             </tr>
-            <tr>
-                <th>Champsup1</th>
-                <td>";
-        // line 122
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "champSup1", array()), "html", null, true);
-        echo "</td>
-            </tr>
-            <tr>
-                <th>Champsup2</th>
-                <td>";
-        // line 126
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "champSup2", array()), "html", null, true);
-        echo "</td>
-            </tr>
-            <tr>
-                <th>Champsup3</th>
-                <td>";
-        // line 130
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "champSup3", array()), "html", null, true);
-        echo "</td>
-            </tr>
-            <tr>
-                <th>Champsup4</th>
-                <td>";
-        // line 134
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "champSup4", array()), "html", null, true);
-        echo "</td>
-            </tr>
         </tbody>
     </table>
 
         <ul class=\"record_actions\">
     <li>
         <a href=\"";
-        // line 141
+        // line 125
         echo $this->env->getExtension('routing')->getPath("role");
         echo "\">
             Back to the list
@@ -278,14 +250,14 @@ class __TwigTemplate_a9a14944ae2e46c8d9323f7773db33af7f9d1ae5d6eb0e50fddf779371b
     </li>
     <li>
         <a href=\"";
-        // line 146
+        // line 130
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("role_edit", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id", array()))), "html", null, true);
         echo "\">
             Edit
         </a>
     </li>
     <li>";
-        // line 150
+        // line 134
         echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["delete_form"]) ? $context["delete_form"] : $this->getContext($context, "delete_form")), 'form');
         echo "</li>
 </ul>
@@ -304,6 +276,6 @@ class __TwigTemplate_a9a14944ae2e46c8d9323f7773db33af7f9d1ae5d6eb0e50fddf779371b
 
     public function getDebugInfo()
     {
-        return array (  289 => 150,  282 => 146,  274 => 141,  264 => 134,  257 => 130,  250 => 126,  243 => 122,  236 => 118,  229 => 114,  222 => 110,  215 => 106,  208 => 102,  201 => 98,  194 => 94,  187 => 90,  180 => 86,  173 => 82,  166 => 78,  159 => 74,  152 => 70,  145 => 66,  138 => 62,  131 => 58,  124 => 54,  117 => 50,  110 => 46,  103 => 42,  96 => 38,  89 => 34,  82 => 30,  75 => 26,  68 => 22,  61 => 18,  54 => 14,  47 => 10,  39 => 4,  36 => 3,  11 => 1,);
+        return array (  261 => 134,  254 => 130,  246 => 125,  236 => 118,  229 => 114,  222 => 110,  215 => 106,  208 => 102,  201 => 98,  194 => 94,  187 => 90,  180 => 86,  173 => 82,  166 => 78,  159 => 74,  152 => 70,  145 => 66,  138 => 62,  131 => 58,  124 => 54,  117 => 50,  110 => 46,  103 => 42,  96 => 38,  89 => 34,  82 => 30,  75 => 26,  68 => 22,  61 => 18,  54 => 14,  47 => 10,  39 => 4,  36 => 3,  11 => 1,);
     }
 }

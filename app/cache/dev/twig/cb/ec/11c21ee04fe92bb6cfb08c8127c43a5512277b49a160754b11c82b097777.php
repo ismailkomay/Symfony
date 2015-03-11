@@ -18,6 +18,7 @@ class __TwigTemplate_cbec11c21ee04fe92bb6cfb08c8127c43a5512277b49a160754b11c82b0
         }
 
         $this->blocks = array(
+            'title' => array($this, 'block_title'),
             'body' => array($this, 'block_body'),
         );
     }
@@ -30,6 +31,12 @@ class __TwigTemplate_cbec11c21ee04fe92bb6cfb08c8127c43a5512277b49a160754b11c82b0
     protected function doDisplay(array $context, array $blocks = array())
     {
         $this->parent->display($context, array_merge($this->blocks, $blocks));
+    }
+
+    // line 2
+    public function block_title($context, array $blocks = array())
+    {
+        echo "Secteur";
     }
 
     // line 3
@@ -69,18 +76,29 @@ class __TwigTemplate_cbec11c21ee04fe92bb6cfb08c8127c43a5512277b49a160754b11c82b0
         echo "</td>
             </tr>
             <tr>
-                <th>Champssupp1</th>
-                <td>";
-        // line 26
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "champssupp1", array()), "html", null, true);
-        echo "</td>
-            </tr>
-            <tr>
-                <th>Champssupp2</th>
-                <td>";
-        // line 30
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "champssupp2", array()), "html", null, true);
-        echo "</td>
+                <th>Client(s) du secteur</th>
+                <td>
+                    <ul>
+                        ";
+        // line 28
+        $context['_parent'] = (array) $context;
+        $context['_seq'] = twig_ensure_traversable($this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "clients", array()));
+        foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
+            // line 29
+            echo "                        <li>
+                        ";
+            // line 30
+            echo twig_escape_filter($this->env, $context["item"], "html", null, true);
+            echo "
+                        </li>
+                          ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 33
+        echo "                    </ul>
+                </td>
             </tr>
         </tbody>
     </table>
@@ -88,7 +106,7 @@ class __TwigTemplate_cbec11c21ee04fe92bb6cfb08c8127c43a5512277b49a160754b11c82b0
         <ul class=\"record_actions\">
     <li>
         <a href=\"";
-        // line 37
+        // line 41
         echo $this->env->getExtension('routing')->getPath("secteur");
         echo "\">
             Back to the list
@@ -96,14 +114,14 @@ class __TwigTemplate_cbec11c21ee04fe92bb6cfb08c8127c43a5512277b49a160754b11c82b0
     </li>
     <li>
         <a href=\"";
-        // line 42
+        // line 46
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("secteur_edit", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id", array()))), "html", null, true);
         echo "\">
             Edit
         </a>
     </li>
     <li>";
-        // line 46
+        // line 50
         echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["delete_form"]) ? $context["delete_form"] : $this->getContext($context, "delete_form")), 'form');
         echo "</li>
 </ul>
@@ -122,6 +140,6 @@ class __TwigTemplate_cbec11c21ee04fe92bb6cfb08c8127c43a5512277b49a160754b11c82b0
 
     public function getDebugInfo()
     {
-        return array (  107 => 46,  100 => 42,  92 => 37,  82 => 30,  75 => 26,  68 => 22,  61 => 18,  54 => 14,  47 => 10,  39 => 4,  36 => 3,  11 => 1,);
+        return array (  125 => 50,  118 => 46,  110 => 41,  100 => 33,  91 => 30,  88 => 29,  84 => 28,  75 => 22,  68 => 18,  61 => 14,  54 => 10,  46 => 4,  43 => 3,  37 => 2,  11 => 1,);
     }
 }

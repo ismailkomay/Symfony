@@ -1,5 +1,5 @@
 {% extends '::base.html.twig' %}
-
+{% block title %}Filiale{% endblock %}
 {% block body -%}
     <h1>Filiale list</h1>
 
@@ -10,8 +10,6 @@
                 <th>Code</th>
                 <th>Libelle</th>
                 <th>Adresse</th>
-                <th>Champsup1</th>
-                <th>Champsup2</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -22,8 +20,6 @@
                 <td>{{ entity.code }}</td>
                 <td>{{ entity.libelle }}</td>
                 <td>{{ entity.adresse }}</td>
-                <td>{{ entity.champSup1 }}</td>
-                <td>{{ entity.champSup2 }}</td>
                 <td>
                 <ul>
                     <li>

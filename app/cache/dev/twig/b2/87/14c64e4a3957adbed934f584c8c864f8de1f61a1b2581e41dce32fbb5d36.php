@@ -18,6 +18,7 @@ class __TwigTemplate_b28714c64e4a3957adbed934f584c8c864f8de1f61a1b2581e41dce32fb
         }
 
         $this->blocks = array(
+            'title' => array($this, 'block_title'),
             'body' => array($this, 'block_body'),
         );
     }
@@ -32,6 +33,12 @@ class __TwigTemplate_b28714c64e4a3957adbed934f584c8c864f8de1f61a1b2581e41dce32fb
         $this->parent->display($context, array_merge($this->blocks, $blocks));
     }
 
+    // line 2
+    public function block_title($context, array $blocks = array())
+    {
+        echo "Feuille de route";
+    }
+
     // line 3
     public function block_body($context, array $blocks = array())
     {
@@ -40,7 +47,7 @@ class __TwigTemplate_b28714c64e4a3957adbed934f584c8c864f8de1f61a1b2581e41dce32fb
 
     ";
         // line 6
-        echo         $this->env->getExtension('form')->renderer->renderBlock($this->getContext($context, "form"), 'form');
+        echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form');
         echo "
 
         <ul class=\"record_actions\">
@@ -68,6 +75,6 @@ class __TwigTemplate_b28714c64e4a3957adbed934f584c8c864f8de1f61a1b2581e41dce32fb
 
     public function getDebugInfo()
     {
-        return array (  50 => 10,  43 => 6,  39 => 4,  36 => 3,  11 => 1,);
+        return array (  57 => 10,  50 => 6,  46 => 4,  43 => 3,  37 => 2,  11 => 1,);
     }
 }

@@ -1,5 +1,5 @@
 {% extends '::base.html.twig' %}
-
+{% block title %}Feuille de route{% endblock %}
 {% block body -%}
     <h1>FeuilleDeRoute</h1>
 
@@ -109,22 +109,7 @@
                 <th>Surveillant</th>
                 <td>{{ entity.surveillant }}</td>
             </tr>
-            <tr>
-                <th>Champsup1</th>
-                <td>{{ entity.champSup1 }}</td>
-            </tr>
-            <tr>
-                <th>Champsup2</th>
-                <td>{{ entity.champSup2 }}</td>
-            </tr>
-            <tr>
-                <th>Champsup3</th>
-                <td>{{ entity.champSup3 }}</td>
-            </tr>
-            <tr>
-                <th>Champsup4</th>
-                <td>{{ entity.champSup4 }}</td>
-            </tr>
+           
         </tbody>
     </table>
 

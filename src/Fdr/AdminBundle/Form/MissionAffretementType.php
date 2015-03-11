@@ -39,7 +39,7 @@ class MissionAffretementType extends AbstractType
 //            ->add('champssupp3')
 //            ->add('champssupp4')
             ->add('feuilleDeRoute')
-            ->add('itineraire')
+//            ->add('itineraire')
             ->add('client')
             ->add('remarques','textarea',array('required'=>false))
         ;

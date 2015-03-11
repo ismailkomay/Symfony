@@ -1,9 +1,10 @@
 {% extends '::base.html.twig' %}
-
+{% block title %}Secteur{% endblock %}
 {% block body -%}
     <h1>Secteur creation</h1>
 
     {{ form(form) }}
+    <div style="color: red"><ul><li><Strong>NB :</strong> En cas de choix l'option Itineraire vous avez à le depart et l'arrivée</li></ul></div>
 
         <ul class="record_actions">
     <li>

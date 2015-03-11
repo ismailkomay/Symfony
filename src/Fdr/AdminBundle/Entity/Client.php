@@ -77,7 +77,7 @@ class Client
     /**
      * @var string
      *
-     * @ORM\Column(name="cin", type="string", length=100, nullable=false)
+     * @ORM\Column(name="cin", type="string", length=100, nullable=true)
      */
     private $cin;
 
@@ -126,7 +126,7 @@ class Client
     /**
      * @var string
      *
-     * @ORM\Column(name="numcompte", type="string", length=100, nullable=false)
+     * @ORM\Column(name="numcompte", type="string", length=100, nullable=true)
      */
     private $numcompte;
 
@@ -547,6 +547,6 @@ class Client
     public function __toString()
     {
         $sortie = (empty($this->nomresponsable))?$this->nomentreprise:($this->nomresponsable." ".$this->nomresponsable);
-        return$sortie;
+        return $sortie;
     }
 }

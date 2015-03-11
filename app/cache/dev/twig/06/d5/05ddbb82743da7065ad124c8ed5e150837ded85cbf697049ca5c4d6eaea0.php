@@ -18,6 +18,7 @@ class __TwigTemplate_06d505ddbb82743da7065ad124c8ed5e150837ded85cbf697049ca5c4d6
         }
 
         $this->blocks = array(
+            'title' => array($this, 'block_title'),
             'body' => array($this, 'block_body'),
         );
     }
@@ -30,6 +31,12 @@ class __TwigTemplate_06d505ddbb82743da7065ad124c8ed5e150837ded85cbf697049ca5c4d6
     protected function doDisplay(array $context, array $blocks = array())
     {
         $this->parent->display($context, array_merge($this->blocks, $blocks));
+    }
+
+    // line 2
+    public function block_title($context, array $blocks = array())
+    {
+        echo "Filiale";
     }
 
     // line 3
@@ -72,6 +79,6 @@ class __TwigTemplate_06d505ddbb82743da7065ad124c8ed5e150837ded85cbf697049ca5c4d6
 
     public function getDebugInfo()
     {
-        return array (  57 => 14,  50 => 10,  43 => 6,  39 => 4,  36 => 3,  11 => 1,);
+        return array (  64 => 14,  57 => 10,  50 => 6,  46 => 4,  43 => 3,  37 => 2,  11 => 1,);
     }
 }

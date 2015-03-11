@@ -54,27 +54,13 @@ class __TwigTemplate_270fd543b1df9bb5df41f1b6a799eb106b946e39c16f784261109695b53
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "secteur", array()), "html", null, true);
         echo "</td>
             </tr>
-            <tr>
-                <th>Champsup1</th>
-                <td>";
-        // line 18
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "champSup1", array()), "html", null, true);
-        echo "</td>
-            </tr>
-            <tr>
-                <th>Champsup2</th>
-                <td>";
-        // line 22
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "champSup2", array()), "html", null, true);
-        echo "</td>
-            </tr>
         </tbody>
     </table>
 
         <ul class=\"record_actions\">
     <li>
         <a href=\"";
-        // line 29
+        // line 21
         echo $this->env->getExtension('routing')->getPath("clientfdrv");
         echo "\">
             Back to the list
@@ -82,14 +68,14 @@ class __TwigTemplate_270fd543b1df9bb5df41f1b6a799eb106b946e39c16f784261109695b53
     </li>
     <li>
         <a href=\"";
-        // line 34
+        // line 26
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("clientfdrv_edit", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id", array()))), "html", null, true);
         echo "\">
             Edit
         </a>
     </li>
     <li>";
-        // line 38
+        // line 30
         echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["delete_form"]) ? $context["delete_form"] : $this->getContext($context, "delete_form")), 'form');
         echo "</li>
 </ul>
@@ -108,6 +94,6 @@ class __TwigTemplate_270fd543b1df9bb5df41f1b6a799eb106b946e39c16f784261109695b53
 
     public function getDebugInfo()
     {
-        return array (  93 => 38,  86 => 34,  78 => 29,  68 => 22,  61 => 18,  54 => 14,  47 => 10,  39 => 4,  36 => 3,  11 => 1,);
+        return array (  79 => 30,  72 => 26,  64 => 21,  54 => 14,  47 => 10,  39 => 4,  36 => 3,  11 => 1,);
     }
 }

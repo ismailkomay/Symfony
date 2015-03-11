@@ -47,30 +47,26 @@ class Secteur
      * @var string
      *
      * @ORM\Column(name="type", type="string", length=100, nullable=false)
-     * @Assert\Choice(
-     *     choices = { "secteur", "ligne" },
-     *     message = "Secteur invalide."
-     * )
      */
     private $type;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="libelle", type="string", length=100, nullable=false)
+     * @ORM\Column(name="libelle", type="string", length=100, nullable=false, unique=true)
      */
     private $libelle;
      /**
      * @var string
      *
-     * @ORM\Column(name="depart", type="string", length=100, nullable=false)
+     * @ORM\Column(name="depart", type="string", length=100, nullable=true)
      */
     private $depart;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="arrivee", type="string", length=100, nullable=false)
+     * @ORM\Column(name="arrivee", type="string", length=100, nullable=true)
      */
     private $arrivee;
     /**

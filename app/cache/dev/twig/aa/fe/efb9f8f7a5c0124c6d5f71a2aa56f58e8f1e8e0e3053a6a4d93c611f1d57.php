@@ -18,6 +18,7 @@ class __TwigTemplate_aafeefb9f8f7a5c0124c6d5f71a2aa56f58e8f1e8e0e3053a6a4d93c611
         }
 
         $this->blocks = array(
+            'title' => array($this, 'block_title'),
             'body' => array($this, 'block_body'),
         );
     }
@@ -30,6 +31,12 @@ class __TwigTemplate_aafeefb9f8f7a5c0124c6d5f71a2aa56f58e8f1e8e0e3053a6a4d93c611
     protected function doDisplay(array $context, array $blocks = array())
     {
         $this->parent->display($context, array_merge($this->blocks, $blocks));
+    }
+
+    // line 2
+    public function block_title($context, array $blocks = array())
+    {
+        echo "Depot";
     }
 
     // line 3
@@ -68,27 +75,13 @@ class __TwigTemplate_aafeefb9f8f7a5c0124c6d5f71a2aa56f58e8f1e8e0e3053a6a4d93c611
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "adresse", array()), "html", null, true);
         echo "</td>
             </tr>
-            <tr>
-                <th>Champ1</th>
-                <td>";
-        // line 26
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "champ1", array()), "html", null, true);
-        echo "</td>
-            </tr>
-            <tr>
-                <th>Champ2</th>
-                <td>";
-        // line 30
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "champ2", array()), "html", null, true);
-        echo "</td>
-            </tr>
         </tbody>
     </table>
 
         <ul class=\"record_actions\">
     <li>
         <a href=\"";
-        // line 37
+        // line 29
         echo $this->env->getExtension('routing')->getPath("depot");
         echo "\">
             Back to the list
@@ -96,14 +89,14 @@ class __TwigTemplate_aafeefb9f8f7a5c0124c6d5f71a2aa56f58e8f1e8e0e3053a6a4d93c611
     </li>
     <li>
         <a href=\"";
-        // line 42
+        // line 34
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("depot_edit", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id", array()))), "html", null, true);
         echo "\">
             Edit
         </a>
     </li>
     <li>";
-        // line 46
+        // line 38
         echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["delete_form"]) ? $context["delete_form"] : $this->getContext($context, "delete_form")), 'form');
         echo "</li>
 </ul>
@@ -122,6 +115,6 @@ class __TwigTemplate_aafeefb9f8f7a5c0124c6d5f71a2aa56f58e8f1e8e0e3053a6a4d93c611
 
     public function getDebugInfo()
     {
-        return array (  107 => 46,  100 => 42,  92 => 37,  82 => 30,  75 => 26,  68 => 22,  61 => 18,  54 => 14,  47 => 10,  39 => 4,  36 => 3,  11 => 1,);
+        return array (  100 => 38,  93 => 34,  85 => 29,  75 => 22,  68 => 18,  61 => 14,  54 => 10,  46 => 4,  43 => 3,  37 => 2,  11 => 1,);
     }
 }

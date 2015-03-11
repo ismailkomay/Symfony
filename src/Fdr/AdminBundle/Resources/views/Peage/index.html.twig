@@ -10,8 +10,6 @@
                 <th>Numcarte</th>
                 <th>Datepassage</th>
                 <th>Montant</th>
-                <th>Champsup1</th>
-                <th>Champsup2</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -22,8 +20,6 @@
                 <td>{{ entity.numCarte }}</td>
                 <td>{% if entity.datePassage %}{{ entity.datePassage|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{{ entity.montant }}</td>
-                <td>{{ entity.champSup1 }}</td>
-                <td>{{ entity.champSup2 }}</td>
                 <td>
                 <ul>
                     <li>

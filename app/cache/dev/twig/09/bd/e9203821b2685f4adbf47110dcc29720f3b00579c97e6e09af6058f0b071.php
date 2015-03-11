@@ -18,6 +18,7 @@ class __TwigTemplate_09bde9203821b2685f4adbf47110dcc29720f3b00579c97e6e09af6058f
         }
 
         $this->blocks = array(
+            'title' => array($this, 'block_title'),
             'body' => array($this, 'block_body'),
         );
     }
@@ -32,6 +33,12 @@ class __TwigTemplate_09bde9203821b2685f4adbf47110dcc29720f3b00579c97e6e09af6058f
         $this->parent->display($context, array_merge($this->blocks, $blocks));
     }
 
+    // line 2
+    public function block_title($context, array $blocks = array())
+    {
+        echo "Filiale";
+    }
+
     // line 3
     public function block_body($context, array $blocks = array())
     {
@@ -40,7 +47,7 @@ class __TwigTemplate_09bde9203821b2685f4adbf47110dcc29720f3b00579c97e6e09af6058f
 
     ";
         // line 6
-        echo         $this->env->getExtension('form')->renderer->renderBlock($this->getContext($context, "form"), 'form');
+        echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form');
         echo "
 
         <ul class=\"record_actions\">
@@ -68,6 +75,6 @@ class __TwigTemplate_09bde9203821b2685f4adbf47110dcc29720f3b00579c97e6e09af6058f
 
     public function getDebugInfo()
     {
-        return array (  50 => 10,  43 => 6,  39 => 4,  36 => 3,  11 => 1,);
+        return array (  57 => 10,  50 => 6,  46 => 4,  43 => 3,  37 => 2,  11 => 1,);
     }
 }

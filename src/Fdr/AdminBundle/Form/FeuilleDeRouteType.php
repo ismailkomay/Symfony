@@ -50,7 +50,8 @@ class FeuilleDeRouteType extends AbstractType
             ->add('manutentionnaires')
             ->add('chauffeurs')
 //            ->add('utilisateurs')
-            ->add('depot')
+            ->add('filiale')
+           // ->add('depots')
         ;
     }
     

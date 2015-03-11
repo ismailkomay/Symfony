@@ -44,77 +44,70 @@ class __TwigTemplate_57703884ada42636438533dba7941782e3c843e39635fbba61bee7b378a
                 <th>Id</th>
                 <td>";
         // line 10
-        echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "id", array()), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id", array()), "html", null, true);
         echo "</td>
             </tr>
             <tr>
                 <th>Nom</th>
                 <td>";
         // line 14
-        echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "nom", array()), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "nom", array()), "html", null, true);
         echo "</td>
             </tr>
             <tr>
                 <th>Prenom</th>
                 <td>";
         // line 18
-        echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "prenom", array()), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "prenom", array()), "html", null, true);
         echo "</td>
             </tr>
             <tr>
                 <th>Tel</th>
                 <td>";
         // line 22
-        echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "tel", array()), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "tel", array()), "html", null, true);
         echo "</td>
             </tr>
             <tr>
                 <th>Cin</th>
                 <td>";
         // line 26
-        echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "cin", array()), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "cin", array()), "html", null, true);
         echo "</td>
             </tr>
             <tr>
                 <th>Adresse</th>
                 <td>";
         // line 30
-        echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "adresse", array()), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "adresse", array()), "html", null, true);
         echo "</td>
             </tr>
             <tr>
                 <th>Dateembauche</th>
                 <td>";
         // line 34
-        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "dateembauche", array()), "Y-m-d H:i:s"), "html", null, true);
+        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "dateembauche", array()), "Y-m-d H:i:s"), "html", null, true);
         echo "</td>
             </tr>
             <tr>
                 <th>Disponibilite</th>
                 <td>";
         // line 38
-        echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "disponibilite", array()), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "disponibilite", array()), "html", null, true);
         echo "</td>
             </tr>
             <tr>
                 <th>Typeconvention</th>
                 <td>";
         // line 42
-        echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "typeconvention", array()), "html", null, true);
-        echo "</td>
-            </tr>
-            <tr>
-                <th>Champssupp1</th>
-                <td>";
-        // line 46
-        echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "champssupp1", array()), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "typeconvention", array()), "html", null, true);
         echo "</td>
             </tr>
             <tr>
                 <th>Etatcontrat</th>
                 <td>";
-        // line 50
-        echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "etatContrat", array()), "html", null, true);
+        // line 46
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "etatContrat", array()), "html", null, true);
         echo "</td>
             </tr>
         </tbody>
@@ -123,7 +116,7 @@ class __TwigTemplate_57703884ada42636438533dba7941782e3c843e39635fbba61bee7b378a
         <ul class=\"record_actions\">
     <li>
         <a href=\"";
-        // line 57
+        // line 53
         echo $this->env->getExtension('routing')->getPath("chauffeur");
         echo "\">
             Back to the list
@@ -131,15 +124,15 @@ class __TwigTemplate_57703884ada42636438533dba7941782e3c843e39635fbba61bee7b378a
     </li>
     <li>
         <a href=\"";
-        // line 62
-        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("chauffeur_edit", array("id" => $this->getAttribute($this->getContext($context, "entity"), "id", array()))), "html", null, true);
+        // line 58
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("chauffeur_edit", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id", array()))), "html", null, true);
         echo "\">
             Edit
         </a>
     </li>
     <li>";
-        // line 66
-        echo         $this->env->getExtension('form')->renderer->renderBlock($this->getContext($context, "delete_form"), 'form');
+        // line 62
+        echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["delete_form"]) ? $context["delete_form"] : $this->getContext($context, "delete_form")), 'form');
         echo "</li>
 </ul>
 ";
@@ -157,6 +150,6 @@ class __TwigTemplate_57703884ada42636438533dba7941782e3c843e39635fbba61bee7b378a
 
     public function getDebugInfo()
     {
-        return array (  142 => 66,  135 => 62,  127 => 57,  117 => 50,  110 => 46,  103 => 42,  96 => 38,  89 => 34,  82 => 30,  75 => 26,  68 => 22,  61 => 18,  54 => 14,  47 => 10,  39 => 4,  36 => 3,  11 => 1,);
+        return array (  135 => 62,  128 => 58,  120 => 53,  110 => 46,  103 => 42,  96 => 38,  89 => 34,  82 => 30,  75 => 26,  68 => 22,  61 => 18,  54 => 14,  47 => 10,  39 => 4,  36 => 3,  11 => 1,);
     }
 }

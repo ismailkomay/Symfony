@@ -103,27 +103,13 @@ class __TwigTemplate_419348becadcec970b949bfd9931756f1d56d2f74d1ff60f696f7d215eb
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "adresse", array()), "html", null, true);
         echo "</td>
             </tr>
-            <tr>
-                <th>Champsup1</th>
-                <td>";
-        // line 46
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "champSup1", array()), "html", null, true);
-        echo "</td>
-            </tr>
-            <tr>
-                <th>Champsup2</th>
-                <td>";
-        // line 50
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "champSup2", array()), "html", null, true);
-        echo "</td>
-            </tr>
         </tbody>
     </table>
 
         <ul class=\"record_actions\">
     <li>
         <a href=\"";
-        // line 57
+        // line 49
         echo $this->env->getExtension('routing')->getPath("utilisateur");
         echo "\">
             Back to the list
@@ -131,14 +117,14 @@ class __TwigTemplate_419348becadcec970b949bfd9931756f1d56d2f74d1ff60f696f7d215eb
     </li>
     <li>
         <a href=\"";
-        // line 62
+        // line 54
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("utilisateur_edit", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id", array()))), "html", null, true);
         echo "\">
             Edit
         </a>
     </li>
     <li>";
-        // line 66
+        // line 58
         echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["delete_form"]) ? $context["delete_form"] : $this->getContext($context, "delete_form")), 'form');
         echo "</li>
 </ul>
@@ -157,6 +143,6 @@ class __TwigTemplate_419348becadcec970b949bfd9931756f1d56d2f74d1ff60f696f7d215eb
 
     public function getDebugInfo()
     {
-        return array (  142 => 66,  135 => 62,  127 => 57,  117 => 50,  110 => 46,  103 => 42,  96 => 38,  89 => 34,  82 => 30,  75 => 26,  68 => 22,  61 => 18,  54 => 14,  47 => 10,  39 => 4,  36 => 3,  11 => 1,);
+        return array (  128 => 58,  121 => 54,  113 => 49,  103 => 42,  96 => 38,  89 => 34,  82 => 30,  75 => 26,  68 => 22,  61 => 18,  54 => 14,  47 => 10,  39 => 4,  36 => 3,  11 => 1,);
     }
 }

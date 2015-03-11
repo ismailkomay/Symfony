@@ -18,6 +18,7 @@ class __TwigTemplate_774964429d5466367b962cfa14391bbb0ef8832639e8233ff6b543294e0
         }
 
         $this->blocks = array(
+            'title' => array($this, 'block_title'),
             'body' => array($this, 'block_body'),
         );
     }
@@ -30,6 +31,12 @@ class __TwigTemplate_774964429d5466367b962cfa14391bbb0ef8832639e8233ff6b543294e0
     protected function doDisplay(array $context, array $blocks = array())
     {
         $this->parent->display($context, array_merge($this->blocks, $blocks));
+    }
+
+    // line 2
+    public function block_title($context, array $blocks = array())
+    {
+        echo "Client";
     }
 
     // line 3
@@ -132,18 +139,29 @@ class __TwigTemplate_774964429d5466367b962cfa14391bbb0ef8832639e8233ff6b543294e0
         echo "</td>
             </tr>
             <tr>
-                <th>Champssupp1</th>
-                <td>";
-        // line 62
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "champssupp1", array()), "html", null, true);
-        echo "</td>
-            </tr>
-            <tr>
-                <th>Champssupp2</th>
-                <td>";
-        // line 66
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "champssupp2", array()), "html", null, true);
-        echo "</td>
+                <th>Secteur(s) d'appartenance</th>
+                <td>
+                    <ul>
+                        ";
+        // line 64
+        $context['_parent'] = (array) $context;
+        $context['_seq'] = twig_ensure_traversable($this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "secteurs", array()));
+        foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
+            // line 65
+            echo "                        <li>
+                        ";
+            // line 66
+            echo twig_escape_filter($this->env, $context["item"], "html", null, true);
+            echo "
+                        </li>
+                          ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 69
+        echo "                    </ul>
+                </td>
             </tr>
         </tbody>
     </table>
@@ -151,7 +169,7 @@ class __TwigTemplate_774964429d5466367b962cfa14391bbb0ef8832639e8233ff6b543294e0
         <ul class=\"record_actions\">
     <li>
         <a href=\"";
-        // line 73
+        // line 77
         echo $this->env->getExtension('routing')->getPath("client");
         echo "\">
             Back to the list
@@ -159,14 +177,14 @@ class __TwigTemplate_774964429d5466367b962cfa14391bbb0ef8832639e8233ff6b543294e0
     </li>
     <li>
         <a href=\"";
-        // line 78
+        // line 82
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("client_edit", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id", array()))), "html", null, true);
         echo "\">
             Edit
         </a>
     </li>
     <li>";
-        // line 82
+        // line 86
         echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["delete_form"]) ? $context["delete_form"] : $this->getContext($context, "delete_form")), 'form');
         echo "</li>
 </ul>
@@ -185,6 +203,6 @@ class __TwigTemplate_774964429d5466367b962cfa14391bbb0ef8832639e8233ff6b543294e0
 
     public function getDebugInfo()
     {
-        return array (  170 => 82,  163 => 78,  155 => 73,  145 => 66,  138 => 62,  131 => 58,  124 => 54,  117 => 50,  110 => 46,  103 => 42,  96 => 38,  89 => 34,  82 => 30,  75 => 26,  68 => 22,  61 => 18,  54 => 14,  47 => 10,  39 => 4,  36 => 3,  11 => 1,);
+        return array (  188 => 86,  181 => 82,  173 => 77,  163 => 69,  154 => 66,  151 => 65,  147 => 64,  138 => 58,  131 => 54,  124 => 50,  117 => 46,  110 => 42,  103 => 38,  96 => 34,  89 => 30,  82 => 26,  75 => 22,  68 => 18,  61 => 14,  54 => 10,  46 => 4,  43 => 3,  37 => 2,  11 => 1,);
     }
 }

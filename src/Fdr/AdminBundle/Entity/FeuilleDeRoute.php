@@ -54,10 +54,10 @@ class FeuilleDeRoute
     private $utilisateurs;
     
     /**
-    * @ORM\ManyToOne(targetEntity="Depot", inversedBy="feuilleDeRoutes")
+    * @ORM\ManyToOne(targetEntity="Filiale", inversedBy="feuilleDeRoutes")
 	* @ORM\JoinColumn(nullable=false)
     */
-    private $depot;
+    private $filiale;
 
      /**
    * @ORM\OneToMany(targetEntity="Modification",mappedBy="feuilleDeRoute")
@@ -1053,26 +1053,26 @@ class FeuilleDeRoute
     }
 
     /**
-     * Set depot
+     * Set filiale
      *
-     * @param \Fdr\AdminBundle\Entity\Depot $depot
+     * @param \Fdr\AdminBundle\Entity\Filiale $filiale
      * @return FeuilleDeRoute
      */
-    public function setDepot(\Fdr\AdminBundle\Entity\Depot $depot)
+    public function setFiliale(\Fdr\AdminBundle\Entity\Filiale $filiale)
     {
-        $this->depot = $depot;
+        $this->filiale = $filiale;
     
         return $this;
     }
 
     /**
-     * Get depot
+     * Get c
      *
-     * @return \Fdr\AdminBundle\Entity\Depot 
+     * @return \Fdr\AdminBundle\Entity\Filiale 
      */
-    public function getDepot()
+    public function getFiliale()
     {
-        return $this->depot;
+        return $this->filiale;
     }
 
     /**

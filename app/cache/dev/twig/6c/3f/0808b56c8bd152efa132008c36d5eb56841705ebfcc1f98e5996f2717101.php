@@ -43,48 +43,38 @@ class __TwigTemplate_6c3f0808b56c8bd152efa132008c36d5eb56841705ebfcc1f98e5996f27
             <tr>
                 <th>Id</th>
                 <th>Libelle</th>
-                <th>Champssupp1</th>
-                <th>Champssupp2</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         ";
-        // line 17
+        // line 15
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["entities"]) ? $context["entities"] : $this->getContext($context, "entities")));
         foreach ($context['_seq'] as $context["_key"] => $context["entity"]) {
-            // line 18
+            // line 16
             echo "            <tr>
                 <td><a href=\"";
-            // line 19
+            // line 17
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("typeprestation_show", array("id" => $this->getAttribute($context["entity"], "id", array()))), "html", null, true);
             echo "\">";
             echo twig_escape_filter($this->env, $this->getAttribute($context["entity"], "id", array()), "html", null, true);
             echo "</a></td>
                 <td>";
-            // line 20
+            // line 18
             echo twig_escape_filter($this->env, $this->getAttribute($context["entity"], "libelle", array()), "html", null, true);
-            echo "</td>
-                <td>";
-            // line 21
-            echo twig_escape_filter($this->env, $this->getAttribute($context["entity"], "champssupp1", array()), "html", null, true);
-            echo "</td>
-                <td>";
-            // line 22
-            echo twig_escape_filter($this->env, $this->getAttribute($context["entity"], "champssupp2", array()), "html", null, true);
             echo "</td>
                 <td>
                 <ul>
                     <li>
                         <a href=\"";
-            // line 26
+            // line 22
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("typeprestation_show", array("id" => $this->getAttribute($context["entity"], "id", array()))), "html", null, true);
             echo "\">show</a>
                     </li>
                     <li>
                         <a href=\"";
-            // line 29
+            // line 25
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("typeprestation_edit", array("id" => $this->getAttribute($context["entity"], "id", array()))), "html", null, true);
             echo "\">edit</a>
                     </li>
@@ -96,14 +86,14 @@ class __TwigTemplate_6c3f0808b56c8bd152efa132008c36d5eb56841705ebfcc1f98e5996f27
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['entity'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 35
+        // line 31
         echo "        </tbody>
     </table>
 
         <ul>
         <li>
             <a href=\"";
-        // line 40
+        // line 36
         echo $this->env->getExtension('routing')->getPath("typeprestation_new");
         echo "\">
                 Create a new entry
@@ -125,6 +115,6 @@ class __TwigTemplate_6c3f0808b56c8bd152efa132008c36d5eb56841705ebfcc1f98e5996f27
 
     public function getDebugInfo()
     {
-        return array (  107 => 40,  100 => 35,  88 => 29,  82 => 26,  75 => 22,  71 => 21,  67 => 20,  61 => 19,  58 => 18,  54 => 17,  39 => 4,  36 => 3,  11 => 1,);
+        return array (  97 => 36,  90 => 31,  78 => 25,  72 => 22,  65 => 18,  59 => 17,  56 => 16,  52 => 15,  39 => 4,  36 => 3,  11 => 1,);
     }
 }

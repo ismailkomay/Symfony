@@ -16,8 +16,12 @@ class SecteurType extends AbstractType
     {
         $builder
             ->add('code')
-            ->add('type','choice',array('choices'=>array('secteur'=>'Secteur','ligne'=>'Ligne')))
+            ->add('type','choice',array('choices'=>array('secteur'=>'Secteur','ligne'=>'Ligne','itineraire'=>'Itineraire'))) 
             ->add('libelle')
+            ->add('depart')
+            ->add('arrivee')
+            ->add('clients')
+            ->add('remarques','textarea',array('required'=>false))                
 //            ->add('champssupp1')
 //            ->add('champssupp2')
 //            ->add('clients')

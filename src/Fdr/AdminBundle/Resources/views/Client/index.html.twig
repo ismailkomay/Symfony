@@ -1,5 +1,5 @@
 {% extends '::base.html.twig' %}
-
+{% block title %}Client{% endblock %}
 {% block body -%}
     <h1>Client list</h1>
 
@@ -19,8 +19,7 @@
                 <th>Clientaffret</th>
                 <th>Clientramass</th>
                 <th>Numcompte</th>
-                <th>Champssupp1</th>
-                <th>Champssupp2</th>
+                <th>Secteur(s) d'appartenance</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -40,8 +39,15 @@
                 <td>{{ entity.clientaffret }}</td>
                 <td>{{ entity.clientramass }}</td>
                 <td>{{ entity.numcompte }}</td>
-                <td>{{ entity.champssupp1 }}</td>
-                <td>{{ entity.champssupp2 }}</td>
+                <td>
+                    <ul>
+                        {% for item in entity.secteurs %}
+                        <li>
+                        {{ item }}
+                        </li>
+                          {% endfor %}
+                    </ul>
+                </td>
                 <td>
                 <ul>
                     <li>

@@ -55,7 +55,7 @@ class Vehicule
     /**
      * @var boolean
      *
-     * @ORM\Column(name="actif", type="boolean", nullable=true)
+     * @ORM\Column(name="disponibilite", type="boolean", nullable=true)
      */
     private $disponibilite=true;
 
@@ -175,26 +175,26 @@ class Vehicule
     }
 
     /**
-     * Set actif
+     * Set disponibilite
      *
      * @param boolean $disponibilite
      * @return Vehicule
      */
     public function setDisponibilite($disponibilite)
     {
-        $this->actif = $disponibilite;
+        $this->disponibilite = $disponibilite;
     
         return $this;
     }
 
     /**
-     * Get actif
+     * Get disponibilite
      *
      * @return boolean 
      */
     public function getDisponibilite()
     {
-        return $this->actif;
+        return $this->disponibilite;
     }
 
     /**
@@ -347,7 +347,7 @@ class Vehicule
     
     public function __toString()
     {
-        return $this->matricule."-".$this->compteur;
+        return $this->matricule;//."/".$this->compteur." Km.";
     }
     
 }

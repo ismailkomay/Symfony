@@ -18,6 +18,7 @@ class FilialeType extends AbstractType
             ->add('code')
             ->add('libelle')
             ->add('adresse')
+            ->add('depots')                
 //            ->add('champSup1')
 //            ->add('champSup2')
         ;

@@ -1,5 +1,5 @@
 {% extends '::base.html.twig' %}
-
+{% block title %}Depot{% endblock %}
 {% block body -%}
     <h1>Depot</h1>
 
@@ -20,14 +20,6 @@
             <tr>
                 <th>Adresse</th>
                 <td>{{ entity.adresse }}</td>
-            </tr>
-            <tr>
-                <th>Champ1</th>
-                <td>{{ entity.champ1 }}</td>
-            </tr>
-            <tr>
-                <th>Champ2</th>
-                <td>{{ entity.champ2 }}</td>
             </tr>
         </tbody>
     </table>

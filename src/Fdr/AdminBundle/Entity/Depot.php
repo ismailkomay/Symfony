@@ -12,11 +12,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  */
 class Depot
 {
-     /**
-    * @ORM\OneToMany(targetEntity="FeuilleDeRoute",mappedBy="depot")
-   * @ORM\JoinColumn(nullable=true)
-    */
-     private $feuilleDeRoutes;
+     
     /**
    * @ORM\ManyToOne(targetEntity="Fdr\AdminBundle\Entity\Filiale", cascade={"remove"},inversedBy="depots")
    * @ORM\JoinColumn(nullable=false)
@@ -24,7 +20,7 @@ class Depot
     private $filiale;
     
     public function __construct() {
-        $this->feuilleDeRoutes = new ArrayCollection() ;
+        
     }
   
     /**
@@ -219,40 +215,7 @@ class Depot
     {
         return $this->filiale;
     }
-
-    /**
-     * Add feuilleDeRoutes
-     *
-     * @param \Fdr\AdminBundle\Entity\FeuilleDeRoute $feuilleDeRoutes
-     * @return Depot
-     */
-    public function addFeuilleDeRoute(\Fdr\AdminBundle\Entity\FeuilleDeRoute $feuilleDeRoutes)
-    {
-        $this->feuilleDeRoutes[] = $feuilleDeRoutes;
-    
-        return $this;
-    }
-
-    /**
-     * Remove feuilleDeRoutes
-     *
-     * @param \Fdr\AdminBundle\Entity\FeuilleDeRoute $feuilleDeRoutes
-     */
-    public function removeFeuilleDeRoute(\Fdr\AdminBundle\Entity\FeuilleDeRoute $feuilleDeRoutes)
-    {
-        $this->feuilleDeRoutes->removeElement($feuilleDeRoutes);
-    }
-
-    /**
-     * Get feuilleDeRoutes
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getFeuilleDeRoutes()
-    {
-        return $this->feuilleDeRoutes;
-    }
-    
+ 
     public function __toString()
     {
         return $this->libelle;

@@ -19,8 +19,15 @@ class Filiale
    */
     private $depots;
     
+    /**
+    * @ORM\OneToMany(targetEntity="FeuilleDeRoute",mappedBy="depot")
+   * @ORM\JoinColumn(nullable=true)
+    */
+     private $feuilleDeRoutes;
+    
     public function __construct() {
         $this->depots = new ArrayCollection() ;
+        $this->feuilleDeRoutes = new ArrayCollection() ;
     }
     /**
      * @var integer
@@ -225,6 +232,39 @@ class Filiale
         return $this->depots;
     }
     
+    
+    /**
+     * Add feuilleDeRoutes
+     *
+     * @param \Fdr\AdminBundle\Entity\FeuilleDeRoute $feuilleDeRoutes
+     * @return Depot
+     */
+    public function addFeuilleDeRoute(\Fdr\AdminBundle\Entity\FeuilleDeRoute $feuilleDeRoutes)
+    {
+        $this->feuilleDeRoutes[] = $feuilleDeRoutes;
+    
+        return $this;
+    }
+
+    /**
+     * Remove feuilleDeRoutes
+     *
+     * @param \Fdr\AdminBundle\Entity\FeuilleDeRoute $feuilleDeRoutes
+     */
+    public function removeFeuilleDeRoute(\Fdr\AdminBundle\Entity\FeuilleDeRoute $feuilleDeRoutes)
+    {
+        $this->feuilleDeRoutes->removeElement($feuilleDeRoutes);
+    }
+
+    /**
+     * Get feuilleDeRoutes
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getFeuilleDeRoutes()
+    {
+        return $this->feuilleDeRoutes;
+    }
     public function __toString()
     {
         return $this->libelle;

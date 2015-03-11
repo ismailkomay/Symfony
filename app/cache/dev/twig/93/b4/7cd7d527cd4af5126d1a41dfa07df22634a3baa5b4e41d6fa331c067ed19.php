@@ -18,6 +18,7 @@ class __TwigTemplate_93b47cd7d527cd4af5126d1a41dfa07df22634a3baa5b4e41d6fa331c06
         }
 
         $this->blocks = array(
+            'title' => array($this, 'block_title'),
             'body' => array($this, 'block_body'),
         );
     }
@@ -30,6 +31,12 @@ class __TwigTemplate_93b47cd7d527cd4af5126d1a41dfa07df22634a3baa5b4e41d6fa331c06
     protected function doDisplay(array $context, array $blocks = array())
     {
         $this->parent->display($context, array_merge($this->blocks, $blocks));
+    }
+
+    // line 2
+    public function block_title($context, array $blocks = array())
+    {
+        echo "Depot";
     }
 
     // line 3
@@ -72,6 +79,6 @@ class __TwigTemplate_93b47cd7d527cd4af5126d1a41dfa07df22634a3baa5b4e41d6fa331c06
 
     public function getDebugInfo()
     {
-        return array (  57 => 14,  50 => 10,  43 => 6,  39 => 4,  36 => 3,  11 => 1,);
+        return array (  64 => 14,  57 => 10,  50 => 6,  46 => 4,  43 => 3,  37 => 2,  11 => 1,);
     }
 }
