@@ -18,6 +18,7 @@ class __TwigTemplate_419348becadcec970b949bfd9931756f1d56d2f74d1ff60f696f7d215eb
         }
 
         $this->blocks = array(
+            'title' => array($this, 'block_title'),
             'body' => array($this, 'block_body'),
         );
     }
@@ -30,6 +31,12 @@ class __TwigTemplate_419348becadcec970b949bfd9931756f1d56d2f74d1ff60f696f7d215eb
     protected function doDisplay(array $context, array $blocks = array())
     {
         $this->parent->display($context, array_merge($this->blocks, $blocks));
+    }
+
+    // line 2
+    public function block_title($context, array $blocks = array())
+    {
+        echo "Utilisateur|Ajout";
     }
 
     // line 3
@@ -143,6 +150,6 @@ class __TwigTemplate_419348becadcec970b949bfd9931756f1d56d2f74d1ff60f696f7d215eb
 
     public function getDebugInfo()
     {
-        return array (  128 => 58,  121 => 54,  113 => 49,  103 => 42,  96 => 38,  89 => 34,  82 => 30,  75 => 26,  68 => 22,  61 => 18,  54 => 14,  47 => 10,  39 => 4,  36 => 3,  11 => 1,);
+        return array (  135 => 58,  128 => 54,  120 => 49,  110 => 42,  103 => 38,  96 => 34,  89 => 30,  82 => 26,  75 => 22,  68 => 18,  61 => 14,  54 => 10,  46 => 4,  43 => 3,  37 => 2,  11 => 1,);
     }
 }

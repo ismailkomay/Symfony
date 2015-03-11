@@ -18,6 +18,7 @@ class __TwigTemplate_a9a14944ae2e46c8d9323f7773db33af7f9d1ae5d6eb0e50fddf779371b
         }
 
         $this->blocks = array(
+            'title' => array($this, 'block_title'),
             'body' => array($this, 'block_body'),
         );
     }
@@ -30,6 +31,12 @@ class __TwigTemplate_a9a14944ae2e46c8d9323f7773db33af7f9d1ae5d6eb0e50fddf779371b
     protected function doDisplay(array $context, array $blocks = array())
     {
         $this->parent->display($context, array_merge($this->blocks, $blocks));
+    }
+
+    // line 2
+    public function block_title($context, array $blocks = array())
+    {
+        echo "Role";
     }
 
     // line 3
@@ -276,6 +283,6 @@ class __TwigTemplate_a9a14944ae2e46c8d9323f7773db33af7f9d1ae5d6eb0e50fddf779371b
 
     public function getDebugInfo()
     {
-        return array (  261 => 134,  254 => 130,  246 => 125,  236 => 118,  229 => 114,  222 => 110,  215 => 106,  208 => 102,  201 => 98,  194 => 94,  187 => 90,  180 => 86,  173 => 82,  166 => 78,  159 => 74,  152 => 70,  145 => 66,  138 => 62,  131 => 58,  124 => 54,  117 => 50,  110 => 46,  103 => 42,  96 => 38,  89 => 34,  82 => 30,  75 => 26,  68 => 22,  61 => 18,  54 => 14,  47 => 10,  39 => 4,  36 => 3,  11 => 1,);
+        return array (  268 => 134,  261 => 130,  253 => 125,  243 => 118,  236 => 114,  229 => 110,  222 => 106,  215 => 102,  208 => 98,  201 => 94,  194 => 90,  187 => 86,  180 => 82,  173 => 78,  166 => 74,  159 => 70,  152 => 66,  145 => 62,  138 => 58,  131 => 54,  124 => 50,  117 => 46,  110 => 42,  103 => 38,  96 => 34,  89 => 30,  82 => 26,  75 => 22,  68 => 18,  61 => 14,  54 => 10,  46 => 4,  43 => 3,  37 => 2,  11 => 1,);
     }
 }

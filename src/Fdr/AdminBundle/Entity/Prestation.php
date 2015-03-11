@@ -3,10 +3,11 @@
 namespace Fdr\AdminBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 /**
  * Prestation
- *
+ * @UniqueEntity("code",  message ="Ce code existe déja.Veuillez choisir un autre")
  * @ORM\Table(name="prestation")
  * @ORM\Entity
  */
@@ -38,14 +39,15 @@ class Prestation
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank()
+     * @Assert\Type(type="alnum", message="La valeur {{ value }} n'est pas valide.")
      * @ORM\Column(name="code", type="string", length=100, nullable=false, unique=true)
      */
     private $code;
 
     /**
      * @var string
-     *
+     * @Assert\Type(type="alnum", message="La valeur du champs n'est pas valide.")
      * @ORM\Column(name="description", type="string", length=255, nullable=true)
      */
     private $description;

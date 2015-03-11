@@ -4,9 +4,11 @@ namespace Fdr\AdminBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 /**
  * Secteur
- *
+ * @UniqueEntity("libelle",  message ="Cette libelle existe déja.Veuillez choisir une autre")
+ * @UniqueEntity("code",  message ="Ce code existe déja.Veuillez choisir une autre")
  * @ORM\Table(name="secteur")
  * @ORM\Entity
  */
@@ -29,7 +31,7 @@ class Secteur
     private $prestations;
     /**
      * @var integer
-     *
+     * 
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
@@ -38,7 +40,8 @@ class Secteur
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank()
+     * @Assert\Type(type="alnum", message="La valeur du champs n'est pas valide.")
      * @ORM\Column(name="code", type="string", length=100, nullable=false,unique=true)
      */
     private $code;
@@ -52,26 +55,27 @@ class Secteur
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank()
+     * @Assert\Type(type="alnum", message="La valeur du champs n'est pas valide.")
      * @ORM\Column(name="libelle", type="string", length=100, nullable=false, unique=true)
      */
     private $libelle;
      /**
      * @var string
-     *
+     * @Assert\Type(type="alnum", message="La valeur du champs n'est pas valide.")
      * @ORM\Column(name="depart", type="string", length=100, nullable=true)
      */
     private $depart;
 
     /**
      * @var string
-     *
+     * @Assert\Type(type="alnum", message="La valeur du champs n'est pas valide.")
      * @ORM\Column(name="arrivee", type="string", length=100, nullable=true)
      */
     private $arrivee;
     /**
      * @var string
-     *
+     * @Assert\Type(type="alnum", message="La valeur du champs n'est pas valide.")
      * @ORM\Column(name="remarques", type="string", length=255, nullable=true)
      */
     private $remarques;

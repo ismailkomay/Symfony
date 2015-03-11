@@ -3,7 +3,8 @@
 namespace Fdr\AdminBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 /**
  * Peage
  *
@@ -15,6 +16,7 @@ class Peage
     /**
    * @ORM\ManyToOne(targetEntity="FeuilleDeRoute",inversedBy="peages")
    * @ORM\JoinColumn(nullable=false)
+   * @Assert\NotBlank()
    */
   
     private $feuilleDeRoute;
@@ -29,21 +31,23 @@ class Peage
 
     /**
      * @var string
-     *
+    * @Assert\NotBlank()
+    * @Assert\Type(type="alnum", message="La valeur {{ value }} n'est pas valide.")
      * @ORM\Column(name="numCarte", type="string", length=100)
      */
     private $numCarte;
 
     /**
      * @var \DateTime
-     *
+     * @Assert\NotBlank()
      * @ORM\Column(name="DatePassage", type="datetime")
      */
     private $datePassage;
 
     /**
      * @var float
-     *
+     * @Assert\NotBlank()
+     * @Assert\Type(type="float", message="La valeur {{ value }} n'est pas valide.")
      * @ORM\Column(name="montant", type="float")
      */
     private $montant;

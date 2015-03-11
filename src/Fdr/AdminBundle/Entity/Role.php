@@ -3,7 +3,7 @@
 namespace Fdr\AdminBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Role
  *
@@ -33,14 +33,14 @@ class Role
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="nomRole", type="string", length=100 , nullable=true)
+     * @Assert\Type(type="alnum", message="La valeur du champs n'est pas valide.")
+     * @ORM\Column(name="nomRole", type="string", length=100 , nullable=false)
      */
     private $nomRole;
 
     /**
      * @var string
-     *
+     * @Assert\Type(type="alnum", message="La valeur du champs n'est pas valide.")
      * @ORM\Column(name="description", type="string", length=255, nullable=true)
      */
     private $description;
@@ -223,7 +223,7 @@ class Role
     /**
      * @var boolean
      *
-     * @ORM\Column(name="administrer", type="boolean", nullable=true, nullable=true)
+     * @ORM\Column(name="administrer", type="boolean", nullable=true)
      */
     private $administrer;
 

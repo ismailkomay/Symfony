@@ -4,6 +4,7 @@ namespace Fdr\AdminBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * TypeConsommation
  *
@@ -32,28 +33,32 @@ class TypeConsommation
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank()
+     * @Assert\Type(type="alnum", message="La valeur du champs n'est pas valide.")
      * @ORM\Column(name="type", type="string", length=100)
      */
     private $type;
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank()
+     * @Assert\Type(type="alnum", message="La valeur du champs n'est pas valide.")
      * @ORM\Column(name="agence", type="string", length=100)
      */
     private $agence;
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank()
+     * @Assert\Type(type="alnum", message="La valeur du champs n'est pas valide.")
      * @ORM\Column(name="produit", type="string", length=100)
      */
     private $produit;
 
     /**
      * @var float
-     *
+     * @Assert\NotBlank()
+     * @Assert\Type(type="float", message="La valeur du champs n'est pas valide.")
      * @ORM\Column(name="prixUnitaire", type="float")
      */
     private $prixUnitaire;

@@ -4,11 +4,14 @@ namespace Fdr\AdminBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 /**
  * Typeprestation
  *
  * @ORM\Table(name="typeprestation")
  * @ORM\Entity
+ * 
  */
 class TypePrestation
 {
@@ -43,7 +46,8 @@ class TypePrestation
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank()
+     * @Assert\Type(type="alnum", message="La valeur du champs n'est pas valide.")
      * @ORM\Column(name="libelle", type="string", length=100, nullable=false, unique=true)
      */
     private $libelle;

@@ -1,12 +1,11 @@
 <?php
 
 namespace Fdr\AdminBundle\Entity;
-
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 /**
  * Chauffeur
- *
  * @ORM\Table(name="chauffeur")
  * @ORM\Entity
  */
@@ -39,35 +38,38 @@ class Chauffeur
 
     /**
      * @var string
-     *
+     * @Assert\Type(type="alpha", message="La valeur {{ value }} n'est pas valide.")
      * @ORM\Column(name="nom", type="string", length=100, nullable=false)
+     *  @Assert\NotBlank()
      */
     private $nom;
 
     /**
      * @var string
-     *
+     * @Assert\Type(type="alnum", message="La valeur {{ value }} n'est pas valide.")
      * @ORM\Column(name="prenom", type="string", length=100, nullable=false)
+     *  @Assert\NotBlank()
      */
     private $prenom;
 
     /**
      * @var string
-     *
+     * @Assert\Type(type="digit", message="La valeur {{ value }} n'est pas valide.")
      * @ORM\Column(name="tel", type="string", length=100, nullable=true)
      */
     private $tel;
 
     /**
      * @var string
-     *
+     * @Assert\Type(type="alnum", message="La valeur {{ value }} n'est pas valide.")
      * @ORM\Column(name="cin", type="string", length=100, nullable=false)
+     *  @Assert\NotBlank()
      */
     private $cin;
 
     /**
      * @var string
-     *
+     * @Assert\Type(type="alnum", message="La valeur {{ value }} n'est pas valide.")
      * @ORM\Column(name="adresse", type="string", length=255, nullable=true)
      */
     private $adresse;
@@ -76,6 +78,7 @@ class Chauffeur
      * @var \DateTime
      *
      * @ORM\Column(name="dateembauche", type="date", nullable=false)
+     *  @Assert\NotBlank()
      */
     private $dateembauche;
 
@@ -88,7 +91,7 @@ class Chauffeur
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank()
      * @ORM\Column(name="typeconvention", type="string", length=100, nullable=false)
      */
     private $typeconvention;
@@ -102,7 +105,7 @@ class Chauffeur
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank()
      * @ORM\Column(name="etatContrat", type="string", length=100, nullable=false)
      */
     private $etatContrat;

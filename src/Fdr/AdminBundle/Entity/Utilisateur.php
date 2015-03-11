@@ -1,13 +1,13 @@
 <?php
 
 namespace Fdr\AdminBundle\Entity;
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
-
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 /**
  * Utilisateur
- *
+ * @UniqueEntity("email",  message ="Cet email existe déja.Veuillez choisir un autre")
+ * @UniqueEntity("login",  message ="Ce login existe déja.Veuillez choisir un autre")
  * @ORM\Table(name="utilisateur")
  * @ORM\Entity(repositoryClass="Fdr\AdminBundle\Entity\UtilisateurRepository")
  */
@@ -38,6 +38,15 @@ class Utilisateur
    */
   
     private $role;
+    
+    /**
+   * @ORM\ManyToOne(targetEntity="Depot",inversedBy="utilisateurs")
+   * @ORM\JoinColumn(nullable=false)
+   * @Assert\NotBlank()
+   * @Assert\Type(type="alnum", message="La valeur du champs n'est pas valide.")
+   */
+  
+    private $depot;
     /**
      * @var integer
      *
@@ -49,42 +58,48 @@ class Utilisateur
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank()
+     * @Assert\Type(type="alpha", message="La valeur du champs n'est pas valide.")
      * @ORM\Column(name="nom", type="string", length=100)
      */
     private $nom;
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank()
+     * @Assert\Type(type="alpha", message="La valeur {{ value }} n'est pas valide.")
      * @ORM\Column(name="prenom", type="string", length=100)
      */
     private $prenom;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="login", type="string", length=100)
+     * @Assert\NotBlank()
+     * @Assert\Type(type="alnum", message="La valeur {{ value }} n'est pas un {{ type }}.")
+     * @ORM\Column(name="login", type="string", length=100, unique=true)
      */
     private $login;
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank()
+     * @Assert\Type(type="alnum", message="La valeur {{ value }} n'est pas un {{ type }}.")
      * @ORM\Column(name="motDePasse", type="string", length=100)
      */
     private $motDePasse;
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank()
+     * @Assert\Type(type="alnum", message="La valeur {{ value }} n'est pas un {{ type }}.") 
      * @ORM\Column(name="matricule", type="string", length=100)
      */
     private $matricule;
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank()
+     * @Assert\Type(type="alnum", message="La valeur {{ value }} n'est pas un {{ type }}.") 
      * @ORM\Column(name="cin", type="string", length=100)
      */
     private $cin;
@@ -98,14 +113,14 @@ class Utilisateur
     
     /**
      * @var string
-     *
-     * @ORM\Column(name="tel", type="string", length=100, nullable=true)
+     * @Assert\Type(type="digit", message="La valeur {{ value }} n'est pas un {{ type }}.")
+     * @ORM\Column(name="tel", type="string", length=100, nullable=true, unique=true)
      */
     private $tel;
 
     /**
      * @var string
-     *
+     *  @Assert\Type(type="alnum", message="La valeur {{ value }} n'est pas un {{ type }}.")
      * @ORM\Column(name="adresse", type="string", length=255, nullable=true)
      */
     private $adresse;
@@ -480,5 +495,28 @@ class Utilisateur
     public function getEmail()
     {
         return $this->email;
+    }
+
+    /**
+     * Set depot
+     *
+     * @param \Fdr\AdminBundle\Entity\Depot $depot
+     * @return Utilisateur
+     */
+    public function setDepot(\Fdr\AdminBundle\Entity\Depot $depot)
+    {
+        $this->depot = $depot;
+
+        return $this;
+    }
+
+    /**
+     * Get depot
+     *
+     * @return \Fdr\AdminBundle\Entity\Depot 
+     */
+    public function getDepot()
+    {
+        return $this->depot;
     }
 }

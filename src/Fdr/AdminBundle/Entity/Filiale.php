@@ -4,10 +4,12 @@ namespace Fdr\AdminBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
-
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 /**
  * Filiale
- *
+ * @UniqueEntity("code",  message ="Ce code existe déja.Veuillez choisir un autre")
+ * @UniqueEntity("libelle",  message ="Cette libelle existe déja.Veuillez choisir une autre")
  * @ORM\Table(name="filiale")
  * @ORM\Entity(repositoryClass="Fdr\AdminBundle\Entity\FilialeRepository")
  */
@@ -40,21 +42,23 @@ class Filiale
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank()
+     * @Assert\Type(type="alnum", message="La valeur {{ value }} n'est pas valide.")
      * @ORM\Column(name="code", type="string", length=100, unique=true)
      */
     private $code;
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank()
+     * @Assert\Type(type="alnum", message="La valeur {{ value }} n'est pas valide.")
      * @ORM\Column(name="libelle", type="string", length=100)
      */
     private $libelle;
 
     /**
      * @var string
-     *
+     * @Assert\Type(type="alnum", message="La valeur {{ value }} n'est pas valide.")
      * @ORM\Column(name="adresse", type="string", length=255, nullable=true)
      */
     private $adresse;

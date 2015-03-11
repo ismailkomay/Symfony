@@ -4,10 +4,13 @@ namespace Fdr\AdminBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 /**
  * Depot
- *
  * @ORM\Table(name="depot")
+ * @UniqueEntity("code",  message ="Ce code existe déja.Veuillez choisir un autre")
+ * @UniqueEntity("libelle",  message ="Cette libelle existe déja.Veuillez choisir une autre")
  * @ORM\Entity(repositoryClass="Fdr\AdminBundle\Entity\DepotRepository")
  */
 class Depot
@@ -16,11 +19,18 @@ class Depot
     /**
    * @ORM\ManyToOne(targetEntity="Fdr\AdminBundle\Entity\Filiale", cascade={"remove"},inversedBy="depots")
    * @ORM\JoinColumn(nullable=false)
+   * @Assert\NotBlank()
    */
     private $filiale;
     
+   /**
+   * @ORM\OneToMany(targetEntity="Utilisateur",mappedBy="role")
+   * @ORM\JoinColumn(nullable=true)
+   */
+    private $utilisateurs;
+    
     public function __construct() {
-        
+        $this->utilisateurs = new ArrayCollection() ;
     }
   
     /**
@@ -34,21 +44,22 @@ class Depot
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank()
      * @ORM\Column(name="code", type="string", length=100, unique=true)
      */
     private $code;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="libelle", type="string", length=100,nullable=false)
+     * @Assert\NotBlank()
+     * @Assert\Type(type="alnum", message="La valeur {{ value }} n'est pas valide.")
+     * @ORM\Column(name="libelle", type="string", length=100,nullable=false, unique=true)
      */
     private $libelle;
 
     /**
      * @var string
-     *
+     * @Assert\Type(type="alnum", message="La valeur {{ value }} n'est pas valide.")
      * @ORM\Column(name="adresse", type="string", length=255, nullable=true)
      */
     private $adresse;
@@ -219,5 +230,38 @@ class Depot
     public function __toString()
     {
         return $this->libelle;
+    }
+
+    /**
+     * Add utilisateurs
+     *
+     * @param \Fdr\AdminBundle\Entity\Utilisateur $utilisateurs
+     * @return Depot
+     */
+    public function addUtilisateur(\Fdr\AdminBundle\Entity\Utilisateur $utilisateurs)
+    {
+        $this->utilisateurs[] = $utilisateurs;
+
+        return $this;
+    }
+
+    /**
+     * Remove utilisateurs
+     *
+     * @param \Fdr\AdminBundle\Entity\Utilisateur $utilisateurs
+     */
+    public function removeUtilisateur(\Fdr\AdminBundle\Entity\Utilisateur $utilisateurs)
+    {
+        $this->utilisateurs->removeElement($utilisateurs);
+    }
+
+    /**
+     * Get utilisateurs
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getUtilisateurs()
+    {
+        return $this->utilisateurs;
     }
 }

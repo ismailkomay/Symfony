@@ -18,6 +18,7 @@ class __TwigTemplate_0ac4d4325bd3daea8037f5db9da9678fc2875431010295ee12a66b013bc
         }
 
         $this->blocks = array(
+            'title' => array($this, 'block_title'),
             'body' => array($this, 'block_body'),
         );
     }
@@ -30,6 +31,12 @@ class __TwigTemplate_0ac4d4325bd3daea8037f5db9da9678fc2875431010295ee12a66b013bc
     protected function doDisplay(array $context, array $blocks = array())
     {
         $this->parent->display($context, array_merge($this->blocks, $blocks));
+    }
+
+    // line 2
+    public function block_title($context, array $blocks = array())
+    {
+        echo "Chauffeur|Accueil";
     }
 
     // line 3
@@ -157,6 +164,6 @@ class __TwigTemplate_0ac4d4325bd3daea8037f5db9da9678fc2875431010295ee12a66b013bc
 
     public function getDebugInfo()
     {
-        return array (  139 => 52,  132 => 47,  120 => 41,  114 => 38,  107 => 34,  103 => 33,  99 => 32,  93 => 31,  89 => 30,  85 => 29,  81 => 28,  77 => 27,  73 => 26,  67 => 25,  64 => 24,  60 => 23,  39 => 4,  36 => 3,  11 => 1,);
+        return array (  146 => 52,  139 => 47,  127 => 41,  121 => 38,  114 => 34,  110 => 33,  106 => 32,  100 => 31,  96 => 30,  92 => 29,  88 => 28,  84 => 27,  80 => 26,  74 => 25,  71 => 24,  67 => 23,  46 => 4,  43 => 3,  37 => 2,  11 => 1,);
     }
 }

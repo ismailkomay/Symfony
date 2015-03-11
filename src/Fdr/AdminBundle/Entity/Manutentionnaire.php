@@ -3,7 +3,7 @@
 namespace Fdr\AdminBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Manutentionnaire
  *
@@ -12,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Manutentionnaire
 {
-    
+
     /**
    * @ORM\ManyToMany(targetEntity="FeuilleDeRoute",inversedBy="manutentionnaires")
    * @ORM\JoinColumn(nullable=true)
@@ -21,7 +21,8 @@ class Manutentionnaire
     
     /**
      * @var integer
-     *
+     * @Assert\NotBlank()
+     * @Assert\Type(type="alnum", message="La valeur {{ value }} n'est pas valide.")
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
@@ -30,49 +31,53 @@ class Manutentionnaire
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank()
+     * @Assert\Type(type="alpha", message="La valeur {{ value }} n'est pas valide.")
      * @ORM\Column(name="nom", type="string", length=100, nullable=false)
      */
     private $nom;
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank()
+     * @Assert\Type(type="alpha", message="La valeur {{ value }} n'est pas valide.")
      * @ORM\Column(name="prenom", type="string", length=100, nullable=false)
      */
     private $prenom;
 
     /**
      * @var string
-     *
+     * @Assert\Type(type="alnum", message="La valeur {{ value }} n'est pas valide.")
      * @ORM\Column(name="matricule", type="string", length=100, nullable=true)
      */
     private $matricule;
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank()
+     * @Assert\Type(type="alpha", message="La valeur {{ value }} n'est pas valide.")
      * @ORM\Column(name="type", type="string", length=100, nullable=false)
      */
     private $type;
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank()
+     * @Assert\Type(type="alnum", message="La valeur {{ value }} n'est pas valide.")
      * @ORM\Column(name="cin", type="string", length=100, nullable=false)
      */
     private $cin;
 
     /**
      * @var string
-     *
+     * @Assert\Type(type="digit", message="La valeur {{ value }} n'est pas valide.")
      * @ORM\Column(name="tel", type="string", length=100, nullable=true)
      */
     private $tel;
 
     /**
      * @var string
-     *
+     * @Assert\Type(type="alnum", message="La valeur {{ value }} n'est pas valide.")
      * @ORM\Column(name="adresse", type="string", length=255, nullable=true)
      */
     private $adresse;

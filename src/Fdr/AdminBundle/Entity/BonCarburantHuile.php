@@ -1,7 +1,7 @@
 <?php
 
 namespace Fdr\AdminBundle\Entity;
-
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -15,11 +15,13 @@ class BonCarburantHuile
      /**
    * @ORM\ManyToOne(targetEntity="FeuilleDeRoute",inversedBy="bonCarburantHuiles")
    * @ORM\JoinColumn(nullable=false)
+   * @Assert\NotBlank()
    */
     private $feuilleDeRoute;
      /**
    * @ORM\ManyToOne(targetEntity="TypeConsommation",inversedBy="bonCarburantHuiles")
    * @ORM\JoinColumn(nullable=false)
+   * @Assert\NotBlank()
    */
   
     private $typeConsommation;
@@ -34,35 +36,39 @@ class BonCarburantHuile
 
     /**
      * @var string
-     *
+     * @Assert\Type(type="alnum", message="La valeur {{ value }} n'est pas valide.")
      * @ORM\Column(name="lieu", type="string", length=100, nullable=false)
+     * @Assert\NotBlank()
      */
     private $lieu;
 
     /**
      * @var \DateTime
-     *
+     * @Assert\NotBlank()
      * @ORM\Column(name="date", type="datetime", nullable=false)
      */
     private $date;
 
     /**
      * @var float
-     *
+     * @Assert\NotBlank()
+     * @Assert\Type(type="float", message="La valeur {{ value }} n'est pas valide.")
      * @ORM\Column(name="quantite", type="float")
      */
     private $quantite;
 
     /**
      * @var float
-     *
+     * @Assert\NotBlank()s   
+     * @Assert\Type(type="float", message="La valeur {{ value }} n'est pas valide.")
      * @ORM\Column(name="montant", type="float")
      */
     private $montant;
 
     /**
      * @var integer
-     *
+     * @Assert\NotBlank()      
+     * @Assert\Type(type="float", message="La valeur {{ value }} n'est pas valide.")
      * @ORM\Column(name="compteur", type="bigint")
      */
     private $compteur;

@@ -36,7 +36,7 @@ class __TwigTemplate_d92242e6a9ac0dc9a65bcf1f153b4be69c4dffc2eb41cad34d9c2b82614
     // line 2
     public function block_title($context, array $blocks = array())
     {
-        echo "Secteur";
+        echo "Secteur|Accueil";
     }
 
     // line 3

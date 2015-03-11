@@ -3,6 +3,7 @@
 namespace Fdr\AdminBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Indisponibilite
@@ -15,13 +16,14 @@ class Indisponibilite
     /**
    * @ORM\ManyToOne(targetEntity="Chauffeur",inversedBy="indisponibilites", cascade={"remove"})
    * @ORM\JoinColumn(nullable=false)
+    * @Assert\NotBlank()
    */
   
     private $chauffeur;
     
     /**
      * @var integer
-     *
+     * 
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
@@ -30,21 +32,22 @@ class Indisponibilite
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank()
+     * @Assert\Type(type="alnum", message="La valeur {{ value }} n'est pas valide.")
      * @ORM\Column(name="motif", type="string", length=255, nullable=false)
      */
     private $motif;
 
     /**
      * @var \DateTime
-     *
+     *@Assert\NotBlank()
      * @ORM\Column(name="datedebut", type="datetime", nullable=false)
      */
     private $datedebut;
 
     /**
      * @var \DateTime
-     *
+     * @Assert\NotBlank()
      * @ORM\Column(name="datefin", type="datetime", nullable=false)
      */
     private $datefin;

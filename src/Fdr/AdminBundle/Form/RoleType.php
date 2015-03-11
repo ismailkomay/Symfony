@@ -17,6 +17,7 @@ class RoleType extends AbstractType
         $builder
             ->add('nomRole')
             ->add('description')
+           ->add('administrer') 
             ->add('cRUDFDR')
             ->add('cRUDFDRPanne')
             ->add('cRUDFDRAgence')
@@ -42,6 +43,7 @@ class RoleType extends AbstractType
             ->add('cRUDTypePrestation')
             ->add('cRUDSecteur')
             ->add('cRUDTypeConsommation')
+            ->add('cRUDSecteur')  
 //            ->add('champSup1')
 //            ->add('champSup2')
 //            ->add('champSup3')

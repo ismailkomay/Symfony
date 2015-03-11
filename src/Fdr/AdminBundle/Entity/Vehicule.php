@@ -4,10 +4,11 @@ namespace Fdr\AdminBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 /**
  * Vehicule
- *
+ * @UniqueEntity("matricule",  message ="Ce matricule existe déja.Veuillez choisir un autre")
  * @ORM\Table(name="vehicule")
  * @ORM\Entity
  */
@@ -33,14 +34,16 @@ class Vehicule
 
     /**
      * @var float
-     *
+     * @Assert\NotBlank()
+     * @Assert\Type(type="float", message="La valeur du champs n'est pas valide.")
      * @ORM\Column(name="tonnage", type="float", precision=10, scale=0, nullable=false)
      */
     private $tonnage;
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank()
+     * @Assert\Type(type="alnum", message="La valeur du champs n'est pas valide.")
      * @ORM\Column(name="type", type="string", length=100, nullable=false)
      */
     private $type;
@@ -61,22 +64,25 @@ class Vehicule
 
     /**
      * @var integer
-     *
+     * @Assert\NotBlank()
+     * @Assert\Type(type="float", message="La valeur du champs n'est pas valide.")
      * @ORM\Column(name="vidange", type="bigint", nullable=false)
      */
     private $vidange;
 
     /**
      * @var integer
-     *
+     * @Assert\NotBlank()
+     * @Assert\Type(type="float", message="La valeur du champs n'est pas valide.")
      * @ORM\Column(name="compteur", type="bigint", nullable=false)
      */
     private $compteur;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="matricule", type="string", length=100, nullable=false)
+     * @Assert\NotBlank()
+     * @Assert\Type(type="alnum", message="La valeur du champs n'est pas valide.")
+     * @ORM\Column(name="matricule", type="string", length=100, nullable=false,unique=true)
      */
     private $matricule;
     /**
