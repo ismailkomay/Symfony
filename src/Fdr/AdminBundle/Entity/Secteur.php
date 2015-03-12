@@ -8,7 +8,6 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 /**
  * Secteur
  * @UniqueEntity("libelle",  message ="Cette libelle existe déja.Veuillez choisir une autre")
- * @UniqueEntity("code",  message ="Ce code existe déja.Veuillez choisir une autre")
  * @ORM\Table(name="secteur")
  * @ORM\Entity
  */
@@ -24,11 +23,12 @@ class Secteur
    * @ORM\JoinColumn(nullable=true)
    */
     private $clients;
-     /**
-   * @ORM\OneToMany(targetEntity="Prestation",mappedBy="secteur")
+    
+    /**
+   * @ORM\ManyToMany(targetEntity="TypePrestation",mappedBy="secteurs")
    * @ORM\JoinColumn(nullable=true)
    */
-    private $prestations;
+    private $typePrestations;
     /**
      * @var integer
      * 
@@ -41,45 +41,35 @@ class Secteur
     /**
      * @var string
      * @Assert\NotBlank()
-     * @Assert\Type(type="alnum", message="La valeur du champs n'est pas valide.")
-     * @ORM\Column(name="code", type="string", length=100, nullable=false,unique=true)
-     */
-    private $code;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="type", type="string", length=100, nullable=false)
-     */
-    private $type;
-
-    /**
-     * @var string
-     * @Assert\NotBlank()
-     * @Assert\Type(type="alnum", message="La valeur du champs n'est pas valide.")
      * @ORM\Column(name="libelle", type="string", length=100, nullable=false, unique=true)
      */
     private $libelle;
      /**
      * @var string
-     * @Assert\Type(type="alnum", message="La valeur du champs n'est pas valide.")
+     *
      * @ORM\Column(name="depart", type="string", length=100, nullable=true)
      */
     private $depart;
 
     /**
      * @var string
-     * @Assert\Type(type="alnum", message="La valeur du champs n'est pas valide.")
+     *
      * @ORM\Column(name="arrivee", type="string", length=100, nullable=true)
      */
     private $arrivee;
     /**
      * @var string
-     * @Assert\Type(type="alnum", message="La valeur du champs n'est pas valide.")
+     *
      * @ORM\Column(name="remarques", type="string", length=255, nullable=true)
      */
     private $remarques;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="villeappartenance", type="string", length=100, nullable=true)
+     */
+    private $villeappartenance;
     /**
      * @var string
      *
@@ -100,7 +90,7 @@ class Secteur
      */
     public function __construct()
     {
-        $this->prestations = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->typePrestations = new \Doctrine\Common\Collections\ArrayCollection();
         $this->clients = new \Doctrine\Common\Collections\ArrayCollection();
         $this->feuilleDeRoutes = new \Doctrine\Common\Collections\ArrayCollection();
     }
@@ -181,54 +171,6 @@ class Secteur
     {
         return $this->remarques;
     }
-
-
-    /**
-     * Set code
-     *
-     * @param string $code
-     * @return Secteur
-     */
-    public function setCode($code)
-    {
-        $this->code = $code;
-    
-        return $this;
-    }
-
-    /**
-     * Get code
-     *
-     * @return string 
-     */
-    public function getCode()
-    {
-        return $this->code;
-    }
-
-    /**
-     * Set type
-     *
-     * @param string $type
-     * @return Secteur
-     */
-    public function setType($type)
-    {
-        $this->type = $type;
-    
-        return $this;
-    }
-
-    /**
-     * Get type
-     *
-     * @return string 
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
-
     /**
      * Set libelle
      *
@@ -299,39 +241,6 @@ class Secteur
     }
 
     /**
-     * Add prestations
-     *
-     * @param \Fdr\AdminBundle\Entity\Prestation $prestations
-     * @return Secteur
-     */
-    public function addPrestation(\Fdr\AdminBundle\Entity\Prestation $prestations)
-    {
-        $this->prestations[] = $prestations;
-    
-        return $this;
-    }
-
-    /**
-     * Remove prestations
-     *
-     * @param \Fdr\AdminBundle\Entity\Prestation $prestations
-     */
-    public function removePrestation(\Fdr\AdminBundle\Entity\Prestation $prestations)
-    {
-        $this->prestations->removeElement($prestations);
-    }
-
-    /**
-     * Get prestations
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getPrestations()
-    {
-        return $this->prestations;
-    }
-
-    /**
      * Add clients
      *
      * @param \Fdr\AdminBundle\Entity\Client $clients
@@ -364,10 +273,7 @@ class Secteur
         return $this->clients;
     }
     
-    public function __toString()
-    {
-        return $this->libelle;
-    }
+    
 
     /**
      * Add feuilleDeRoutes
@@ -400,5 +306,66 @@ class Secteur
     public function getFeuilleDeRoutes()
     {
         return $this->feuilleDeRoutes;
+    }
+
+    /**
+     * Add typePrestations
+     *
+     * @param \Fdr\AdminBundle\Entity\TypePrestation $typePrestations
+     * @return Secteur
+     */
+    public function addTypePrestation(\Fdr\AdminBundle\Entity\TypePrestation $typePrestations)
+    {
+        $this->typePrestations[] = $typePrestations;
+
+        return $this;
+    }
+
+    /**
+     * Remove typePrestations
+     *
+     * @param \Fdr\AdminBundle\Entity\TypePrestation $typePrestations
+     */
+    public function removeTypePrestation(\Fdr\AdminBundle\Entity\TypePrestation $typePrestations)
+    {
+        $this->typePrestations->removeElement($typePrestations);
+    }
+
+    /**
+     * Get typePrestations
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getTypePrestations()
+    {
+        return $this->typePrestations;
+    }
+    
+    /**
+     * Set villeappartenance
+     *
+     * @param string $villeappartenance
+     * @return TypePrestation
+     */
+    public function setVilleappartenance($villeappartenance)
+    {
+        $this->villeappartenance = $villeappartenance;
+
+        return $this;
+    }
+
+    /**
+     * Get villeappartenance
+     *
+     * @return string 
+     */
+    public function getVilleappartenance()
+    {
+        return $this->villeappartenance;
+    }
+    
+    public function __toString()
+    {
+        return $this->libelle.'-'.$this->villeappartenance;
     }
 }

@@ -127,6 +127,126 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        if (0 === strpos($pathinfo, '/typeprestation')) {
+            // typeprestation
+            if (rtrim($pathinfo, '/') === '/typeprestation') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'typeprestation');
+                }
+
+                return array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\TypePrestationController::indexAction',  '_route' => 'typeprestation',);
+            }
+
+            // typeprestation_show
+            if (preg_match('#^/typeprestation/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'typeprestation_show')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\TypePrestationController::showAction',));
+            }
+
+            // typeprestation_new
+            if ($pathinfo === '/typeprestation/new') {
+                return array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\TypePrestationController::newAction',  '_route' => 'typeprestation_new',);
+            }
+
+            // typeprestation_create
+            if ($pathinfo === '/typeprestation/create') {
+                if ($this->context->getMethod() != 'POST') {
+                    $allow[] = 'POST';
+                    goto not_typeprestation_create;
+                }
+
+                return array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\TypePrestationController::createAction',  '_route' => 'typeprestation_create',);
+            }
+            not_typeprestation_create:
+
+            // typeprestation_edit
+            if (preg_match('#^/typeprestation/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'typeprestation_edit')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\TypePrestationController::editAction',));
+            }
+
+            // typeprestation_update
+            if (preg_match('#^/typeprestation/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
+                    $allow = array_merge($allow, array('POST', 'PUT'));
+                    goto not_typeprestation_update;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'typeprestation_update')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\TypePrestationController::updateAction',));
+            }
+            not_typeprestation_update:
+
+            // typeprestation_delete
+            if (preg_match('#^/typeprestation/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
+                    $allow = array_merge($allow, array('POST', 'DELETE'));
+                    goto not_typeprestation_delete;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'typeprestation_delete')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\TypePrestationController::deleteAction',));
+            }
+            not_typeprestation_delete:
+
+        }
+
+        if (0 === strpos($pathinfo, '/secteur')) {
+            // secteur
+            if (rtrim($pathinfo, '/') === '/secteur') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'secteur');
+                }
+
+                return array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\SecteurController::indexAction',  '_route' => 'secteur',);
+            }
+
+            // secteur_show
+            if (preg_match('#^/secteur/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'secteur_show')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\SecteurController::showAction',));
+            }
+
+            // secteur_new
+            if ($pathinfo === '/secteur/new') {
+                return array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\SecteurController::newAction',  '_route' => 'secteur_new',);
+            }
+
+            // secteur_create
+            if ($pathinfo === '/secteur/create') {
+                if ($this->context->getMethod() != 'POST') {
+                    $allow[] = 'POST';
+                    goto not_secteur_create;
+                }
+
+                return array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\SecteurController::createAction',  '_route' => 'secteur_create',);
+            }
+            not_secteur_create:
+
+            // secteur_edit
+            if (preg_match('#^/secteur/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'secteur_edit')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\SecteurController::editAction',));
+            }
+
+            // secteur_update
+            if (preg_match('#^/secteur/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
+                    $allow = array_merge($allow, array('POST', 'PUT'));
+                    goto not_secteur_update;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'secteur_update')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\SecteurController::updateAction',));
+            }
+            not_secteur_update:
+
+            // secteur_delete
+            if (preg_match('#^/secteur/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
+                    $allow = array_merge($allow, array('POST', 'DELETE'));
+                    goto not_secteur_delete;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'secteur_delete')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\SecteurController::deleteAction',));
+            }
+            not_secteur_delete:
+
+        }
+
         if (0 === strpos($pathinfo, '/feuillederoute')) {
             // feuillederoute
             if (rtrim($pathinfo, '/') === '/feuillederoute') {
@@ -307,66 +427,6 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        if (0 === strpos($pathinfo, '/typeprestation')) {
-            // typeprestation
-            if (rtrim($pathinfo, '/') === '/typeprestation') {
-                if (substr($pathinfo, -1) !== '/') {
-                    return $this->redirect($pathinfo.'/', 'typeprestation');
-                }
-
-                return array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\TypePrestationController::indexAction',  '_route' => 'typeprestation',);
-            }
-
-            // typeprestation_show
-            if (preg_match('#^/typeprestation/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'typeprestation_show')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\TypePrestationController::showAction',));
-            }
-
-            // typeprestation_new
-            if ($pathinfo === '/typeprestation/new') {
-                return array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\TypePrestationController::newAction',  '_route' => 'typeprestation_new',);
-            }
-
-            // typeprestation_create
-            if ($pathinfo === '/typeprestation/create') {
-                if ($this->context->getMethod() != 'POST') {
-                    $allow[] = 'POST';
-                    goto not_typeprestation_create;
-                }
-
-                return array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\TypePrestationController::createAction',  '_route' => 'typeprestation_create',);
-            }
-            not_typeprestation_create:
-
-            // typeprestation_edit
-            if (preg_match('#^/typeprestation/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'typeprestation_edit')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\TypePrestationController::editAction',));
-            }
-
-            // typeprestation_update
-            if (preg_match('#^/typeprestation/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
-                if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
-                    $allow = array_merge($allow, array('POST', 'PUT'));
-                    goto not_typeprestation_update;
-                }
-
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'typeprestation_update')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\TypePrestationController::updateAction',));
-            }
-            not_typeprestation_update:
-
-            // typeprestation_delete
-            if (preg_match('#^/typeprestation/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
-                if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
-                    $allow = array_merge($allow, array('POST', 'DELETE'));
-                    goto not_typeprestation_delete;
-                }
-
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'typeprestation_delete')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\TypePrestationController::deleteAction',));
-            }
-            not_typeprestation_delete:
-
-        }
-
         if (0 === strpos($pathinfo, '/boncarburanthuile')) {
             // boncarburanthuile
             if (rtrim($pathinfo, '/') === '/boncarburanthuile') {
@@ -487,66 +547,6 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        if (0 === strpos($pathinfo, '/secteur')) {
-            // secteur
-            if (rtrim($pathinfo, '/') === '/secteur') {
-                if (substr($pathinfo, -1) !== '/') {
-                    return $this->redirect($pathinfo.'/', 'secteur');
-                }
-
-                return array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\SecteurController::indexAction',  '_route' => 'secteur',);
-            }
-
-            // secteur_show
-            if (preg_match('#^/secteur/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'secteur_show')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\SecteurController::showAction',));
-            }
-
-            // secteur_new
-            if ($pathinfo === '/secteur/new') {
-                return array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\SecteurController::newAction',  '_route' => 'secteur_new',);
-            }
-
-            // secteur_create
-            if ($pathinfo === '/secteur/create') {
-                if ($this->context->getMethod() != 'POST') {
-                    $allow[] = 'POST';
-                    goto not_secteur_create;
-                }
-
-                return array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\SecteurController::createAction',  '_route' => 'secteur_create',);
-            }
-            not_secteur_create:
-
-            // secteur_edit
-            if (preg_match('#^/secteur/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'secteur_edit')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\SecteurController::editAction',));
-            }
-
-            // secteur_update
-            if (preg_match('#^/secteur/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
-                if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
-                    $allow = array_merge($allow, array('POST', 'PUT'));
-                    goto not_secteur_update;
-                }
-
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'secteur_update')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\SecteurController::updateAction',));
-            }
-            not_secteur_update:
-
-            // secteur_delete
-            if (preg_match('#^/secteur/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
-                if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
-                    $allow = array_merge($allow, array('POST', 'DELETE'));
-                    goto not_secteur_delete;
-                }
-
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'secteur_delete')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\SecteurController::deleteAction',));
-            }
-            not_secteur_delete:
-
-        }
-
         if (0 === strpos($pathinfo, '/role')) {
             // role
             if (rtrim($pathinfo, '/') === '/role') {
@@ -607,126 +607,63 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        if (0 === strpos($pathinfo, '/p')) {
-            if (0 === strpos($pathinfo, '/prestation')) {
-                // prestation
-                if (rtrim($pathinfo, '/') === '/prestation') {
-                    if (substr($pathinfo, -1) !== '/') {
-                        return $this->redirect($pathinfo.'/', 'prestation');
-                    }
-
-                    return array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\PrestationController::indexAction',  '_route' => 'prestation',);
+        if (0 === strpos($pathinfo, '/peage')) {
+            // peage
+            if (rtrim($pathinfo, '/') === '/peage') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'peage');
                 }
 
-                // prestation_show
-                if (preg_match('#^/prestation/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'prestation_show')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\PrestationController::showAction',));
-                }
-
-                // prestation_new
-                if ($pathinfo === '/prestation/new') {
-                    return array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\PrestationController::newAction',  '_route' => 'prestation_new',);
-                }
-
-                // prestation_create
-                if ($pathinfo === '/prestation/create') {
-                    if ($this->context->getMethod() != 'POST') {
-                        $allow[] = 'POST';
-                        goto not_prestation_create;
-                    }
-
-                    return array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\PrestationController::createAction',  '_route' => 'prestation_create',);
-                }
-                not_prestation_create:
-
-                // prestation_edit
-                if (preg_match('#^/prestation/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'prestation_edit')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\PrestationController::editAction',));
-                }
-
-                // prestation_update
-                if (preg_match('#^/prestation/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
-                    if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
-                        $allow = array_merge($allow, array('POST', 'PUT'));
-                        goto not_prestation_update;
-                    }
-
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'prestation_update')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\PrestationController::updateAction',));
-                }
-                not_prestation_update:
-
-                // prestation_delete
-                if (preg_match('#^/prestation/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
-                    if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
-                        $allow = array_merge($allow, array('POST', 'DELETE'));
-                        goto not_prestation_delete;
-                    }
-
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'prestation_delete')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\PrestationController::deleteAction',));
-                }
-                not_prestation_delete:
-
+                return array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\PeageController::indexAction',  '_route' => 'peage',);
             }
 
-            if (0 === strpos($pathinfo, '/peage')) {
-                // peage
-                if (rtrim($pathinfo, '/') === '/peage') {
-                    if (substr($pathinfo, -1) !== '/') {
-                        return $this->redirect($pathinfo.'/', 'peage');
-                    }
-
-                    return array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\PeageController::indexAction',  '_route' => 'peage',);
-                }
-
-                // peage_show
-                if (preg_match('#^/peage/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'peage_show')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\PeageController::showAction',));
-                }
-
-                // peage_new
-                if ($pathinfo === '/peage/new') {
-                    return array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\PeageController::newAction',  '_route' => 'peage_new',);
-                }
-
-                // peage_create
-                if ($pathinfo === '/peage/create') {
-                    if ($this->context->getMethod() != 'POST') {
-                        $allow[] = 'POST';
-                        goto not_peage_create;
-                    }
-
-                    return array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\PeageController::createAction',  '_route' => 'peage_create',);
-                }
-                not_peage_create:
-
-                // peage_edit
-                if (preg_match('#^/peage/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'peage_edit')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\PeageController::editAction',));
-                }
-
-                // peage_update
-                if (preg_match('#^/peage/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
-                    if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
-                        $allow = array_merge($allow, array('POST', 'PUT'));
-                        goto not_peage_update;
-                    }
-
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'peage_update')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\PeageController::updateAction',));
-                }
-                not_peage_update:
-
-                // peage_delete
-                if (preg_match('#^/peage/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
-                    if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
-                        $allow = array_merge($allow, array('POST', 'DELETE'));
-                        goto not_peage_delete;
-                    }
-
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'peage_delete')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\PeageController::deleteAction',));
-                }
-                not_peage_delete:
-
+            // peage_show
+            if (preg_match('#^/peage/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'peage_show')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\PeageController::showAction',));
             }
+
+            // peage_new
+            if ($pathinfo === '/peage/new') {
+                return array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\PeageController::newAction',  '_route' => 'peage_new',);
+            }
+
+            // peage_create
+            if ($pathinfo === '/peage/create') {
+                if ($this->context->getMethod() != 'POST') {
+                    $allow[] = 'POST';
+                    goto not_peage_create;
+                }
+
+                return array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\PeageController::createAction',  '_route' => 'peage_create',);
+            }
+            not_peage_create:
+
+            // peage_edit
+            if (preg_match('#^/peage/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'peage_edit')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\PeageController::editAction',));
+            }
+
+            // peage_update
+            if (preg_match('#^/peage/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
+                    $allow = array_merge($allow, array('POST', 'PUT'));
+                    goto not_peage_update;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'peage_update')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\PeageController::updateAction',));
+            }
+            not_peage_update:
+
+            // peage_delete
+            if (preg_match('#^/peage/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
+                    $allow = array_merge($allow, array('POST', 'DELETE'));
+                    goto not_peage_delete;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'peage_delete')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\PeageController::deleteAction',));
+            }
+            not_peage_delete:
 
         }
 

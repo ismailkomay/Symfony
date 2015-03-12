@@ -8,23 +8,22 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 /**
  * Typeprestation
- *
+ * @UniqueEntity("libelle",  message ="Cette libelle existe déja.Veuillez choisir une autre")
  * @ORM\Table(name="typeprestation")
  * @ORM\Entity
  * 
  */
 class TypePrestation
-{
-    
+{   
      /**
-   * @ORM\OneToMany(targetEntity="Prestation",mappedBy="typePrestation")
+   * @ORM\ManyToMany(targetEntity="Secteur",inversedBy="typePrestations")
    * @ORM\JoinColumn(nullable=true)
    */
-    private $prestations;
+    private $secteurs;
    
     
     public function __construct() {
-        $this->prestations = new ArrayCollection() ;
+        $this->secteurs = new ArrayCollection();
         $this->feuilleDeRoutes = new ArrayCollection();
     }
     
@@ -48,10 +47,11 @@ class TypePrestation
      * @var string
      * @Assert\NotBlank()
      * @Assert\Type(type="alnum", message="La valeur du champs n'est pas valide.")
-     * @ORM\Column(name="libelle", type="string", length=100, nullable=false, unique=true)
+     * @ORM\Column(name="libelle", type="string", length=100, nullable=false,unique=true)
      */
     private $libelle;
 
+    
     /**
      * @var string
      *
@@ -148,44 +148,6 @@ class TypePrestation
     }
 
     /**
-     * Add prestations
-     *
-     * @param \Fdr\AdminBundle\Entity\Prestation $prestations
-     * @return TypePrestation
-     */
-    public function addPrestation(\Fdr\AdminBundle\Entity\Prestation $prestations)
-    {
-        $this->prestations[] = $prestations;
-    
-        return $this;
-    }
-
-    /**
-     * Remove prestations
-     *
-     * @param \Fdr\AdminBundle\Entity\Prestation $prestations
-     */
-    public function removePrestation(\Fdr\AdminBundle\Entity\Prestation $prestations)
-    {
-        $this->prestations->removeElement($prestations);
-    }
-
-    /**
-     * Get prestations
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getPrestations()
-    {
-        return $this->prestations;
-    }
-    
-    public function __toString()
-    {
-        return $this->libelle;
-    }
-
-    /**
      * Add feuilleDeRoutes
      *
      * @param \Fdr\AdminBundle\Entity\FeuilleDeRoute $feuilleDeRoutes
@@ -216,5 +178,66 @@ class TypePrestation
     public function getFeuilleDeRoutes()
     {
         return $this->feuilleDeRoutes;
+    }
+
+    /**
+     * Add secteurs
+     *
+     * @param \Fdr\AdminBundle\Entity\Secteur $secteurs
+     * @return TypePrestation
+     */
+    public function addSecteur(\Fdr\AdminBundle\Entity\Secteur $secteurs)
+    {
+        $this->secteurs[] = $secteurs;
+
+        return $this;
+    }
+
+    /**
+     * Remove secteurs
+     *
+     * @param \Fdr\AdminBundle\Entity\Secteur $secteurs
+     */
+    public function removeSecteur(\Fdr\AdminBundle\Entity\Secteur $secteurs)
+    {
+        $this->secteurs->removeElement($secteurs);
+    }
+
+    /**
+     * Get secteurs
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getSecteurs()
+    {
+        return $this->secteurs;
+    }
+
+    /**
+     * Set villeappartenance
+     *
+     * @param string $villeappartenance
+     * @return TypePrestation
+     */
+    public function setVilleappartenance($villeappartenance)
+    {
+        $this->villeappartenance = $villeappartenance;
+
+        return $this;
+    }
+
+    /**
+     * Get villeappartenance
+     *
+     * @return string 
+     */
+    public function getVilleappartenance()
+    {
+        return $this->villeappartenance;
+    }
+    
+     public function __toString()
+    {
+        return $this->libelle;
     }
 }

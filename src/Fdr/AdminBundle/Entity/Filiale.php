@@ -43,7 +43,7 @@ class Filiale
     /**
      * @var string
      * @Assert\NotBlank()
-     * @Assert\Type(type="alnum", message="La valeur {{ value }} n'est pas valide.")
+     *
      * @ORM\Column(name="code", type="string", length=100, unique=true)
      */
     private $code;
@@ -51,14 +51,14 @@ class Filiale
     /**
      * @var string
      * @Assert\NotBlank()
-     * @Assert\Type(type="alnum", message="La valeur {{ value }} n'est pas valide.")
+     *
      * @ORM\Column(name="libelle", type="string", length=100)
      */
     private $libelle;
 
     /**
      * @var string
-     * @Assert\Type(type="alnum", message="La valeur {{ value }} n'est pas valide.")
+     *
      * @ORM\Column(name="adresse", type="string", length=255, nullable=true)
      */
     private $adresse;

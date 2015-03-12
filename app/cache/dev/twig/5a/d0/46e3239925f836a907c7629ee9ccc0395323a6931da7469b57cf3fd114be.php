@@ -36,7 +36,7 @@ class __TwigTemplate_5ad046e3239925f836a907c7629ee9ccc0395323a6931da7469b57cf3fd
     // line 2
     public function block_title($context, array $blocks = array())
     {
-        echo "Filiale";
+        echo "Filiale|Show";
     }
 
     // line 3

@@ -16,8 +16,7 @@ class TypePrestationType extends AbstractType
     {
         $builder
             ->add('libelle')
-//            ->add('champssupp1')
-//            ->add('champssupp2')
+            ->add('secteurs')
         ;
     }
     

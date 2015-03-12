@@ -18,8 +18,6 @@ class PeageType extends AbstractType
             ->add('numCarte')
             ->add('datePassage')
             ->add('montant')
-//            ->add('champSup1')
-//            ->add('champSup2')
             ->add('feuilleDeRoute')
         ;
     }

@@ -60,7 +60,7 @@ class SecteurController extends Controller
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createCreateForm(Secteur $entity=null)
+    private function createCreateForm(Secteur $entity)
     {
         $form = $this->createForm(new SecteurType(), $entity, array(
             'action' => $this->generateUrl('secteur_create'),
@@ -68,6 +68,7 @@ class SecteurController extends Controller
         ));
 
         $form->add('submit', 'submit', array('label' => 'Create'));
+
         return $form;
     }
 
@@ -79,6 +80,7 @@ class SecteurController extends Controller
     {
         $entity = new Secteur();
         $form   = $this->createCreateForm($entity);
+
         return $this->render('FdrAdminBundle:Secteur:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),

@@ -1,5 +1,5 @@
 {% extends '::base.html.twig' %}
-{% block title %}Secteur|Show{% endblock %}
+
 {% block body -%}
     <h1>Secteur</h1>
 
@@ -10,28 +10,40 @@
                 <td>{{ entity.id }}</td>
             </tr>
             <tr>
-                <th>Code</th>
-                <td>{{ entity.code }}</td>
+                <th>Type</th>
+                <td>
+                    <ul>
+                    {% for item in entity.typePrestations %}
+                        <li> {{ item }}</li>
+                    {% endfor %}
+                    </ul>
+                </td>
             </tr>
             <tr>
-                <th>Type</th>
-                <td>{{ entity.type }}</td>
+                <th>Clients</th>
+                <td>
+                    <ul>
+                    {% for item in entity.clients %}
+                        <li> {{ item }}</li>
+                    {% endfor %}
+                    </ul>
+                </td>
             </tr>
             <tr>
                 <th>Libelle</th>
                 <td>{{ entity.libelle }}</td>
             </tr>
             <tr>
-                <th>Client(s) du secteur</th>
-                <td>
-                    <ul>
-                        {% for item in entity.clients %}
-                        <li>
-                        {{ item }}
-                        </li>
-                          {% endfor %}
-                    </ul>
-                </td>
+                <th>Depart</th>
+                <td>{{ entity.depart }}</td>
+            </tr>
+            <tr>
+                <th>Arrivee</th>
+                <td>{{ entity.arrivee }}</td>
+            </tr>
+            <tr>
+                <th>Remarques</th>
+                <td>{{ entity.remarques }}</td>
             </tr>
         </tbody>
     </table>

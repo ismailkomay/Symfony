@@ -13,6 +13,16 @@
                 <th>Libelle</th>
                 <td>{{ entity.libelle }}</td>
             </tr>
+            <tr>
+                <th>Secteurs</th>
+                <td>
+                    <ul>
+                    {% for item in entity.secteurs %}
+                        <li> {{ item }}</li>
+                    {% endfor %}
+                    </ul>
+                </td>
+            </tr>
         </tbody>
     </table>
 

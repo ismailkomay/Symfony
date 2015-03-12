@@ -1,5 +1,5 @@
 {% extends '::base.html.twig' %}
-{% block title %}Secteur|Accueil{% endblock %}
+
 {% block body -%}
     <h1>Secteur list</h1>
 
@@ -7,10 +7,11 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Code</th>
                 <th>Type</th>
                 <th>Libelle</th>
-                <th>Clients</th>
+                <th>Depart</th>
+                <th>Arrivee</th>
+                <th>Remarques</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -18,19 +19,17 @@
         {% for entity in entities %}
             <tr>
                 <td><a href="{{ path('secteur_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{{ entity.code }}</td>
-                <td>{{ entity.type }}</td>
-                <td>{{ entity.libelle }}</td>
                 <td>
-                    <td>
                     <ul>
-                        {% for item in entity.clients %}
-                        <li>
-                        {{ item }}
-                        </li>
-                          {% endfor %}
+                    {% for item in entity.typePrestations %}
+                        <li> {{ item }}</li>
+                    {% endfor %}
                     </ul>
                 </td>
+                <td>{{ entity.libelle }}</td>
+                <td>{{ entity.depart }}</td>
+                <td>{{ entity.arrivee }}</td>
+                <td>{{ entity.remarques }}</td>
                 <td>
                 <ul>
                     <li>

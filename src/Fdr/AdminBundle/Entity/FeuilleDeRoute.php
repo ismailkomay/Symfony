@@ -189,6 +189,7 @@ class FeuilleDeRoute
 
     /**
      * @var integer
+     * @Assert\Type(type="float", message="La valeur {{ value }} n'est pas valide.")
      * @ORM\Column(name="calcDiffKm", type="integer", nullable=true)
      */
     private $calcDiffKm;

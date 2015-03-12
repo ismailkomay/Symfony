@@ -1,3 +1,11 @@
+fdr_admin_typeprestation:
+    resource: "@FdrAdminBundle/Resources/config/routing/typeprestation.yml"
+    prefix:   /typeprestation
+
+fdr_admin_secteur:
+    resource: "@FdrAdminBundle/Resources/config/routing/secteur.yml"
+    prefix:   /secteur
+
 fdr_admin_feuillederoute:
     resource: "@FdrAdminBundle/Resources/config/routing/feuillederoute.yml"
     prefix:   /feuillederoute
@@ -9,10 +17,6 @@ fdr_admin_vehicule:
 fdr_admin_utilisateur:
     resource: "@FdrAdminBundle/Resources/config/routing/utilisateur.yml"
     prefix:   /utilisateur
-
-fdr_admin_typeprestation:
-    resource: "@FdrAdminBundle/Resources/config/routing/typeprestation.yml"
-    prefix:   /typeprestation
 fdr_admin_boncarburanthuile:
     resource: "@FdrAdminBundle/Resources/config/routing/boncarburanthuile.yml"
     prefix:   /boncarburanthuile
@@ -21,17 +25,9 @@ fdr_admin_typeconsommation:
     resource: "@FdrAdminBundle/Resources/config/routing/typeconsommation.yml"
     prefix:   /typeconsommation
 
-fdr_admin_secteur:
-    resource: "@FdrAdminBundle/Resources/config/routing/secteur.yml"
-    prefix:   /secteur
-
 fdr_admin_role:
     resource: "@FdrAdminBundle/Resources/config/routing/role.yml"
     prefix:   /role
-
-fdr_admin_prestation:
-    resource: "@FdrAdminBundle/Resources/config/routing/prestation.yml"
-    prefix:   /prestation
 
 fdr_admin_peage:
     resource: "@FdrAdminBundle/Resources/config/routing/peage.yml"
