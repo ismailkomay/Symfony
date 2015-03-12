@@ -18,6 +18,7 @@ class __TwigTemplate_ecbd710b2ced641ef2c1db7d521e7d3112addbe0c73f004efcd2913c136
         }
 
         $this->blocks = array(
+            'title' => array($this, 'block_title'),
             'body' => array($this, 'block_body'),
         );
     }
@@ -30,6 +31,12 @@ class __TwigTemplate_ecbd710b2ced641ef2c1db7d521e7d3112addbe0c73f004efcd2913c136
     protected function doDisplay(array $context, array $blocks = array())
     {
         $this->parent->display($context, array_merge($this->blocks, $blocks));
+    }
+
+    // line 2
+    public function block_title($context, array $blocks = array())
+    {
+        echo "TypePrestation|Show";
     }
 
     // line 3
@@ -94,6 +101,6 @@ class __TwigTemplate_ecbd710b2ced641ef2c1db7d521e7d3112addbe0c73f004efcd2913c136
 
     public function getDebugInfo()
     {
-        return array (  79 => 30,  72 => 26,  64 => 21,  54 => 14,  47 => 10,  39 => 4,  36 => 3,  11 => 1,);
+        return array (  86 => 30,  79 => 26,  71 => 21,  61 => 14,  54 => 10,  46 => 4,  43 => 3,  37 => 2,  11 => 1,);
     }
 }

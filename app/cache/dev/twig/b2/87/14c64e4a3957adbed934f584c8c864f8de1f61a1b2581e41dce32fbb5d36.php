@@ -36,7 +36,7 @@ class __TwigTemplate_b28714c64e4a3957adbed934f584c8c864f8de1f61a1b2581e41dce32fb
     // line 2
     public function block_title($context, array $blocks = array())
     {
-        echo "Feuille de route";
+        echo "Feuille de route|New";
     }
 
     // line 3

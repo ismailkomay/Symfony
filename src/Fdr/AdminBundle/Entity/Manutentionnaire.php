@@ -21,7 +21,6 @@ class Manutentionnaire
     
     /**
      * @var integer
-     * @Assert\NotBlank()
      * @Assert\Type(type="alnum", message="La valeur {{ value }} n'est pas valide.")
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id

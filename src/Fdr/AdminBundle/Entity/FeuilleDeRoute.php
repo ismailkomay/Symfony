@@ -4,7 +4,7 @@ namespace Fdr\AdminBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
-use Symfony\Component\Validator\Constraints\DateTime;
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * FeuilleDeRoute
  *
@@ -26,14 +26,17 @@ class FeuilleDeRoute
   private $typePrestation;
  
   /**
+   * @Assert\NotBlank()
    * @ORM\ManyToOne(targetEntity="Secteur",inversedBy="feuilleDeRoutes")
-   * @ORM\JoinColumn(nullable=true)
+   * @ORM\JoinColumn(nullable=false)
+   * 
    */
   private $secteur;
   
   /**
    * @ORM\OneToMany(targetEntity="BonCarburantHuile",mappedBy="feuilleDeRoute")
    * @ORM\JoinColumn(nullable=false)
+   * @Assert\NotBlank()
    */
     private $bonCarburantHuiles;
   
@@ -45,17 +48,20 @@ class FeuilleDeRoute
     /**
    * @ORM\ManyToMany(targetEntity="Chauffeur",mappedBy="feuilleDeRoutes")
    * @ORM\JoinColumn(nullable=false)
+   * @Assert\NotBlank()
    */
     private $chauffeurs;
     /**
    * @ORM\ManyToMany(targetEntity="Utilisateur",mappedBy="feuilleDeRoutes")
    * @ORM\JoinColumn(nullable=false)
+   * @Assert\NotBlank()
    */
     private $utilisateurs;
     
     /**
     * @ORM\ManyToOne(targetEntity="Filiale", inversedBy="feuilleDeRoutes")
-	* @ORM\JoinColumn(nullable=false)
+     *  @ORM\JoinColumn(nullable=false)
+     * @Assert\NotBlank()
     */
     private $filiale;
 
@@ -170,84 +176,81 @@ class FeuilleDeRoute
 
     /**
      * @var integer
-     *
      * @ORM\Column(name="compteurFinal", type="bigint")
      */
     private $compteurFinal;
 
     /**
-     * @var string
+     * @var boolean
      *
-     * @ORM\Column(name="etat", type="string", length=100)
+     * @ORM\Column(name="cloture", type="boolean", nullable=true)
      */
-    private $etat='cloture';
+    private $cloture;
 
     /**
      * @var integer
-     *
      * @ORM\Column(name="calcDiffKm", type="integer", nullable=true)
      */
     private $calcDiffKm;
 
     /**
      * @var integer
-     *
+     * @Assert\Type(type="float", message="La valeur {{ value }} n'est pas valide.")
      * @ORM\Column(name="calcKmParcourus", type="integer", nullable=true)
      */
     private $calcKmParcourus;
 
     /**
      * @var integer
-     *
+     * @Assert\Type(type="integer", message="La valeur {{ value }} n'est pas valide.")
      * @ORM\Column(name="calcNbRepas", type="integer", nullable=true)
      */
     private $calcNbRepas;
 
     /**
      * @var integer
-     *
+     * @Assert\Type(type="integer", message="La valeur {{ value }} n'est pas valide.")
      * @ORM\Column(name="calcNbPetitDej", type="integer", nullable=true)
      */
     private $calcNbPetitDej;
 
     /**
      * @var integer
-     *
+     * @Assert\Type(type="integer", message="La valeur {{ value }} n'est pas valide.")
      * @ORM\Column(name="calcNbDecoucher", type="integer", nullable=true)
      */
     private $calcNbDecoucher;
 
     /**
      * @var float
-     *
+     * @Assert\Type(type="float", message="La valeur {{ value }} n'est pas valide.")
      * @ORM\Column(name="calcQuantite", type="float", nullable=true)
      */
     private $calcQuantite;
 
     /**
      * @var float
-     *
+     * @Assert\Type(type="float", message="La valeur {{ value }} n'est pas valide.")
      * @ORM\Column(name="calcMontantCarburant", type="float", nullable=true)
      */
     private $calcMontantCarburant;
 
     /**
      * @var float
-     *
+     * @Assert\Type(type="float", message="La valeur {{ value }} n'est pas valide.")
      * @ORM\Column(name="calcMontantPeage", type="float", nullable=true)
      */
     private $calcMontantPeage;
 
     /**
      * @var float
-     *
+     * @Assert\Type(type="float", message="La valeur {{ value }} n'est pas valide.")
      * @ORM\Column(name="calcNbJours", type="float", nullable=true)
      */
     private $calcNbJours;
 
     /**
      * @var boolean
-     *
      * @ORM\Column(name="primeRemorque", type="boolean", nullable=true)
      */
     private $primeRemorque;
@@ -261,21 +264,21 @@ class FeuilleDeRoute
 
     /**
      * @var string
-     *
+     * @Assert\Type(type="alnum", message="La valeur {{ value }} n'est pas valide.")
      * @ORM\Column(name="agentSaisie", type="string", length=100, nullable=true)
      */
     private $agentSaisie;
 
     /**
      * @var string
-     *
+     * @Assert\Type(type="alnum", message="La valeur {{ value }} n'est pas valide.")
      * @ORM\Column(name="operationnel", type="string", length=100, nullable=true)
      */
     private $operationnel;
 
     /**
      * @var string
-     *
+     * @Assert\Type(type="alnum", message="La valeur {{ value }} n'est pas valide.")
      * @ORM\Column(name="surveillant", type="string", length=100, nullable=true)
      */
     private $surveillant;
@@ -550,26 +553,26 @@ class FeuilleDeRoute
     }
 
     /**
-     * Set etat
+     * Set cloture
      *
-     * @param string $etat
+     * @param boolean $cloture
      * @return FeuilleDeRoute
      */
-    public function setEtat($etat)
+    public function setCloture($cloture)
     {
-        $this->etat = $etat;
+        $this->cloture = $cloture;
     
         return $this;
     }
 
     /**
-     * Get etat
+     * Get cloture
      *
-     * @return string 
+     * @return boolean 
      */
-    public function getEtat()
+    public function getCloture()
     {
-        return $this->etat;
+        return $this->cloture;
     }
 
     /**

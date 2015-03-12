@@ -18,6 +18,7 @@ class __TwigTemplate_6c3f0808b56c8bd152efa132008c36d5eb56841705ebfcc1f98e5996f27
         }
 
         $this->blocks = array(
+            'title' => array($this, 'block_title'),
             'body' => array($this, 'block_body'),
         );
     }
@@ -30,6 +31,12 @@ class __TwigTemplate_6c3f0808b56c8bd152efa132008c36d5eb56841705ebfcc1f98e5996f27
     protected function doDisplay(array $context, array $blocks = array())
     {
         $this->parent->display($context, array_merge($this->blocks, $blocks));
+    }
+
+    // line 2
+    public function block_title($context, array $blocks = array())
+    {
+        echo "TypePrestation|Accueil";
     }
 
     // line 3
@@ -115,6 +122,6 @@ class __TwigTemplate_6c3f0808b56c8bd152efa132008c36d5eb56841705ebfcc1f98e5996f27
 
     public function getDebugInfo()
     {
-        return array (  97 => 36,  90 => 31,  78 => 25,  72 => 22,  65 => 18,  59 => 17,  56 => 16,  52 => 15,  39 => 4,  36 => 3,  11 => 1,);
+        return array (  104 => 36,  97 => 31,  85 => 25,  79 => 22,  72 => 18,  66 => 17,  63 => 16,  59 => 15,  46 => 4,  43 => 3,  37 => 2,  11 => 1,);
     }
 }
