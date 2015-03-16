@@ -36,7 +36,7 @@ class __TwigTemplate_419348becadcec970b949bfd9931756f1d56d2f74d1ff60f696f7d215eb
     // line 2
     public function block_title($context, array $blocks = array())
     {
-        echo "Utilisateur|Ajout";
+        echo "Utilisateur|New";
     }
 
     // line 3

@@ -24,8 +24,8 @@ class Secteur
    */
     private $clients;
     
-    /**
-   * @ORM\ManyToMany(targetEntity="TypePrestation",mappedBy="secteurs")
+       /**
+   * @ORM\ManyToMany(targetEntity="TypePrestation",inversedBy="secteurs")
    * @ORM\JoinColumn(nullable=true)
    */
     private $typePrestations;

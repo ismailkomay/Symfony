@@ -55,17 +55,17 @@ class __TwigTemplate_774964429d5466367b962cfa14391bbb0ef8832639e8233ff6b543294e0
         echo "</td>
             </tr>
             <tr>
-                <th>Nomresponsable</th>
+                <th>Nom</th>
                 <td>";
         // line 14
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "nomresponsable", array()), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "nom", array()), "html", null, true);
         echo "</td>
             </tr>
             <tr>
-                <th>Prenomresponsable</th>
+                <th>Prenom</th>
                 <td>";
         // line 18
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "prenomresponsable", array()), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "prenom", array()), "html", null, true);
         echo "</td>
             </tr>
             <tr>

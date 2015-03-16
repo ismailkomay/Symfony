@@ -35,9 +35,11 @@ class MissionAffretementType extends AbstractType
             ->add('montantregle')
             ->add('nombnq')
             ->add('numcheque')
-            ->add('feuilleDeRoute')
+            //->add('feuilleDeRoute')
             ->add('client')
-            //->add('remarques','textarea',array('required'=>false))
+            ->add('nomresponsable')
+            ->add('telresponsable')
+            ->add('remarques','textarea',array('required'=>false))
         ;
     }
     

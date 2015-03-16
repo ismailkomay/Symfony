@@ -3,6 +3,7 @@
 namespace Fdr\AdminBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Missionaffretement
@@ -12,11 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class MissionAffretement
 {
-    /**
-   * @ORM\OneToOne(targetEntity="FeuilleDeRoute", cascade={"persist"})
-   * @ORM\JoinColumn(nullable=false)
-   */
-  private $feuilleDeRoute;
+    
   
   
   /**
@@ -72,26 +69,27 @@ class MissionAffretement
      * @var float
      *
      * @ORM\Column(name="valdeclassurance", type="float", precision=10, scale=0, nullable=true)
+     * @Assert\Type(type="float", message="La valeur du champs n'est pas valide.")
      */
     private $valdeclassurance;
 
     /**
      * @var string
-     *
+     * @Assert\Type(type="digit", message="La valeur du champs n'est pas valide.")
      * @ORM\Column(name="bonlivraison", type="string", length=100, nullable=true)
      */
     private $bonlivraison;
 
     /**
      * @var string
-     *
+     * @Assert\Type(type="digit", message="La valeur du champs n'est pas valide.")
      * @ORM\Column(name="numexpedition", type="string", length=100, nullable=true)
      */
     private $numexpedition;
 
     /**
      * @var \DateTime
-     *
+     * @Assert\NotBlank()
      * @ORM\Column(name="dateramassage", type="datetime", nullable=false)
      */
     private $dateramassage;
@@ -100,12 +98,25 @@ class MissionAffretement
      * @var string
      *
      * @ORM\Column(name="lieuramassage", type="string", length=100, nullable=false)
+     * @Assert\NotBlank()
      */
     private $lieuramassage;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nomresponsable", type="string", length=100, nullable=true)
+     */
+    private $nomresponsable;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="telresponsable", type="string", length=100, nullable=true)
+     */
+    private $telresponsable;
 
     /**
      * @var integer
-     *
+     * @Assert\Type(type="integer", message="La valeur du champs doit être un entier.")
      * @ORM\Column(name="nbrecolis", type="integer", nullable=true)
      */
     private $nbrecolis;
@@ -119,28 +130,29 @@ class MissionAffretement
 
     /**
      * @var \DateTime
-     *
+     * @Assert\NotBlank()
      * @ORM\Column(name="datelivraison", type="datetime", nullable=false)
      */
     private $datelivraison;
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank()
      * @ORM\Column(name="lieulivraison", type="string", length=100, nullable=false)
      */
     private $lieulivraison;
 
     /**
      * @var float
-     *
+     * @Assert\NotBlank()
+     * @Assert\Type(type="float", message="La valeur du champs doit être un nombre.")
      * @ORM\Column(name="montantfacture", type="float", precision=10, scale=0, nullable=false)
      */
     private $montantfacture;
 
     /**
      * @var integer
-     *
+     * @Assert\Type(type="float", message="La valeur du champs doit être un nombre entier.")
      * @ORM\Column(name="remise", type="integer", nullable=true)
      */
     private $remise;
@@ -168,7 +180,7 @@ class MissionAffretement
 
     /**
      * @var string
-     *
+     * @Assert\Type(type="digit", message="La valeur du champs doit être un entier.")
      * @ORM\Column(name="numcheque", type="string", length=100, nullable=true)
      */
     private $numcheque;
@@ -780,29 +792,7 @@ class MissionAffretement
         return $this->champssupp4;
     }
 
-    /**
-     * Set feuilleDeRoute
-     *
-     * @param \Fdr\AdminBundle\Entity\FeuilleDeRoute $feuilleDeRoute
-     * @return MissionAffretement
-     */
-    public function setFeuilleDeRoute(\Fdr\AdminBundle\Entity\FeuilleDeRoute $feuilleDeRoute)
-    {
-        $this->feuilleDeRoute = $feuilleDeRoute;
     
-        return $this;
-    }
-
-    /**
-     * Get feuilleDeRoute
-     *
-     * @return \Fdr\AdminBundle\Entity\FeuilleDeRoute 
-     */
-    public function getFeuilleDeRoute()
-    {
-        return $this->feuilleDeRoute;
-    }
-
    
     /**
      * Set client
@@ -876,5 +866,51 @@ class MissionAffretement
     public function getConfRecDocCtm()
     {
         return $this->confRecDocCtm;
+    }
+
+    /**
+     * Set nomresponsable
+     *
+     * @param string $nomresponsable
+     * @return MissionAffretement
+     */
+    public function setNomresponsable($nomresponsable)
+    {
+        $this->nomresponsable = $nomresponsable;
+    
+        return $this;
+    }
+
+    /**
+     * Get nomresponsable
+     *
+     * @return string 
+     */
+    public function getNomresponsable()
+    {
+        return $this->nomresponsable;
+    }
+
+    /**
+     * Set telresponsable
+     *
+     * @param string $telresponsable
+     * @return MissionAffretement
+     */
+    public function setTelresponsable($telresponsable)
+    {
+        $this->telresponsable = $telresponsable;
+    
+        return $this;
+    }
+
+    /**
+     * Get telresponsable
+     *
+     * @return string 
+     */
+    public function getTelresponsable()
+    {
+        return $this->telresponsable;
     }
 }

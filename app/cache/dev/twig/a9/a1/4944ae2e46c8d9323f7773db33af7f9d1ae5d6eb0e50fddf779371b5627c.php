@@ -36,7 +36,7 @@ class __TwigTemplate_a9a14944ae2e46c8d9323f7773db33af7f9d1ae5d6eb0e50fddf779371b
     // line 2
     public function block_title($context, array $blocks = array())
     {
-        echo "Role";
+        echo "Role|Show";
     }
 
     // line 3

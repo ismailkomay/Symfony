@@ -18,7 +18,7 @@ class VehiculeType extends AbstractType
             ->add('tonnage')
             ->add('type','choice',array('choices'=>array('ctm'=>'CTM','buget'=>'Buget?')))
             ->add('remorque')
-            ->add('disponibilite')
+//            ->add('disponibilite')
             ->add('vidange')
             ->add('compteur')
             ->add('matricule')

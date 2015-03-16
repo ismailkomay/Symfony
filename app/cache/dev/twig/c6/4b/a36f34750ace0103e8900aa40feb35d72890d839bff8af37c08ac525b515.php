@@ -18,6 +18,7 @@ class __TwigTemplate_c64ba36f34750ace0103e8900aa40feb35d72890d839bff8af37c08ac52
         }
 
         $this->blocks = array(
+            'title' => array($this, 'block_title'),
             'body' => array($this, 'block_body'),
         );
     }
@@ -30,6 +31,12 @@ class __TwigTemplate_c64ba36f34750ace0103e8900aa40feb35d72890d839bff8af37c08ac52
     protected function doDisplay(array $context, array $blocks = array())
     {
         $this->parent->display($context, array_merge($this->blocks, $blocks));
+    }
+
+    // line 2
+    public function block_title($context, array $blocks = array())
+    {
+        echo "Indisponibilite|Show";
     }
 
     // line 3
@@ -108,6 +115,6 @@ class __TwigTemplate_c64ba36f34750ace0103e8900aa40feb35d72890d839bff8af37c08ac52
 
     public function getDebugInfo()
     {
-        return array (  93 => 38,  86 => 34,  78 => 29,  68 => 22,  61 => 18,  54 => 14,  47 => 10,  39 => 4,  36 => 3,  11 => 1,);
+        return array (  100 => 38,  93 => 34,  85 => 29,  75 => 22,  68 => 18,  61 => 14,  54 => 10,  46 => 4,  43 => 3,  37 => 2,  11 => 1,);
     }
 }

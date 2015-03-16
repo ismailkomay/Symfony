@@ -22,6 +22,38 @@
                 <td>{{ entity.dateFinMission|date('Y-m-d H:i:s') }}</td>
             </tr>
             <tr>
+                <th>Véhicule</th>
+                <td>{{ entity.vehicule }}</td>
+            </tr>
+             <tr>
+                <th>Secteur</th>
+                <td>{{ entity.secteur }}</td>
+            </tr>
+            <tr>
+                <th>Filiale</th>
+                <td>{{ entity.filiale }}</td>
+            </tr>
+             <tr>
+                <th>Chauffeurs</th>
+                <td>
+                    <ul>
+                    {% for item in entity.chauffeurs %}
+                        <li> {{ item }}</li>
+                    {% endfor %}
+                    </ul>
+                </td>
+            </tr>
+             <tr>
+                <th>Manutentionnaires</th>
+                <td>
+                    <ul>
+                    {% for item in entity.manutentionnaires %}
+                        <li> {{ item }}</li>
+                    {% endfor %}
+                    </ul>
+                </td>
+            </tr>
+            <tr>
                 <th>Nombremanutention</th>
                 <td>{{ entity.nombreManutention }}</td>
             </tr>
@@ -48,10 +80,6 @@
             <tr>
                 <th>Compteurfinal</th>
                 <td>{{ entity.compteurFinal }}</td>
-            </tr>
-            <tr>
-                <th>Etat</th>
-                <td>{{ entity.etat }}</td>
             </tr>
             <tr>
                 <th>Calcdiffkm</th>
@@ -96,6 +124,10 @@
             <tr>
                 <th>Remarques</th>
                 <td>{{ entity.remarques }}</td>
+            </tr>
+            <tr>
+                <th>Type de prestation</th>
+                <td>{{ entity.typeprestation }}</td>
             </tr>
             <tr>
                 <th>Agentsaisie</th>

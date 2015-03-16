@@ -64,9 +64,8 @@ class Vehicule
 
     /**
      * @var integer
-     * @Assert\NotBlank()
      * @Assert\Type(type="float", message="La valeur du champs n'est pas valide.")
-     * @ORM\Column(name="vidange", type="bigint", nullable=false)
+     * @ORM\Column(name="vidange", type="bigint", nullable=true)
      */
     private $vidange;
 

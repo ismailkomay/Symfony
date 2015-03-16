@@ -14,14 +14,13 @@ class Manutentionnaire
 {
 
     /**
-   * @ORM\ManyToMany(targetEntity="FeuilleDeRoute",inversedBy="manutentionnaires")
+   * @ORM\ManyToMany(targetEntity="FeuilleDeRoute",mappedBy="manutentionnaires")
    * @ORM\JoinColumn(nullable=true)
    */
     private $feuilleDeRoutes;
     
     /**
      * @var integer
-     * @Assert\Type(type="alnum", message="La valeur {{ value }} n'est pas valide.")
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
@@ -31,7 +30,7 @@ class Manutentionnaire
     /**
      * @var string
      * @Assert\NotBlank()
-     * @Assert\Type(type="alpha", message="La valeur {{ value }} n'est pas valide.")
+     * @Assert\Type(type="string", message="La valeur {{ value }} n'est pas valide.")
      * @ORM\Column(name="nom", type="string", length=100, nullable=false)
      */
     private $nom;
@@ -39,7 +38,7 @@ class Manutentionnaire
     /**
      * @var string
      * @Assert\NotBlank()
-     * @Assert\Type(type="alpha", message="La valeur {{ value }} n'est pas valide.")
+     * @Assert\Type(type="string", message="La valeur {{ value }} n'est pas valide.")
      * @ORM\Column(name="prenom", type="string", length=100, nullable=false)
      */
     private $prenom;
@@ -76,7 +75,7 @@ class Manutentionnaire
 
     /**
      * @var string
-     * @Assert\Type(type="alnum", message="La valeur {{ value }} n'est pas valide.")
+     * @Assert\Type(type="string", message="La valeur {{ value }} n'est pas valide.")
      * @ORM\Column(name="adresse", type="string", length=255, nullable=true)
      */
     private $adresse;

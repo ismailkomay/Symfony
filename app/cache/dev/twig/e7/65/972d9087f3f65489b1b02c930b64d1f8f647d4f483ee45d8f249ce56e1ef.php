@@ -18,6 +18,7 @@ class __TwigTemplate_e765972d9087f3f65489b1b02c930b64d1f8f647d4f483ee45d8f249ce5
         }
 
         $this->blocks = array(
+            'title' => array($this, 'block_title'),
             'body' => array($this, 'block_body'),
         );
     }
@@ -30,6 +31,12 @@ class __TwigTemplate_e765972d9087f3f65489b1b02c930b64d1f8f647d4f483ee45d8f249ce5
     protected function doDisplay(array $context, array $blocks = array())
     {
         $this->parent->display($context, array_merge($this->blocks, $blocks));
+    }
+
+    // line 2
+    public function block_title($context, array $blocks = array())
+    {
+        echo "Peage|New";
     }
 
     // line 3
@@ -68,6 +75,6 @@ class __TwigTemplate_e765972d9087f3f65489b1b02c930b64d1f8f647d4f483ee45d8f249ce5
 
     public function getDebugInfo()
     {
-        return array (  50 => 10,  43 => 6,  39 => 4,  36 => 3,  11 => 1,);
+        return array (  57 => 10,  50 => 6,  46 => 4,  43 => 3,  37 => 2,  11 => 1,);
     }
 }

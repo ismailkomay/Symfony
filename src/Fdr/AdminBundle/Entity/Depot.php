@@ -59,6 +59,12 @@ class Depot
 
     /**
      * @var string
+     * @Assert\NotBlank()
+     * @ORM\Column(name="ville", type="string", length=100,nullable=false)
+     */
+    private $ville;
+    /**
+     * @var string
      * @Assert\Type(type="alnum", message="La valeur {{ value }} n'est pas valide.")
      * @ORM\Column(name="adresse", type="string", length=255, nullable=true)
      */
@@ -263,5 +269,28 @@ class Depot
     public function getUtilisateurs()
     {
         return $this->utilisateurs;
+    }
+
+    /**
+     * Set ville
+     *
+     * @param string $ville
+     * @return Depot
+     */
+    public function setVille($ville)
+    {
+        $this->ville = $ville;
+    
+        return $this;
+    }
+
+    /**
+     * Get ville
+     *
+     * @return string 
+     */
+    public function getVille()
+    {
+        return $this->ville;
     }
 }

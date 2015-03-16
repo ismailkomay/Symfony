@@ -17,6 +17,7 @@ class DepotType extends AbstractType
         $builder
             ->add('code')
             ->add('libelle')
+            ->add('ville','choice',array('choices'=>array('casablanca'=>'Casablanca','marrakech'=>'Marrakech','safi'=>'Safi','rabat'=>'Rabat')))
             ->add('adresse')
 //            ->add('champ1')
 //            ->add('champ2')

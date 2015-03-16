@@ -18,6 +18,7 @@ class __TwigTemplate_e9c0d65caed9c97ff89f2ca2fad32346e7330828e04da830f3a829fc8d1
         }
 
         $this->blocks = array(
+            'title' => array($this, 'block_title'),
             'body' => array($this, 'block_body'),
         );
     }
@@ -30,6 +31,12 @@ class __TwigTemplate_e9c0d65caed9c97ff89f2ca2fad32346e7330828e04da830f3a829fc8d1
     protected function doDisplay(array $context, array $blocks = array())
     {
         $this->parent->display($context, array_merge($this->blocks, $blocks));
+    }
+
+    // line 2
+    public function block_title($context, array $blocks = array())
+    {
+        echo "Vehicule|Show";
     }
 
     // line 3
@@ -136,6 +143,6 @@ class __TwigTemplate_e9c0d65caed9c97ff89f2ca2fad32346e7330828e04da830f3a829fc8d1
 
     public function getDebugInfo()
     {
-        return array (  121 => 54,  114 => 50,  106 => 45,  96 => 38,  89 => 34,  82 => 30,  75 => 26,  68 => 22,  61 => 18,  54 => 14,  47 => 10,  39 => 4,  36 => 3,  11 => 1,);
+        return array (  128 => 54,  121 => 50,  113 => 45,  103 => 38,  96 => 34,  89 => 30,  82 => 26,  75 => 22,  68 => 18,  61 => 14,  54 => 10,  46 => 4,  43 => 3,  37 => 2,  11 => 1,);
     }
 }

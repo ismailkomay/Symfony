@@ -18,6 +18,7 @@ class __TwigTemplate_24e6372201b51630904cf27b412bccabdcda6632a0848bc623491cfe838
         }
 
         $this->blocks = array(
+            'title' => array($this, 'block_title'),
             'body' => array($this, 'block_body'),
         );
     }
@@ -30,6 +31,12 @@ class __TwigTemplate_24e6372201b51630904cf27b412bccabdcda6632a0848bc623491cfe838
     protected function doDisplay(array $context, array $blocks = array())
     {
         $this->parent->display($context, array_merge($this->blocks, $blocks));
+    }
+
+    // line 2
+    public function block_title($context, array $blocks = array())
+    {
+        echo "BonCarburantHuile|Show";
     }
 
     // line 3
@@ -122,6 +129,6 @@ class __TwigTemplate_24e6372201b51630904cf27b412bccabdcda6632a0848bc623491cfe838
 
     public function getDebugInfo()
     {
-        return array (  107 => 46,  100 => 42,  92 => 37,  82 => 30,  75 => 26,  68 => 22,  61 => 18,  54 => 14,  47 => 10,  39 => 4,  36 => 3,  11 => 1,);
+        return array (  114 => 46,  107 => 42,  99 => 37,  89 => 30,  82 => 26,  75 => 22,  68 => 18,  61 => 14,  54 => 10,  46 => 4,  43 => 3,  37 => 2,  11 => 1,);
     }
 }

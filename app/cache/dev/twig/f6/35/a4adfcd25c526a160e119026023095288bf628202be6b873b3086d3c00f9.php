@@ -18,6 +18,7 @@ class __TwigTemplate_f635a4adfcd25c526a160e119026023095288bf628202be6b873b3086d3
         }
 
         $this->blocks = array(
+            'title' => array($this, 'block_title'),
             'body' => array($this, 'block_body'),
         );
     }
@@ -30,6 +31,12 @@ class __TwigTemplate_f635a4adfcd25c526a160e119026023095288bf628202be6b873b3086d3
     protected function doDisplay(array $context, array $blocks = array())
     {
         $this->parent->display($context, array_merge($this->blocks, $blocks));
+    }
+
+    // line 2
+    public function block_title($context, array $blocks = array())
+    {
+        echo "MissionAffretement|Show";
     }
 
     // line 3
@@ -187,13 +194,27 @@ class __TwigTemplate_f635a4adfcd25c526a160e119026023095288bf628202be6b873b3086d3
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "numcheque", array()), "html", null, true);
         echo "</td>
             </tr>
+            <tr>
+                <th>Nom du responsable à contacter</th>
+                <td>";
+        // line 94
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "nomresponsable", array()), "html", null, true);
+        echo "</td>
+            </tr>
+            <tr>
+                <th>Tel du responsable à contacter</th>
+                <td>";
+        // line 98
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "telresponsable", array()), "html", null, true);
+        echo "</td>
+            </tr>
         </tbody>
     </table>
 
         <ul class=\"record_actions\">
     <li>
         <a href=\"";
-        // line 97
+        // line 105
         echo $this->env->getExtension('routing')->getPath("missionaffretement");
         echo "\">
             Back to the list
@@ -201,14 +222,14 @@ class __TwigTemplate_f635a4adfcd25c526a160e119026023095288bf628202be6b873b3086d3
     </li>
     <li>
         <a href=\"";
-        // line 102
+        // line 110
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("missionaffretement_edit", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id", array()))), "html", null, true);
         echo "\">
             Edit
         </a>
     </li>
     <li>";
-        // line 106
+        // line 114
         echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["delete_form"]) ? $context["delete_form"] : $this->getContext($context, "delete_form")), 'form');
         echo "</li>
 </ul>
@@ -227,6 +248,6 @@ class __TwigTemplate_f635a4adfcd25c526a160e119026023095288bf628202be6b873b3086d3
 
     public function getDebugInfo()
     {
-        return array (  212 => 106,  205 => 102,  197 => 97,  187 => 90,  180 => 86,  173 => 82,  166 => 78,  159 => 74,  152 => 70,  145 => 66,  138 => 62,  131 => 58,  124 => 54,  117 => 50,  110 => 46,  103 => 42,  96 => 38,  89 => 34,  82 => 30,  75 => 26,  68 => 22,  61 => 18,  54 => 14,  47 => 10,  39 => 4,  36 => 3,  11 => 1,);
+        return array (  233 => 114,  226 => 110,  218 => 105,  208 => 98,  201 => 94,  194 => 90,  187 => 86,  180 => 82,  173 => 78,  166 => 74,  159 => 70,  152 => 66,  145 => 62,  138 => 58,  131 => 54,  124 => 50,  117 => 46,  110 => 42,  103 => 38,  96 => 34,  89 => 30,  82 => 26,  75 => 22,  68 => 18,  61 => 14,  54 => 10,  46 => 4,  43 => 3,  37 => 2,  11 => 1,);
     }
 }

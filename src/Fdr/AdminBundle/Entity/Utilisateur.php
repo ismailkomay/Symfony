@@ -98,9 +98,8 @@ class Utilisateur
 
     /**
      * @var string
-     * @Assert\NotBlank()
      * @Assert\Type(type="alnum", message="La valeur {{ value }} n'est pas un {{ type }}.") 
-     * @ORM\Column(name="cin", type="string", length=100)
+     * @ORM\Column(name="cin", type="string", length=100?, nullable=true)
      */
     private $cin;
 

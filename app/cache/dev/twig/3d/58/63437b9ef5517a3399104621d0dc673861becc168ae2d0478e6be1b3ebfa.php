@@ -18,6 +18,7 @@ class __TwigTemplate_3d5863437b9ef5517a3399104621d0dc673861becc168ae2d0478e6be1b
         }
 
         $this->blocks = array(
+            'title' => array($this, 'block_title'),
             'body' => array($this, 'block_body'),
         );
     }
@@ -30,6 +31,12 @@ class __TwigTemplate_3d5863437b9ef5517a3399104621d0dc673861becc168ae2d0478e6be1b
     protected function doDisplay(array $context, array $blocks = array())
     {
         $this->parent->display($context, array_merge($this->blocks, $blocks));
+    }
+
+    // line 2
+    public function block_title($context, array $blocks = array())
+    {
+        echo "TypeConsommation|Show";
     }
 
     // line 3
@@ -115,6 +122,6 @@ class __TwigTemplate_3d5863437b9ef5517a3399104621d0dc673861becc168ae2d0478e6be1b
 
     public function getDebugInfo()
     {
-        return array (  100 => 42,  93 => 38,  85 => 33,  75 => 26,  68 => 22,  61 => 18,  54 => 14,  47 => 10,  39 => 4,  36 => 3,  11 => 1,);
+        return array (  107 => 42,  100 => 38,  92 => 33,  82 => 26,  75 => 22,  68 => 18,  61 => 14,  54 => 10,  46 => 4,  43 => 3,  37 => 2,  11 => 1,);
     }
 }

@@ -36,7 +36,7 @@ class __TwigTemplate_93b47cd7d527cd4af5126d1a41dfa07df22634a3baa5b4e41d6fa331c06
     // line 2
     public function block_title($context, array $blocks = array())
     {
-        echo "Depot";
+        echo "Depot|Edit";
     }
 
     // line 3

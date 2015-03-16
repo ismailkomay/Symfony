@@ -18,6 +18,7 @@ class __TwigTemplate_784d6e038fa161032f34585342c8af7710c4eadae391a165f287dad4fe2
         }
 
         $this->blocks = array(
+            'title' => array($this, 'block_title'),
             'body' => array($this, 'block_body'),
         );
     }
@@ -30,6 +31,12 @@ class __TwigTemplate_784d6e038fa161032f34585342c8af7710c4eadae391a165f287dad4fe2
     protected function doDisplay(array $context, array $blocks = array())
     {
         $this->parent->display($context, array_merge($this->blocks, $blocks));
+    }
+
+    // line 2
+    public function block_title($context, array $blocks = array())
+    {
+        echo "Modication|Accueil";
     }
 
     // line 3
@@ -127,6 +134,6 @@ class __TwigTemplate_784d6e038fa161032f34585342c8af7710c4eadae391a165f287dad4fe2
 
     public function getDebugInfo()
     {
-        return array (  109 => 40,  102 => 35,  90 => 29,  84 => 26,  77 => 22,  71 => 21,  67 => 20,  61 => 19,  58 => 18,  54 => 17,  39 => 4,  36 => 3,  11 => 1,);
+        return array (  116 => 40,  109 => 35,  97 => 29,  91 => 26,  84 => 22,  78 => 21,  74 => 20,  68 => 19,  65 => 18,  61 => 17,  46 => 4,  43 => 3,  37 => 2,  11 => 1,);
     }
 }

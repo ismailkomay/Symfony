@@ -18,6 +18,7 @@ class __TwigTemplate_f4bcef8f168dc2197d1619af400b8577960b307e54f32c34dbd3d95314f
         }
 
         $this->blocks = array(
+            'title' => array($this, 'block_title'),
             'body' => array($this, 'block_body'),
         );
     }
@@ -30,6 +31,12 @@ class __TwigTemplate_f4bcef8f168dc2197d1619af400b8577960b307e54f32c34dbd3d95314f
     protected function doDisplay(array $context, array $blocks = array())
     {
         $this->parent->display($context, array_merge($this->blocks, $blocks));
+    }
+
+    // line 2
+    public function block_title($context, array $blocks = array())
+    {
+        echo "Itineraire|Accueil";
     }
 
     // line 3
@@ -130,6 +137,6 @@ class __TwigTemplate_f4bcef8f168dc2197d1619af400b8577960b307e54f32c34dbd3d95314f
 
     public function getDebugInfo()
     {
-        return array (  112 => 42,  105 => 37,  93 => 31,  87 => 28,  80 => 24,  76 => 23,  72 => 22,  68 => 21,  62 => 20,  59 => 19,  55 => 18,  39 => 4,  36 => 3,  11 => 1,);
+        return array (  119 => 42,  112 => 37,  100 => 31,  94 => 28,  87 => 24,  83 => 23,  79 => 22,  75 => 21,  69 => 20,  66 => 19,  62 => 18,  46 => 4,  43 => 3,  37 => 2,  11 => 1,);
     }
 }

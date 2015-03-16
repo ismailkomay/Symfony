@@ -47,17 +47,15 @@ class Client
 
     /**
      * @var string
-     * @Assert\Type(type="alpha", message="La valeur {{ value }} n'est pas valide.")
-     * @ORM\Column(name="nomresponsable", type="string", length=100, nullable=true)
+     * @ORM\Column(name="prenom", type="string", length=100, nullable=true)
      */
-    private $nomresponsable;
+    private $prenom;
 
     /**
      * @var string
-     * @Assert\Type(type="alpha", message="La valeur {{ value }} n'est pas valide.")
-     * @ORM\Column(name="prenomresponsable", type="string", length=100, nullable=true)
+     * @ORM\Column(name="nom", type="string", length=100, nullable=true)
      */
-    private $prenomresponsable;
+    private $nom;
 
     /**
      * @var string
@@ -68,7 +66,6 @@ class Client
 
     /**
      * @var string
-     * @Assert\Type(type="alnum", message="La valeur {{ value }} n'est pas valide.")
      * @ORM\Column(name="adresse", type="string", length=255, nullable=true)
      */
     private $adresse;
@@ -96,7 +93,6 @@ class Client
 
     /**
      * @var string
-     * @Assert\Type(type="alnum", message="La valeur {{ value }} n'est pas valide.")
      * @ORM\Column(name="nomentreprise", type="string", length=100, nullable=true)
      */
     private $nomentreprise;
@@ -124,7 +120,7 @@ class Client
 
     /**
      * @var string
-     *
+     * @Assert\Type(type="digit", message="La valeur {{ value }} n'est pas digit.")
      * @ORM\Column(name="numcompte", type="string", length=100, nullable=true)
      */
     private $numcompte;
@@ -156,49 +152,49 @@ class Client
     }
 
     /**
-     * Set nomresponsable
+     * Set nom
      *
-     * @param string $nomresponsable
+     * @param string $nom
      * @return Client
      */
-    public function setNomresponsable($nomresponsable)
+    public function setNom($nom)
     {
-        $this->nomresponsable = $nomresponsable;
+        $this->nom = $nom;
     
         return $this;
     }
 
     /**
-     * Get nomresponsable
+     * Get nom
      *
      * @return string 
      */
-    public function getNomresponsable()
+    public function getNom()
     {
-        return $this->nomresponsable;
+        return $this->nom;
     }
 
     /**
-     * Set prenomresponsable
+     * Set prenom
      *
-     * @param string $prenomresponsable
+     * @param string $prenom
      * @return Client
      */
-    public function setPrenomresponsable($prenomresponsable)
+    public function setPrenom($prenom)
     {
-        $this->prenomresponsable = $prenomresponsable;
+        $this->prenom = $prenom;
     
         return $this;
     }
 
     /**
-     * Get prenomresponsable
+     * Get prenom
      *
      * @return string 
      */
-    public function getPrenomresponsable()
+    public function getPrenom()
     {
-        return $this->prenomresponsable;
+        return $this->prenom;
     }
 
     /**
@@ -545,7 +541,7 @@ class Client
     
     public function __toString()
     {
-        $sortie = (empty($this->nomresponsable))?$this->nomentreprise:($this->nomresponsable." ".$this->nomresponsable);
+        $sortie = (empty($this->nom))?$this->nomentreprise:($this->nom." ".$this->prenom);
         return $sortie;
     }
 }

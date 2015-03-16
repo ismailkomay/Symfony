@@ -12,7 +12,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 class Chauffeur
 {
     /**
-   * @ORM\ManyToMany(targetEntity="FeuilleDeRoute",inversedBy="chauffeurs")
+   * @ORM\ManyToMany(targetEntity="FeuilleDeRoute",mappedBy="chauffeurs")
    * @ORM\JoinColumn(nullable=true)
    */
     private $feuilleDeRoutes;
@@ -38,7 +38,7 @@ class Chauffeur
 
     /**
      * @var string
-     * @Assert\Type(type="alpha", message="La valeur {{ value }} n'est pas valide.")
+     * @Assert\Type(type="string", message="La valeur {{ value }} n'est pas valide.")
      * @ORM\Column(name="nom", type="string", length=100, nullable=false)
      *  @Assert\NotBlank()
      */
@@ -46,7 +46,7 @@ class Chauffeur
 
     /**
      * @var string
-     * @Assert\Type(type="alnum", message="La valeur {{ value }} n'est pas valide.")
+     * @Assert\Type(type="string", message="La valeur {{ value }} n'est pas valide.")
      * @ORM\Column(name="prenom", type="string", length=100, nullable=false)
      *  @Assert\NotBlank()
      */
@@ -69,13 +69,13 @@ class Chauffeur
 
     /**
      * @var string
-     * @Assert\Type(type="alnum", message="La valeur {{ value }} n'est pas valide.")
+     * @Assert\Type(type="string", message="La valeur {{ value }} n'est pas valide.")
      * @ORM\Column(name="adresse", type="string", length=255, nullable=true)
      */
     private $adresse;
 
     /**
-     * @var \DateTime
+     * @var \Date
      *
      * @ORM\Column(name="dateembauche", type="date", nullable=false)
      *  @Assert\NotBlank()
@@ -240,7 +240,7 @@ class Chauffeur
     /**
      * Set dateembauche
      *
-     * @param \DateTime $dateembauche
+     * @param \Date $dateembauche
      * @return Chauffeur
      */
     public function setDateembauche($dateembauche)
@@ -253,7 +253,7 @@ class Chauffeur
     /**
      * Get dateembauche
      *
-     * @return \DateTime 
+     * @return \Date 
      */
     public function getDateembauche()
     {

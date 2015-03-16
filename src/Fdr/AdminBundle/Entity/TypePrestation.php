@@ -15,12 +15,12 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  */
 class TypePrestation
 {   
-     /**
-   * @ORM\ManyToMany(targetEntity="Secteur",inversedBy="typePrestations")
+  
+   /**
+   * @ORM\ManyToMany(targetEntity="Secteur",mappedBy="typePrestations")
    * @ORM\JoinColumn(nullable=true)
    */
     private $secteurs;
-   
     
     public function __construct() {
         $this->secteurs = new ArrayCollection();
@@ -46,7 +46,6 @@ class TypePrestation
     /**
      * @var string
      * @Assert\NotBlank()
-     * @Assert\Type(type="alnum", message="La valeur du champs n'est pas valide.")
      * @ORM\Column(name="libelle", type="string", length=100, nullable=false,unique=true)
      */
     private $libelle;

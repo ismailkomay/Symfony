@@ -14,6 +14,11 @@ use Symfony\Component\Validator\Constraints as Assert;
 class FeuilleDeRoute
 {
     /**
+   * @ORM\OneToOne(targetEntity="MissionAffretement")
+   * @ORM\JoinColumn(nullable=true)
+   */
+  private $missionAffretement;
+    /**
    * @ORM\ManyToOne(targetEntity="Vehicule",inversedBy="feuilleDeRoutes")
    * @ORM\JoinColumn(nullable=false)
    */
@@ -41,12 +46,12 @@ class FeuilleDeRoute
     private $bonCarburantHuiles;
   
     /**
-   * @ORM\ManyToMany(targetEntity="Manutentionnaire",mappedBy="feuilleDeRoutes")
+   * @ORM\ManyToMany(targetEntity="Manutentionnaire",inversedBy="feuilleDeRoutes")
    * @ORM\JoinColumn(nullable=true)
    */
     private $manutentionnaires;
     /**
-   * @ORM\ManyToMany(targetEntity="Chauffeur",mappedBy="feuilleDeRoutes")
+   * @ORM\ManyToMany(targetEntity="Chauffeur",inversedBy="feuilleDeRoutes")
    * @ORM\JoinColumn(nullable=false)
    * @Assert\NotBlank()
    */
@@ -95,7 +100,9 @@ class FeuilleDeRoute
         $this->utilisateurs = new ArrayCollection() ;
         $this->clientFdrVs = new ArrayCollection() ;
         $this->clientFdrFs = new ArrayCollection() ;
-        $this->dateFinMission= new \DateTime('0000');
+        $this->dateFinMission= new \DateTime();
+        $this->dateDebutMission= new \DateTime();
+        $this->dateGeneree = new \Datetime();
                 //('2010-10-02');
         //$this->dateFinMission= $this->dateFinMission->format('Y-m-d h:i:s');
         
@@ -176,7 +183,7 @@ class FeuilleDeRoute
 
     /**
      * @var integer
-     * @ORM\Column(name="compteurFinal", type="bigint")
+     * @ORM\Column(name="compteurFinal", type="bigint", nullable=true)
      */
     private $compteurFinal;
 
@@ -1350,5 +1357,28 @@ class FeuilleDeRoute
     public function getClientFdrFs()
     {
         return $this->clientFdrFs;
+    }
+
+    /**
+     * Set missionAffretement
+     *
+     * @param \Fdr\AdminBundle\Entity\MissionAffretement $missionAffretement
+     * @return FeuilleDeRoute
+     */
+    public function setMissionAffretement(\Fdr\AdminBundle\Entity\MissionAffretement $missionAffretement = null)
+    {
+        $this->missionAffretement = $missionAffretement;
+    
+        return $this;
+    }
+
+    /**
+     * Get missionAffretement
+     *
+     * @return \Fdr\AdminBundle\Entity\MissionAffretement 
+     */
+    public function getMissionAffretement()
+    {
+        return $this->missionAffretement;
     }
 }

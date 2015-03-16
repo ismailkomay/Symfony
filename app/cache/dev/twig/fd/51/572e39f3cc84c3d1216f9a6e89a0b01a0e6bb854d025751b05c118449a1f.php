@@ -36,7 +36,7 @@ class __TwigTemplate_fd51572e39f3cc84c3d1216f9a6e89a0b01a0e6bb854d025751b05c1184
     // line 2
     public function block_title($context, array $blocks = array())
     {
-        echo "Client";
+        echo "Client|Accueil";
     }
 
     // line 3
@@ -49,8 +49,8 @@ class __TwigTemplate_fd51572e39f3cc84c3d1216f9a6e89a0b01a0e6bb854d025751b05c1184
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Nomresponsable</th>
-                <th>Prenomresponsable</th>
+                <th>Nom</th>
+                <th>Prenom</th>
                 <th>Tel</th>
                 <th>Adresse</th>
                 <th>Cin</th>
@@ -81,11 +81,11 @@ class __TwigTemplate_fd51572e39f3cc84c3d1216f9a6e89a0b01a0e6bb854d025751b05c1184
             echo "</a></td>
                 <td>";
             // line 30
-            echo twig_escape_filter($this->env, $this->getAttribute($context["entity"], "nomresponsable", array()), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute($context["entity"], "nom", array()), "html", null, true);
             echo "</td>
                 <td>";
             // line 31
-            echo twig_escape_filter($this->env, $this->getAttribute($context["entity"], "prenomresponsable", array()), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute($context["entity"], "prenom", array()), "html", null, true);
             echo "</td>
                 <td>";
             // line 32

@@ -18,6 +18,7 @@ class __TwigTemplate_546a26b3c36873c8cff68c2384b87834042c0cf6370a8d1e61c04df2d27
         }
 
         $this->blocks = array(
+            'title' => array($this, 'block_title'),
             'body' => array($this, 'block_body'),
         );
     }
@@ -30,6 +31,12 @@ class __TwigTemplate_546a26b3c36873c8cff68c2384b87834042c0cf6370a8d1e61c04df2d27
     protected function doDisplay(array $context, array $blocks = array())
     {
         $this->parent->display($context, array_merge($this->blocks, $blocks));
+    }
+
+    // line 2
+    public function block_title($context, array $blocks = array())
+    {
+        echo "Manutentionnaire|Accueil";
     }
 
     // line 3
@@ -145,6 +152,6 @@ class __TwigTemplate_546a26b3c36873c8cff68c2384b87834042c0cf6370a8d1e61c04df2d27
 
     public function getDebugInfo()
     {
-        return array (  127 => 48,  120 => 43,  108 => 37,  102 => 34,  95 => 30,  91 => 29,  87 => 28,  83 => 27,  79 => 26,  75 => 25,  71 => 24,  65 => 23,  62 => 22,  58 => 21,  39 => 4,  36 => 3,  11 => 1,);
+        return array (  134 => 48,  127 => 43,  115 => 37,  109 => 34,  102 => 30,  98 => 29,  94 => 28,  90 => 27,  86 => 26,  82 => 25,  78 => 24,  72 => 23,  69 => 22,  65 => 21,  46 => 4,  43 => 3,  37 => 2,  11 => 1,);
     }
 }

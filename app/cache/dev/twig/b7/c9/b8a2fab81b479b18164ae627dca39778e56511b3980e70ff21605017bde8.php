@@ -36,7 +36,7 @@ class __TwigTemplate_b7c9b8a2fab81b479b18164ae627dca39778e56511b3980e70ff2160501
     // line 2
     public function block_title($context, array $blocks = array())
     {
-        echo "Client";
+        echo "Client|Edit";
     }
 
     // line 3
