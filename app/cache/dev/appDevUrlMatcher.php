@@ -1441,9 +1441,35 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'fdr_admin_homepage')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\DefaultController::indexAction',));
         }
 
-        // homepage
-        if ($pathinfo === '/app/example') {
-            return array (  '_controller' => 'AppBundle\\Controller\\DefaultController::indexAction',  '_route' => 'homepage',);
+        if (0 === strpos($pathinfo, '/test')) {
+            // test
+            if ($pathinfo === '/test') {
+                return array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\DefaultController::testAction',  '_route' => 'test',);
+            }
+
+            // testrep
+            if ($pathinfo === '/testrep') {
+                return array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\DefaultController::testrepAction',  '_route' => 'testrep',);
+            }
+
+        }
+
+        if (0 === strpos($pathinfo, '/a')) {
+            // homepage
+            if ($pathinfo === '/app/example') {
+                return array (  '_controller' => 'AppBundle\\Controller\\DefaultController::indexAction',  '_route' => 'homepage',);
+            }
+
+            // my_very_secret_route
+            if ($pathinfo === '/admin') {
+                return array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\DefaultController::indexAction',  'name' => 1,  '_route' => 'my_very_secret_route',);
+            }
+
+        }
+
+        // fos_js_routing_js
+        if (0 === strpos($pathinfo, '/js/routing') && preg_match('#^/js/routing(?:\\.(?P<_format>js|json))?$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'fos_js_routing_js')), array (  '_controller' => 'fos_js_routing.controller:indexAction',  '_format' => 'js',));
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();

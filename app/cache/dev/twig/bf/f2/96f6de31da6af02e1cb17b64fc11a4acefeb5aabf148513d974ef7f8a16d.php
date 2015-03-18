@@ -43,7 +43,7 @@ class __TwigTemplate_bff296f6de31da6af02e1cb17b64fc11a4acefeb5aabf148513d974ef7f
         // line 15
         echo "         ";
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 20
+        // line 22
         echo "    </body>
 </html>";
     }
@@ -119,7 +119,7 @@ class __TwigTemplate_bff296f6de31da6af02e1cb17b64fc11a4acefeb5aabf148513d974ef7f
     public function block_javascripts($context, array $blocks = array())
     {
         // line 16
-        echo "         ";
+        echo "        ";
         if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
             // asset "b262d73_0"
             $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_b262d73_0") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/b262d73_part_1_ajax1_1.js");
@@ -168,7 +168,14 @@ class __TwigTemplate_bff296f6de31da6af02e1cb17b64fc11a4acefeb5aabf148513d974ef7f
         }
         unset($context["asset_url"]);
         // line 19
-        echo "         ";
+        echo "         <script src=\"";
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/fosjsrouting/js/router.js"), "html", null, true);
+        echo "\"></script>
+         <script src=\"";
+        // line 20
+        echo $this->env->getExtension('routing')->getPath("fos_js_routing_js", array("callback" => "fos.Router.setData"));
+        echo "\"></script>
+         ";
     }
 
     public function getTemplateName()
@@ -183,6 +190,6 @@ class __TwigTemplate_bff296f6de31da6af02e1cb17b64fc11a4acefeb5aabf148513d974ef7f
 
     public function getDebugInfo()
     {
-        return array (  171 => 19,  127 => 17,  122 => 16,  119 => 15,  114 => 14,  110 => 10,  66 => 8,  61 => 7,  58 => 6,  52 => 5,  47 => 20,  44 => 15,  42 => 14,  35 => 11,  33 => 6,  29 => 5,  23 => 1,);
+        return array (  176 => 20,  171 => 19,  127 => 17,  122 => 16,  119 => 15,  114 => 14,  110 => 10,  66 => 8,  61 => 7,  58 => 6,  52 => 5,  47 => 22,  44 => 15,  42 => 14,  35 => 11,  33 => 6,  29 => 5,  23 => 1,);
     }
 }

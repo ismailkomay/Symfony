@@ -16,7 +16,7 @@ class FeuilleDeRouteType extends AbstractType
     {
         $builder
 //            ->add('dateGeneree')
-            ->add('dateDebutMission')
+            ->add('dateDebutMission','datetime',array('years' => range(1990,2015)))
 //            ->add('dateFinMission')
             ->add('nombreManutention')
             ->add('nombreManutentionChauf1')

@@ -1,7 +1,20 @@
 fdr_admin:
     resource: "@FdrAdminBundle/Resources/config/routing.yml"
     prefix:   /
-
+test:
+    path:     /test
+    defaults: { _controller: "FdrAdminBundle:Default:test" }
+testrep:
+    path:     /testrep
+    defaults: { _controller: "FdrAdminBundle:Default:testrep" }
 app:
     resource: @AppBundle/Controller/
     type:     annotation
+my_very_secret_route:
+    pattern: /admin
+    defaults: { _controller: FdrAdminBundle:Default:index,name:1 }
+    options:
+        expose: false
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"

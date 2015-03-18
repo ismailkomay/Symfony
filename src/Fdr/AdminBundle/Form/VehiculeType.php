@@ -15,8 +15,8 @@ class VehiculeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('tonnage')
-            ->add('type','choice',array('choices'=>array('ctm'=>'CTM','buget'=>'Buget?')))
+            ->add('tonnage', 'money', array('currency' => 'T', 'precision' => 2))
+            ->add('type','choice',array('choices'=>array('ctm'=>'CTM','autre'=>'Autre')))
             ->add('remorque')
 //            ->add('disponibilite')
             ->add('vidange')

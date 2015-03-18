@@ -139,14 +139,12 @@ class FeuilleDeRoute
      * @ORM\Column(name="dateFinMission", type="datetime")
      */
     private $dateFinMission;
-
     /**
      * @var integer
      *
      * @ORM\Column(name="nombreManutention", type="integer", nullable=true)
      */
     private $nombreManutention;
-
     /**
      * @var integer
      *

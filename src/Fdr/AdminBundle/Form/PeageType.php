@@ -16,8 +16,8 @@ class PeageType extends AbstractType
     {
         $builder
             ->add('numCarte')
-            ->add('datePassage')
-            ->add('montant')
+            ->add('datePassage','date',array('years' => range(1990,2030)))
+            ->add('montant', 'money', array('currency' => 'EUR', 'precision' => 2))
             ->add('feuilleDeRoute')
         ;
     }

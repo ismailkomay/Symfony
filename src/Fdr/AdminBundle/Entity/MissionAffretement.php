@@ -68,7 +68,7 @@ class MissionAffretement
     /**
      * @var float
      *
-     * @ORM\Column(name="valdeclassurance", type="float", precision=10, scale=0, nullable=true)
+     * @ORM\Column(name="valdeclassurance", type="float", precision=4, scale=0, nullable=true)
      * @Assert\Type(type="float", message="La valeur du champs n'est pas valide.")
      */
     private $valdeclassurance;
@@ -146,14 +146,14 @@ class MissionAffretement
      * @var float
      * @Assert\NotBlank()
      * @Assert\Type(type="float", message="La valeur du champs doit être un nombre.")
-     * @ORM\Column(name="montantfacture", type="float", precision=10, scale=0, nullable=false)
+     * @ORM\Column(name="montantfacture", type="float", precision=4, scale=0, nullable=false)
      */
     private $montantfacture;
 
     /**
      * @var integer
      * @Assert\Type(type="float", message="La valeur du champs doit être un nombre entier.")
-     * @ORM\Column(name="remise", type="integer", nullable=true)
+     * @ORM\Column(name="remise", type="float",precision=4, nullable=true)
      */
     private $remise;
 
@@ -588,7 +588,7 @@ class MissionAffretement
     /**
      * Set remise
      *
-     * @param integer $remise
+     * @param float $remise
      * @return MissionAffretement
      */
     public function setRemise($remise)
@@ -601,7 +601,7 @@ class MissionAffretement
     /**
      * Get remise
      *
-     * @return integer 
+     * @return float 
      */
     public function getRemise()
     {
