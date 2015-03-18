@@ -7,6 +7,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 /**
  * Client
  * @UniqueEntity("email", * message ="Cet email existe déja.Veuillez choisir un autre")
+ * @UniqueEntity("cin",  message ="Ce cin existe déja.")
  * @ORM\Table(name="client")
  * @ORM\Entity
  */
@@ -73,14 +74,14 @@ class Client
     /**
      * @var string
      * @Assert\Type(type="alnum", message="La valeur {{ value }} n'est pas valide.")
-     * @ORM\Column(name="cin", type="string", length=100, nullable=true)
+     * @ORM\Column(name="cin", type="string", length=100, nullable=true, unique=true)
      */
     private $cin;
 
     /**
      * @var string
      * @Assert\Email()
-     * @ORM\Column(name="email", type="string", length=100, nullable=true)
+     * @ORM\Column(name="email", type="string", length=100, nullable=true, unique=true)
      */
     private $email;
 
@@ -542,6 +543,7 @@ class Client
     public function __toString()
     {
         $sortie = (empty($this->nom))?$this->nomentreprise:($this->nom." ".$this->prenom);
-        return $sortie;
+        $cnt = ($this->encompte)?"*/":"";
+        return $cnt.$sortie;
     }
 }

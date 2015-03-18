@@ -4,9 +4,10 @@ namespace Fdr\AdminBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 /**
  * Manutentionnaire
- *
+ * @UniqueEntity("cin",  message ="Ce cin existe déja.")
  * @ORM\Table(name="manutentionnaire")
  * @ORM\Entity
  */
@@ -62,7 +63,7 @@ class Manutentionnaire
      * @var string
      * @Assert\NotBlank()
      * @Assert\Type(type="alnum", message="La valeur {{ value }} n'est pas valide.")
-     * @ORM\Column(name="cin", type="string", length=100, nullable=false)
+     * @ORM\Column(name="cin", type="string", length=100, nullable=false,unique=true)
      */
     private $cin;
 

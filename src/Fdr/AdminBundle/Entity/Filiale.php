@@ -8,7 +8,6 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 /**
  * Filiale
- * @UniqueEntity("code",  message ="Ce code existe déja.Veuillez choisir un autre")
  * @UniqueEntity("libelle",  message ="Cette libelle existe déja.Veuillez choisir une autre")
  * @ORM\Table(name="filiale")
  * @ORM\Entity(repositoryClass="Fdr\AdminBundle\Entity\FilialeRepository")
@@ -44,15 +43,7 @@ class Filiale
      * @var string
      * @Assert\NotBlank()
      *
-     * @ORM\Column(name="code", type="string", length=100, unique=true)
-     */
-    private $code;
-
-    /**
-     * @var string
-     * @Assert\NotBlank()
-     *
-     * @ORM\Column(name="libelle", type="string", length=100)
+     * @ORM\Column(name="libelle", type="string", length=100, unique=true)
      */
     private $libelle;
 
@@ -86,29 +77,6 @@ class Filiale
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set code
-     *
-     * @param string $code
-     * @return Filiale
-     */
-    public function setCode($code)
-    {
-        $this->code = $code;
-    
-        return $this;
-    }
-
-    /**
-     * Get code
-     *
-     * @return string 
-     */
-    public function getCode()
-    {
-        return $this->code;
     }
 
     /**

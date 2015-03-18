@@ -2,12 +2,14 @@
 
 namespace Fdr\AdminBundle\Entity;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 /**
  * Chauffeur
  * @ORM\Table(name="chauffeur")
  * @ORM\Entity
+ * @UniqueEntity("cin",  message ="Ce cin existe déja.")
  */
 class Chauffeur
 {
@@ -62,7 +64,7 @@ class Chauffeur
     /**
      * @var string
      * @Assert\Type(type="alnum", message="La valeur {{ value }} n'est pas valide.")
-     * @ORM\Column(name="cin", type="string", length=100, nullable=false)
+     * @ORM\Column(name="cin", type="string", length=100, nullable=false, unique=true)
      *  @Assert\NotBlank()
      */
     private $cin;

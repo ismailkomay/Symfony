@@ -6,6 +6,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 /**
  * Utilisateur
+ * @UniqueEntity("cin",  message ="Ce cin existe déja.")
  * @UniqueEntity("email",  message ="Cet email existe déja.Veuillez choisir un autre")
  * @UniqueEntity("login",  message ="Ce login existe déja.Veuillez choisir un autre")
  * @ORM\Table(name="utilisateur")
@@ -19,7 +20,7 @@ class Utilisateur
    */
     private $modifications;
     /**
-   * @ORM\ManyToMany(targetEntity="FeuilleDeRoute",inversedBy="utilisateurs")
+   * @ORM\ManyToMany(targetEntity="FeuilleDeRoute",mappedBy="utilisateurs")
    * @ORM\JoinColumn(nullable=true)
    */
     private $feuilleDeRoutes;
@@ -99,7 +100,7 @@ class Utilisateur
     /**
      * @var string
      * @Assert\Type(type="alnum", message="La valeur {{ value }} n'est pas un {{ type }}.") 
-     * @ORM\Column(name="cin", type="string", length=100?, nullable=true)
+     * @ORM\Column(name="cin", type="string", length=100, nullable=true,unique=true)
      */
     private $cin;
 

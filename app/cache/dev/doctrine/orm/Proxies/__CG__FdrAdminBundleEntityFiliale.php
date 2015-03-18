@@ -64,10 +64,10 @@ class Filiale extends \Fdr\AdminBundle\Entity\Filiale implements \Doctrine\ORM\P
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Filiale' . "\0" . 'depots', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Filiale' . "\0" . 'feuilleDeRoutes', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Filiale' . "\0" . 'id', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Filiale' . "\0" . 'code', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Filiale' . "\0" . 'libelle', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Filiale' . "\0" . 'adresse', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Filiale' . "\0" . 'champSup1', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Filiale' . "\0" . 'champSup2');
+            return array('__isInitialized__', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Filiale' . "\0" . 'depots', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Filiale' . "\0" . 'feuilleDeRoutes', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Filiale' . "\0" . 'id', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Filiale' . "\0" . 'libelle', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Filiale' . "\0" . 'adresse', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Filiale' . "\0" . 'champSup1', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Filiale' . "\0" . 'champSup2');
         }
 
-        return array('__isInitialized__', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Filiale' . "\0" . 'depots', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Filiale' . "\0" . 'feuilleDeRoutes', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Filiale' . "\0" . 'id', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Filiale' . "\0" . 'code', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Filiale' . "\0" . 'libelle', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Filiale' . "\0" . 'adresse', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Filiale' . "\0" . 'champSup1', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Filiale' . "\0" . 'champSup2');
+        return array('__isInitialized__', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Filiale' . "\0" . 'depots', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Filiale' . "\0" . 'feuilleDeRoutes', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Filiale' . "\0" . 'id', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Filiale' . "\0" . 'libelle', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Filiale' . "\0" . 'adresse', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Filiale' . "\0" . 'champSup1', '' . "\0" . 'Fdr\\AdminBundle\\Entity\\Filiale' . "\0" . 'champSup2');
     }
 
     /**
@@ -186,28 +186,6 @@ class Filiale extends \Fdr\AdminBundle\Entity\Filiale implements \Doctrine\ORM\P
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', array());
 
         return parent::getId();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setCode($code)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCode', array($code));
-
-        return parent::setCode($code);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getCode()
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCode', array());
-
-        return parent::getCode();
     }
 
     /**

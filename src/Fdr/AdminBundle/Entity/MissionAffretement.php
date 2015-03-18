@@ -18,9 +18,9 @@ class MissionAffretement
   
   /**
    * @ORM\ManyToOne(targetEntity="Client")
-   * @ORM\JoinColumn(nullable=false)
+   * @ORM\JoinColumn(nullable=true)
    */
-  private $client;
+  private $client=null;
     /**
      * @var integer
      *

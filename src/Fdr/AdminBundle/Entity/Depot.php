@@ -9,7 +9,6 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 /**
  * Depot
  * @ORM\Table(name="depot")
- * @UniqueEntity("code",  message ="Ce code existe déja.Veuillez choisir un autre")
  * @UniqueEntity("libelle",  message ="Cette libelle existe déja.Veuillez choisir une autre")
  * @ORM\Entity(repositoryClass="Fdr\AdminBundle\Entity\DepotRepository")
  */
@@ -41,14 +40,6 @@ class Depot
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
-    /**
-     * @var string
-     * @Assert\NotBlank()
-     * @ORM\Column(name="code", type="string", length=100, unique=true)
-     */
-    private $code;
-
     /**
      * @var string
      * @Assert\NotBlank()
@@ -93,29 +84,6 @@ class Depot
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set code
-     *
-     * @param string $code
-     * @return Depot
-     */
-    public function setCode($code)
-    {
-        $this->code = $code;
-    
-        return $this;
-    }
-
-    /**
-     * Get code
-     *
-     * @return string 
-     */
-    public function getCode()
-    {
-        return $this->code;
     }
 
     /**

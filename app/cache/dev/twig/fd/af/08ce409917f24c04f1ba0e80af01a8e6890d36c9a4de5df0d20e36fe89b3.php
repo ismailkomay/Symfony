@@ -59,7 +59,7 @@ class __TwigTemplate_fdaf08ce409917f24c04f1ba0e80af01a8e6890d36c9a4de5df0d20e36f
                 <th>Nommanexterne2</th>
                 <th>Compteurreel</th>
                 <th>Compteurfinal</th>
-                <th>Etat</th>
+                <th>Cloture</th>
                 <th>Calcdiffkm</th>
                 <th>Calckmparcourus</th>
                 <th>Calcnbrepas</th>
@@ -139,7 +139,7 @@ class __TwigTemplate_fdaf08ce409917f24c04f1ba0e80af01a8e6890d36c9a4de5df0d20e36f
             echo "</td>
                 <td>";
             // line 52
-            echo twig_escape_filter($this->env, $this->getAttribute($context["entity"], "etat", array()), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute($context["entity"], "cloture", array()), "html", null, true);
             echo "</td>
                 <td>";
             // line 53

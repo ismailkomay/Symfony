@@ -17,7 +17,7 @@ class FeuilleDeRoute
    * @ORM\OneToOne(targetEntity="MissionAffretement")
    * @ORM\JoinColumn(nullable=true)
    */
-  private $missionAffretement;
+ private $missionAffretement=null;
     /**
    * @ORM\ManyToOne(targetEntity="Vehicule",inversedBy="feuilleDeRoutes")
    * @ORM\JoinColumn(nullable=false)
@@ -25,15 +25,16 @@ class FeuilleDeRoute
   private $vehicule;
   
    /**
+   *
    * @ORM\ManyToOne(targetEntity="TypePrestation",inversedBy="feuilleDeRoutes")
-   * @ORM\JoinColumn(nullable=false)
+   * @ORM\JoinColumn(nullable=true)
    */
   private $typePrestation;
  
   /**
-   * @Assert\NotBlank()
+   *
    * @ORM\ManyToOne(targetEntity="Secteur",inversedBy="feuilleDeRoutes")
-   * @ORM\JoinColumn(nullable=false)
+   * @ORM\JoinColumn(nullable=true)
    * 
    */
   private $secteur;
@@ -57,7 +58,7 @@ class FeuilleDeRoute
    */
     private $chauffeurs;
     /**
-   * @ORM\ManyToMany(targetEntity="Utilisateur",mappedBy="feuilleDeRoutes")
+   * @ORM\ManyToMany(targetEntity="Utilisateur",inversedBy="feuilleDeRoutes")
    * @ORM\JoinColumn(nullable=false)
    * @Assert\NotBlank()
    */

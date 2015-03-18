@@ -55,24 +55,24 @@ class __TwigTemplate_aafeefb9f8f7a5c0124c6d5f71a2aa56f58e8f1e8e0e3053a6a4d93c611
         echo "</td>
             </tr>
             <tr>
-                <th>Code</th>
-                <td>";
-        // line 14
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "code", array()), "html", null, true);
-        echo "</td>
-            </tr>
-            <tr>
                 <th>Libelle</th>
                 <td>";
-        // line 18
+        // line 14
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "libelle", array()), "html", null, true);
         echo "</td>
             </tr>
             <tr>
                 <th>Adresse</th>
                 <td>";
-        // line 22
+        // line 18
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "adresse", array()), "html", null, true);
+        echo "</td>
+            </tr>
+            <tr>
+                <th>Filiale</th>
+                <td>";
+        // line 22
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "filiale", array()), "html", null, true);
         echo "</td>
             </tr>
         </tbody>
