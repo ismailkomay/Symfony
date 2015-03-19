@@ -17,13 +17,21 @@ class MissionAffretement
     public function __construct() {
           $this->dateramassage = new \Datetime();  
           $this->datelivraison = new \Datetime();
+          $this->dateGeneree = new \Datetime();
     }
   
   /**
-   * @ORM\ManyToOne(targetEntity="Client")
-   * @ORM\JoinColumn(nullable=true)
+   * @ORM\ManyToOne(targetEntity="Client",inversedBy="missionAffretements")
+   * @ORM\JoinColumn(nullable=false)
    */
   private $client=null;
+  /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dateGeneree", type="datetime")
+     */
+    private $dateGeneree;
+    
     /**
      * @var integer
      *
@@ -150,7 +158,7 @@ class MissionAffretement
     /**
      * @var float
      * @Assert\NotBlank()
-     * @Assert\Currency
+     * @Assert\Type(type="float", message="La valeur du champs doit être un nombre.")
      * @ORM\Column(name="montantfacture", type="float", precision=2, scale=0, nullable=false)
      */
     private $montantfacture;
@@ -917,5 +925,28 @@ class MissionAffretement
     public function getTelresponsable()
     {
         return $this->telresponsable;
+    }
+
+    /**
+     * Set dateGeneree
+     *
+     * @param \DateTime $dateGeneree
+     * @return MissionAffretement
+     */
+    public function setDateGeneree($dateGeneree)
+    {
+        $this->dateGeneree = $dateGeneree;
+
+        return $this;
+    }
+
+    /**
+     * Get dateGeneree
+     *
+     * @return \DateTime 
+     */
+    public function getDateGeneree()
+    {
+        return $this->dateGeneree;
     }
 }

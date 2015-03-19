@@ -18,7 +18,7 @@ class UtilisateurType extends AbstractType
             ->add('nom')
             ->add('prenom')
             ->add('login')
-            ->add('motDePasse')
+            ->add('motDePasse','repeated', array('type' => 'password','invalid_message' => 'Les mots de passe entrés ne correspondent pas.','first_name' => "password",'second_name' => "repassword",))
             ->add('matricule')
             ->add('cin')
             ->add('tel')

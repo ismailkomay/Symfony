@@ -24,6 +24,12 @@ class Client
    */
     private $clientFdrFs;
     
+    /**
+   * @ORM\OneToMany(targetEntity="MissionAffretement",mappedBy="client")
+   * @ORM\JoinColumn(nullable=true)
+   */
+    private $missionAffretements;
+    
      /**
    * @ORM\ManyToMany(targetEntity="Secteur",inversedBy="clients")
    * @ORM\JoinColumn(nullable=true)
@@ -37,6 +43,7 @@ class Client
         $this->secteurs = new \Doctrine\Common\Collections\ArrayCollection();
         $this->clientFdrVs = new \Doctrine\Common\Collections\ArrayCollection();
         $this->clientFdrFs = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->missionAffretements = new \Doctrine\Common\Collections\ArrayCollection();
     }
     /**
      * @var integer
@@ -545,5 +552,71 @@ class Client
         $sortie = (empty($this->nom))?$this->nomentreprise:($this->nom." ".$this->prenom);
         $cnt = ($this->encompte)?"*/":"";
         return $cnt.$sortie;
+    }
+
+    /**
+     * Add clientFdrFs
+     *
+     * @param \Fdr\AdminBundle\Entity\ClientFdrF $clientFdrFs
+     * @return Client
+     */
+    public function addClientFdrF(\Fdr\AdminBundle\Entity\ClientFdrF $clientFdrFs)
+    {
+        $this->clientFdrFs[] = $clientFdrFs;
+
+        return $this;
+    }
+
+    /**
+     * Remove clientFdrFs
+     *
+     * @param \Fdr\AdminBundle\Entity\ClientFdrF $clientFdrFs
+     */
+    public function removeClientFdrF(\Fdr\AdminBundle\Entity\ClientFdrF $clientFdrFs)
+    {
+        $this->clientFdrFs->removeElement($clientFdrFs);
+    }
+
+    /**
+     * Get clientFdrFs
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getClientFdrFs()
+    {
+        return $this->clientFdrFs;
+    }
+
+    /**
+     * Add missionAffretements
+     *
+     * @param \Fdr\AdminBundle\Entity\MissionAffretement $missionAffretements
+     * @return Client
+     */
+    public function addMissionAffretement(\Fdr\AdminBundle\Entity\MissionAffretement $missionAffretements)
+    {
+        $this->missionAffretements[] = $missionAffretements;
+
+        return $this;
+    }
+
+    /**
+     * Remove missionAffretements
+     *
+     * @param \Fdr\AdminBundle\Entity\MissionAffretement $missionAffretements
+     */
+    public function removeMissionAffretement(\Fdr\AdminBundle\Entity\MissionAffretement $missionAffretements)
+    {
+        $this->missionAffretements->removeElement($missionAffretements);
+    }
+
+    /**
+     * Get missionAffretements
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getMissionAffretements()
+    {
+        return $this->missionAffretements;
     }
 }

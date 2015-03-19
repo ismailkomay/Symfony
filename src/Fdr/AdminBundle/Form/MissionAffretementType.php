@@ -15,6 +15,7 @@ class MissionAffretementType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('dateGeneree','datetime',array('date_widget' => "single_text", 'time_widget' => "single_text",'read_only' => true,'disabled' => true,'with_seconds'=>true))
             ->add('ecc')
             ->add('ect')
             ->add('ebl')
