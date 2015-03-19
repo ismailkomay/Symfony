@@ -27,6 +27,7 @@ class Chauffeur
      public function __construct() {
         $this->indisponibilites = new ArrayCollection() ;
         $this->feuilleDeRoutes = new ArrayCollection() ;
+         $this->dateembauche = new \Datetime();  
     }
      
     /**

@@ -20,7 +20,7 @@ class ChauffeurType extends AbstractType
             ->add('tel')
             ->add('cin')
             ->add('adresse')
-            ->add('dateembauche','date',array('years' => range(1990,2030)))
+            ->add('dateembauche','date', array('widget' => "single_text"))
             ->add('typeconvention','choice',array('choices'=>array(
                 'cdd'=>'CDD',
                 'cdi'=>'CDI',

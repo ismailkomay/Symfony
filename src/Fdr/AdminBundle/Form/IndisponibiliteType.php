@@ -17,8 +17,8 @@ class IndisponibiliteType extends AbstractType
         $builder
             ->add('chauffeur')
             ->add('motif','choice',array('choices'=>array('conge'=>'Congé','map'=>'Mise à pieds','cm'=>'Congé maladie','autre'=>'Autre')))
-            ->add('datedebut','date',array('years' => range(1990,2030)))
-            ->add('datefin','date',array('years' => range(1990,2030)))
+            ->add('datedebut','datetime', array('date_widget' => "single_text", 'time_widget' => "single_text"))
+            ->add('datefin','datetime', array('date_widget' => "single_text", 'time_widget' => "single_text"))
 //            ->add('champssupp1')
 //            ->add('champssupp2')
             

@@ -12,6 +12,9 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class BonCarburantHuile
 {
+    public function __construct() {
+        $this->date = new \Datetime();   
+    }
      /**
    * @ORM\ManyToOne(targetEntity="FeuilleDeRoute",inversedBy="bonCarburantHuiles")
    * @ORM\JoinColumn(nullable=false)
@@ -52,15 +55,15 @@ class BonCarburantHuile
     /**
      * @var float
      * @Assert\NotBlank()
-     * @Assert\Type(type="float", message="La valeur {{ value }} n'est pas valide.")
+     * @Assert\Type(type="numeric", message="La valeur {{ value }} n'est pas valide.")
      * @ORM\Column(name="quantite", type="float")
      */
     private $quantite;
 
     /**
      * @var float
-     * @Assert\NotBlank()s   
-     * @Assert\Type(type="float", message="La valeur {{ value }} n'est pas valide.")
+     * @Assert\NotBlank() 
+     * @Assert\Type(type="numeric", message="La valeur {{ value }} n'est pas valide.")
      * @ORM\Column(name="montant", type="float")
      */
     private $montant;
@@ -68,7 +71,7 @@ class BonCarburantHuile
     /**
      * @var integer
      * @Assert\NotBlank()      
-     * @Assert\Type(type="float", message="La valeur {{ value }} n'est pas valide.")
+     * @Assert\Type(type="numeric", message="La valeur {{ value }} n'est pas valide.")
      * @ORM\Column(name="compteur", type="bigint")
      */
     private $compteur;

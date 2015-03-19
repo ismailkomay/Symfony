@@ -58,7 +58,7 @@ class TypeConsommation
     /**
      * @var float
      * @Assert\NotBlank()
-     * @Assert\Type(type="float", message="La valeur du champs n'est pas valide.")
+     * @Assert\Type(type="numeric", message="La valeur du champs n'est pas valide.")
      * @ORM\Column(name="prixUnitaire", type="float")
      */
     private $prixUnitaire;

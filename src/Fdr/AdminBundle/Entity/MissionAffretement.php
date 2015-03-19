@@ -14,7 +14,10 @@ use Symfony\Component\Validator\Constraints as Assert;
 class MissionAffretement
 {
     
-  
+    public function __construct() {
+          $this->dateramassage = new \Datetime();  
+          $this->datelivraison = new \Datetime();
+    }
   
   /**
    * @ORM\ManyToOne(targetEntity="Client")
@@ -68,8 +71,9 @@ class MissionAffretement
     /**
      * @var float
      *
-     * @ORM\Column(name="valdeclassurance", type="float", precision=4, scale=0, nullable=true)
-     * @Assert\Type(type="float", message="La valeur du champs n'est pas valide.")
+     * @ORM\Column(name="valdeclassurance", type="float", precision=2, scale=0, nullable=true)
+     * @Assert\Type(type="numeric", message="La valeur du champs n'est pas valide.")
+     * @Assert\Currency
      */
     private $valdeclassurance;
 
@@ -109,8 +113,9 @@ class MissionAffretement
     private $nomresponsable;
     /**
      * @var string
-     *
-     * @ORM\Column(name="telresponsable", type="string", length=100, nullable=true)
+     *@Assert\Regex("/[\d\-\ ]+/")
+     *@Assert\Length(min = "10")
+     * @ORM\Column(name="telresponsable", type="string", length=10, nullable=true)
      */
     private $telresponsable;
 
@@ -145,14 +150,14 @@ class MissionAffretement
     /**
      * @var float
      * @Assert\NotBlank()
-     * @Assert\Type(type="float", message="La valeur du champs doit être un nombre.")
-     * @ORM\Column(name="montantfacture", type="float", precision=4, scale=0, nullable=false)
+     * @Assert\Currency
+     * @ORM\Column(name="montantfacture", type="float", precision=2, scale=0, nullable=false)
      */
     private $montantfacture;
 
     /**
      * @var integer
-     * @Assert\Type(type="float", message="La valeur du champs doit être un nombre entier.")
+     * @Assert\Type(type="numeric", message="La valeur du champs doit être un nombre.")
      * @ORM\Column(name="remise", type="float",precision=4, nullable=true)
      */
     private $remise;

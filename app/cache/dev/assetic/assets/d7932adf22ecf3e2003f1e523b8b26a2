@@ -1,0 +1,57 @@
+jQuery(function(){
+   alert("Hello jQuery à marche via Bundle.");
+
+  //jQuery("select#fdr_adminbundle_feuillederoute_secteur").hover
+  /*jQuery("select#fdr_adminbundle_feuillederoute_typePrestation").change
+  (
+  	function(){
+    $("select#fdr_adminbundle_feuillederoute_secteur").replaceWith(
+    	"<select id='fdr_adminbundle_feuillederoute_secteur'><option value='55'>secteur de "+$("select#fdr_adminbundle_feuillederoute_typePrestation").val()+"</option></select>" );
+     //alert($("select#fdr_adminbundle_feuillederoute_secteur option:selected").val());
+  });*/
+});
+jQuery(function(){
+    //fdr--------------------
+     //-----------------------------------------------------------
+    $('#fdr_adminbundle_feuillederoute_dateGeneree_date').datetimepicker({
+        format: "Y-m-d",
+        timepicker: false,
+        datepicker: true,
+    });
+    $('#fdr_adminbundle_feuillederoute_dateGeneree_time').datetimepicker({
+        format: "H:i",
+        timepicker: true,
+        datepicker: false,
+        step:5
+    });
+    //----------------------------------------------------
+    $('#fdr_adminbundle_feuillederoute_dateDebutMission_date').datetimepicker({
+        format: "Y-m-d",
+        timepicker: false,
+        datepicker: true,
+    });
+    $('#fdr_adminbundle_feuillederoute_dateDebutMission_time').datetimepicker({
+        format: "H:i",
+        timepicker: true,
+        datepicker: false,
+        step:5
+    });
+    //--------------------------------------------------------------------
+    $('#fdr_adminbundle_feuillederoute_dateFinMission_date').datetimepicker({
+        format: "Y-m-d",
+        timepicker: true,
+        datepicker: true,
+    });
+    $('#fdr_adminbundle_feuillederoute_dateFinMission_time').datetimepicker({
+        format: "H:i",
+        timepicker: true,
+        datepicker: false,
+        step:5
+    });
+     //boncarburant--------------------------------------
+    $('#fdr_adminbundle_boncarburanthuile_date').datetimepicker({
+        format: "Y-m-d",
+        timepicker: false,
+        datepicker: true,
+    });
+});

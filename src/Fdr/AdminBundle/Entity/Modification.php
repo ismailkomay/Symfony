@@ -12,6 +12,9 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Modification
 {
+    public function __construct() {
+         $this->dateMaj = new \Datetime(); 
+    }
     /**
    * @ORM\ManyToOne(targetEntity="Utilisateur",inversedBy="modifications")
    * @ORM\JoinColumn(nullable=false)

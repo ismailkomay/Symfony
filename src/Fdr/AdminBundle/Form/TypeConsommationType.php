@@ -18,7 +18,7 @@ class TypeConsommationType extends AbstractType
             ->add('type','choice',array('choices'=>array('interne'=>'Interne','externe'=>'Externe')))
             ->add('agence','choice',array('choices'=>array('casa'=>'Agence Casa','marrakech'=>'Agence Marrakech','fes'=>'Agence Fes')))
             ->add('produit','choice',array('choices'=>array('gazoil'=>'Gazoil','essence'=>'Essence')))
-            ->add('prixUnitaire', 'money', array('currency' => 'EUR', 'precision' => 2))
+            ->add('prixUnitaire', 'money', array('currency' => 'MAD', 'precision' => 2))
 //            ->add('champSup1')
 //            ->add('champSup2')
         ;

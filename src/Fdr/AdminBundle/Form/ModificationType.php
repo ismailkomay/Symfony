@@ -16,7 +16,7 @@ class ModificationType extends AbstractType
     {
         $builder
             ->add('motif')
-            ->add('dateMaj','datetime',array('years' => range(1990,2030)))
+            ->add('dateMaj','datetime', array('date_widget' => "single_text", 'time_widget' => "single_text"))
 //            ->add('champSup1')
 //            ->add('champSup2')
             ->add('utilisateur')

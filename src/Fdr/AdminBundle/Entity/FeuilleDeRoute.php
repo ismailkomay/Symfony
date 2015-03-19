@@ -70,7 +70,14 @@ class FeuilleDeRoute
      * @Assert\NotBlank()
     */
     private $filiale;
-
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Depot", inversedBy="feuilleDeRoutes")
+     *  @ORM\JoinColumn(nullable=false)
+     * @Assert\NotBlank()
+    */
+    private $depot;
+    
      /**
    * @ORM\OneToMany(targetEntity="Modification",mappedBy="feuilleDeRoute")
    * @ORM\JoinColumn(nullable=true)
@@ -103,10 +110,7 @@ class FeuilleDeRoute
         $this->clientFdrFs = new ArrayCollection() ;
         $this->dateFinMission= new \DateTime();
         $this->dateDebutMission= new \DateTime();
-        $this->dateGeneree = new \Datetime();
-                //('2010-10-02');
-        //$this->dateFinMission= $this->dateFinMission->format('Y-m-d h:i:s');
-        
+        $this->dateGeneree = new \Datetime();       
         
     }
 
@@ -195,14 +199,14 @@ class FeuilleDeRoute
 
     /**
      * @var integer
-     * @Assert\Type(type="float", message="La valeur {{ value }} n'est pas valide.")
+     * @Assert\Type(type="numeric", message="La valeur {{ value }} n'est pas valide.")
      * @ORM\Column(name="calcDiffKm", type="integer", nullable=true)
      */
     private $calcDiffKm;
 
     /**
      * @var integer
-     * @Assert\Type(type="float", message="La valeur {{ value }} n'est pas valide.")
+     * @Assert\Type(type="numeric", message="La valeur {{ value }} n'est pas valide.")
      * @ORM\Column(name="calcKmParcourus", type="integer", nullable=true)
      */
     private $calcKmParcourus;
@@ -230,28 +234,28 @@ class FeuilleDeRoute
 
     /**
      * @var float
-     * @Assert\Type(type="float", message="La valeur {{ value }} n'est pas valide.")
+     * @Assert\Type(type="numeric", message="La valeur {{ value }} n'est pas valide.")
      * @ORM\Column(name="calcQuantite", type="float", nullable=true)
      */
     private $calcQuantite;
 
     /**
      * @var float
-     * @Assert\Type(type="float", message="La valeur {{ value }} n'est pas valide.")
+     * @Assert\Type(type="numeric", message="La valeur {{ value }} n'est pas valide.")
      * @ORM\Column(name="calcMontantCarburant", type="float", nullable=true)
      */
     private $calcMontantCarburant;
 
     /**
      * @var float
-     * @Assert\Type(type="float", message="La valeur {{ value }} n'est pas valide.")
+     * @Assert\Type(type="numeric", message="La valeur {{ value }} n'est pas valide.")
      * @ORM\Column(name="calcMontantPeage", type="float", nullable=true)
      */
     private $calcMontantPeage;
 
     /**
      * @var float
-     * @Assert\Type(type="float", message="La valeur {{ value }} n'est pas valide.")
+     * @Assert\Type(type="numeric", message="La valeur {{ value }} n'est pas valide.")
      * @ORM\Column(name="calcNbJours", type="float", nullable=true)
      */
     private $calcNbJours;
@@ -1379,5 +1383,28 @@ class FeuilleDeRoute
     public function getMissionAffretement()
     {
         return $this->missionAffretement;
+    }
+
+    /**
+     * Set depot
+     *
+     * @param \Fdr\AdminBundle\Entity\Depot $depot
+     * @return FeuilleDeRoute
+     */
+    public function setDepot(\Fdr\AdminBundle\Entity\Depot $depot)
+    {
+        $this->depot = $depot;
+
+        return $this;
+    }
+
+    /**
+     * Get depot
+     *
+     * @return \Fdr\AdminBundle\Entity\Depot 
+     */
+    public function getDepot()
+    {
+        return $this->depot;
     }
 }

@@ -16,7 +16,7 @@ class BonCarburantHuileType extends AbstractType
     {
         $builder
             ->add('lieu')
-            ->add('date','date',array('years' => range(1990,2030)))
+            ->add('date','datetime', array('date_widget' => "single_text", 'time_widget' => "single_text"))
             ->add('quantite')
             ->add('montant', 'money', array('currency' => 'EUR', 'precision' => 2))
             ->add('compteur')

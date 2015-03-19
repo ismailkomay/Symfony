@@ -21,7 +21,7 @@ class Filiale
     private $depots;
     
     /**
-    * @ORM\OneToMany(targetEntity="FeuilleDeRoute",mappedBy="depot")
+    * @ORM\OneToMany(targetEntity="FeuilleDeRoute",mappedBy="filiale")
    * @ORM\JoinColumn(nullable=true)
     */
      private $feuilleDeRoutes;

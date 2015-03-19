@@ -13,6 +13,11 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Indisponibilite
 {
+    
+    public function __construct() {
+         $this->datedebut = new \Datetime();  
+          $this->datefin = new \Datetime();  
+    }
     /**
    * @ORM\ManyToOne(targetEntity="Chauffeur",inversedBy="indisponibilites", cascade={"remove"})
    * @ORM\JoinColumn(nullable=false)
