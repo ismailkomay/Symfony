@@ -49,11 +49,21 @@ class __TwigTemplate_0f8538a15b10e4ac87fa15427a6118c5a05c8038e38b3e96820a08bf5fe
         // line 6
         echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form');
         echo "
+    <ul>
+        <li>
+            <a href=\"";
+        // line 9
+        echo $this->env->getExtension('routing')->getPath("role_new");
+        echo "\">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
 
         <ul class=\"record_actions\">
     <li>
         <a href=\"";
-        // line 10
+        // line 17
         echo $this->env->getExtension('routing')->getPath("utilisateur");
         echo "\">
             Back to the list
@@ -75,6 +85,6 @@ class __TwigTemplate_0f8538a15b10e4ac87fa15427a6118c5a05c8038e38b3e96820a08bf5fe
 
     public function getDebugInfo()
     {
-        return array (  57 => 10,  50 => 6,  46 => 4,  43 => 3,  37 => 2,  11 => 1,);
+        return array (  67 => 17,  56 => 9,  50 => 6,  46 => 4,  43 => 3,  37 => 2,  11 => 1,);
     }
 }

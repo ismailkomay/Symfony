@@ -9,7 +9,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  * Manutentionnaire
  * @UniqueEntity("cin",  message ="Ce cin existe déja.")
  * @ORM\Table(name="manutentionnaire")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Fdr\AdminBundle\Entity\ManutentionnaireRepository")
  */
 class Manutentionnaire
 {

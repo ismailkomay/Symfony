@@ -28,7 +28,7 @@ class UtilisateurType extends AbstractType
 //            ->add('champSup2')
 //            ->add('feuilleDeRoutes')
            ->add('depot')
-            ->add('role')
+           ->add('role')
         ;
     }
     

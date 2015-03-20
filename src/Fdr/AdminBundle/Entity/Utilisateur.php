@@ -35,7 +35,7 @@ class Utilisateur
     }
     /**
    * @ORM\ManyToOne(targetEntity="Role",inversedBy="utilisateurs")
-   * @ORM\JoinColumn(nullable=true)
+   * @ORM\JoinColumn(nullable=false)
    */
   
     private $role;

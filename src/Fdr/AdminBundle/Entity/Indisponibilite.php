@@ -9,7 +9,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * Indisponibilite
  *
  * @ORM\Table(name="indisponibilite")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Fdr\AdminBundle\Entity\IndisponibiliteRepository")
  */
 class Indisponibilite
 {

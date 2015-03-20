@@ -9,7 +9,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * Missionaffretement
  *
  * @ORM\Table(name="missionaffretement")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Fdr\AdminBundle\Entity\MissionAffretementRepository")
  */
 class MissionAffretement
 {
@@ -159,7 +159,7 @@ class MissionAffretement
      * @var float
      * @Assert\NotBlank()
      * @Assert\Type(type="float", message="La valeur du champs doit être un nombre.")
-     * @ORM\Column(name="montantfacture", type="float", precision=2, scale=0, nullable=false)
+     * @ORM\Column(name="montantfacture", type="float", precision=15, scale=2, nullable=false)
      */
     private $montantfacture;
 

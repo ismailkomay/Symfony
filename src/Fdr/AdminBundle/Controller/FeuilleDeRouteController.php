@@ -4,9 +4,10 @@ namespace Fdr\AdminBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
+use Fdr\AdminBundle\Entity\Client;
 use Fdr\AdminBundle\Entity\FeuilleDeRoute;
 use Fdr\AdminBundle\Form\FeuilleDeRouteType;
+use \Symfony\Component\HttpFoundation\Response;
 
 /**
  * FeuilleDeRoute controller.
@@ -85,6 +86,20 @@ class FeuilleDeRouteController extends Controller
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
+    }
+    public function clientsAction()
+    {
+       $em = $this->getDoctrine()->getManager();
+       $client =new Client();
+        $client = $em->getRepository('FdrAdminBundle:Client')->clientRamassage();
+        //$c = var_dump($client);
+        //$client = $em->getRepository('FdrAdminBundle:Client')->findByClientaffret(true);
+
+        return $this->render('FdrAdminBundle:FeuilleDeRoute:client.html.twig', array(
+            'client' => $client
+       ));
+        
+        
     }
 
     /**

@@ -8,7 +8,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 /**
  * Chauffeur
  * @ORM\Table(name="chauffeur")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Fdr\AdminBundle\Entity\ChauffeurRepository")
  * @UniqueEntity("cin",  message ="Ce cin existe déja.")
  */
 class Chauffeur

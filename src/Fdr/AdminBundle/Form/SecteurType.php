@@ -18,7 +18,7 @@ class SecteurType extends AbstractType
             ->add('libelle')
             ->add('depart')
             ->add('arrivee')
-            ->add('villeappartenance','choice',array('choices'=>array('casablanca'=>'Casablanca','marrakech'=>'Marrakech','safi'=>'Safi','rabat'=>'Rabat')))
+            ->add('ville')
             ->add('typePrestations')
             ->add('remarques')
         ;

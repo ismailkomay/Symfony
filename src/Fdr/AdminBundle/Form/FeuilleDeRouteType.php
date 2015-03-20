@@ -47,6 +47,7 @@ class FeuilleDeRouteType extends AbstractType
             ->add('vehicule',null,array('placeholder' => 'Choisir ...',))
             ->add('typePrestation',null,array('placeholder' => 'Choisir ...',"attr"=>array("onchange"=>"changerPrestation()","required"=>true)))
             ->add('secteur',null,array('placeholder' => 'Choisir ...',"attr"=>array("required"=>true)))
+            ->add('client',null,array('placeholder' => 'Choisir ...',))
             ->add('manutentionnaires')
             ->add('chauffeurs')
 //            ->add('utilisateurs')

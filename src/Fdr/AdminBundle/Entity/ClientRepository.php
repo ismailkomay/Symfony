@@ -3,6 +3,8 @@
 namespace Fdr\AdminBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
+use Fdr\AdminBundle\Entity\Client;
+use Doctrine\ORM\QueryBuilder;
 
 /**
  * ClientRepository
@@ -12,4 +14,16 @@ use Doctrine\ORM\EntityRepository;
  */
 class ClientRepository extends EntityRepository
 {
+    public function clientRamassage()
+    {
+       // $name='Ahmed';
+         $qb = $this->createQueryBuilder('c');
+         $qb ->where('c.id = :id')
+             ->setParameter('id', 1);
+         $cl =new Client();
+         $cl=$qb ->getQuery()
+                 ->getResult();
+
+        return $cl;
+    }
 }

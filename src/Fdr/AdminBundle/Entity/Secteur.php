@@ -9,7 +9,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  * Secteur
  * @UniqueEntity("libelle",  message ="Cette libelle existe déja.Veuillez choisir une autre")
  * @ORM\Table(name="secteur")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Fdr\AdminBundle\Entity\SecteurRepository")
  */
 class Secteur
 {
@@ -29,6 +29,13 @@ class Secteur
    * @ORM\JoinColumn(nullable=true)
    */
     private $typePrestations;
+   
+    /**
+   * @ORM\ManyToOne(targetEntity="Fdr\AdminBundle\Entity\Ville", cascade={"remove"},inversedBy="secteurs")
+   * @ORM\JoinColumn(nullable=false)
+   * @Assert\NotBlank()
+   */
+    private $ville;
     /**
      * @var integer
      * 
@@ -64,12 +71,7 @@ class Secteur
      */
     private $remarques;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="villeappartenance", type="string", length=100, nullable=true)
-     */
-    private $villeappartenance;
+   
     /**
      * @var string
      *
@@ -341,31 +343,32 @@ class Secteur
         return $this->typePrestations;
     }
     
-    /**
-     * Set villeappartenance
-     *
-     * @param string $villeappartenance
-     * @return TypePrestation
-     */
-    public function setVilleappartenance($villeappartenance)
+    
+    public function __toString()
     {
-        $this->villeappartenance = $villeappartenance;
+        return $this->libelle.'-'.$this->ville;
+    }
+
+    /**
+     * Set ville
+     *
+     * @param \Fdr\AdminBundle\Entity\Ville $ville
+     * @return Secteur
+     */
+    public function setVille(\Fdr\AdminBundle\Entity\Ville $ville)
+    {
+        $this->ville = $ville;
 
         return $this;
     }
 
     /**
-     * Get villeappartenance
+     * Get ville
      *
-     * @return string 
+     * @return \Fdr\AdminBundle\Entity\Ville 
      */
-    public function getVilleappartenance()
+    public function getVille()
     {
-        return $this->villeappartenance;
-    }
-    
-    public function __toString()
-    {
-        return $this->libelle.'-'.$this->villeappartenance;
+        return $this->ville;
     }
 }

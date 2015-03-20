@@ -8,6 +8,16 @@ var paramUrl = "typeprestation_id";
 var nomMethode = "secteursDePrestation";
 var ajaxRequest=maVarAjax(divSortie,idChampsCntrl,method,fichierParh,paramUrl,nomMethode);
 }
+function chargerClient()
+{
+var divSortie ="fdr_adminbundle_feuillederoute_client";
+var idChampsCntrl ="fdr_adminbundle_feuillederoute_typePrestation";
+var method = "GET";
+var fichierParh = "../../php/test.php";
+var paramUrl = "typeprestation_id";
+var nomMethode = "clientsDesecteur";
+var ajaxRequest=maVarAjax(divSortie,idChampsCntrl,method,fichierParh,paramUrl,nomMethode);
+}
 
 
 ///

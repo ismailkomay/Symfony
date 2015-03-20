@@ -1,3 +1,7 @@
+fdr_admin_ville:
+    resource: "@FdrAdminBundle/Resources/config/routing/ville.yml"
+    prefix:   /ville
+
 fdr_admin_typeprestation:
     resource: "@FdrAdminBundle/Resources/config/routing/typeprestation.yml"
     prefix:   /typeprestation

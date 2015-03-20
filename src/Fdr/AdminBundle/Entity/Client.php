@@ -4,12 +4,14 @@ namespace Fdr\AdminBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+
 /**
  * Client
+ * @ORM\Entity(repositoryClass="Fdr\AdminBundle\Entity\ClientRepository")
  * @UniqueEntity("email", * message ="Cet email existe déja.Veuillez choisir un autre")
  * @UniqueEntity("cin",  message ="Ce cin existe déja.")
  * @ORM\Table(name="client")
- * @ORM\Entity
+ * 
  */
 class Client
 {
@@ -549,7 +551,7 @@ class Client
     
     public function __toString()
     {
-        $sortie = (empty($this->nom))?$this->nomentreprise:($this->nom." ".$this->prenom);
+        $sortie = (empty($this->nom))?$this->nomentreprise:($this->nom." ".$this->prenom)." coucou";
         $cnt = ($this->encompte)?"*/":"";
         return $cnt.$sortie;
     }

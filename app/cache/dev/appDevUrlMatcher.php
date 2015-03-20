@@ -237,6 +237,66 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        if (0 === strpos($pathinfo, '/ville')) {
+            // ville
+            if (rtrim($pathinfo, '/') === '/ville') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'ville');
+                }
+
+                return array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\VilleController::indexAction',  '_route' => 'ville',);
+            }
+
+            // ville_show
+            if (preg_match('#^/ville/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'ville_show')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\VilleController::showAction',));
+            }
+
+            // ville_new
+            if ($pathinfo === '/ville/new') {
+                return array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\VilleController::newAction',  '_route' => 'ville_new',);
+            }
+
+            // ville_create
+            if ($pathinfo === '/ville/create') {
+                if ($this->context->getMethod() != 'POST') {
+                    $allow[] = 'POST';
+                    goto not_ville_create;
+                }
+
+                return array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\VilleController::createAction',  '_route' => 'ville_create',);
+            }
+            not_ville_create:
+
+            // ville_edit
+            if (preg_match('#^/ville/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'ville_edit')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\VilleController::editAction',));
+            }
+
+            // ville_update
+            if (preg_match('#^/ville/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
+                    $allow = array_merge($allow, array('POST', 'PUT'));
+                    goto not_ville_update;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'ville_update')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\VilleController::updateAction',));
+            }
+            not_ville_update:
+
+            // ville_delete
+            if (preg_match('#^/ville/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
+                    $allow = array_merge($allow, array('POST', 'DELETE'));
+                    goto not_ville_delete;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'ville_delete')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\VilleController::deleteAction',));
+            }
+            not_ville_delete:
+
+        }
+
         if (0 === strpos($pathinfo, '/typeprestation')) {
             // typeprestation
             if (rtrim($pathinfo, '/') === '/typeprestation') {
@@ -414,6 +474,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'feuillederoute_delete')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\FeuilleDeRouteController::deleteAction',));
             }
             not_feuillederoute_delete:
+
+            // feuillederoute_client
+            if ($pathinfo === '/feuillederoute/client') {
+                return array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\FeuilleDeRouteController::clientsAction',  '_route' => 'feuillederoute_client',);
+            }
 
         }
 

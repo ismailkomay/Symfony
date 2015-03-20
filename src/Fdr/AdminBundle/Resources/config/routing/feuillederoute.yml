@@ -28,3 +28,7 @@ feuillederoute_delete:
     path:     /{id}/delete
     defaults: { _controller: "FdrAdminBundle:FeuilleDeRoute:delete" }
     methods:  [POST, DELETE]
+
+feuillederoute_client:
+    path:     /client
+    defaults: { _controller: "FdrAdminBundle:FeuilleDeRoute:clients" }

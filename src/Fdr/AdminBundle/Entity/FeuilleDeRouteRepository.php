@@ -12,4 +12,8 @@ use Doctrine\ORM\EntityRepository;
  */
 class FeuilleDeRouteRepository extends EntityRepository
 {
+    public function clientsRamassage()
+        {
+            
+        }
 }

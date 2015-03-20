@@ -30,7 +30,7 @@ class MissionAffretementType extends AbstractType
             ->add('naturemarchandise')
             ->add('datelivraison','datetime', array('date_widget' => "single_text", 'time_widget' => "single_text"))
             ->add('lieulivraison')
-            ->add('montantfacture', 'money', array('currency' => 'MAD', 'precision' => 2))
+            ->add('montantfacture', 'money', array('currency' => 'MAD', 'precision' => 2,'pattern'=>'([0-9]*\.[0-9]+|[0-9]*\,[0-9]+|[0-9]+)'))
             ->add('remise', 'percent', array('precision' => 2,'required'=>false))
             ->add('motifremise')
             ->add('montantregle')

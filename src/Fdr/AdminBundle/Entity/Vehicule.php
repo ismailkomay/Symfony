@@ -10,7 +10,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  * Vehicule
  * @UniqueEntity("matricule",  message ="Ce matricule existe déja.Veuillez choisir un autre")
  * @ORM\Table(name="vehicule")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Fdr\AdminBundle\Entity\VehiculeRepository")
  */
 class Vehicule
 {

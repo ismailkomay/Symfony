@@ -10,7 +10,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  * Typeprestation
  * @UniqueEntity("libelle",  message ="Cette libelle existe déja.Veuillez choisir une autre")
  * @ORM\Table(name="typeprestation")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Fdr\AdminBundle\Entity\TypePrestationRepository")
  * 
  */
 class TypePrestation

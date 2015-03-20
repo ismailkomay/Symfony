@@ -23,6 +23,13 @@ class Depot
     private $filiale;
     
     /**
+   * @ORM\ManyToOne(targetEntity="Fdr\AdminBundle\Entity\Ville", cascade={"remove"},inversedBy="depots")
+   * @ORM\JoinColumn(nullable=false)
+   * @Assert\NotBlank()
+   */
+    private $ville;
+    
+    /**
     * @ORM\OneToMany(targetEntity="FeuilleDeRoute",mappedBy="filiale")
    * @ORM\JoinColumn(nullable=true)
     */
@@ -53,12 +60,7 @@ class Depot
      */
     private $libelle;
 
-    /**
-     * @var string
-     * @Assert\NotBlank()
-     * @ORM\Column(name="ville", type="string", length=100,nullable=false)
-     */
-    private $ville;
+  
     /**
      * @var string
      * @Assert\Type(type="alnum", message="La valeur {{ value }} n'est pas valide.")
@@ -244,29 +246,7 @@ class Depot
         return $this->utilisateurs;
     }
 
-    /**
-     * Set ville
-     *
-     * @param string $ville
-     * @return Depot
-     */
-    public function setVille($ville)
-    {
-        $this->ville = $ville;
-    
-        return $this;
-    }
-
-    /**
-     * Get ville
-     *
-     * @return string 
-     */
-    public function getVille()
-    {
-        return $this->ville;
-    }
-
+   
     /**
      * Add feuilleDeRoutes
      *
@@ -298,5 +278,28 @@ class Depot
     public function getFeuilleDeRoutes()
     {
         return $this->feuilleDeRoutes;
+    }
+
+    /**
+     * Set ville
+     *
+     * @param \Fdr\AdminBundle\Entity\Ville $ville
+     * @return Depot
+     */
+    public function setVille(\Fdr\AdminBundle\Entity\Ville $ville)
+    {
+        $this->ville = $ville;
+
+        return $this;
+    }
+
+    /**
+     * Get ville
+     *
+     * @return \Fdr\AdminBundle\Entity\Ville 
+     */
+    public function getVille()
+    {
+        return $this->ville;
     }
 }
