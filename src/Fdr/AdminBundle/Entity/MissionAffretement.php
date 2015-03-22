@@ -81,7 +81,6 @@ class MissionAffretement
      *
      * @ORM\Column(name="valdeclassurance", type="float", precision=2, scale=0, nullable=true)
      * @Assert\Type(type="numeric", message="La valeur du champs n'est pas valide.")
-     * @Assert\Currency
      */
     private $valdeclassurance;
 
