@@ -2,6 +2,10 @@
 <html>
     <head>
         <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta name="description" content="ismailkomay"/>
+        <meta name="author" content="ismailkomay"/>
         <title>{% block title %}Welcome{% endblock %}</title>
 		{% block stylesheets %}
         {% stylesheets 'bundles/fdradmin/css/*' filter='cssrewrite' %}
@@ -11,13 +15,18 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
+    <div class="container">
          {% block body %}{% endblock %}
          {% block javascripts %}
-        {% javascripts '@FdrAdminBundle/Resources/public/js/*' %}
+         {% javascripts '@FdrAdminBundle/Resources/public/js/*' %}
          <script type="text/javascript" src="{{ asset_url }}"></script>
          {% endjavascripts %}
-         <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
-         <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
          {% endblock %}
+    </div>
+        {% block footer %}
+        <footer>
+            &copy; Copyright {{"now"|date('Y')}} / <a href="ctm-messagerie.ma" title="Komay">CTM Messagerie</a>.
+        </footer>
+        {% endblock %}
     </body>
 </html>

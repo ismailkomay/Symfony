@@ -1,0 +1,19 @@
+[class*="span"] {
+margin-bottom: 15px;
+border-radius: 5px 5px 5px 5px;
+}
+body{
+    background-color: white;
+}
+label{
+color:#699FCD;
+}
+input[type="checkbox"] {
+	width: 18px;
+	height: 18px;
+	background: #fcfff4;
+}
+
+#footer{
+    bottom: 0;
+}

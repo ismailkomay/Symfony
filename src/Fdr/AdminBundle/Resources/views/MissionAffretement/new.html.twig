@@ -1,15 +1,89 @@
 {% extends '::base.html.twig' %}
 {% block title %}MissionAffretement|New{% endblock %}
 {% block body -%}
-    <h1>MissionAffretement creation</h1>
+<div class="page-header"><h1> Ajout d'une feuille de lancement</h1></div>
+ 
+{{ form_start(form) }}
+<div class="row">
+<span class="alert-danger ">{{ form_errors(form) }}</span>
+</div>
 
-    {{ form(form) }}
 
-        <ul class="record_actions">
+<div class="row">
+<div class="span4">
+<fieldset>
+<legend>Ramassage : </legend>
+<div class="span4">{{ form_label(form.dateramassage," ") }}<span class="alert-danger ">{{ form_errors(form.dateramassage) }}</span>{{ form_widget(form.dateramassage) }}</div>
+<div class="span2">{{ form_label(form.lieuramassage," ") }}<span class="alert-danger ">{{ form_errors(form.lieuramassage) }}</span>{{ form_widget(form.lieuramassage) }}</div>
+</fieldset>
+</div>
+
+<div class="span4">
+<fieldset> 
+<legend>Livraison : </legend>
+
+<div class="span3">{{ form_label(form.datelivraison," ") }}<span class="alert-danger ">{{ form_errors(form.datelivraison) }}</span>{{ form_widget(form.datelivraison) }}</div>
+<div class="span2">{{ form_label(form.lieulivraison," ") }}<span class="alert-danger ">{{ form_errors(form.lieulivraison) }}</span>{{ form_widget(form.lieulivraison) }}</div>
+
+
+<div class="span3">{{ form_label(form.naturemarchandise," ") }}<span class="alert-danger ">{{ form_errors(form.naturemarchandise) }}</span>{{ form_widget(form.naturemarchandise) }}</div>
+<div class="span3">{{ form_label(form.nbrecolis," ") }}<span class="alert-danger ">{{ form_errors(form.nbrecolis) }}</span>{{ form_widget(form.nbrecolis) }}</div>
+
+<div class="span3">{{ form_label(form.bonlivraison," ") }}<span class="alert-danger ">{{ form_errors(form.bonlivraison) }}</span>{{ form_widget(form.bonlivraison) }}</div>
+<div class="span3">{{ form_label(form.numexpedition," ") }}<span class="alert-danger ">{{ form_errors(form.numexpedition) }}</span>{{ form_widget(form.numexpedition) }}</div>
+
+
+</fieldset>
+</div>
+
+<div class="span3">
+<fieldset>
+<legend>P.J. :</legend>
+<div class="span2">{{ form_widget(form.ecc) }} <span class="alert-danger ">{{ form_errors(form.ecc) }}</span>  {{ form_label(form.ecc,"ECC") }}</div>
+<div class="span2">{{ form_widget(form.ect) }} <span class="alert-danger ">{{ form_errors(form.ect) }}</span>  {{ form_label(form.ect,"ECT") }}</div>
+<div class="span2">{{ form_widget(form.ebl) }}<span class="alert-danger ">{{ form_errors(form.ebl) }}</span> {{ form_label(form.ebl,"EBL") }}</div>
+<div class="span2">{{ form_widget(form.espece) }}<span class="alert-danger ">{{ form_errors(form.espece) }}</span> {{ form_label(form.espece,"ESPECE") }}</div>
+<div class="span2">{{ form_label(form.autredoc," ") }} <span class="alert-danger ">{{ form_errors(form.autredoc) }}</span>  {{ form_widget(form.autredoc) }}</div>
+</fieldset>
+</div>
+</div>
+
+
+<div class="row">
+<div class="span4">
+<fieldset> 
+<legend>Contact client : </legend>
+<div class="span2">{{ form_label(form.client,"Client") }}<span class="alert-danger ">{{ form_errors(form.client) }}</span>{{ form_widget(form.client) }}</div>
+<div class="span3">{{ form_label(form.nomresponsable," ") }}<span class="alert-danger ">{{ form_errors(form.nomresponsable) }}</span>{{ form_widget(form.nomresponsable) }}</div>
+<div class="span3">{{ form_label(form.telresponsable," ") }}<span class="alert-danger ">{{ form_errors(form.telresponsable) }}</span>{{ form_widget(form.telresponsable) }}</div>
+</fieldset>
+</div>
+    
+<div class="span4">
+<fieldset> 
+<legend>Facture client : </legend>
+<div class="span4">{{ form_widget(form.montantfacture) }}<span class="alert-danger ">{{ form_errors(form.montantfacture) }}</span>{{ form_label(form.montantfacture," ") }}</div>
+<div class="span3">{{ form_widget(form.remise) }}<span class="alert-danger ">{{ form_errors(form.remise) }}</span>{{ form_label(form.remise," ") }}</div>
+<div class="span3">{{ form_widget(form.motifremise) }}<span class="alert-danger ">{{ form_errors(form.motifremise) }}</span>{{ form_label(form.motifremise," ") }}</div>
+<div class="span3">{{ form_widget(form.montantregle) }}<span class="alert-danger ">{{ form_errors(form.montantregle) }}</span>{{ form_label(form.montantregle,"Montant regle ") }}</div>
+</fieldset>
+</div> 
+    
+<div class="span3">
+<fieldset> 
+<legend>Asssurance/Banque : </legend>
+<div class="span3">{{ form_widget(form.valdeclassurance) }}<span class="alert-danger ">{{ form_errors(form.valdeclassurance) }}</span>{{ form_label(form.valdeclassurance," ") }}</div>
+<div class="span2">{{ form_label(form.nombnq," ") }}<span class="alert-danger ">{{ form_errors(form.nombnq) }}</span>{{ form_widget(form.nombnq) }}</div>
+<div class="span2">{{ form_label(form.numcheque," ") }}<span class="alert-danger ">{{ form_errors(form.numcheque) }}</span>{{ form_widget(form.numcheque) }}</div>
+</fieldset>
+</div>
+{{ form_end(form) }}
+
+        <!--ul class="record_actions">
     <li>
-        <a href="{{ path('missionaffretement') }}">
+        <a href="{# path('missionaffretement') #}">
             Back to the list
         </a>
     </li>
-</ul>
+</ul-->
 {% endblock %}

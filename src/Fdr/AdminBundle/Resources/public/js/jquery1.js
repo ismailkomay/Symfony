@@ -10,6 +10,10 @@ jQuery(function(){
      //alert($("select#fdr_adminbundle_feuillederoute_secteur option:selected").val());
   });*/
 });
+  jQuery(":text").addClass("input-sm");
+  jQuery(":text").addClass("img-round");
+  jQuery("legend").addClass("label-info");
+  jQuery(".required").append("&nbsp;&nbsp;<font color='red'><b>*</b></font>");
 jQuery(function(){
     //fdr--------------------
      //-----------------------------------------------------------
