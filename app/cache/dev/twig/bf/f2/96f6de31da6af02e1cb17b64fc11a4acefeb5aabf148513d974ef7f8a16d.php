@@ -50,12 +50,13 @@ class __TwigTemplate_bff296f6de31da6af02e1cb17b64fc11a4acefeb5aabf148513d974ef7f
         echo "         ";
         $this->displayBlock('javascripts', $context, $blocks);
         // line 25
-        echo "    </div>
-        ";
+        echo "    
+         ";
         // line 26
         $this->displayBlock('footer', $context, $blocks);
         // line 31
-        echo "    </body>
+        echo "    </div>
+    </body>
 </html>";
     }
 
@@ -237,6 +238,6 @@ class __TwigTemplate_bff296f6de31da6af02e1cb17b64fc11a4acefeb5aabf148513d974ef7f
 
     public function getDebugInfo()
     {
-        return array (  222 => 28,  219 => 27,  216 => 26,  212 => 24,  162 => 22,  157 => 21,  154 => 20,  149 => 19,  145 => 14,  77 => 12,  72 => 11,  69 => 10,  63 => 9,  58 => 31,  56 => 26,  53 => 25,  50 => 20,  48 => 19,  40 => 15,  38 => 10,  34 => 9,  24 => 1,);
+        return array (  223 => 28,  220 => 27,  217 => 26,  213 => 24,  163 => 22,  158 => 21,  155 => 20,  150 => 19,  146 => 14,  78 => 12,  73 => 11,  70 => 10,  64 => 9,  58 => 31,  56 => 26,  53 => 25,  50 => 20,  48 => 19,  40 => 15,  38 => 10,  34 => 9,  24 => 1,);
     }
 }

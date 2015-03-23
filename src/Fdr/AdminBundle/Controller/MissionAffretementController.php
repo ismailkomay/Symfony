@@ -68,7 +68,7 @@ class MissionAffretementController extends Controller
         ));
 
         //$form->add('submit', 'submit', array('label' => 'Create'));
-        $form->add('submit', 'submit', array('label' => 'Ajouter','attr'=>array('class'=>'btn btn-primary span1 offset5')));
+        $form->add('submit', 'submit', array('label' => 'Enregistrer','attr'=>array('class'=>'btn btn-primary span2 offset4')));
         return $form;
     }
 

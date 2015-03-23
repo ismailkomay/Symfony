@@ -20,7 +20,7 @@ jQuery(function(){
     $('#fdr_adminbundle_feuillederoute_dateGeneree_date').datetimepicker({
         format: "Y-m-d",
         timepicker: false,
-        datepicker: true,
+        datepicker: true
     });
     $('#fdr_adminbundle_feuillederoute_dateGeneree_time').datetimepicker({
         format: "H:i",
@@ -32,7 +32,7 @@ jQuery(function(){
     $('#fdr_adminbundle_feuillederoute_dateDebutMission_date').datetimepicker({
         format: "Y-m-d",
         timepicker: false,
-        datepicker: true,
+        datepicker: true
     });
     $('#fdr_adminbundle_feuillederoute_dateDebutMission_time').datetimepicker({
         format: "H:i",
@@ -44,7 +44,7 @@ jQuery(function(){
     $('#fdr_adminbundle_feuillederoute_dateFinMission_date').datetimepicker({
         format: "Y-m-d",
         timepicker: false,
-        datepicker: true,
+        datepicker: true
     });
     $('#fdr_adminbundle_feuillederoute_dateFinMission_time').datetimepicker({
         format: "H:i",
@@ -56,7 +56,7 @@ jQuery(function(){
        $('#fdr_adminbundle_boncarburanthuile_date_date').datetimepicker({
         format: "Y-m-d",
         timepicker: false,
-        datepicker: true,
+        datepicker: true
     });
     $('#fdr_adminbundle_boncarburanthuile_date_time').datetimepicker({
         format: "H:i",
@@ -68,7 +68,7 @@ jQuery(function(){
        $('#fdr_adminbundle_indisponibilite_datedebut_date').datetimepicker({
         format: "Y-m-d",
         timepicker: false,
-        datepicker: true,
+        datepicker: true
     });
     $('#fdr_adminbundle_indisponibilite_datedebut_time').datetimepicker({
         format: "H:i",
@@ -80,7 +80,7 @@ jQuery(function(){
 	   $('#fdr_adminbundle_indisponibilite_datefin_date').datetimepicker({
         format: "Y-m-d",
         timepicker: false,
-        datepicker: true,
+        datepicker: true
     });
     $('#fdr_adminbundle_indisponibilite_datefin_time').datetimepicker({
         format: "H:i",
@@ -92,7 +92,7 @@ jQuery(function(){
         $('#fdr_adminbundle_missionaffretement_datelivraison_date').datetimepicker({
         format: "Y-m-d",
         timepicker: false,
-        datepicker: true,
+        datepicker: true
     });
     $('#fdr_adminbundle_missionaffretement_datelivraison_time').datetimepicker({
         format: "H:i",
@@ -104,7 +104,7 @@ jQuery(function(){
 	   $('#fdr_adminbundle_missionaffretement_dateramassage_date').datetimepicker({
         format: "Y-m-d",
         timepicker: false,
-        datepicker: true,
+        datepicker: true
     });
     $('#fdr_adminbundle_missionaffretement_dateramassage_time').datetimepicker({
         format: "H:i",
@@ -116,7 +116,7 @@ jQuery(function(){
     $('#fdr_adminbundle_modification_dateMaj_date').datetimepicker({
         format: "Y-m-d",
         timepicker: false,
-        datepicker: true,
+        datepicker: true
     });
     $('#fdr_adminbundle_modification_dateMaj_time').datetimepicker({
         format: "H:i",
@@ -128,7 +128,7 @@ jQuery(function(){
     $('#fdr_adminbundle_peage_datePassage_date').datetimepicker({
         format: "Y-m-d",
         timepicker: false,
-        datepicker: true,
+        datepicker: true
     });
     $('#fdr_adminbundle_peage_datePassage_time').datetimepicker({
         format: "H:i",
@@ -141,6 +141,6 @@ jQuery(function(){
     $('#fdr_adminbundle_chauffeur_dateembauche').datetimepicker({
         format: "Y-m-d",
         timepicker: false,
-        datepicker: true,
+        datepicker: true
     });
 });
