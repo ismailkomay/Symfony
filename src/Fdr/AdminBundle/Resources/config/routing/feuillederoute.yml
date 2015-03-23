@@ -30,5 +30,5 @@ feuillederoute_delete:
     methods:  [POST, DELETE]
 
 feuillederoute_client:
-    path:     /client
+    path:     /client/{secteurId}
     defaults: { _controller: "FdrAdminBundle:FeuilleDeRoute:clients" }

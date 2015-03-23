@@ -80,7 +80,7 @@ class MissionAffretement
      * @var float
      *
      * @ORM\Column(name="valdeclassurance", type="float", precision=2, scale=0, nullable=true)
-     * @Assert\Type(type="numeric", message="La valeur du champs n'est pas valide.")
+     * @Assert\Type(type="float", message="La valeur du champs n'est pas valide.")
      */
     private $valdeclassurance;
 
@@ -163,11 +163,18 @@ class MissionAffretement
     private $montantfacture;
 
     /**
-     * @var integer
-     * @Assert\Type(type="numeric", message="La valeur du champs doit être un nombre.")
+     * @var float
+     * @Assert\Type(type="float", message="La valeur du champs doit être un nombre.")
      * @ORM\Column(name="remise", type="float",precision=4, nullable=true)
      */
     private $remise;
+    
+    /**
+     * @var float
+     * @Assert\Type(type="float", message="La valeur du champs doit être un nombre.")
+     * @ORM\Column(name="tonnage", type="float",precision=4, nullable=true)
+     */
+    private $tonnage;
 
     /**
      * @var string
@@ -217,6 +224,13 @@ class MissionAffretement
      * @ORM\Column(name="confRecDocCtm", type="boolean", nullable=true)
      */
     private $confRecDocCtm;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="etat", type="string", length=100, nullable=false)
+     */
+    private $etat="ouverte";
 
     /**
      * @var string
@@ -947,5 +961,51 @@ class MissionAffretement
     public function getDateGeneree()
     {
         return $this->dateGeneree;
+    }
+
+    /**
+     * Set etat
+     *
+     * @param string $etat
+     * @return MissionAffretement
+     */
+    public function setEtat($etat)
+    {
+        $this->etat = $etat;
+
+        return $this;
+    }
+
+    /**
+     * Get etat
+     *
+     * @return string 
+     */
+    public function getEtat()
+    {
+        return $this->etat;
+    }
+
+    /**
+     * Set tonnage
+     *
+     * @param float $tonnage
+     * @return MissionAffretement
+     */
+    public function setTonnage($tonnage)
+    {
+        $this->tonnage = $tonnage;
+
+        return $this;
+    }
+
+    /**
+     * Get tonnage
+     *
+     * @return float 
+     */
+    public function getTonnage()
+    {
+        return $this->tonnage;
     }
 }

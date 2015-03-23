@@ -87,7 +87,7 @@ class FeuilleDeRouteController extends Controller
             'form'   => $form->createView(),
         ));
     }
-    public function clientsAction()
+    public function clientsAction($secteurId)
     {
        $em = $this->getDoctrine()->getManager();
        //$client = $em->getRepository('FdrAdminBundle:Client')->findByClientaffret(true);
@@ -97,7 +97,21 @@ class FeuilleDeRouteController extends Controller
             
            if($client->getClientramass()!=null)
            {
-               $clientsRamassage[]=$client;
+               $secteursClient=$client->getSecteurs();
+               foreach ( $secteursClient  as $secteur) {
+                 $sect=$this->getDoctrine()
+                            ->getManager()
+                            ->getRepository('FdrAdminBundle:Secteur')
+                            ->find($secteurId);  
+                   if ($secteur=== $sect)
+                   {
+                       $clientsRamassage[]=$client;
+                       
+                       
+                   }
+               }
+              
+               
                
            }
        }
