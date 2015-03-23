@@ -204,6 +204,5 @@
   'SensioDistributionBundle:Configurator/Step:secret.html.twig' => 'C:\\wamp\\www\\Symfony\\vendor\\sensio\\distribution-bundle\\Sensio\\Bundle\\DistributionBundle/Resources/views/Configurator/Step/secret.html.twig',
   'SensioDistributionBundle:Configurator:steps.html.twig' => 'C:\\wamp\\www\\Symfony\\vendor\\sensio\\distribution-bundle\\Sensio\\Bundle\\DistributionBundle/Resources/views/Configurator/steps.html.twig',
   '::base.html.twig' => 'C:\\wamp\\www\\Symfony\\app/Resources\\views/base.html.twig',
-  '::base_ancien.html.twig' => 'C:\\wamp\\www\\Symfony\\app/Resources\\views/base_ancien.html.twig',
   ':default:index.html.twig' => 'C:\\wamp\\www\\Symfony\\app/Resources\\views/default/index.html.twig',
 );

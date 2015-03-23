@@ -1,1 +1,7 @@
-{{client.nom}}
+
+ <select name="clientRamassage" size=7 multiple>
+          {% for client in clients %}
+
+          <option value="{{client.id}}">{{client}}</option>
+          {% endfor %} 
+          </select>

@@ -5,6 +5,7 @@ namespace Fdr\AdminBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
+use \Fdr\AdminBundle\Controller\FeuilleDeRouteController;
 /**
  * FeuilleDeRoute
  *
@@ -1406,5 +1407,15 @@ class FeuilleDeRoute
     public function getDepot()
     {
         return $this->depot;
+    }
+    /**
+     * Get client
+     *
+     *  @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getClient()
+    {
+        $fCon=new FeuilleDeRouteController();
+        return $fCon->clientsAction();
     }
 }

@@ -14,6 +14,7 @@ class __TwigTemplate_5e37f89025301dd0b3b89f317471581e3153fdfe11fd4c19ecc6125d755
             'stylesheets' => array($this, 'block_stylesheets'),
             'body' => array($this, 'block_body'),
             'javascripts' => array($this, 'block_javascripts'),
+            'footer' => array($this, 'block_footer'),
         );
     }
 
@@ -49,6 +50,11 @@ class __TwigTemplate_5e37f89025301dd0b3b89f317471581e3153fdfe11fd4c19ecc6125d755
         echo "         ";
         $this->displayBlock('javascripts', $context, $blocks);
         // line 25
+        echo "    
+         ";
+        // line 26
+        $this->displayBlock('footer', $context, $blocks);
+        // line 31
         echo "    </div>
     </body>
 </html>";
@@ -207,6 +213,19 @@ class __TwigTemplate_5e37f89025301dd0b3b89f317471581e3153fdfe11fd4c19ecc6125d755
         echo "         ";
     }
 
+    // line 26
+    public function block_footer($context, array $blocks = array())
+    {
+        // line 27
+        echo "        <footer>
+            &copy; Copyright ";
+        // line 28
+        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, "now", "Y"), "html", null, true);
+        echo " / <a href=\"ctm-messagerie.ma\" title=\"Komay\">CTM Messagerie</a>.
+        </footer>
+        ";
+    }
+
     public function getTemplateName()
     {
         return "base.html.twig";
@@ -219,6 +238,6 @@ class __TwigTemplate_5e37f89025301dd0b3b89f317471581e3153fdfe11fd4c19ecc6125d755
 
     public function getDebugInfo()
     {
-        return array (  207 => 24,  157 => 22,  152 => 21,  149 => 20,  144 => 19,  140 => 14,  72 => 12,  67 => 11,  64 => 10,  58 => 9,  52 => 25,  49 => 20,  47 => 19,  39 => 15,  37 => 10,  33 => 9,  23 => 1,);
+        return array (  223 => 28,  220 => 27,  217 => 26,  213 => 24,  163 => 22,  158 => 21,  155 => 20,  150 => 19,  146 => 14,  78 => 12,  73 => 11,  70 => 10,  64 => 9,  58 => 31,  56 => 26,  53 => 25,  50 => 20,  48 => 19,  40 => 15,  38 => 10,  34 => 9,  24 => 1,);
     }
 }

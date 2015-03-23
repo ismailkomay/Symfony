@@ -551,7 +551,7 @@ class Client
     
     public function __toString()
     {
-        $sortie = (empty($this->nom))?$this->nomentreprise:($this->nom." ".$this->prenom)." coucou";
+        $sortie = (empty($this->nom))?$this->nomentreprise:($this->nom." ".$this->prenom);
         $cnt = ($this->encompte)?"*/":"";
         return $cnt.$sortie;
     }

@@ -90,16 +90,20 @@ class FeuilleDeRouteController extends Controller
     public function clientsAction()
     {
        $em = $this->getDoctrine()->getManager();
-       $client =new Client();
-        $client = $em->getRepository('FdrAdminBundle:Client')->clientRamassage();
-        //$c = var_dump($client);
-        //$client = $em->getRepository('FdrAdminBundle:Client')->findByClientaffret(true);
-
-        return $this->render('FdrAdminBundle:FeuilleDeRoute:client.html.twig', array(
-            'client' => $client
-       ));
-        
-        
+       //$client = $em->getRepository('FdrAdminBundle:Client')->findByClientaffret(true);
+       $clients = $em->getRepository('FdrAdminBundle:Client')->findAll();
+      
+       foreach ($clients as $client) {
+            
+           if($client->getClientramass()!=null)
+           {
+               $clientsRamassage[]=$client;
+               
+           }
+       }
+      
+         return $this->render('FdrAdminBundle:FeuilleDeRoute:client.html.twig', array(
+            'clients' => $clientsRamassage ));
     }
 
     /**

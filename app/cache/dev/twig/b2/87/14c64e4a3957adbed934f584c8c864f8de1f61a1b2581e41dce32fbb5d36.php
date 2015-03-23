@@ -49,11 +49,15 @@ class __TwigTemplate_b28714c64e4a3957adbed934f584c8c864f8de1f61a1b2581e41dce32fb
         // line 6
         echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form');
         echo "
-
+   
+ ";
+        // line 8
+        echo $this->env->getExtension('http_kernel')->renderFragment($this->env->getExtension('routing')->getUrl("feuillederoute_client"));
+        echo "
         <ul class=\"record_actions\">
     <li>
         <a href=\"";
-        // line 10
+        // line 11
         echo $this->env->getExtension('routing')->getPath("feuillederoute");
         echo "\">
             Back to the list
@@ -75,6 +79,6 @@ class __TwigTemplate_b28714c64e4a3957adbed934f584c8c864f8de1f61a1b2581e41dce32fb
 
     public function getDebugInfo()
     {
-        return array (  57 => 10,  50 => 6,  46 => 4,  43 => 3,  37 => 2,  11 => 1,);
+        return array (  61 => 11,  55 => 8,  50 => 6,  46 => 4,  43 => 3,  37 => 2,  11 => 1,);
     }
 }
