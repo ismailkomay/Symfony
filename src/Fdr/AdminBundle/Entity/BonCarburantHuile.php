@@ -44,6 +44,12 @@ class BonCarburantHuile
      * @Assert\NotBlank()
      */
     private $lieu;
+    /**
+     * @var string
+     * @ORM\Column(name="numcarte", type="string", length=100, nullable=false)
+     * @Assert\NotBlank()
+     */
+    private $numCarte;
 
     /**
      * @var \DateTime
@@ -311,5 +317,28 @@ class BonCarburantHuile
     public function __toString()
     {
         return $this->id;
+    }
+
+    /**
+     * Set numCarte
+     *
+     * @param string $numCarte
+     * @return BonCarburantHuile
+     */
+    public function setNumCarte($numCarte)
+    {
+        $this->numCarte = $numCarte;
+
+        return $this;
+    }
+
+    /**
+     * Get numCarte
+     *
+     * @return string 
+     */
+    public function getNumCarte()
+    {
+        return $this->numCarte;
     }
 }

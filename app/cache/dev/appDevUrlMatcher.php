@@ -496,9 +496,17 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             }
             not_feuillederoute_delete:
 
-            // feuillederoute_client
-            if (0 === strpos($pathinfo, '/feuillederoute/client') && preg_match('#^/feuillederoute/client/(?P<secteurId>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'feuillederoute_client')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\FeuilleDeRouteController::clientsAction',));
+            if (0 === strpos($pathinfo, '/feuillederoute/client')) {
+                // feuillederoute_client
+                if (preg_match('#^/feuillederoute/client/(?P<secteurId>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'feuillederoute_client')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\FeuilleDeRouteController::clientsAction',));
+                }
+
+                // feuillederoute_clientramassage
+                if ($pathinfo === '/feuillederoute/client') {
+                    return array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\FeuilleDeRouteController::clientsRamassageAction',  '_route' => 'feuillederoute_clientramassage',);
+                }
+
             }
 
         }

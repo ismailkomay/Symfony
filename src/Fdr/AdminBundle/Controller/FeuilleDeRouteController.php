@@ -106,20 +106,33 @@ class FeuilleDeRouteController extends Controller
                    if ($secteur=== $sect)
                    {
                        $clientsRamassage[]=$client;
-                       
-                       
-                   }
+                    }
                }
-              
-               
-               
-           }
+             }
        }
       
          return $this->render('FdrAdminBundle:FeuilleDeRoute:client.html.twig', array(
             'clients' => $clientsRamassage ));
     }
-
+ 
+    public function clientsRamassageAction()
+    {
+       $em = $this->getDoctrine()->getManager();
+       //$client = $em->getRepository('FdrAdminBundle:Client')->findByClientaffret(true);
+       $clients = $em->getRepository('FdrAdminBundle:Client')->findAll();
+      
+       foreach ($clients as $client) {
+            
+           if($client->getClientramass()!=null)
+           {
+               $clientsRamassage[]=$client;
+            }
+       }
+      
+         return $this->render('FdrAdminBundle:FeuilleDeRoute:client.html.twig', array(
+            'clients' => $clientsRamassage ));
+    }
+    
     /**
      * Finds and displays a FeuilleDeRoute entity.
      *

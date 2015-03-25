@@ -1,7 +1,10 @@
-
- <select name="clientRamassage" size=7 multiple>
+{% extends '::base.html.twig' %}
+{% block title %}{% endblock %}
+{% block body -%} 
+ <select id="fdr_adminbundle_feuillederoute_clientRamassage" name="secteur" size=7  placeholder="Choisir les clients.." multiple>
           {% for client in clients %}
 
           <option value="{{client.id}}">{{client}}</option>
           {% endfor %} 
           </select>
+{% endblock %}

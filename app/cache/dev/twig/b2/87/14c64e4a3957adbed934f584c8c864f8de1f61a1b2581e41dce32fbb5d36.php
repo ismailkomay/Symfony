@@ -52,7 +52,7 @@ class __TwigTemplate_b28714c64e4a3957adbed934f584c8c864f8de1f61a1b2581e41dce32fb
    
  ";
         // line 8
-        echo $this->env->getExtension('http_kernel')->renderFragment($this->env->getExtension('routing')->getUrl("feuillederoute_client"));
+        echo $this->env->getExtension('http_kernel')->renderFragment($this->env->getExtension('routing')->getUrl("feuillederoute_clientramassage"));
         echo "
         <ul class=\"record_actions\">
     <li>

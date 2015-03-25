@@ -31,7 +31,7 @@ class Secteur
     private $typePrestations;
    
     /**
-   * @ORM\ManyToOne(targetEntity="Fdr\AdminBundle\Entity\Ville", cascade={"remove"},inversedBy="secteurs")
+   * @ORM\ManyToOne(targetEntity="Fdr\AdminBundle\Entity\Ville",inversedBy="secteurs")
    * @ORM\JoinColumn(nullable=false)
    * @Assert\NotBlank()
    */

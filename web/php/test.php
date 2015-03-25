@@ -45,14 +45,33 @@ $qry_result = $cnx->query($query) or die(mysql_error());
 while($row =$qry_result->fetch(PDO::FETCH_ASSOC)){
 //$display_string .= "<option>$row[secteur_id]</option>";
 $tbl2 ="client";
-$cnd2 = "id = $row[client_id]";
-$query2 = "SELECT nom FROM ".$tbl2." WHERE ".$cnd2;
+$cnd2 = "id = $row[client_id] ";//and clientramass = 1";
+$query2 = "SELECT nom, prenom, nomentreprise FROM ".$tbl2." WHERE ".$cnd2;
 $qry_result2 = $cnx->query($query2) or die(mysql_error());
 while($row2 =$qry_result2->fetch(PDO::FETCH_ASSOC)){
-    $res .= "<option value='$row[client_id]'>$row2[nom]</option>";
+    if($row2[nomentreprise]!=null)
+    {
+        $nom=$row2[nomentreprise];
+    }
+    else {$nom= $row2[nom]." ".$row2[prenom];}
+    $res .= "<option value='$row[client_id]'>$nom</option>";
     }
 }
 echo $res;
+}
+function hideClient()
+{
+    $cnx= new PDO("mysql:host=".$GLOBALS['dbhost'].";dbname=".$GLOBALS['dbname']."" ,$GLOBALS['dbuser'],$GLOBALS['dbpass']) ;
+    //build query
+    $name = $_GET['typeprestation_id'];
+    //$name = mysql_real_escape_string($name);
+    $tbl ="typeprestation";
+    $cnd = "typeprestation_id = $name";
+    $display_string="";
+    $query = "SELECT libelle FROM ".$tbl." WHERE ".$cnd;
+    $qry_result = $cnx->query($query) or die(mysql_error());
+    echo $qry_result;
+            
 }
 appliquerMethode($_GET['nomMethode']);
 function appliquerMethode($nomMethode){
@@ -63,6 +82,8 @@ function appliquerMethode($nomMethode){
                 secteursDePrestation();
             case "clientsDeSecteur":
                 clientsDeSecteur();
+            case "hideClient":
+                hideClient();
                 break;
             default: defaut();
         }

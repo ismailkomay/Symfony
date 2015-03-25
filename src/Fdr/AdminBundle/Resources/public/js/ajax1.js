@@ -8,6 +8,26 @@ var paramUrl = "typeprestation_id";
 var nomMethode = "secteursDePrestation";
 var ajaxRequest=maVarAjax(divSortie,idChampsCntrl,method,fichierParh,paramUrl,nomMethode);
 }
+function changerClient()
+{
+var divSortie ="fdr_adminbundle_feuillederoute_clientRamassage";
+var idChampsCntrl ="fdr_adminbundle_feuillederoute_secteur";
+var method = "GET";
+var fichierParh = "../../php/test.php";
+var paramUrl = "secteur_id";
+var nomMethode = "clientsDeSecteur";
+var ajaxRequest=maVarAjax(divSortie,idChampsCntrl,method,fichierParh,paramUrl,nomMethode);
+}
+function hideClient()
+{
+var divSortie ="fdr_adminbundle_feuillederoute_clientRamassage";
+var idChampsCntrl ="fdr_adminbundle_feuillederoute_typePrestation";
+var method = "GET";
+var fichierParh = "../../php/test.php";
+var paramUrl = "typeprestation_id";
+var nomMethode = "hideClient";
+var ajaxRequest=maVarAjax(divSortie,idChampsCntrl,method,fichierParh,paramUrl,nomMethode);
+}
 
 
 ///

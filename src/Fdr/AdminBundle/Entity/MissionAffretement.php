@@ -104,6 +104,12 @@ class MissionAffretement
      * @ORM\Column(name="dateramassage", type="datetime", nullable=false)
      */
     private $dateramassage;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="clientdest", type="string", length=100, nullable=true)
+     */
+    private $clientDestinataire;
 
     /**
      * @var string
@@ -1007,5 +1013,28 @@ class MissionAffretement
     public function getTonnage()
     {
         return $this->tonnage;
+    }
+
+    /**
+     * Set clientDestinataire
+     *
+     * @param string $clientDestinataire
+     * @return MissionAffretement
+     */
+    public function setClientDestinataire($clientDestinataire)
+    {
+        $this->clientDestinataire = $clientDestinataire;
+
+        return $this;
+    }
+
+    /**
+     * Get clientDestinataire
+     *
+     * @return string 
+     */
+    public function getClientDestinataire()
+    {
+        return $this->clientDestinataire;
     }
 }
