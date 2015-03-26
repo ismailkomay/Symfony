@@ -13,10 +13,11 @@ use Doctrine\Common\Collections\ArrayCollection;
  */
 class Chauffeur
 {
+    
     /**
-   * @ORM\ManyToMany(targetEntity="FeuilleDeRoute",mappedBy="chauffeurs")
+    * @ORM\OneToMany(targetEntity="FeuilleDeRoute",mappedBy="chauffeur")
    * @ORM\JoinColumn(nullable=true)
-   */
+    */
     private $feuilleDeRoutes;
      /**
     * @ORM\OneToMany(targetEntity="Indisponibilite",mappedBy="chauffeur")
@@ -366,40 +367,7 @@ class Chauffeur
         return $this->indisponibilites;
     }
 
-    /**
-     * Add feuilleDeRoutes
-     *
-     * @param \Fdr\AdminBundle\Entity\FeuilleDeRoute $feuilleDeRoutes
-     * @return Chauffeur
-     */
-    public function addFeuilleDeRoute(\Fdr\AdminBundle\Entity\FeuilleDeRoute $feuilleDeRoutes)
-    {
-        $this->feuilleDeRoutes[] = $feuilleDeRoutes;
-    
-        return $this;
-    }
-
-    /**
-     * Remove feuilleDeRoutes
-     *
-     * @param \Fdr\AdminBundle\Entity\FeuilleDeRoute $feuilleDeRoutes
-     */
-    public function removeFeuilleDeRoute(\Fdr\AdminBundle\Entity\FeuilleDeRoute $feuilleDeRoutes)
-    {
-        $this->feuilleDeRoutes->removeElement($feuilleDeRoutes);
-    }
-
-    /**
-     * Get feuilleDeRoutes
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getFeuilleDeRoutes()
-    {
-        return $this->feuilleDeRoutes;
-    }
-
-    /**
+   /**
      * Set etatContrat
      *
      * @param string $etatContrat
@@ -425,5 +393,38 @@ class Chauffeur
     public function __toString()
     {
         return $this->nom." ".$this->prenom ;
+    }
+
+    /**
+     * Add feuilleDeRoutes
+     *
+     * @param \Fdr\AdminBundle\Entity\FeuilleDeRoute $feuilleDeRoutes
+     * @return Chauffeur
+     */
+    public function addFeuilleDeRoute(\Fdr\AdminBundle\Entity\FeuilleDeRoute $feuilleDeRoutes)
+    {
+        $this->feuilleDeRoutes[] = $feuilleDeRoutes;
+
+        return $this;
+    }
+
+    /**
+     * Remove feuilleDeRoutes
+     *
+     * @param \Fdr\AdminBundle\Entity\FeuilleDeRoute $feuilleDeRoutes
+     */
+    public function removeFeuilleDeRoute(\Fdr\AdminBundle\Entity\FeuilleDeRoute $feuilleDeRoutes)
+    {
+        $this->feuilleDeRoutes->removeElement($feuilleDeRoutes);
+    }
+
+    /**
+     * Get feuilleDeRoutes
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getFeuilleDeRoutes()
+    {
+        return $this->feuilleDeRoutes;
     }
 }

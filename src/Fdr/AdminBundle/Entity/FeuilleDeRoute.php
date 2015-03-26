@@ -32,13 +32,12 @@ class FeuilleDeRoute
    */
   private $typePrestation;
  
+  
   /**
-   *
-   * @ORM\ManyToOne(targetEntity="Secteur",inversedBy="feuilleDeRoutes")
+   * @ORM\ManyToMany(targetEntity="Secteur",inversedBy="feuilleDeRoutes")
    * @ORM\JoinColumn(nullable=true)
-   * 
    */
-  private $secteur;
+  private $secteurs;
   
   /**
    * @ORM\OneToMany(targetEntity="BonCarburantHuile",mappedBy="feuilleDeRoute")
@@ -52,12 +51,20 @@ class FeuilleDeRoute
    * @ORM\JoinColumn(nullable=true)
    */
     private $manutentionnaires;
+   
     /**
-   * @ORM\ManyToMany(targetEntity="Chauffeur",inversedBy="feuilleDeRoutes")
-   * @ORM\JoinColumn(nullable=false)
-   * @Assert\NotBlank()
-   */
-    private $chauffeurs;
+    * @ORM\ManyToOne(targetEntity="Chauffeur", inversedBy="feuilleDeRoutes")
+     *  @ORM\JoinColumn(nullable=false)
+     * @Assert\NotBlank()
+    */
+    private $chauffeur1;
+    
+    /**
+    * @ORM\ManyToOne(targetEntity="Chauffeur", inversedBy="feuilleDeRoutes")
+     *  @ORM\JoinColumn(nullable=true)
+     * @Assert\NotBlank()
+    */
+    private $chauffeur2;
     /**
    * @ORM\ManyToMany(targetEntity="Utilisateur",inversedBy="feuilleDeRoutes")
    * @ORM\JoinColumn(nullable=false)
@@ -105,10 +112,10 @@ class FeuilleDeRoute
         $this->peages = new ArrayCollection() ;
         $this->bonCarburantHuiles = new ArrayCollection() ;
         $this->manutentionnaires = new ArrayCollection() ;
-        $this->chauffeurs = new ArrayCollection() ;
         $this->utilisateurs = new ArrayCollection() ;
         $this->clientFdrVs = new ArrayCollection() ;
         $this->clientFdrFs = new ArrayCollection() ;
+        $this->secteurs = new ArrayCollection() ;
         $this->dateFinMission= new \DateTime();
         $this->dateDebutMission= new \DateTime();
         $this->dateGeneree = new \Datetime();       
@@ -1180,39 +1187,7 @@ class FeuilleDeRoute
         return $this->manutentionnaires;
     }
 
-    /**
-     * Add chauffeurs
-     *
-     * @param \Fdr\AdminBundle\Entity\Chauffeur $chauffeurs
-     * @return FeuilleDeRoute
-     */
-    public function addChauffeur(\Fdr\AdminBundle\Entity\Chauffeur $chauffeurs)
-    {
-        $this->chauffeurs[] = $chauffeurs;
     
-        return $this;
-    }
-
-    /**
-     * Remove chauffeurs
-     *
-     * @param \Fdr\AdminBundle\Entity\Chauffeur $chauffeurs
-     */
-    public function removeChauffeur(\Fdr\AdminBundle\Entity\Chauffeur $chauffeurs)
-    {
-        $this->chauffeurs->removeElement($chauffeurs);
-    }
-
-    /**
-     * Get chauffeurs
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getChauffeurs()
-    {
-        return $this->chauffeurs;
-    }
-
     /**
      * Add utilisateurs
      *
@@ -1307,29 +1282,7 @@ class FeuilleDeRoute
         return $this->typePrestation;
     }
 
-    /**
-     * Set secteur
-     *
-     * @param \Fdr\AdminBundle\Entity\Secteur $secteur
-     * @return FeuilleDeRoute
-     */
-    public function setSecteur(\Fdr\AdminBundle\Entity\Secteur $secteur = null)
-    {
-        $this->secteur = $secteur;
     
-        return $this;
-    }
-
-    /**
-     * Get secteur
-     *
-     * @return \Fdr\AdminBundle\Entity\Secteur 
-     */
-    public function getSecteur()
-    {
-        return $this->secteur;
-    }
-
     /**
      * Add clientFdrFs
      *
@@ -1417,5 +1370,86 @@ class FeuilleDeRoute
     {
         $fCon=new FeuilleDeRouteController();
         return $fCon->clientsAction();
+    }
+
+    /**
+     * Add secteurs
+     *
+     * @param \Fdr\AdminBundle\Entity\Secteur $secteurs
+     * @return FeuilleDeRoute
+     */
+    public function addSecteur(\Fdr\AdminBundle\Entity\Secteur $secteurs)
+    {
+        $this->secteurs[] = $secteurs;
+
+        return $this;
+    }
+
+    /**
+     * Remove secteurs
+     *
+     * @param \Fdr\AdminBundle\Entity\Secteur $secteurs
+     */
+    public function removeSecteur(\Fdr\AdminBundle\Entity\Secteur $secteurs)
+    {
+        $this->secteurs->removeElement($secteurs);
+    }
+
+    /**
+     * Get secteurs
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getSecteurs()
+    {
+        return $this->secteurs;
+    }
+
+   
+
+    /**
+     * Set chauffeur1
+     *
+     * @param \Fdr\AdminBundle\Entity\Chauffeur $chauffeur1
+     * @return FeuilleDeRoute
+     */
+    public function setChauffeur1(\Fdr\AdminBundle\Entity\Chauffeur $chauffeur1)
+    {
+        $this->chauffeur1 = $chauffeur1;
+
+        return $this;
+    }
+
+    /**
+     * Get chauffeur1
+     *
+     * @return \Fdr\AdminBundle\Entity\Chauffeur 
+     */
+    public function getChauffeur1()
+    {
+        return $this->chauffeur1;
+    }
+
+    /**
+     * Set chauffeur2
+     *
+     * @param \Fdr\AdminBundle\Entity\Chauffeur $chauffeur2
+     * @return FeuilleDeRoute
+     */
+    public function setChauffeur2(\Fdr\AdminBundle\Entity\Chauffeur $chauffeur2 = null)
+    {
+        $this->chauffeur2 = $chauffeur2;
+
+        return $this;
+    }
+
+    /**
+     * Get chauffeur2
+     *
+     * @return \Fdr\AdminBundle\Entity\Chauffeur 
+     */
+    public function getChauffeur2()
+    {
+        return $this->chauffeur2;
     }
 }

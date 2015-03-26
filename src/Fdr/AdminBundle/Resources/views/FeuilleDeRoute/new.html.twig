@@ -2,8 +2,46 @@
 {% block title %}Feuille de route|New{% endblock %}
 {% block body -%}
     <h1>FeuilleDeRoute creation</h1>
+    
+{{ form_start(form, {'attr': { 'onsubmit':'return checkForm();checkMan();'} } ) }}
+   <div class="form-group">
+            {# Génération du label. #}
+            {{ form_label(form.nombreManutention, "Nombre de manution") }}
 
-    {{ form(form) }}
+            {# Affichage des erreurs pour ce champ précis. #}
+            {{ form_errors(form.nombreManutention) }}
+
+            <div class="col-sm-4">
+              {# Génération de l'input. #}
+              {{ form_widget(form.nombreManutention)}}
+            </div>
+          </div> <div class="form-group">
+            {# Génération du label. #}
+            {{ form_label(form.nombreManutentionChauf1, "Nombre de manution pour le chauffeur 1") }}
+
+            {# Affichage des erreurs pour ce champ précis. #}
+            {{ form_errors(form.nombreManutentionChauf1) }}
+
+            <div class="col-sm-4">
+              {# Génération de l'input. #}
+              {{ form_widget(form.nombreManutentionChauf1)}}
+            </div>
+          </div>
+    
+          </div> <div class="form-group">
+            {# Génération du label. #}
+            {{ form_label(form.nombreManutentionChauf2, "Nombre de manution pour le chauffeur 2") }}
+
+            {# Affichage des erreurs pour ce champ précis. #}
+            {{ form_errors(form.nombreManutentionChauf2) }}
+
+            <div class="col-sm-4">
+              {# Génération de l'input. #}
+              {{ form_widget(form.nombreManutentionChauf2)}}
+            </div>
+          </div>
+          <label name="diffMan"> Erreur dans le nombre de manutention</label>
+    {{ form_end(form) }}
    
  {{ render(url('feuillederoute_clientramassage')) }}
         <ul class="record_actions">

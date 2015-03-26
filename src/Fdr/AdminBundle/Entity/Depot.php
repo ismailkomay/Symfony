@@ -55,7 +55,7 @@ class Depot
     /**
      * @var string
      * @Assert\NotBlank()
-     * @Assert\Type(type="alnum", message="La valeur {{ value }} n'est pas valide.")
+     * @Assert\Type(type="string", message="La valeur {{ value }} n'est pas valide.")
      * @ORM\Column(name="libelle", type="string", length=100,nullable=false, unique=true)
      */
     private $libelle;

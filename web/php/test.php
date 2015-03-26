@@ -34,10 +34,14 @@ function clientsDeSecteur()
 $cnx= new PDO("mysql:host=".$GLOBALS['dbhost'].";dbname=".$GLOBALS['dbname']."" ,$GLOBALS['dbuser'],$GLOBALS['dbpass']) ;
 //build query
 $name = $_GET['secteur_id'];
-//$name = mysql_real_escape_string($name);
-$tbl ="client_secteur";
-$cnd = "secteur_id = $name";
+$tab=explode("|", $name);
 $res="";
+foreach ($tab as $i) {
+    
+    //$name = mysql_real_escape_string($name);
+$tbl ="client_secteur";
+$cnd = "secteur_id = $i";
+
 $query = "SELECT client_id FROM ".$tbl." WHERE ".$cnd;
 $qry_result = $cnx->query($query) or die(mysql_error());
 
@@ -45,7 +49,7 @@ $qry_result = $cnx->query($query) or die(mysql_error());
 while($row =$qry_result->fetch(PDO::FETCH_ASSOC)){
 //$display_string .= "<option>$row[secteur_id]</option>";
 $tbl2 ="client";
-$cnd2 = "id = $row[client_id] ";//and clientramass = 1";
+$cnd2 = "id = $row[client_id] and clientramass = 1 ";//and clientramass = 1";
 $query2 = "SELECT nom, prenom, nomentreprise FROM ".$tbl2." WHERE ".$cnd2;
 $qry_result2 = $cnx->query($query2) or die(mysql_error());
 while($row2 =$qry_result2->fetch(PDO::FETCH_ASSOC)){
@@ -54,10 +58,14 @@ while($row2 =$qry_result2->fetch(PDO::FETCH_ASSOC)){
         $nom=$row2[nomentreprise];
     }
     else {$nom= $row2[nom]." ".$row2[prenom];}
-    $res .= "<option value='$row[client_id]'>$nom</option>";
+    $res .= "<option value='$row[client_id]'>$nom+ $cnd</option>";
     }
+    
 }
 echo $res;
+}
+
+
 }
 function hideClient()
 {
@@ -66,13 +74,20 @@ function hideClient()
     $name = $_GET['typeprestation_id'];
     //$name = mysql_real_escape_string($name);
     $tbl ="typeprestation";
-    $cnd = "typeprestation_id = $name";
+    $cnd = "id = $name";
     $display_string="";
     $query = "SELECT libelle FROM ".$tbl." WHERE ".$cnd;
     $qry_result = $cnx->query($query) or die(mysql_error());
-    echo $qry_result;
-            
-}
+    $row =$qry_result->fetch(PDO::FETCH_ASSOC);
+    if($row[libelle]==="Ramassage")
+    {
+        echo "Ramassage";
+    }
+    else {
+        echo "autre";
+    }
+ }
+ 
 appliquerMethode($_GET['nomMethode']);
 function appliquerMethode($nomMethode){
     // echo "<option>".$_GET['nomMethode']."</option>";

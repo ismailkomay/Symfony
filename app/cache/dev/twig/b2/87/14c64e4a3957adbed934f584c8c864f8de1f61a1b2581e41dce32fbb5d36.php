@@ -44,20 +44,88 @@ class __TwigTemplate_b28714c64e4a3957adbed934f584c8c864f8de1f61a1b2581e41dce32fb
     {
         // line 4
         echo "<h1>FeuilleDeRoute creation</h1>
-
-    ";
+    
+";
         // line 6
-        echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form');
+        echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form_start', array("attr" => array("onsubmit" => "return checkForm();checkMan();")));
+        echo "
+   <div class=\"form-group\">
+            ";
+        // line 9
+        echo "            ";
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "nombreManutention", array()), 'label', array("label" => "Nombre de manution"));
+        echo "
+
+            ";
+        // line 12
+        echo "            ";
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "nombreManutention", array()), 'errors');
+        echo "
+
+            <div class=\"col-sm-4\">
+              ";
+        // line 16
+        echo "              ";
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "nombreManutention", array()), 'widget');
+        echo "
+            </div>
+          </div> <div class=\"form-group\">
+            ";
+        // line 20
+        echo "            ";
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "nombreManutentionChauf1", array()), 'label', array("label" => "Nombre de manution pour le chauffeur 1"));
+        echo "
+
+            ";
+        // line 23
+        echo "            ";
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "nombreManutentionChauf1", array()), 'errors');
+        echo "
+
+            <div class=\"col-sm-4\">
+              ";
+        // line 27
+        echo "              ";
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "nombreManutentionChauf1", array()), 'widget');
+        echo "
+            </div>
+          </div>
+    
+          </div> <div class=\"form-group\">
+            ";
+        // line 33
+        echo "            ";
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "nombreManutentionChauf2", array()), 'label', array("label" => "Nombre de manution pour le chauffeur 2"));
+        echo "
+
+            ";
+        // line 36
+        echo "            ";
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "nombreManutentionChauf2", array()), 'errors');
+        echo "
+
+            <div class=\"col-sm-4\">
+              ";
+        // line 40
+        echo "              ";
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "nombreManutentionChauf2", array()), 'widget');
+        echo "
+            </div>
+          </div>
+          <label name=\"diffMan\"> Erreur dans le nombre de manutention</label>
+    ";
+        // line 44
+        echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form_end');
         echo "
    
  ";
-        // line 8
+        // line 46
         echo $this->env->getExtension('http_kernel')->renderFragment($this->env->getExtension('routing')->getUrl("feuillederoute_clientramassage"));
         echo "
         <ul class=\"record_actions\">
     <li>
         <a href=\"";
-        // line 11
+        // line 49
         echo $this->env->getExtension('routing')->getPath("feuillederoute");
         echo "\">
             Back to the list
@@ -79,6 +147,6 @@ class __TwigTemplate_b28714c64e4a3957adbed934f584c8c864f8de1f61a1b2581e41dce32fb
 
     public function getDebugInfo()
     {
-        return array (  61 => 11,  55 => 8,  50 => 6,  46 => 4,  43 => 3,  37 => 2,  11 => 1,);
+        return array (  129 => 49,  123 => 46,  118 => 44,  110 => 40,  103 => 36,  97 => 33,  88 => 27,  81 => 23,  75 => 20,  68 => 16,  61 => 12,  55 => 9,  50 => 6,  46 => 4,  43 => 3,  37 => 2,  11 => 1,);
     }
 }

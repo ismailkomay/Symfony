@@ -17,7 +17,7 @@ class FeuilleDeRouteType extends AbstractType
         $builder
             ->add('dateGeneree','datetime',array('date_widget' => "single_text", 'time_widget' => "single_text",'read_only' => true,'disabled' => true,'with_seconds'=>true))
             ->add('dateDebutMission','datetime',array('date_widget' => "single_text", 'time_widget' => "single_text"))
-           ->add('dateFinMission','datetime', array('date_widget' => "single_text", 'time_widget' => "single_text"))
+         //  ->add('dateFinMission','datetime', array('date_widget' => "single_text", 'time_widget' => "single_text"))
             ->add('nombreManutention')
             ->add('nombreManutentionChauf1')
             ->add('nombreManutentionChauf2')
@@ -45,17 +45,18 @@ class FeuilleDeRouteType extends AbstractType
 //            ->add('champSup3')
 //            ->add('champSup4')
             ->add('vehicule',null,array('attr'=>array('placeholder' => 'Choisir ...')))
-            ->add('typePrestation',null,array("attr"=>array("onchange"=>"changerPrestation()","required"=>true,'placeholder' => 'Choisir ...')))
-            ->add('secteur',null,array("attr"=>array("onchange"=>"changerClient()","required"=>true,'placeholder' => 'Choisir ...')))
+            ->add('typePrestation',null,array("attr"=>array("onchange"=>"changerPrestation();hideClient()","required"=>true,'placeholder' => 'Choisir ...')))
+            ->add('secteurs',null,array("attr"=>array("onchange"=>"changerClient()","required"=>true,'placeholder' => 'Choisir ...')))
           //  ->add('client',null,array('attr'=>array('placeholder' => 'Choisir ...')))
             ->add('manutentionnaires')
-            ->add('chauffeurs')
+            ->add('chauffeur1')
+            ->add('chauffeur2')
 //            ->add('utilisateurs')
-            ->add('filiale')
-            ->add('depot')
-            ->add('missionaffretement','choice')
+            ->add('filiale',null,array('attr'=>array('placeholder' => 'Choisir ...')))
+            ->add('depot',null,array('attr'=>array('placeholder' => 'Choisir ...')))
+           // ->add('missionaffretement','choice')
   //          ->add('cloture')
-        ;
+            ->add('Enregistrer', 'submit',array("attr"=>array("onClick"=>"changerClient()")));//, 'label' ='Enregistrer')));        ;
     }
     
     /**

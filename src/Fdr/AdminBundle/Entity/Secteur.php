@@ -13,8 +13,9 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  */
 class Secteur
 {
+    
     /**
-   * @ORM\OneToMany(targetEntity="FeuilleDeRoute",mappedBy="secteur")
+   * @ORM\ManyToMany(targetEntity="FeuilleDeRoute",mappedBy="secteurs")
    * @ORM\JoinColumn(nullable=true)
    */
     private $feuilleDeRoutes;
@@ -85,8 +86,6 @@ class Secteur
      * @ORM\Column(name="champssupp2", type="string", length=100, nullable=true)
      */
     private $champssupp2;
-
-
     /**
      * Constructor
      */
@@ -106,6 +105,7 @@ class Secteur
     {
         return $this->id;
     }
+    
  /**
      * Set depart
      *
@@ -275,40 +275,6 @@ class Secteur
         return $this->clients;
     }
     
-    
-
-    /**
-     * Add feuilleDeRoutes
-     *
-     * @param \Fdr\AdminBundle\Entity\FeuilleDeRoute $feuilleDeRoutes
-     * @return Secteur
-     */
-    public function addFeuilleDeRoute(\Fdr\AdminBundle\Entity\FeuilleDeRoute $feuilleDeRoutes)
-    {
-        $this->feuilleDeRoutes[] = $feuilleDeRoutes;
-    
-        return $this;
-    }
-
-    /**
-     * Remove feuilleDeRoutes
-     *
-     * @param \Fdr\AdminBundle\Entity\FeuilleDeRoute $feuilleDeRoutes
-     */
-    public function removeFeuilleDeRoute(\Fdr\AdminBundle\Entity\FeuilleDeRoute $feuilleDeRoutes)
-    {
-        $this->feuilleDeRoutes->removeElement($feuilleDeRoutes);
-    }
-
-    /**
-     * Get feuilleDeRoutes
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getFeuilleDeRoutes()
-    {
-        return $this->feuilleDeRoutes;
-    }
 
     /**
      * Add typePrestations
@@ -370,5 +336,38 @@ class Secteur
     public function getVille()
     {
         return $this->ville;
+    }
+
+    /**
+     * Add feuilleDeRoutes
+     *
+     * @param \Fdr\AdminBundle\Entity\FeuilleDeRoute $feuilleDeRoutes
+     * @return Secteur
+     */
+    public function addFeuilleDeRoute(\Fdr\AdminBundle\Entity\FeuilleDeRoute $feuilleDeRoutes)
+    {
+        $this->feuilleDeRoutes[] = $feuilleDeRoutes;
+
+        return $this;
+    }
+
+    /**
+     * Remove feuilleDeRoutes
+     *
+     * @param \Fdr\AdminBundle\Entity\FeuilleDeRoute $feuilleDeRoutes
+     */
+    public function removeFeuilleDeRoute(\Fdr\AdminBundle\Entity\FeuilleDeRoute $feuilleDeRoutes)
+    {
+        $this->feuilleDeRoutes->removeElement($feuilleDeRoutes);
+    }
+
+    /**
+     * Get feuilleDeRoutes
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getFeuilleDeRoutes()
+    {
+        return $this->feuilleDeRoutes;
     }
 }

@@ -241,9 +241,9 @@ class MissionAffretement
     /**
      * @var string
      *
-     * @ORM\Column(name="champssupp2", type="string", length=100, nullable=true)
+     * @ORM\Column(name="secteur", type="string", length=100, nullable=true)
      */
-    private $champssupp2;
+    private $secteur;
 
     /**
      * @var string
@@ -756,26 +756,26 @@ class MissionAffretement
     }
 
     /**
-     * Set champssupp2
+     * Set secteur
      *
-     * @param string $champssupp2
+     * @param string $secteur
      * @return MissionAffretement
      */
-    public function setChampssupp2($champssupp2)
+    public function setSecteur($secteur)
     {
-        $this->champssupp2 = $champssupp2;
+        $this->secteur = $secteur;
     
         return $this;
     }
 
     /**
-     * Get champssupp2
+     * Get secteur
      *
      * @return string 
      */
-    public function getChampssupp2()
+    public function getSecteur()
     {
-        return $this->champssupp2;
+        return $this->secteur;
     }
 
     /**
