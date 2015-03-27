@@ -14,10 +14,55 @@ input[type="checkbox"] {
 	background: #fcfff4;
 }
 
+:disabled{
+color: blue; 
+background-color: white;
+}
+
+
+
 footer{
     bottom: 0;
-    padding-bottom: 5px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
     text-align: left;
     position: fixed;
     font-size: 10px;
+}
+.row .ui-widget-header{
+            background-color:red;
+            border: 1px solid #b9cd6d;
+            color: #FFFFFF;
+            font-weight: bold;
+         }
+.ui-state-default{
+            background-color:green;
+            border: 1px solid #b9cd6d;
+            color: #FFFFFF;
+            font-weight: bold;
+         }
+ui-button{
+            background-color:blue;
+            border: 1px solid #b9cd6d;
+            color: #FFFFFF;
+            font-weight: bold;
+         }
+.colorerOption{
+    color: green;
+    font-style: normal;
+    font-weight: bolder;
+}
+.colorerOption:selected{
+    color: green;
+    font-style: normal;
+    font-weight: bolder;
+}
+.oddtabl{
+    background-color: #F0F0F0;
+}
+
+.theme-dropdown .dropdown-menu {
+  display: block;
+  position: static;
+  margin-bottom: 20px;
 }

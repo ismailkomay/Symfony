@@ -1,116 +1,174 @@
+{#table table-bordered table-striped table-condensed#}
 {% extends '::base.html.twig' %}
 {% block title %}MissionAffretement|Show{% endblock %}
 {% block body -%}
-    <h1>MissionAffretement</h1>
+<div class="page-header"><h2> Affichage d'une feuille de lancement</h2></div>
 
-    <table class="record_properties">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ entity.id }}</td>
-            </tr>
-            <tr>
-                <th>Ecc</th>
-                <td>{{ entity.ecc }}</td>
-            </tr>
-            <tr>
-                <th>Ect</th>
-                <td>{{ entity.ect }}</td>
-            </tr>
-            <tr>
-                <th>Ebl</th>
-                <td>{{ entity.ebl }}</td>
-            </tr>
-            <tr>
-                <th>Espece</th>
-                <td>{{ entity.espece }}</td>
-            </tr>
-            <tr>
-                <th>Autredoc</th>
-                <td>{{ entity.autredoc }}</td>
-            </tr>
-            <tr>
-                <th>Valdeclassurance</th>
-                <td>{{ entity.valdeclassurance }}</td>
-            </tr>
-            <tr>
-                <th>Bonlivraison</th>
-                <td>{{ entity.bonlivraison }}</td>
-            </tr>
-            <tr>
-                <th>Numexpedition</th>
-                <td>{{ entity.numexpedition }}</td>
-            </tr>
-            <tr>
-                <th>Dateramassage</th>
-                <td>{{ entity.dateramassage|date('Y-m-d H:i:s') }}</td>
-            </tr>
-            <tr>
-                <th>Lieuramassage</th>
-                <td>{{ entity.lieuramassage }}</td>
-            </tr>
-            <tr>
-                <th>Nbrecolis</th>
-                <td>{{ entity.nbrecolis }}</td>
-            </tr>
-            <tr>
-                <th>Naturemarchandise</th>
-                <td>{{ entity.naturemarchandise }}</td>
-            </tr>
-            <tr>
-                <th>Datelivraison</th>
-                <td>{{ entity.datelivraison|date('Y-m-d H:i:s') }}</td>
-            </tr>
-            <tr>
-                <th>Lieulivraison</th>
-                <td>{{ entity.lieulivraison }}</td>
-            </tr>
-            <tr>
-                <th>Montantfacture</th>
-                <td>{{ entity.montantfacture }}</td>
-            </tr>
-            <tr>
-                <th>Remise</th>
-                <td>{{ entity.remise }}</td>
-            </tr>
-            <tr>
-                <th>Motifremise</th>
-                <td>{{ entity.motifremise }}</td>
-            </tr>
-            <tr>
-                <th>Montantregle</th>
-                <td>{{ entity.montantregle }}</td>
-            </tr>
-            <tr>
-                <th>Nombnq</th>
-                <td>{{ entity.nombnq }}</td>
-            </tr>
-            <tr>
-                <th>Numcheque</th>
-                <td>{{ entity.numcheque }}</td>
-            </tr>
-            <tr>
-                <th>Nom du responsable à contacter</th>
-                <td>{{ entity.nomresponsable }}</td>
-            </tr>
-            <tr>
-                <th>Tel du responsable à contacter</th>
-                <td>{{ entity.telresponsable }}</td>
-            </tr>
-        </tbody>
-    </table>
+<div class="span11">
+<div class="row-fluid">
+<div class="span2 desactiver-champs">{{ form_label(form.id,"Identifiant :") }}</div>
+<div class="span7 desactiver-champs">{{ form_widget(form.id) }}<span class="alert-danger ">{{ form_errors(form.id) }}</span></div>
+<div class="" >{{ form(print_form) }}</div>
+</div>
+</div>
 
-        <ul class="record_actions">
+<div class="desactiver-champs">
+{{ form_start(form) }}
+
+<div class="row">
+<span class="alert-danger ">{{ form_errors(form) }}</span>
+</div>
+
+<div class="row">
+<div class="span4">
+<fieldset>
+<legend>Ramassage : </legend>
+<div class="row-fluid">
+<div class="span1">{{ form_label(form.dateramassage," ") }}</div>
+{{ form_widget(form.dateramassage) }}<span class="alert-danger ">{{ form_errors(form.dateramassage) }}</span>
+</div>
+<div class="row-fluid">
+<div class="span1">{{ form_label(form.lieuramassage," ") }}</div>
+{{ form_widget(form.lieuramassage,{ 'attr': {'class': 'disable-input','disabled':true} }) }}<span class="alert-danger ">{{ form_errors(form.lieuramassage) }}</span>
+</div>
+
+<div class="row-fluid">
+<div class="span1">{{ form_label(form.champssupp2," ") }}</div>
+{{ form_widget(form.champssupp2) }}<span class="alert-danger ">{{ form_errors(form.champssupp2) }}</span>
+</div>
+
+</fieldset>
+</div>
+
+<div class="span4">
+<fieldset> 
+    <legend>Livraison : </legend>
+
+<div class="row-fluid">
+<div class="span1">{{ form_label(form.datelivraison," ") }}</div>
+{{ form_widget(form.datelivraison) }}<span class="alert-danger ">{{ form_errors(form.datelivraison) }}</span>
+</div>
+
+<div class="row-fluid">
+<div class="span1">{{ form_label(form.lieulivraison," ") }}</div>
+{{ form_widget(form.lieulivraison) }}<span class="alert-danger ">{{ form_errors(form.lieulivraison) }}</span>
+</div>
+
+<div class="row-fluid">
+<div class="span1">{{ form_label(form.naturemarchandise," ") }}</div>
+{{ form_widget(form.naturemarchandise) }}<span class="alert-danger ">{{ form_errors(form.naturemarchandise) }}</span>
+</div>
+
+<div class="row-fluid">
+<div class="span1">{{ form_label(form.nbrecolis," ") }}</div>
+{{ form_widget(form.nbrecolis) }}<span class="alert-danger ">{{ form_errors(form.nbrecolis) }}</span>
+</div>
+
+<div class="row-fluid">
+<div class="span1">{{ form_label(form.bonlivraison," ") }}</div>
+{{ form_widget(form.bonlivraison) }}<span class="alert-danger ">{{ form_errors(form.bonlivraison) }}</span>
+</div>
+
+<div class="row-fluid">
+<div class="span1">{{ form_label(form.numexpedition," ") }}</div>
+{{ form_widget(form.numexpedition) }}<span class="alert-danger ">{{ form_errors(form.numexpedition) }}</span>
+</div>
+
+</fieldset>
+</div>
+
+<div class="span3">
+<fieldset>
+<legend>P.J. :</legend>
+<div class="span2">{{ form_widget(form.ecc) }} <span class="alert-danger ">{{ form_errors(form.ecc) }}</span>  {{ form_label(form.ecc,"ECC") }}</div>
+<div class="span2">{{ form_widget(form.ect) }} <span class="alert-danger ">{{ form_errors(form.ect) }}</span>  {{ form_label(form.ect,"ECT") }}</div>
+<div class="span2">{{ form_widget(form.ebl) }}<span class="alert-danger ">{{ form_errors(form.ebl) }}</span> {{ form_label(form.ebl,"EBL") }}</div>
+<div class="span2">{{ form_widget(form.espece) }}<span class="alert-danger ">{{ form_errors(form.espece) }}</span> {{ form_label(form.espece,"ESPECE") }}</div>
+<div class="span2">{{ form_label(form.autredoc," ") }} <span class="alert-danger ">{{ form_errors(form.autredoc) }}</span>  {{ form_widget(form.autredoc) }}</div>
+</fieldset>
+</div>
+</div>
+
+
+<div class="row">
+<div class="span4">
+<fieldset> 
+<legend>Contact client : </legend>
+
+<div class="row-fluid">
+<div class="span1">{{ form_label(form.client," ") }}</div>
+{{ form_widget(form.client) }}<span class="alert-danger ">{{ form_errors(form.client) }}</span>
+</div>
+
+<div class="row-fluid">
+<div class="span1">{{ form_label(form.nomresponsable," ") }}</div>
+{{ form_widget(form.nomresponsable) }}<span class="alert-danger ">{{ form_errors(form.nomresponsable) }}</span>
+</div>
+
+<div class="row-fluid">
+<div class="span1">{{ form_label(form.telresponsable," ") }}</div>
+{{ form_widget(form.telresponsable) }}<span class="alert-danger ">{{ form_errors(form.telresponsable) }}</span>
+</div>
+
+</fieldset>
+</div>
+    
+<div class="span4">
+<fieldset> 
+<legend>Facture client : </legend>
+
+<div class="row-fluid">
+<div class="span1">{{ form_label(form.montantfacture," ") }}</div>
+{{ form_widget(form.montantfacture) }}<span class="alert-danger ">{{ form_errors(form.montantfacture) }}</span>
+</div>
+
+<div class="row-fluid">
+<div class="span1">{{ form_label(form.remise," ") }}</div>
+{{ form_widget(form.remise) }}<span class="alert-danger ">{{ form_errors(form.remise) }}</span>
+</div>
+
+<div class="row-fluid">
+<div class="span1">{{ form_label(form.motifremise," ") }}</div>
+{{ form_widget(form.motifremise) }}<span class="alert-danger ">{{ form_errors(form.motifremise) }}</span>
+</div>
+
+<div class="row-fluid">
+{{ form_widget(form.montantregle) }}<span class="alert-danger ">{{ form_errors(form.montantregle) }}</span>
+{{ form_label(form.montantregle,"Regle") }}
+</div>
+
+</fieldset>
+</div> 
+    
+<div class="span3">
+<fieldset> 
+<legend>Asssurance/Banque : </legend>
+<div class="row-fluid">
+<div class="span1">{{ form_label(form.valdeclassurance," ") }}</div>
+{{ form_widget(form.valdeclassurance) }}<span class="alert-danger ">{{ form_errors(form.valdeclassurance) }}</span>
+</div>
+
+<div class="row-fluid">
+<div class="span1">{{ form_label(form.nombnq," ") }}</div>
+{{ form_widget(form.nombnq) }}<span class="alert-danger ">{{ form_errors(form.nombnq) }}</span>
+</div>
+
+<div class="row-fluid">
+<div class="span1">{{ form_label(form.numcheque," ") }}</div>
+{{ form_widget(form.numcheque) }}<span class="alert-danger ">{{ form_errors(form.numcheque) }}</span>
+</div>
+
+</fieldset>
+
+</div>
+</div>
+{{ form_end(form) }}
+</div>
+        <!--ul class="record_actions">
     <li>
-        <a href="{{ path('missionaffretement') }}">
+        <a href="{# path('missionaffretement') #}">
             Back to the list
         </a>
     </li>
-    <li>
-        <a href="{{ path('missionaffretement_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+</ul-->
 {% endblock %}

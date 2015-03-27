@@ -2,6 +2,8 @@
 
 namespace Fdr\AdminBundle\Form;
 
+use Fdr\AdminBundle\EventListener\ControllerAffListener;
+use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
@@ -14,6 +16,8 @@ class MissionAffretementType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $subscriber = new ControllerAffListener($builder->getFormFactory());
+        $builder->addEventSubscriber($subscriber);
         $builder
             //->add('dateGeneree','datetime',array('date_widget' => "single_text", 'time_widget' => "single_text",'read_only' => true,'disabled' => true,'with_seconds'=>true))
             ->add('ecc')
@@ -33,15 +37,23 @@ class MissionAffretementType extends AbstractType
             ->add('montantfacture', 'money', array('currency' => 'DHs', 'precision' => 2,'pattern'=>'([0-9]*\.[0-9]+|[0-9]+|[0-9]*\,[0-9]+)',"attr"=>array("placeholder"=>"Montant Facturé","title"=>"Montant Facturé")))
             ->add('remise', 'percent', array('precision' => 2,'required'=>false,"attr"=>array("placeholder"=>"Remise","title"=>"Remise en %")))
             ->add('motifremise',null,array("attr"=>array("placeholder"=>"Motif de remise","title"=>"Motif de remise")))
-            ->add('montantregle')
-            ->add('nombnq',null,array("attr"=>array("placeholder"=>"Nom de banque","title"=>"Nom de banque")))
+            ->add('montantregle')          
+             ->add('nombnq',null,array("attr"=>array("placeholder"=>"Nom de banque","title"=>"Nom de banque")))
             ->add('numcheque',null,array("attr"=>array("placeholder"=>"Numéro chèque","title"=>"Numéro chèque")))
             //->add('feuilleDeRoute')
-            ->add('client',null,array("attr"=>array("placeholder"=>"Choisir ----","title"=>"Choisir un client")))
+            ->add('client',null,array("placeholder"=>"Choisir ----","attr"=>array("title"=>"Choisir un client")))
             ->add('nomresponsable',null,array("attr"=>array("placeholder"=>"Nom responsable","title"=>"Nom du responsable")))
             ->add('telresponsable',null,array("attr"=>array("placeholder"=>"Tel. responsable","title"=>"Tel. du responsable")))
+            //->add('champssupp2')          
+            ->add('secteur', 'entity', array(  'placeholder'=>'Choisir ----',
+                                                   'multiple' => false,
+                                                   'class' => 'FdrAdminBundle:Secteur',
+                                                   'query_builder' => function(EntityRepository $er) {
+                                                                         return $er->createQueryBuilder('s');
+                                                                                     }));
             //->add('remarques','textarea',array('required'=>false))
         ;
+        
     }
     
     /**

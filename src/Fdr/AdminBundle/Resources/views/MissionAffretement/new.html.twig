@@ -1,37 +1,67 @@
 {% extends '::base.html.twig' %}
 {% block title %}MissionAffretement|New{% endblock %}
 {% block body -%}
-<div class="page-header"><h1> Ajout d'une feuille de lancement</h1></div>
+<div class="page-header"><h2> Ajout d'une feuille de lancement</h2></div>
  
 {{ form_start(form) }}
 <div class="row">
 <span class="alert-danger ">{{ form_errors(form) }}</span>
 </div>
 
-
 <div class="row">
 <div class="span4">
 <fieldset>
 <legend>Ramassage : </legend>
-<div class="span4">{{ form_label(form.dateramassage," ") }}<span class="alert-danger ">{{ form_errors(form.dateramassage) }}</span>{{ form_widget(form.dateramassage) }}</div>
-<div class="span2">{{ form_label(form.lieuramassage," ") }}<span class="alert-danger ">{{ form_errors(form.lieuramassage) }}</span>{{ form_widget(form.lieuramassage) }}</div>
+<div class="row-fluid">
+<div class="span1">{{ form_label(form.dateramassage," ") }}</div>
+{{ form_widget(form.dateramassage) }}<span class="alert-danger ">{{ form_errors(form.dateramassage) }}</span>
+</div>
+<div class="row-fluid">
+<div class="span1">{{ form_label(form.lieuramassage," ") }}</div>
+{{ form_widget(form.lieuramassage) }}<span class="alert-danger ">{{ form_errors(form.lieuramassage) }}</span>
+</div>
+
+<div class="row-fluid">
+<div class="span1">{{ form_label(form.secteur," ") }}</div>
+{{ form_widget(form.secteur) }}<span class="alert-danger ">{{ form_errors(form.secteur) }}</span>
+</div>
+
 </fieldset>
 </div>
 
 <div class="span4">
 <fieldset> 
-<legend>Livraison : </legend>
+    <legend>Livraison : </legend>
 
-<div class="span3">{{ form_label(form.datelivraison," ") }}<span class="alert-danger ">{{ form_errors(form.datelivraison) }}</span>{{ form_widget(form.datelivraison) }}</div>
-<div class="span2">{{ form_label(form.lieulivraison," ") }}<span class="alert-danger ">{{ form_errors(form.lieulivraison) }}</span>{{ form_widget(form.lieulivraison) }}</div>
+<div class="row-fluid">
+<div class="span1">{{ form_label(form.datelivraison," ") }}</div>
+{{ form_widget(form.datelivraison) }}<span class="alert-danger ">{{ form_errors(form.datelivraison) }}</span>
+</div>
 
+<div class="row-fluid">
+<div class="span1">{{ form_label(form.lieulivraison," ") }}</div>
+{{ form_widget(form.lieulivraison) }}<span class="alert-danger ">{{ form_errors(form.lieulivraison) }}</span>
+</div>
 
-<div class="span3">{{ form_label(form.naturemarchandise," ") }}<span class="alert-danger ">{{ form_errors(form.naturemarchandise) }}</span>{{ form_widget(form.naturemarchandise) }}</div>
-<div class="span3">{{ form_label(form.nbrecolis," ") }}<span class="alert-danger ">{{ form_errors(form.nbrecolis) }}</span>{{ form_widget(form.nbrecolis) }}</div>
+<div class="row-fluid">
+<div class="span1">{{ form_label(form.naturemarchandise," ") }}</div>
+{{ form_widget(form.naturemarchandise) }}<span class="alert-danger ">{{ form_errors(form.naturemarchandise) }}</span>
+</div>
 
-<div class="span3">{{ form_label(form.bonlivraison," ") }}<span class="alert-danger ">{{ form_errors(form.bonlivraison) }}</span>{{ form_widget(form.bonlivraison) }}</div>
-<div class="span3">{{ form_label(form.numexpedition," ") }}<span class="alert-danger ">{{ form_errors(form.numexpedition) }}</span>{{ form_widget(form.numexpedition) }}</div>
+<div class="row-fluid">
+<div class="span1">{{ form_label(form.nbrecolis," ") }}</div>
+{{ form_widget(form.nbrecolis) }}<span class="alert-danger ">{{ form_errors(form.nbrecolis) }}</span>
+</div>
 
+<div class="row-fluid">
+<div class="span1">{{ form_label(form.bonlivraison," ") }}</div>
+{{ form_widget(form.bonlivraison) }}<span class="alert-danger ">{{ form_errors(form.bonlivraison) }}</span>
+</div>
+
+<div class="row-fluid">
+<div class="span1">{{ form_label(form.numexpedition," ") }}</div>
+{{ form_widget(form.numexpedition) }}<span class="alert-danger ">{{ form_errors(form.numexpedition) }}</span>
+</div>
 
 </fieldset>
 </div>
@@ -53,29 +83,76 @@
 <div class="span4">
 <fieldset> 
 <legend>Contact client : </legend>
-<div class="span2">{{ form_label(form.client,"Client") }}<span class="alert-danger ">{{ form_errors(form.client) }}</span>{{ form_widget(form.client) }}</div>
-<div class="span3">{{ form_label(form.nomresponsable," ") }}<span class="alert-danger ">{{ form_errors(form.nomresponsable) }}</span>{{ form_widget(form.nomresponsable) }}</div>
-<div class="span3">{{ form_label(form.telresponsable," ") }}<span class="alert-danger ">{{ form_errors(form.telresponsable) }}</span>{{ form_widget(form.telresponsable) }}</div>
+
+<div class="row-fluid">
+<div class="span1">{{ form_label(form.client," ") }}</div>
+{{ form_widget(form.client) }}<span class="alert-danger ">{{ form_errors(form.client) }}</span>
+
+
+
+</div>
+
+<div class="row-fluid">
+<div class="span1">{{ form_label(form.nomresponsable," ") }}</div>
+{{ form_widget(form.nomresponsable) }}<span class="alert-danger ">{{ form_errors(form.nomresponsable) }}</span>
+</div>
+
+<div class="row-fluid">
+<div class="span1">{{ form_label(form.telresponsable," ") }}</div>
+{{ form_widget(form.telresponsable) }}<span class="alert-danger ">{{ form_errors(form.telresponsable) }}</span>
+</div>
+
 </fieldset>
 </div>
     
 <div class="span4">
 <fieldset> 
 <legend>Facture client : </legend>
-<div class="span4">{{ form_widget(form.montantfacture) }}<span class="alert-danger ">{{ form_errors(form.montantfacture) }}</span>{{ form_label(form.montantfacture," ") }}</div>
-<div class="span3">{{ form_widget(form.remise) }}<span class="alert-danger ">{{ form_errors(form.remise) }}</span>{{ form_label(form.remise," ") }}</div>
-<div class="span3">{{ form_widget(form.motifremise) }}<span class="alert-danger ">{{ form_errors(form.motifremise) }}</span>{{ form_label(form.motifremise," ") }}</div>
-<div class="span3">{{ form_widget(form.montantregle) }}<span class="alert-danger ">{{ form_errors(form.montantregle) }}</span>{{ form_label(form.montantregle,"Montant regle ") }}</div>
+
+<div class="row-fluid">
+<div class="span1">{{ form_label(form.montantfacture," ") }}</div>
+{{ form_widget(form.montantfacture) }}<span class="alert-danger ">{{ form_errors(form.montantfacture) }}</span>
+</div>
+
+<div class="row-fluid">
+<div class="span1">{{ form_label(form.remise," ") }}</div>
+{{ form_widget(form.remise) }}<span class="alert-danger ">{{ form_errors(form.remise) }}</span>
+</div>
+
+<div class="row-fluid">
+<div class="span1">{{ form_label(form.motifremise," ") }}</div>
+{{ form_widget(form.motifremise) }}<span class="alert-danger ">{{ form_errors(form.motifremise) }}</span>
+</div>
+
+<div class="row-fluid">
+<div class="span1"></div>
+{{ form_widget(form.montantregle) }}<span class="alert-danger ">{{ form_errors(form.montantregle) }}</span>
+{{ form_label(form.montantregle,"Regle") }}</div>
+</div>
+
 </fieldset>
-</div> 
+ 
     
 <div class="span3">
 <fieldset> 
 <legend>Asssurance/Banque : </legend>
-<div class="span3">{{ form_widget(form.valdeclassurance) }}<span class="alert-danger ">{{ form_errors(form.valdeclassurance) }}</span>{{ form_label(form.valdeclassurance," ") }}</div>
-<div class="span2">{{ form_label(form.nombnq," ") }}<span class="alert-danger ">{{ form_errors(form.nombnq) }}</span>{{ form_widget(form.nombnq) }}</div>
-<div class="span2">{{ form_label(form.numcheque," ") }}<span class="alert-danger ">{{ form_errors(form.numcheque) }}</span>{{ form_widget(form.numcheque) }}</div>
+<div class="row-fluid">
+<div class="span1">{{ form_label(form.valdeclassurance," ") }}</div>
+{{ form_widget(form.valdeclassurance) }}<span class="alert-danger ">{{ form_errors(form.valdeclassurance) }}</span>
+</div>
+
+<div class="row-fluid">
+<div class="span1">{{ form_label(form.nombnq," ") }}</div>
+{{ form_widget(form.nombnq) }}<span class="alert-danger ">{{ form_errors(form.nombnq) }}</span>
+</div>
+
+<div class="row-fluid">
+<div class="span1">{{ form_label(form.numcheque," ") }}</div>
+{{ form_widget(form.numcheque) }}<span class="alert-danger ">{{ form_errors(form.numcheque) }}</span>
+</div>
+
 </fieldset>
+</div>
 </div>
 {{ form_end(form) }}
 

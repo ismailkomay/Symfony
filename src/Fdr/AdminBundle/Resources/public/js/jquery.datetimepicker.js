@@ -434,7 +434,7 @@
             }
 		},
 		value: '',
-		lang: 'en',
+		lang: 'fr',
 
 		format:	'Y/m/d H:i',
 		formatTime:	'H:i',
@@ -444,8 +444,8 @@
 		step: 60,
 		monthChangeSpinner: true,
 
-		closeOnDateSelect: false,
-		closeOnTimeSelect: false,
+		closeOnDateSelect: true,
+		closeOnTimeSelect: true,
 		closeOnWithoutClick: true,
 		closeOnInputClick: true,
 
@@ -484,14 +484,14 @@
 		dayOfWeekStart: 0,
 		parentID: 'body',
 		timeHeightInTimePicker: 25,
-		timepickerScrollbar: true,
+		timepickerScrollbar: false,
 		todayButton: true,
 		prevButton: true,
 		nextButton: true,
 		defaultSelect: true,
 
-		scrollMonth: true,
-		scrollTime: true,
+		scrollMonth: false,
+		scrollTime: false,
 		scrollInput: true,
 
 		lazyInit: false,
@@ -513,7 +513,7 @@
 		beforeShowDay: null,
 
 		enterLikeTab: true,
-        showApplyButton: false
+        showApplyButton: true
 	};
 	// fix for ie8
 	if (!Array.prototype.indexOf) {

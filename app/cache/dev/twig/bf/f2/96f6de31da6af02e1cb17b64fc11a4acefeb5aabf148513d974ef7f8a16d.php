@@ -54,7 +54,7 @@ class __TwigTemplate_bff296f6de31da6af02e1cb17b64fc11a4acefeb5aabf148513d974ef7f
          ";
         // line 26
         $this->displayBlock('footer', $context, $blocks);
-        // line 31
+        // line 49
         echo "    </div>
     </body>
 </html>";
@@ -128,7 +128,25 @@ class __TwigTemplate_bff296f6de31da6af02e1cb17b64fc11a4acefeb5aabf148513d974ef7f
             echo "\" />
         ";
             // asset "d0cd489_9"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_d0cd489_9") : $this->env->getExtension('assets')->getAssetUrl("_controller/css/d0cd489_part_1_jquery.datetimepicker_10.css");
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_d0cd489_9") : $this->env->getExtension('assets')->getAssetUrl("_controller/css/d0cd489_part_1_jquery-ui_10.css");
+            echo "        <link rel=\"stylesheet\" href=\"";
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
+            echo "\" />
+        ";
+            // asset "d0cd489_10"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_d0cd489_10") : $this->env->getExtension('assets')->getAssetUrl("_controller/css/d0cd489_part_1_jquery.datetimepicker_11.css");
+            echo "        <link rel=\"stylesheet\" href=\"";
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
+            echo "\" />
+        ";
+            // asset "d0cd489_11"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_d0cd489_11") : $this->env->getExtension('assets')->getAssetUrl("_controller/css/d0cd489_part_1_justified-nav_12.css");
+            echo "        <link rel=\"stylesheet\" href=\"";
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
+            echo "\" />
+        ";
+            // asset "d0cd489_12"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_d0cd489_12") : $this->env->getExtension('assets')->getAssetUrl("_controller/css/d0cd489_part_1_navbar_13.css");
             echo "        <link rel=\"stylesheet\" href=\"";
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
             echo "\" />
@@ -183,19 +201,25 @@ class __TwigTemplate_bff296f6de31da6af02e1cb17b64fc11a4acefeb5aabf148513d974ef7f
             echo "\"></script>
          ";
             // asset "b262d73_4"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_b262d73_4") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/b262d73_part_1_jquery.datetimepicker_5.js");
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_b262d73_4") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/b262d73_part_1_jquery-ui_5.js");
             echo "         <script type=\"text/javascript\" src=\"";
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
             echo "\"></script>
          ";
             // asset "b262d73_5"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_b262d73_5") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/b262d73_part_1_jquery1_6.js");
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_b262d73_5") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/b262d73_part_1_jquery.datetimepicker_6.js");
             echo "         <script type=\"text/javascript\" src=\"";
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
             echo "\"></script>
          ";
             // asset "b262d73_6"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_b262d73_6") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/b262d73_part_1_npm_7.js");
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_b262d73_6") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/b262d73_part_1_jquery1_7.js");
+            echo "         <script type=\"text/javascript\" src=\"";
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
+            echo "\"></script>
+         ";
+            // asset "b262d73_7"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_b262d73_7") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/b262d73_part_1_npm_8.js");
             echo "         <script type=\"text/javascript\" src=\"";
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
             echo "\"></script>
@@ -217,13 +241,37 @@ class __TwigTemplate_bff296f6de31da6af02e1cb17b64fc11a4acefeb5aabf148513d974ef7f
     public function block_footer($context, array $blocks = array())
     {
         // line 27
-        echo "        <footer>
+        echo "         <footer>
+         <div class=\"row\">
+              <div class=\"span2\">  
+              <div class=\"pull-left\">    
             &copy; Copyright ";
-        // line 28
+        // line 31
         echo twig_escape_filter($this->env, twig_date_format_filter($this->env, "now", "Y"), "html", null, true);
-        echo " / <a href=\"ctm-messagerie.ma\" title=\"Komay\">CTM Messagerie</a>.
-        </footer>
-        ";
+        echo " / <a href=\"http://www.ctm-messagerie.ma/\" title=\"Komay\">CTM Messagerie</a>.        
+              </div>
+              </div>
+              <div class=\"span1 offset9\">
+              <a id=\"opener\" class=\"pull-right\">
+              <img src=\"";
+        // line 36
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/fdradmin/images/help.png"), "html", null, true);
+        echo "\" alt=\"User Manuel\" title=\"User Manuel-Cliquer \" />
+              </a>
+              <div id=\"usermanuel\" title=\"User Manuel\">Ici nous allons afficher un manuel d'utilisation
+              <a href=\"mailto:ism.assal@gmail.com\">Pour plus d'info.</a>
+              <br />
+              A bientot.
+              <img src=\"";
+        // line 42
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/fdradmin/images/ctm.png"), "html", null, true);
+        echo "\" alt=\"CTM\" title=\"CTM ME\" />
+              </div>
+              </div>
+         </div>
+
+          </footer>
+         ";
     }
 
     public function getTemplateName()
@@ -238,6 +286,6 @@ class __TwigTemplate_bff296f6de31da6af02e1cb17b64fc11a4acefeb5aabf148513d974ef7f
 
     public function getDebugInfo()
     {
-        return array (  223 => 28,  220 => 27,  217 => 26,  213 => 24,  163 => 22,  158 => 21,  155 => 20,  150 => 19,  146 => 14,  78 => 12,  73 => 11,  70 => 10,  64 => 9,  58 => 31,  56 => 26,  53 => 25,  50 => 20,  48 => 19,  40 => 15,  38 => 10,  34 => 9,  24 => 1,);
+        return array (  267 => 42,  258 => 36,  250 => 31,  244 => 27,  241 => 26,  237 => 24,  181 => 22,  176 => 21,  173 => 20,  168 => 19,  164 => 14,  78 => 12,  73 => 11,  70 => 10,  64 => 9,  58 => 49,  56 => 26,  53 => 25,  50 => 20,  48 => 19,  40 => 15,  38 => 10,  34 => 9,  24 => 1,);
     }
 }

@@ -68,7 +68,7 @@ class MissionAffretementController extends Controller
         ));
 
         //$form->add('submit', 'submit', array('label' => 'Create'));
-        $form->add('submit', 'submit', array('label' => 'Enregistrer','attr'=>array('class'=>'btn btn-primary span2 offset4')));
+        $form->add('submit', 'submit', array('label' => 'Enregistrer','attr'=>array('class'=>'btn-default span2 offset4')));
         return $form;
     }
 
@@ -102,12 +102,63 @@ class MissionAffretementController extends Controller
         }
 
         $deleteForm = $this->createDeleteForm($id);
-
+          //---
+        $print_form   = $this->createPrintForm($id);
+        $form =  $this->createForm(new MissionAffretementType(), $entity);
+        //---
         return $this->render('FdrAdminBundle:MissionAffretement:show.html.twig', array(
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),
+            //--
+            'form' => $form->createView(),
+            //--
+            'print_form' => $print_form->createView(),
         ));
     }
+    
+    //---
+    
+    /**
+     * Creates a form to print a MissionAffretement entity by id.
+     *
+     * @param mixed $id The entity id
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
+    private function createPrintForm($id)
+    {
+        return $this->createFormBuilder()
+            ->setAction($this->generateUrl('missionaffretement_print', array('id' => $id)))
+            ->setMethod('POST')
+            ->add('submit', 'submit', array('label' => 'Imprimer','attr'=>array('class'=>'btn btn-default span2')))
+            ->getForm()
+        ;
+    }
+    
+    public function printAction(Request $request,$id)
+    {
+        /*return $this->render('FdrAdminBundle:MissionAffretement:print.html.twig', array(
+            'entity'      => null
+        ));*/
+        //throw $this->createNotFoundException('mchin1');
+        $form = $this->createPrintForm($id);
+        $form->handleRequest($request);
+        //throw $this->createNotFoundException('mchin2');
+        if ($form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $entity = $em->getRepository('FdrAdminBundle:MissionAffretement')->find($id);
+            
+            if (!$entity) {
+                throw $this->createNotFoundException('Unable to find MissionAffretement entity for printing.');
+            }
+           // throw $this->createNotFoundException('mchin');
+            
+            //procedure d'impression'
+            }
+            return $this->redirect($this->generateUrl('missionaffretement'));
+       
+    }
+    //---
 
     /**
      * Displays a form to edit an existing MissionAffretement entity.
@@ -147,7 +198,7 @@ class MissionAffretementController extends Controller
             'method' => 'PUT',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Update'));
+        $form->add('submit', 'submit', array('label' => 'Modifier','attr'=>array('class'=>'btn btn-primary span2 offset5')));
 
         return $form;
     }

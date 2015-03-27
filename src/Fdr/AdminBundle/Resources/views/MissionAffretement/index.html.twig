@@ -1,78 +1,112 @@
 {% extends '::base.html.twig' %}
 {% block title %}MissionAffretement|Accueil{% endblock %}
 {% block body -%}
-    <h1>MissionAffretement list</h1>
+    <div class="page-header">
+    <div class="row">
+    <h2> Liste des feuilles de lancement</h2>
+    <div class="span4 offset8">
+        <form class="form-search form-inline" action="">
+         <input type="text" class="input-medium search-query" placeholder="Par mot clè...?"/>
+         <button  type="submit">
+         <span>Rechercher</span>
+         <img id="inputButton" src="{{ asset('bundles/fdradmin/images/apercu.png') }}" />
+          <b class="caret"></b>
+         </button>         
+         </form>
+        
 
-    <table class="records_list">
+    </div>
+    </div>
+  
+  {# include "FdrAdminBundle:MissionAffretement:menu.html.twig" #}
+  <div class="row">
+             <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class=""><a href="#">Accueil</a></li>
+            <li class=""><a href="#">Feuile De Route</a></li>
+            <li class=""><a href="#">Feuille De Mission</a></li>
+            <li class=""><a href="#">Profil</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Autre Gestion <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Gestion depot</a></li>
+                <li><a href="#">Gestion Filiale</a></li>
+                <li><a href="#">Gestion Client</a></li>
+                <li><a href="#">Gestion ...</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Se déconnecter</a></li>
+              </ul>
+            </li>
+            
+          </ul>
+        </div>
+</div>
+        
+     
+  </div>
+    
+  
+   <div class="row">
+    <table>
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Ecc</th>
-                <th>Ect</th>
-                <th>Ebl</th>
-                <th>Espece</th>
-                <th>Autredoc</th>
-                <th>Valdeclassurance</th>
-                <th>Bonlivraison</th>
-                <th>Numexpedition</th>
-                <th>Dateramassage</th>
-                <th>Lieuramassage</th>
-                <th>Nbrecolis</th>
-                <th>Naturemarchandise</th>
-                <th>Datelivraison</th>
-                <th>Lieulivraison</th>
-                <th>Montantfacture</th>
-                <th>Remise</th>
-                <th>Motifremise</th>
-                <th>Montantregle</th>
-                <th>Nombnq</th>
-                <th>Numcheque</th>
-                <th>Nom du responsable à contacter</th>
-                <th>Tel du responsable à contacter</th>
-                <th>Actions</th>
+                <th rowspan="2">Id</th>
+                <th rowspan="2">Client</th>
+                <th rowspan="2">Secteur</th>
+                <th rowspan="2">Nom du responsable</th>
+                <th rowspan="2">Tel du responsable</th>
+                <th rowspan="2">Montant(Dhs)</th>
+                <th  colspan="2">Ramassage</th>
+                <th  colspan="2">Livraison</th>
+                <th rowspan="2">Remise</th>
+                <th rowspan="2">Montant réglé ?</th>
+                
+            </tr>
+            <tr>
+                <th>Date de Ramassage.</th>
+                <th>Lieu de Ramassage</th>
+                <th>Date de Livraison</th>
+                <th>Lieu de Livraison</th>
             </tr>
         </thead>
         <tbody>
         {% for entity in entities %}
             <tr>
                 <td><a href="{{ path('missionaffretement_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{{ entity.ecc }}</td>
-                <td>{{ entity.ect }}</td>
-                <td>{{ entity.ebl }}</td>
-                <td>{{ entity.espece }}</td>
-                <td>{{ entity.autredoc }}</td>
-                <td>{{ entity.valdeclassurance }}</td>
-                <td>{{ entity.bonlivraison }}</td>
-                <td>{{ entity.numexpedition }}</td>
-                <td>{% if entity.dateramassage %}{{ entity.dateramassage|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td id="idclient{{entity.id}}">{{ entity.client|default('-----') }}</td>
+                <td>{{ entity.secteur|default('-----') }}</td>
+                <td>{{ entity.nomresponsable|default('-----') }}</td>
+                <td>{{ entity.telresponsable|default('-----') }}</td>
+                <td>{{ entity.montantfacture|default('-----')  }}</td>               
+                <td>{% if entity.dateramassage %}{{ entity.dateramassage|date('Y/m/d H:i:s') }}{% endif %}</td>
                 <td>{{ entity.lieuramassage }}</td>
-                <td>{{ entity.nbrecolis }}</td>
-                <td>{{ entity.naturemarchandise }}</td>
-                <td>{% if entity.datelivraison %}{{ entity.datelivraison|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{{ entity.lieulivraison }}</td>
-                <td>{{ entity.montantfacture }}</td>
-                <td>{{ entity.remise }}</td>
-                <td>{{ entity.motifremise }}</td>
-                <td>{{ entity.montantregle }}</td>
-                <td>{{ entity.nombnq }}</td>
-                <td>{{ entity.numcheque }}</td>
-                <td>{{ entity.nomresponsable }}</td>
-                <td>{{ entity.telresponsable }}</td>
+                <td>{% if entity.datelivraison %}{{ entity.datelivraison|date('Y/m/d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.lieulivraison|default('-----') }}</td>    
+                <td>{{ entity.remise|default('Aucune') }}</td>
+                
                 <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('missionaffretement_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('missionaffretement_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
+                {% if entity.montantregle %}
+                <input type="checkbox" disabled readonly checked />
+                {%else %}
+                <input type="checkbox" disabled readonly />
+                {%endif %}
+                </td>
+                <td>
+                     <div class="span2">
+                        <div class="row-fluid">
+                        <a href="{{ path('missionaffretement_show', { 'id': entity.id }) }}"><img src="{{ asset('bundles/fdradmin/images/apercu.png') }}" alt="Aperçu" title="Aperçu"/></a>
+                        &nbsp;|&nbsp;<a href="{{ path('missionaffretement_edit', { 'id': entity.id }) }}"><img src="{{ asset('bundles/fdradmin/images/modifier.png') }}" alt="Modifier" title="Modifier" /></a>
+                        &nbsp;|&nbsp;<a href="{{ path('missionaffretement_print', { 'id': entity.id }) }}"><img src="{{ asset('bundles/fdradmin/images/imprimer.png') }}" alt="Imprimer" title="Imprimer"/></a>
+                        &nbsp;|&nbsp;<a href="{{ path('missionaffretement_print', { 'id': entity.id }) }}"><img src="{{ asset('bundles/fdradmin/images/cancel.png') }}" alt="Annuler" title="Annuler la feuille" /></a>
+                        &nbsp;|&nbsp;<a href="{{ path('missionaffretement_delete', { 'id': entity.id }) }}"><img src="{{ asset('bundles/fdradmin/images/supprimer.png') }}" alt="Supprimer" title="Supprimer"/></a>
+                        </div>
+                     </div>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
+</div>
         <ul>
         <li>
             <a href="{{ path('missionaffretement_new') }}">

@@ -24,10 +24,28 @@
          {% endblock %}
     
          {% block footer %}
-        <footer>
-            &copy; Copyright {{"now"|date('Y')}} / <a href="ctm-messagerie.ma" title="Komay">CTM Messagerie</a>.
-        </footer>
-        {% endblock %}
+         <footer>
+         <div class="row">
+              <div class="span2">  
+              <div class="pull-left">    
+            &copy; Copyright {{"now"|date('Y')}} / <a href="http://www.ctm-messagerie.ma/" title="Komay">CTM Messagerie</a>.        
+              </div>
+              </div>
+              <div class="span1 offset9">
+              <a id="opener" class="pull-right">
+              <img src="{{ asset('bundles/fdradmin/images/help.png') }}" alt="User Manuel" title="User Manuel-Cliquer " />
+              </a>
+              <div id="usermanuel" title="User Manuel">Ici nous allons afficher un manuel d'utilisation
+              <a href="mailto:ism.assal@gmail.com">Pour plus d'info.</a>
+              <br />
+              A bientot.
+              <img src="{{ asset('bundles/fdradmin/images/ctm.png') }}" alt="CTM" title="CTM ME" />
+              </div>
+              </div>
+         </div>
+
+          </footer>
+         {% endblock %}
     </div>
     </body>
 </html>

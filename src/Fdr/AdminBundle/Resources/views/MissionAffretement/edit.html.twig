@@ -1,16 +1,167 @@
 {% extends '::base.html.twig' %}
 {% block title %}MissionAffretement|Edit{% endblock %}
 {% block body -%}
-    <h1>MissionAffretement edit</h1>
+<div class="page-header"><h1> Modification d'une feuille de lancement</h1></div>
 
-    {{ form(edit_form) }}
 
-        <ul class="record_actions">
+
+{{ form_start(edit_form) }}
+<div class="row">
+<span class="alert-danger ">{{ form_errors(edit_form) }}</span>
+</div>
+
+<div class="row">
+<div class="span4">
+<fieldset>
+<legend>Ramassage : </legend>
+<div class="row-fluid">
+<div class="span1">{{ form_label(edit_form.dateramassage," ") }}</div>
+{{ form_widget(edit_form.dateramassage) }}<span class="alert-danger ">{{ form_errors(edit_form.dateramassage) }}</span>
+</div>
+<div class="row-fluid">
+<div class="span1">{{ form_label(edit_form.lieuramassage," ") }}</div>
+{{ form_widget(edit_form.lieuramassage) }}<span class="alert-danger ">{{ form_errors(edit_form.lieuramassage) }}</span>
+</div>
+
+<div class="row-fluid">
+<div class="span1">{{ form_label(edit_form.secteur," ") }}</div>
+{{ form_widget(edit_form.secteur) }}<span class="alert-danger ">{{ form_errors(edit_form.secteur) }}</span>
+</div>
+
+
+</fieldset>
+</div>
+
+<div class="span4">
+<fieldset> 
+    <legend>Livraison : </legend>
+
+<div class="row-fluid">
+<div class="span1">{{ form_label(edit_form.datelivraison," ") }}</div>
+{{ form_widget(edit_form.datelivraison) }}<span class="alert-danger ">{{ form_errors(edit_form.datelivraison) }}</span>
+</div>
+
+<div class="row-fluid">
+<div class="span1">{{ form_label(edit_form.lieulivraison," ") }}</div>
+{{ form_widget(edit_form.lieulivraison) }}<span class="alert-danger ">{{ form_errors(edit_form.lieulivraison) }}</span>
+</div>
+
+<div class="row-fluid">
+<div class="span1">{{ form_label(edit_form.naturemarchandise," ") }}</div>
+{{ form_widget(edit_form.naturemarchandise) }}<span class="alert-danger ">{{ form_errors(edit_form.naturemarchandise) }}</span>
+</div>
+
+<div class="row-fluid">
+<div class="span1">{{ form_label(edit_form.nbrecolis," ") }}</div>
+{{ form_widget(edit_form.nbrecolis) }}<span class="alert-danger ">{{ form_errors(edit_form.nbrecolis) }}</span>
+</div>
+
+<div class="row-fluid">
+<div class="span1">{{ form_label(edit_form.bonlivraison," ") }}</div>
+{{ form_widget(edit_form.bonlivraison) }}<span class="alert-danger ">{{ form_errors(edit_form.bonlivraison) }}</span>
+</div>
+
+<div class="row-fluid">
+<div class="span1">{{ form_label(edit_form.numexpedition," ") }}</div>
+{{ form_widget(edit_form.numexpedition) }}<span class="alert-danger ">{{ form_errors(edit_form.numexpedition) }}</span>
+</div>
+
+</fieldset>
+</div>
+
+<div class="span3">
+<fieldset>
+<legend>P.J. :</legend>
+<div class="span2">{{ form_widget(edit_form.ecc) }} <span class="alert-danger ">{{ form_errors(edit_form.ecc) }}</span>  {{ form_label(edit_form.ecc,"ECC") }}</div>
+<div class="span2">{{ form_widget(edit_form.ect) }} <span class="alert-danger ">{{ form_errors(edit_form.ect) }}</span>  {{ form_label(edit_form.ect,"ECT") }}</div>
+<div class="span2">{{ form_widget(edit_form.ebl) }}<span class="alert-danger ">{{ form_errors(edit_form.ebl) }}</span> {{ form_label(edit_form.ebl,"EBL") }}</div>
+<div class="span2">{{ form_widget(edit_form.espece) }}<span class="alert-danger ">{{ form_errors(edit_form.espece) }}</span> {{ form_label(edit_form.espece,"ESPECE") }}</div>
+<div class="span2">{{ form_label(edit_form.autredoc," ") }} <span class="alert-danger ">{{ form_errors(edit_form.autredoc) }}</span>  {{ form_widget(edit_form.autredoc) }}</div>
+</fieldset>
+</div>
+</div>
+
+
+<div class="row">
+<div class="span4">
+<fieldset> 
+<legend>Contact client : </legend>
+
+<div class="row-fluid">
+<div class="span1">{{ form_label(edit_form.client," ") }}</div>
+{{ form_widget(edit_form.client) }}<span class="alert-danger ">{{ form_errors(edit_form.client) }}</span>
+</div>
+
+<div class="row-fluid">
+<div class="span1">{{ form_label(edit_form.nomresponsable," ") }}</div>
+{{ form_widget(edit_form.nomresponsable) }}<span class="alert-danger ">{{ form_errors(edit_form.nomresponsable) }}</span>
+</div>
+
+<div class="row-fluid">
+<div class="span1">{{ form_label(edit_form.telresponsable," ") }}</div>
+{{ form_widget(edit_form.telresponsable) }}<span class="alert-danger ">{{ form_errors(edit_form.telresponsable) }}</span>
+</div>
+
+</fieldset>
+</div>
+    
+<div class="span4">
+<fieldset> 
+<legend>Facture client : </legend>
+
+<div class="row-fluid">
+<div class="span1">{{ form_label(edit_form.montantfacture," ") }}</div>
+{{ form_widget(edit_form.montantfacture) }}<span class="alert-danger ">{{ form_errors(edit_form.montantfacture) }}</span>
+</div>
+
+<div class="row-fluid">
+<div class="span1">{{ form_label(edit_form.remise," ") }}</div>
+{{ form_widget(edit_form.remise) }}<span class="alert-danger ">{{ form_errors(edit_form.remise) }}</span>
+</div>
+
+<div class="row-fluid">
+<div class="span1">{{ form_label(edit_form.motifremise," ") }}</div>
+{{ form_widget(edit_form.motifremise) }}<span class="alert-danger ">{{ form_errors(edit_form.motifremise) }}</span>
+</div>
+
+<div class="row-fluid">
+<div class="span1"></div>
+{{ form_widget(edit_form.montantregle) }}<span class="alert-danger ">{{ form_errors(edit_form.montantregle) }}</span>
+{{ form_label(edit_form.montantregle,"Regle") }}
+</div>
+
+</fieldset>
+</div> 
+    
+<div class="span3">
+<fieldset> 
+<legend>Asssurance/Banque : </legend>
+<div class="row-fluid">
+<div class="span1">{{ form_label(edit_form.valdeclassurance," ") }}</div>
+{{ form_widget(edit_form.valdeclassurance) }}<span class="alert-danger ">{{ form_errors(edit_form.valdeclassurance) }}</span>
+</div>
+
+<div class="row-fluid">
+<div class="span1">{{ form_label(edit_form.nombnq," ") }}</div>
+{{ form_widget(edit_form.nombnq) }}<span class="alert-danger ">{{ form_errors(edit_form.nombnq) }}</span>
+</div>
+
+<div class="row-fluid">
+<div class="span1">{{ form_label(edit_form.numcheque," ") }}</div>
+{{ form_widget(edit_form.numcheque) }}<span class="alert-danger ">{{ form_errors(edit_form.numcheque) }}</span>
+</div>
+
+</fieldset>
+
+</div>
+
+{{ form_end(edit_form) }}
+        <!--ul class="record_actions">
     <li>
-        <a href="{{ path('missionaffretement') }}">
+        <a href="{# path('missionaffretement') #}">
             Back to the list
         </a>
     </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+</ul-->
 {% endblock %}
+

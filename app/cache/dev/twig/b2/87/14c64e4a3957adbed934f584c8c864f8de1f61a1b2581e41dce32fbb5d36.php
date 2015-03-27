@@ -53,7 +53,7 @@ class __TwigTemplate_b28714c64e4a3957adbed934f584c8c864f8de1f61a1b2581e41dce32fb
             ";
         // line 9
         echo "            ";
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "nombreManutention", array()), 'label', array("label" => "Nombre de manution"));
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "nombreManutention", array()), 'label', array("label" => "Nombre de manutention"));
         echo "
 
             ";
@@ -73,7 +73,7 @@ class __TwigTemplate_b28714c64e4a3957adbed934f584c8c864f8de1f61a1b2581e41dce32fb
             ";
         // line 20
         echo "            ";
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "nombreManutentionChauf1", array()), 'label', array("label" => "Nombre de manution pour le chauffeur 1"));
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "nombreManutentionChauf1", array()), 'label', array("label" => "Nombre de manutention pour le chauffeur 1"));
         echo "
 
             ";

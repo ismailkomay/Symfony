@@ -43,7 +43,7 @@ class __TwigTemplate_907332f0ccc379dbc0b57fc1434c198a70e89d5654e15a5a989b59015e8
     public function block_body($context, array $blocks = array())
     {
         // line 4
-        echo "<div class=\"page-header\"><h1> Ajout d'une feuille de lancement</h1></div>
+        echo "<div class=\"page-header\"><h2> Ajout d'une feuille de lancement</h2></div>
  
 ";
         // line 6
@@ -56,86 +56,132 @@ class __TwigTemplate_907332f0ccc379dbc0b57fc1434c198a70e89d5654e15a5a989b59015e8
         echo "</span>
 </div>
 
-
 <div class=\"row\">
 <div class=\"span4\">
 <fieldset>
 <legend>Ramassage : </legend>
-<div class=\"span4\">";
+<div class=\"row-fluid\">
+<div class=\"span1\">";
         // line 16
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "dateramassage", array()), 'label', array("label" => " "));
+        echo "</div>
+";
+        // line 17
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "dateramassage", array()), 'widget');
         echo "<span class=\"alert-danger \">";
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "dateramassage", array()), 'errors');
-        echo "</span>";
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "dateramassage", array()), 'widget');
-        echo "</div>
-<div class=\"span2\">";
-        // line 17
+        echo "</span>
+</div>
+<div class=\"row-fluid\">
+<div class=\"span1\">";
+        // line 20
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "lieuramassage", array()), 'label', array("label" => " "));
+        echo "</div>
+";
+        // line 21
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "lieuramassage", array()), 'widget');
         echo "<span class=\"alert-danger \">";
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "lieuramassage", array()), 'errors');
-        echo "</span>";
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "lieuramassage", array()), 'widget');
+        echo "</span>
+</div>
+
+<div class=\"row-fluid\">
+<div class=\"span1\">";
+        // line 25
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "secteur", array()), 'label', array("label" => " "));
         echo "</div>
+";
+        // line 26
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "secteur", array()), 'widget');
+        echo "<span class=\"alert-danger \">";
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "secteur", array()), 'errors');
+        echo "</span>
+</div>
+
 </fieldset>
 </div>
 
 <div class=\"span4\">
 <fieldset> 
-<legend>Livraison : </legend>
+    <legend>Livraison : </legend>
 
-<div class=\"span3\">";
-        // line 25
+<div class=\"row-fluid\">
+<div class=\"span1\">";
+        // line 37
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "datelivraison", array()), 'label', array("label" => " "));
+        echo "</div>
+";
+        // line 38
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "datelivraison", array()), 'widget');
         echo "<span class=\"alert-danger \">";
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "datelivraison", array()), 'errors');
-        echo "</span>";
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "datelivraison", array()), 'widget');
-        echo "</div>
-<div class=\"span2\">";
-        // line 26
+        echo "</span>
+</div>
+
+<div class=\"row-fluid\">
+<div class=\"span1\">";
+        // line 42
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "lieulivraison", array()), 'label', array("label" => " "));
+        echo "</div>
+";
+        // line 43
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "lieulivraison", array()), 'widget');
         echo "<span class=\"alert-danger \">";
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "lieulivraison", array()), 'errors');
-        echo "</span>";
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "lieulivraison", array()), 'widget');
-        echo "</div>
+        echo "</span>
+</div>
 
-
-<div class=\"span3\">";
-        // line 29
+<div class=\"row-fluid\">
+<div class=\"span1\">";
+        // line 47
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "naturemarchandise", array()), 'label', array("label" => " "));
+        echo "</div>
+";
+        // line 48
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "naturemarchandise", array()), 'widget');
         echo "<span class=\"alert-danger \">";
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "naturemarchandise", array()), 'errors');
-        echo "</span>";
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "naturemarchandise", array()), 'widget');
-        echo "</div>
-<div class=\"span3\">";
-        // line 30
+        echo "</span>
+</div>
+
+<div class=\"row-fluid\">
+<div class=\"span1\">";
+        // line 52
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "nbrecolis", array()), 'label', array("label" => " "));
+        echo "</div>
+";
+        // line 53
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "nbrecolis", array()), 'widget');
         echo "<span class=\"alert-danger \">";
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "nbrecolis", array()), 'errors');
-        echo "</span>";
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "nbrecolis", array()), 'widget');
-        echo "</div>
+        echo "</span>
+</div>
 
-<div class=\"span3\">";
-        // line 32
+<div class=\"row-fluid\">
+<div class=\"span1\">";
+        // line 57
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "bonlivraison", array()), 'label', array("label" => " "));
+        echo "</div>
+";
+        // line 58
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "bonlivraison", array()), 'widget');
         echo "<span class=\"alert-danger \">";
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "bonlivraison", array()), 'errors');
-        echo "</span>";
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "bonlivraison", array()), 'widget');
-        echo "</div>
-<div class=\"span3\">";
-        // line 33
+        echo "</span>
+</div>
+
+<div class=\"row-fluid\">
+<div class=\"span1\">";
+        // line 62
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "numexpedition", array()), 'label', array("label" => " "));
+        echo "</div>
+";
+        // line 63
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "numexpedition", array()), 'widget');
         echo "<span class=\"alert-danger \">";
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "numexpedition", array()), 'errors');
-        echo "</span>";
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "numexpedition", array()), 'widget');
-        echo "</div>
-
+        echo "</span>
+</div>
 
 </fieldset>
 </div>
@@ -144,7 +190,7 @@ class __TwigTemplate_907332f0ccc379dbc0b57fc1434c198a70e89d5654e15a5a989b59015e8
 <fieldset>
 <legend>P.J. :</legend>
 <div class=\"span2\">";
-        // line 42
+        // line 72
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "ecc", array()), 'widget');
         echo " <span class=\"alert-danger \">";
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "ecc", array()), 'errors');
@@ -152,7 +198,7 @@ class __TwigTemplate_907332f0ccc379dbc0b57fc1434c198a70e89d5654e15a5a989b59015e8
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "ecc", array()), 'label', array("label" => "ECC"));
         echo "</div>
 <div class=\"span2\">";
-        // line 43
+        // line 73
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "ect", array()), 'widget');
         echo " <span class=\"alert-danger \">";
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "ect", array()), 'errors');
@@ -160,7 +206,7 @@ class __TwigTemplate_907332f0ccc379dbc0b57fc1434c198a70e89d5654e15a5a989b59015e8
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "ect", array()), 'label', array("label" => "ECT"));
         echo "</div>
 <div class=\"span2\">";
-        // line 44
+        // line 74
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "ebl", array()), 'widget');
         echo "<span class=\"alert-danger \">";
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "ebl", array()), 'errors');
@@ -168,7 +214,7 @@ class __TwigTemplate_907332f0ccc379dbc0b57fc1434c198a70e89d5654e15a5a989b59015e8
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "ebl", array()), 'label', array("label" => "EBL"));
         echo "</div>
 <div class=\"span2\">";
-        // line 45
+        // line 75
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "espece", array()), 'widget');
         echo "<span class=\"alert-danger \">";
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "espece", array()), 'errors');
@@ -176,7 +222,7 @@ class __TwigTemplate_907332f0ccc379dbc0b57fc1434c198a70e89d5654e15a5a989b59015e8
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "espece", array()), 'label', array("label" => "ESPECE"));
         echo "</div>
 <div class=\"span2\">";
-        // line 46
+        // line 76
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "autredoc", array()), 'label', array("label" => " "));
         echo " <span class=\"alert-danger \">";
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "autredoc", array()), 'errors');
@@ -192,109 +238,166 @@ class __TwigTemplate_907332f0ccc379dbc0b57fc1434c198a70e89d5654e15a5a989b59015e8
 <div class=\"span4\">
 <fieldset> 
 <legend>Contact client : </legend>
-<div class=\"span2\">";
-        // line 56
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "client", array()), 'label', array("label" => "Client"));
+
+<div class=\"row-fluid\">
+<div class=\"span1\">";
+        // line 88
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "client", array()), 'label', array("label" => " "));
+        echo "</div>
+";
+        // line 89
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "client", array()), 'widget');
         echo "<span class=\"alert-danger \">";
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "client", array()), 'errors');
-        echo "</span>";
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "client", array()), 'widget');
-        echo "</div>
-<div class=\"span3\">";
-        // line 57
+        echo "</span>
+
+
+
+</div>
+
+<div class=\"row-fluid\">
+<div class=\"span1\">";
+        // line 96
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "nomresponsable", array()), 'label', array("label" => " "));
+        echo "</div>
+";
+        // line 97
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "nomresponsable", array()), 'widget');
         echo "<span class=\"alert-danger \">";
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "nomresponsable", array()), 'errors');
-        echo "</span>";
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "nomresponsable", array()), 'widget');
-        echo "</div>
-<div class=\"span3\">";
-        // line 58
+        echo "</span>
+</div>
+
+<div class=\"row-fluid\">
+<div class=\"span1\">";
+        // line 101
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "telresponsable", array()), 'label', array("label" => " "));
+        echo "</div>
+";
+        // line 102
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "telresponsable", array()), 'widget');
         echo "<span class=\"alert-danger \">";
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "telresponsable", array()), 'errors');
-        echo "</span>";
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "telresponsable", array()), 'widget');
-        echo "</div>
+        echo "</span>
+</div>
+
 </fieldset>
 </div>
     
 <div class=\"span4\">
 <fieldset> 
 <legend>Facture client : </legend>
-<div class=\"span4\">";
-        // line 65
+
+<div class=\"row-fluid\">
+<div class=\"span1\">";
+        // line 113
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "montantfacture", array()), 'label', array("label" => " "));
+        echo "</div>
+";
+        // line 114
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "montantfacture", array()), 'widget');
         echo "<span class=\"alert-danger \">";
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "montantfacture", array()), 'errors');
-        echo "</span>";
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "montantfacture", array()), 'label', array("label" => " "));
+        echo "</span>
+</div>
+
+<div class=\"row-fluid\">
+<div class=\"span1\">";
+        // line 118
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "remise", array()), 'label', array("label" => " "));
         echo "</div>
-<div class=\"span3\">";
-        // line 66
+";
+        // line 119
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "remise", array()), 'widget');
         echo "<span class=\"alert-danger \">";
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "remise", array()), 'errors');
-        echo "</span>";
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "remise", array()), 'label', array("label" => " "));
+        echo "</span>
+</div>
+
+<div class=\"row-fluid\">
+<div class=\"span1\">";
+        // line 123
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "motifremise", array()), 'label', array("label" => " "));
         echo "</div>
-<div class=\"span3\">";
-        // line 67
+";
+        // line 124
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "motifremise", array()), 'widget');
         echo "<span class=\"alert-danger \">";
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "motifremise", array()), 'errors');
-        echo "</span>";
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "motifremise", array()), 'label', array("label" => " "));
-        echo "</div>
-<div class=\"span3\">";
-        // line 68
+        echo "</span>
+</div>
+
+<div class=\"row-fluid\">
+<div class=\"span1\"></div>
+";
+        // line 129
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "montantregle", array()), 'widget');
         echo "<span class=\"alert-danger \">";
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "montantregle", array()), 'errors');
-        echo "</span>";
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "montantregle", array()), 'label', array("label" => "Montant regle "));
+        echo "</span>
+";
+        // line 130
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "montantregle", array()), 'label', array("label" => "Regle"));
         echo "</div>
+</div>
+
 </fieldset>
-</div> 
+ 
     
 <div class=\"span3\">
 <fieldset> 
 <legend>Asssurance/Banque : </legend>
-<div class=\"span3\">";
-        // line 75
+<div class=\"row-fluid\">
+<div class=\"span1\">";
+        // line 140
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "valdeclassurance", array()), 'label', array("label" => " "));
+        echo "</div>
+";
+        // line 141
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "valdeclassurance", array()), 'widget');
         echo "<span class=\"alert-danger \">";
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "valdeclassurance", array()), 'errors');
-        echo "</span>";
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "valdeclassurance", array()), 'label', array("label" => " "));
-        echo "</div>
-<div class=\"span2\">";
-        // line 76
+        echo "</span>
+</div>
+
+<div class=\"row-fluid\">
+<div class=\"span1\">";
+        // line 145
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "nombnq", array()), 'label', array("label" => " "));
+        echo "</div>
+";
+        // line 146
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "nombnq", array()), 'widget');
         echo "<span class=\"alert-danger \">";
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "nombnq", array()), 'errors');
-        echo "</span>";
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "nombnq", array()), 'widget');
-        echo "</div>
-<div class=\"span2\">";
-        // line 77
+        echo "</span>
+</div>
+
+<div class=\"row-fluid\">
+<div class=\"span1\">";
+        // line 150
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "numcheque", array()), 'label', array("label" => " "));
+        echo "</div>
+";
+        // line 151
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "numcheque", array()), 'widget');
         echo "<span class=\"alert-danger \">";
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "numcheque", array()), 'errors');
-        echo "</span>";
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "numcheque", array()), 'widget');
-        echo "</div>
+        echo "</span>
+</div>
+
 </fieldset>
 </div>
+</div>
 ";
-        // line 80
+        // line 157
         echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form_end');
         echo "
 
         <!--ul class=\"record_actions\">
     <li>
         <a href=\"";
-        // line 84
+        // line 161
         echo "\">
             Back to the list
         </a>
@@ -315,6 +418,6 @@ class __TwigTemplate_907332f0ccc379dbc0b57fc1434c198a70e89d5654e15a5a989b59015e8
 
     public function getDebugInfo()
     {
-        return array (  298 => 84,  291 => 80,  281 => 77,  273 => 76,  265 => 75,  251 => 68,  243 => 67,  235 => 66,  227 => 65,  213 => 58,  205 => 57,  197 => 56,  180 => 46,  172 => 45,  164 => 44,  156 => 43,  148 => 42,  132 => 33,  124 => 32,  115 => 30,  107 => 29,  97 => 26,  89 => 25,  74 => 17,  66 => 16,  55 => 8,  50 => 6,  46 => 4,  43 => 3,  37 => 2,  11 => 1,);
+        return array (  401 => 161,  394 => 157,  383 => 151,  379 => 150,  370 => 146,  366 => 145,  357 => 141,  353 => 140,  340 => 130,  334 => 129,  324 => 124,  320 => 123,  311 => 119,  307 => 118,  298 => 114,  294 => 113,  278 => 102,  274 => 101,  265 => 97,  261 => 96,  249 => 89,  245 => 88,  226 => 76,  218 => 75,  210 => 74,  202 => 73,  194 => 72,  180 => 63,  176 => 62,  167 => 58,  163 => 57,  154 => 53,  150 => 52,  141 => 48,  137 => 47,  128 => 43,  124 => 42,  115 => 38,  111 => 37,  95 => 26,  91 => 25,  82 => 21,  78 => 20,  70 => 17,  66 => 16,  55 => 8,  50 => 6,  46 => 4,  43 => 3,  37 => 2,  11 => 1,);
     }
 }
