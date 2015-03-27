@@ -25,9 +25,15 @@
                 <th>Véhicule</th>
                 <td>{{ entity.vehicule }}</td>
             </tr>
-             <tr>
-                <th>Secteur</th>
-                <td>{{ entity.secteur }}</td>
+            <tr>
+                <th>Secteurs</th>
+                <td>
+                    <ul>
+                    {% for item in entity.secteurs %}
+                        <li> {{ item }}</li>
+                    {% endfor %}
+                    </ul>
+                </td>
             </tr>
             <tr>
                 <th>Filiale</th>
@@ -35,12 +41,11 @@
             </tr>
              <tr>
                 <th>Chauffeurs</th>
+                 <td>
+                       {{ entity.chauffeur1 }}
+                 </td>
                 <td>
-                    <ul>
-                    {% for item in entity.chauffeurs %}
-                        <li> {{ item }}</li>
-                    {% endfor %}
-                    </ul>
+                        {{ entity.chauffeur2 }}
                 </td>
             </tr>
              <tr>

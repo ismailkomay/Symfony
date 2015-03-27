@@ -35,9 +35,17 @@ $cnx= new PDO("mysql:host=".$GLOBALS['dbhost'].";dbname=".$GLOBALS['dbname']."" 
 //build query
 $name = $_GET['secteur_id'];
 $tab=explode("|", $name);
-$res="";
+
 foreach ($tab as $i) {
     
+ $table="secteur";
+ $condition="id= $i";
+ $q="SELECT libelle FROM ".$table." WHERE ".$condition;
+ $q_res=$cnx->query($q)or die(mysql_error());
+ $secteurs=array();
+while($rowS =$q_res->fetch(PDO::FETCH_ASSOC)){
+    $secteurs[]=$rowS[libelle];
+} 
     //$name = mysql_real_escape_string($name);
 $tbl ="client_secteur";
 $cnd = "secteur_id = $i";
@@ -49,7 +57,7 @@ $qry_result = $cnx->query($query) or die(mysql_error());
 while($row =$qry_result->fetch(PDO::FETCH_ASSOC)){
 //$display_string .= "<option>$row[secteur_id]</option>";
 $tbl2 ="client";
-$cnd2 = "id = $row[client_id] and clientramass = 1 ";//and clientramass = 1";
+$cnd2 = "id = $row[client_id] and clientramass = 1 ";
 $query2 = "SELECT nom, prenom, nomentreprise FROM ".$tbl2." WHERE ".$cnd2;
 $qry_result2 = $cnx->query($query2) or die(mysql_error());
 while($row2 =$qry_result2->fetch(PDO::FETCH_ASSOC)){
@@ -58,11 +66,13 @@ while($row2 =$qry_result2->fetch(PDO::FETCH_ASSOC)){
         $nom=$row2[nomentreprise];
     }
     else {$nom= $row2[nom]." ".$row2[prenom];}
-    $res .= "<option value='$row[client_id]'>$nom+ $cnd</option>";
+    $res = "<option value='$row[client_id]'>$nom. $secteurs[0]</option>";
+    echo $res;
+   
     }
-    
+     
 }
-echo $res;
+
 }
 
 

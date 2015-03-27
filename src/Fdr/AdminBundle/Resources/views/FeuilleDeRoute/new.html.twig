@@ -41,6 +41,7 @@
             </div>
           </div>
           <label name="diffMan"> Erreur dans le nombre de manutention</label>
+          
     {{ form_end(form) }}
    
  {{ render(url('feuillederoute_clientramassage')) }}
@@ -51,4 +52,11 @@
         </a>
     </li>
 </ul>
+          <script type="text/javascript"> 
+  
+ window.onload = function()
+  {
+      $('#fdr_adminbundle_feuillederoute_clientRamassage').hide();
+  };
+</script>
 {% endblock %}

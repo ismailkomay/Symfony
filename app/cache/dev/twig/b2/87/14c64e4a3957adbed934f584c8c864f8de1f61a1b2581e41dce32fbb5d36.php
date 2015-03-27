@@ -113,25 +113,33 @@ class __TwigTemplate_b28714c64e4a3957adbed934f584c8c864f8de1f61a1b2581e41dce32fb
             </div>
           </div>
           <label name=\"diffMan\"> Erreur dans le nombre de manutention</label>
+          
     ";
-        // line 44
+        // line 45
         echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form_end');
         echo "
    
  ";
-        // line 46
+        // line 47
         echo $this->env->getExtension('http_kernel')->renderFragment($this->env->getExtension('routing')->getUrl("feuillederoute_clientramassage"));
         echo "
         <ul class=\"record_actions\">
     <li>
         <a href=\"";
-        // line 49
+        // line 50
         echo $this->env->getExtension('routing')->getPath("feuillederoute");
         echo "\">
             Back to the list
         </a>
     </li>
 </ul>
+          <script type=\"text/javascript\"> 
+  
+ window.onload = function()
+  {
+      \$('#fdr_adminbundle_feuillederoute_clientRamassage').hide();
+  };
+</script>
 ";
     }
 
@@ -147,6 +155,6 @@ class __TwigTemplate_b28714c64e4a3957adbed934f584c8c864f8de1f61a1b2581e41dce32fb
 
     public function getDebugInfo()
     {
-        return array (  129 => 49,  123 => 46,  118 => 44,  110 => 40,  103 => 36,  97 => 33,  88 => 27,  81 => 23,  75 => 20,  68 => 16,  61 => 12,  55 => 9,  50 => 6,  46 => 4,  43 => 3,  37 => 2,  11 => 1,);
+        return array (  130 => 50,  124 => 47,  119 => 45,  110 => 40,  103 => 36,  97 => 33,  88 => 27,  81 => 23,  75 => 20,  68 => 16,  61 => 12,  55 => 9,  50 => 6,  46 => 4,  43 => 3,  37 => 2,  11 => 1,);
     }
 }

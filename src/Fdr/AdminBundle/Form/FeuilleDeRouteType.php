@@ -56,7 +56,7 @@ class FeuilleDeRouteType extends AbstractType
             ->add('depot',null,array('attr'=>array('placeholder' => 'Choisir ...')))
            // ->add('missionaffretement','choice')
   //          ->add('cloture')
-            ->add('Enregistrer', 'submit',array("attr"=>array("onClick"=>"changerClient()")));//, 'label' ='Enregistrer')));        ;
+            ->add('Enregistrer', 'submit');//,array("attr"=>array("onClick"=>"changerClient()")));//, 'label' ='Enregistrer')));        ;
     }
     
     /**
