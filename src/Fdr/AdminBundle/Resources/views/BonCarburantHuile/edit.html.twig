@@ -1,16 +1,61 @@
 {% extends '::base.html.twig' %}
-{% block title %}BonCarburantHuile|edit{% endblock %}
+{% block title %}BonCarburantHuile|Edit{% endblock %}
 {% block body -%}
-    <h1>BonCarburantHuile edit</h1>
+<div class="page-header"><h1> Modification d'un BonCarburantHuile</h1></div>
 
-    {{ form(edit_form) }}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('boncarburanthuile') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+
+{{ form_start(edit_form) }}
+<div class="row">
+<span class="alert-danger ">{{ form_errors(edit_form) }}</span>
+</div>
+
+<div class="row">
+
+<div class="span6 offset3">
+
+<fieldset>
+<legend>Formulaire de modification</legend>
+
+<div class="row-fluid">
+<div class="span5">{{ form_label(edit_form.lieu," Lieu de station ") }}</div>
+{{ form_widget(edit_form.lieu) }}<span class="alert-danger ">{{ form_errors(edit_form.lieu) }}</span>
+</div>
+
+<div class="row-fluid">
+<div class="span5">{{ form_label(edit_form.date," Date de passage ") }}</div>
+{{ form_widget(edit_form.date) }}<span class="alert-danger ">{{ form_errors(edit_form.date) }}</span>
+</div>
+
+<div class="row-fluid">
+<div class="span5">{{ form_label(edit_form.quantite," Quantité ") }}</div>
+{{ form_widget(edit_form.quantite) }}<span class="alert-danger ">{{ form_errors(edit_form.quantite) }}</span>
+</div>
+
+<div class="row-fluid">
+<div class="span5">{{ form_label(edit_form.montant," Montant ") }}</div>
+{{ form_widget(edit_form.montant) }}<span class="alert-danger ">{{ form_errors(edit_form.montant) }}</span>
+</div>
+
+<div class="row-fluid">
+<div class="span5">{{ form_label(edit_form.compteur," Compteur d'avant ") }}</div>
+{{ form_widget(edit_form.compteur) }}<span class="alert-danger ">{{ form_errors(edit_form.compteur) }}</span>
+</div>
+
+<div class="row-fluid">
+<div class="span5">{{ form_label(edit_form.feuilleDeRoute," Feuille De Route ") }}</div>
+{{ form_widget(edit_form.feuilleDeRoute) }}<span class="alert-danger ">{{ form_errors(edit_form.feuilleDeRoute) }}</span>
+</div>
+
+<div class="row-fluid">
+<div class="span5">{{ form_label(edit_form.typeConsommation," Type De Consommation ") }}</div>
+{{ form_widget(edit_form.typeConsommation) }}<span class="alert-danger ">{{ form_errors(edit_form.typeConsommation) }}</span>
+</div>
+
+</fieldset>
+
+</div>
+</div>
+{{ form_end(edit_form) }}
 {% endblock %}
+

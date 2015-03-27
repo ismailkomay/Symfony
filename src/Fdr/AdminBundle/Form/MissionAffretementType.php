@@ -44,7 +44,7 @@ class MissionAffretementType extends AbstractType
             ->add('client',null,array("placeholder"=>"Choisir ----","attr"=>array("title"=>"Choisir un client")))
             ->add('nomresponsable',null,array("attr"=>array("placeholder"=>"Nom responsable","title"=>"Nom du responsable")))
             ->add('telresponsable',null,array("attr"=>array("placeholder"=>"Tel. responsable","title"=>"Tel. du responsable")))
-            //->add('champssupp2')          
+            ->add('tonnage', 'money', array('currency' => 'Tn.', 'precision' => 2,"attr"=>array("placeholder"=>"Tonnage","title"=>"Tonnage")))
             ->add('secteur', 'entity', array(  'placeholder'=>'Choisir ----',
                                                    'multiple' => false,
                                                    'class' => 'FdrAdminBundle:Secteur',

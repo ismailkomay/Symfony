@@ -60,8 +60,17 @@ jQuery("select option").each(function() {
 jQuery("select").change(
   	function(){
    if($("option:selected").hasClass("colorerOption"))
+   {
+    $('#fdr_adminbundle_missionaffretement_montantregle').attr('disabled','disabled');
+    $('#fdr_adminbundle_missionaffretement_montantregle').attr('selected','selected');
     $("select#fdr_adminbundle_missionaffretement_client option:selected").append("<div class='span1' class='colorerOption' id='infoencompte'> | en compte</div>");
-   else $("#infoencompte").remove();
+   }
+   else
+   { 
+       $("#infoencompte").remove();
+       $('#fdr_adminbundle_missionaffretement_montantregle').attr('disabled',false);
+       $('#fdr_adminbundle_missionaffretement_montantregle').attr('selected',false);
+   }
     
   	});
     
@@ -69,9 +78,6 @@ jQuery(function(){
     if($("#fdr_adminbundle_missionaffretement_client option:selected").hasClass("colorerOption"))
     $("#fdr_adminbundle_missionaffretement_client option:selected").append("<div class='span1' class='colorerOption' id='infoencompte'> | en compte</div>");
    else $("#infoencompte").remove();
-   //alert($("tr:has(td) td[id*='idclient']").length);
-  //  alert($("tr:has(td) td[id*='idclient']").get(0).textContent);
-    //alert($("tr:has(td) td[id*='idclient']").get(1).textContent);
     
     $("tr:has(td) td[id*='idclient']").each(function(){
         var idd= "#"+$(this).attr('id');

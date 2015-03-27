@@ -1,48 +1,66 @@
 {% extends '::base.html.twig' %}
 {% block title %}BonCarburantHuile|Show{% endblock %}
 {% block body -%}
-    <h1>BonCarburantHuile</h1>
+<div class="page-header"><h1> Affichage d'un BonCarburantHuile</h1></div>
 
-    <table class="record_properties">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ entity.id }}</td>
-            </tr>
-            <tr>
-                <th>Lieu</th>
-                <td>{{ entity.lieu }}</td>
-            </tr>
-            <tr>
-                <th>Date</th>
-                <td>{{ entity.date|date('Y-m-d H:i:s') }}</td>
-            </tr>
-            <tr>
-                <th>Quantite</th>
-                <td>{{ entity.quantite }}</td>
-            </tr>
-            <tr>
-                <th>Montant</th>
-                <td>{{ entity.montant }}</td>
-            </tr>
-            <tr>
-                <th>Compteur</th>
-                <td>{{ entity.compteur }}</td>
-            </tr>
-        </tbody>
-    </table>
+<div class="desactiver-champs">
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('boncarburanthuile') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('boncarburanthuile_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+{{ form_start(form) }}
+<div class="row">
+
+<span class="alert-danger ">{{ form_errors(form) }}</span>
+</div>
+
+<div class="row">
+<div class="span6 offset3">
+
+<fieldset>
+<legend></legend>
+
+<div class="row-fluid">
+<div class="span5">{{ form_label(form.id," Identifant ") }}</div>
+{{ form_widget(form.id) }}<span class="alert-danger ">{{ form_errors(form.id) }}</span>
+</div>
+
+<div class="row-fluid">
+<div class="span5">{{ form_label(form.lieu," Lieu de station ") }}</div>
+{{ form_widget(form.lieu) }}<span class="alert-danger ">{{ form_errors(form.lieu) }}</span>
+</div>
+
+<div class="row-fluid">
+<div class="span5">{{ form_label(form.date," Date de passage ") }}</div>
+{{ form_widget(form.date) }}<span class="alert-danger ">{{ form_errors(form.date) }}</span>
+</div>
+
+
+<div class="row-fluid">
+<div class="span5">{{ form_label(form.quantite," Quantité ") }}</div>
+{{ form_widget(form.quantite) }}<span class="alert-danger ">{{ form_errors(form.quantite) }}</span>
+</div>
+
+<div class="row-fluid">
+<div class="span5">{{ form_label(form.montant," Montant ") }}</div>
+{{ form_widget(form.montant) }}<span class="alert-danger ">{{ form_errors(form.montant) }}</span>
+</div>
+
+<div class="row-fluid">
+<div class="span5">{{ form_label(form.compteur," Compteur d'avant ") }}</div>
+{{ form_widget(form.compteur) }}<span class="alert-danger ">{{ form_errors(form.compteur) }}</span>
+</div>
+
+<div class="row-fluid">
+<div class="span5">{{ form_label(form.feuilleDeRoute," Feuille de Route") }}</div>
+{{ form_widget(form.feuilleDeRoute) }}<span class="alert-danger ">{{ form_errors(form.feuilleDeRoute) }}</span>
+</div>
+
+<div class="row-fluid">
+<div class="span5">{{ form_label(form.typeConsommation," Type de Consommation") }}</div>
+{{ form_widget(form.typeConsommation) }}<span class="alert-danger ">{{ form_errors(form.typeConsommation) }}</span>
+</div>
+
+</fieldset>
+</div>
+</div>
+{{ form_end(form) }}
 {% endblock %}
+
