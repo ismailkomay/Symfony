@@ -5,7 +5,7 @@ namespace Fdr\AdminBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-
+use Fdr\AdminBundle\EventListener\ControllerAffListener;
 class DepotType extends AbstractType
 {
     /**
@@ -14,13 +14,14 @@ class DepotType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+		
+		$subscriber = new ControllerAffListener($builder->getFormFactory());
+        $builder->addEventSubscriber($subscriber);
         $builder
-            ->add('libelle')
-            ->add('ville')//,'choice',array('choices'=>array('casablanca'=>'Casablanca','marrakech'=>'Marrakech','safi'=>'Safi','rabat'=>'Rabat')))
-            ->add('adresse')
-//            ->add('champ1')
-//            ->add('champ2')
-            ->add('filiale')
+            ->add('libelle',null,array("attr"=>array("placeholder"=>"Libelle","title"=>"Libelle")))
+            ->add('ville',null,array("placeholder"=>"Choisir la ville","attr"=>array("title"=>"Choisir la ville")))
+            ->add('adresse',null,array("attr"=>array("placeholder"=>"Adresse","title"=>"Adresse")))
+            ->add('filiale',null,array("placeholder"=>"Choisir la Filiale","attr"=>array("title"=>"Choisir la Filiale")))
         ;
     }
     

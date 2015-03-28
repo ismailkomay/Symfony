@@ -1,40 +1,54 @@
 {% extends '::base.html.twig' %}
-{% block title %}Modication|Show{% endblock %}
+{% block title %}Modification|Show{% endblock %}
 {% block body -%}
-    <h1>Modification</h1>
+<div class="page-header"><h1> Affichage d'une Modification</h1></div>
 
-    <table class="record_properties">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ entity.id }}</td>
-            </tr>
-            <tr>
-                <th>Motif</th>
-                <td>{{ entity.motif }}</td>
-            </tr>
-            <tr>
-                <th>Datemaj</th>
-                <td>{{ entity.dateMaj|date('Y-m-d H:i:s') }}</td>
-            </tr>
-            <tr>
-                <th>Remarque</th>
-                <td>{{ entity.remarque }}</td>
-            </tr>
-        </tbody>
-    </table>
+{{ form_start(edit_form) }}
+<div class="desactiver-champs">
+<div class="row">
+<span class="alert-danger ">{{ form_errors(edit_form) }}</span>
+</div>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('modification') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('modification_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+<div class="row">
+
+<div class="span6 offset3">
+
+<fieldset>
+
+<div class="row-fluid">
+<div class="span5">{{ form_label(edit_form.id," Identifiant ") }}</div>
+{{ form_widget(edit_form.id) }}<span class="alert-danger ">{{ form_errors(edit_form.id) }}</span>
+</div>
+
+<div class="row-fluid">
+<div class="span5">{{ form_label(edit_form.motif," Motif ") }}</div>
+{{ form_widget(edit_form.motif) }}<span class="alert-danger ">{{ form_errors(edit_form.motif) }}</span>
+</div>
+
+<div class="row-fluid">
+<div class="span5">{{ form_label(edit_form.dateMaj," Date mise à jour ") }}</div>
+{{ form_widget(edit_form.dateMaj) }}<span class="alert-danger ">{{ form_errors(edit_form.dateMaj) }}</span>
+</div>
+
+<div class="row-fluid">
+<div class="span5">{{ form_label(edit_form.utilisateur," Utilisateur ") }}</div>
+{{ form_widget(edit_form.utilisateur) }}<span class="alert-danger ">{{ form_errors(edit_form.utilisateur) }}</span>
+</div>
+
+<div class="row-fluid">
+<div class="span5">{{ form_label(edit_form.feuilleDeRoute," Feuille De Route ") }}</div>
+{{ form_widget(edit_form.feuilleDeRoute) }}<span class="alert-danger ">{{ form_errors(edit_form.feuilleDeRoute) }}</span>
+</div>
+
+<div class="row-fluid">
+<div class="span5">{{ form_label(edit_form.remarque," Remarques ") }}</div>
+{{ form_widget(edit_form.remarque) }}<span class="alert-danger ">{{ form_errors(edit_form.remarque) }}</span>
+</div>
+</div>
+</fieldset>
+
+</div>
+</div>
+{{ form_end(edit_form) }}
 {% endblock %}
+

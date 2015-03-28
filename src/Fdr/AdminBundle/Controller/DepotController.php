@@ -24,9 +24,16 @@ class DepotController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('FdrAdminBundle:Depot')->findAll();
-
+		 //--
+        $form = array();
+        foreach ($entities as $entity) {
+            $form[$entity->getId()] = $this->createDeleteForm($entity->getId())->createView();
+        }     
+        //--
+		
         return $this->render('FdrAdminBundle:Depot:index.html.twig', array(
             'entities' => $entities,
+			'form'=>$form
         ));
     }
     /**
@@ -67,7 +74,8 @@ class DepotController extends Controller
             'method' => 'POST',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Create'));
+        //--
+		$form->add('submit', 'submit', array('label' => 'Enregistrer','attr'=>array('class'=>'btn-default span2 offset5')));
 
         return $form;
     }
@@ -102,10 +110,14 @@ class DepotController extends Controller
         }
 
         $deleteForm = $this->createDeleteForm($id);
-
+		//---
+        $form =  $this->createForm(new BonCarburantHuileType(), $entity);
+        //---
+		
         return $this->render('FdrAdminBundle:Depot:show.html.twig', array(
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),
+			'form' => $form->createView(),
         ));
     }
 
@@ -147,7 +159,8 @@ class DepotController extends Controller
             'method' => 'PUT',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Update'));
+        $form->add('submit', 'submit', array('label' => 'Modifier','attr'=>array('class'=>'btn-primary span2 offset5')));
+         
 
         return $form;
     }
@@ -217,7 +230,7 @@ class DepotController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('depot_delete', array('id' => $id)))
             ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Delete'))
+            ->add('submit', 'submit', array('label' => ' ','attr'=>array('class'=>'btn-supp','title'=>'Supprimer')))             
             ->getForm()
         ;
     }

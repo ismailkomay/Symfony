@@ -137,7 +137,7 @@ class __TwigTemplate_931f2f6b1a1dad76a8cb92f095d96d33b6653f04a5bd02397e5781e1ff9
             echo "</td>
                 <td>";
             // line 77
-            echo twig_escape_filter($this->env, (($this->getAttribute($context["entity"], "champssupp2", array(), "any", true, true)) ? (_twig_default_filter($this->getAttribute($context["entity"], "champssupp2", array()), "-----")) : ("-----")), "html", null, true);
+            echo twig_escape_filter($this->env, (($this->getAttribute($context["entity"], "secteur", array(), "any", true, true)) ? (_twig_default_filter($this->getAttribute($context["entity"], "secteur", array()), "-----")) : ("-----")), "html", null, true);
             echo "</td>
                 <td>";
             // line 78

@@ -1,16 +1,49 @@
 {% extends '::base.html.twig' %}
-{% block title %}Modication|Edit{% endblock %}
+{% block title %}Modification|Edit{% endblock %}
 {% block body -%}
-    <h1>Modification edit</h1>
+<div class="page-header"><h1> Modification d'une Modification</h1></div>
 
-    {{ form(edit_form) }}
+{{ form_start(edit_form) }}
+<div class="row">
+<span class="alert-danger ">{{ form_errors(edit_form) }}</span>
+</div>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('modification') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+<div class="row">
+
+<div class="span6 offset3">
+
+<fieldset>
+<legend>Formulaire de modification</legend>
+
+<div class="row-fluid">
+<div class="span5">{{ form_label(edit_form.motif," Motif ") }}</div>
+{{ form_widget(edit_form.motif) }}<span class="alert-danger ">{{ form_errors(edit_form.motif) }}</span>
+</div>
+
+<div class="row-fluid">
+<div class="span5">{{ form_label(edit_form.dateMaj," Date mise à jour ") }}</div>
+{{ form_widget(edit_form.dateMaj) }}<span class="alert-danger ">{{ form_errors(edit_form.dateMaj) }}</span>
+</div>
+
+<div class="row-fluid">
+<div class="span5">{{ form_label(edit_form.utilisateur," Utilisateur ") }}</div>
+{{ form_widget(edit_form.utilisateur) }}<span class="alert-danger ">{{ form_errors(edit_form.utilisateur) }}</span>
+</div>
+
+<div class="row-fluid">
+<div class="span5">{{ form_label(edit_form.feuilleDeRoute," Feuille De Route ") }}</div>
+{{ form_widget(edit_form.feuilleDeRoute) }}<span class="alert-danger ">{{ form_errors(edit_form.feuilleDeRoute) }}</span>
+</div>
+
+<div class="row-fluid">
+<div class="span5">{{ form_label(edit_form.remarque," Remarques ") }}</div>
+{{ form_widget(edit_form.remarque) }}<span class="alert-danger ">{{ form_errors(edit_form.remarque) }}</span>
+</div>
+
+</fieldset>
+
+</div>
+</div>
+{{ form_end(edit_form) }}
 {% endblock %}
+

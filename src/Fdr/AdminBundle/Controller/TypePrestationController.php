@@ -24,9 +24,16 @@ class TypePrestationController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('FdrAdminBundle:TypePrestation')->findAll();
-
+        
+        //--
+        $form = array();
+        foreach ($entities as $entity) {
+            $form[$entity->getId()] = $this->createDeleteForm($entity->getId())->createView();
+        }     
+        //--
         return $this->render('FdrAdminBundle:TypePrestation:index.html.twig', array(
             'entities' => $entities,
+            'form'=>$form
         ));
     }
     /**
@@ -66,9 +73,9 @@ class TypePrestationController extends Controller
             'action' => $this->generateUrl('typeprestation_create'),
             'method' => 'POST',
         ));
-
-        $form->add('submit', 'submit', array('label' => 'Create'));
-
+        //--
+        $form->add('submit', 'submit', array('label' => 'Enregistrer','attr'=>array('class'=>'btn-default span2 offset5')));
+       
         return $form;
     }
 
@@ -103,9 +110,16 @@ class TypePrestationController extends Controller
 
         $deleteForm = $this->createDeleteForm($id);
 
+         //---
+        $form =  $this->createForm(new TypePrestationType(), $entity);
+        //---
+
         return $this->render('FdrAdminBundle:TypePrestation:show.html.twig', array(
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),
+            //--
+            'form' => $form->createView(),
+            //--
         ));
     }
 
@@ -146,9 +160,9 @@ class TypePrestationController extends Controller
             'action' => $this->generateUrl('typeprestation_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));
-
-        $form->add('submit', 'submit', array('label' => 'Update'));
-
+        //--
+        $form->add('submit', 'submit', array('label' => 'Modifier','attr'=>array('class'=>'btn-primary span2 offset5')));
+         //--
         return $form;
     }
     /**
@@ -217,7 +231,9 @@ class TypePrestationController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('typeprestation_delete', array('id' => $id)))
             ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Delete'))
+                //--
+            ->add('submit', 'submit', array('label' => ' ','attr'=>array('class'=>'btn-supp','title'=>'Supprimer')))
+                //--
             ->getForm()
         ;
     }

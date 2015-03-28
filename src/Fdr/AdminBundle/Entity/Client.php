@@ -69,7 +69,8 @@ class Client
 
     /**
      * @var string
-     * @Assert\Type(type="digit", message="La valeur {{ value }} n'est pas digit.")
+     *@Assert\Regex("/[\d\-\ ]+/")
+     *@Assert\Length(min = "10")
      * @ORM\Column(name="tel", type="string", length=100, nullable=true)
      */
     private $tel;

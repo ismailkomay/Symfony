@@ -61,109 +61,140 @@ class __TwigTemplate_fd51572e39f3cc84c3d1216f9a6e89a0b01a0e6bb854d025751b05c1184
                 <th>Clientaffret</th>
                 <th>Clientramass</th>
                 <th>Numcompte</th>
-                <th>Secteur(s) d'appartenance</th>
-                <th>Actions</th>
+                <th>Secteur(s)</th>
             </tr>
         </thead>
         <tbody>
         ";
-        // line 27
+        // line 26
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["entities"]) ? $context["entities"] : $this->getContext($context, "entities")));
         foreach ($context['_seq'] as $context["_key"] => $context["entity"]) {
-            // line 28
+            // line 27
             echo "            <tr>
                 <td><a href=\"";
-            // line 29
+            // line 28
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("client_show", array("id" => $this->getAttribute($context["entity"], "id", array()))), "html", null, true);
             echo "\">";
             echo twig_escape_filter($this->env, $this->getAttribute($context["entity"], "id", array()), "html", null, true);
             echo "</a></td>
                 <td>";
-            // line 30
+            // line 29
             echo twig_escape_filter($this->env, $this->getAttribute($context["entity"], "nom", array()), "html", null, true);
             echo "</td>
                 <td>";
-            // line 31
+            // line 30
             echo twig_escape_filter($this->env, $this->getAttribute($context["entity"], "prenom", array()), "html", null, true);
             echo "</td>
                 <td>";
-            // line 32
+            // line 31
             echo twig_escape_filter($this->env, $this->getAttribute($context["entity"], "tel", array()), "html", null, true);
             echo "</td>
                 <td>";
-            // line 33
+            // line 32
             echo twig_escape_filter($this->env, $this->getAttribute($context["entity"], "adresse", array()), "html", null, true);
             echo "</td>
                 <td>";
-            // line 34
+            // line 33
             echo twig_escape_filter($this->env, $this->getAttribute($context["entity"], "cin", array()), "html", null, true);
             echo "</td>
                 <td>";
-            // line 35
+            // line 34
             echo twig_escape_filter($this->env, $this->getAttribute($context["entity"], "email", array()), "html", null, true);
             echo "</td>
                 <td>";
-            // line 36
+            // line 35
             echo twig_escape_filter($this->env, $this->getAttribute($context["entity"], "fax", array()), "html", null, true);
             echo "</td>
                 <td>";
-            // line 37
+            // line 36
             echo twig_escape_filter($this->env, $this->getAttribute($context["entity"], "nomentreprise", array()), "html", null, true);
             echo "</td>
-                <td>";
+                <td>
+\t\t\t\t";
             // line 38
-            echo twig_escape_filter($this->env, $this->getAttribute($context["entity"], "encompte", array()), "html", null, true);
-            echo "</td>
+            if ($this->getAttribute($context["entity"], "encompte", array())) {
+                // line 39
+                echo "                <input type=\"checkbox\" disabled readonly checked />
+                ";
+            } else {
+                // line 41
+                echo "                <input type=\"checkbox\" disabled readonly />
+                ";
+            }
+            // line 43
+            echo "\t\t\t\t</td>
+\t\t\t\t<td>
+\t\t\t\t";
+            // line 45
+            if ($this->getAttribute($context["entity"], "clientaffret", array())) {
+                // line 46
+                echo "                <input type=\"checkbox\" disabled readonly checked />
+                ";
+            } else {
+                // line 48
+                echo "                <input type=\"checkbox\" disabled readonly />
+                ";
+            }
+            // line 50
+            echo "\t\t\t\t</td>
+\t\t\t\t<td>
+\t\t\t\t";
+            // line 52
+            if ($this->getAttribute($context["entity"], "clientramass", array())) {
+                // line 53
+                echo "                <input type=\"checkbox\" disabled readonly checked />
+                ";
+            } else {
+                // line 55
+                echo "                <input type=\"checkbox\" disabled readonly />
+                ";
+            }
+            // line 57
+            echo "\t\t\t\t</td>
                 <td>";
-            // line 39
-            echo twig_escape_filter($this->env, $this->getAttribute($context["entity"], "clientaffret", array()), "html", null, true);
-            echo "</td>
-                <td>";
-            // line 40
-            echo twig_escape_filter($this->env, $this->getAttribute($context["entity"], "clientramass", array()), "html", null, true);
-            echo "</td>
-                <td>";
-            // line 41
+            // line 58
             echo twig_escape_filter($this->env, $this->getAttribute($context["entity"], "numcompte", array()), "html", null, true);
             echo "</td>
                 <td>
-                    <ul>
-                        ";
-            // line 44
-            $context['_parent'] = (array) $context;
-            $context['_seq'] = twig_ensure_traversable($this->getAttribute($context["entity"], "secteurs", array()));
-            foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
-                // line 45
-                echo "                        <li>
-                        ";
-                // line 46
-                echo twig_escape_filter($this->env, $context["item"], "html", null, true);
-                echo "
-                        </li>
-                          ";
-            }
-            $_parent = $context['_parent'];
-            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
-            $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 49
-            echo "                    </ul>
-                </td>
-                <td>
-                <ul>
-                    <li>
-                        <a href=\"";
-            // line 54
+                        <div class=\"col-md-2\">
+                         <a href=\"";
+            // line 61
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("client_show", array("id" => $this->getAttribute($context["entity"], "id", array()))), "html", null, true);
-            echo "\">show</a>
-                    </li>
-                    <li>
-                        <a href=\"";
-            // line 57
+            echo "\">
+                         <button title=\"Afficher\" type=\"submit\">
+                         <img id=\"inputButtonAfficher\" title=\"Afficher\" src=\"";
+            // line 63
+            echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/fdradmin/images/apercu.png"), "html", null, true);
+            echo "\" />
+                         </button>
+                         </a> 
+                        </div>
+                        &nbsp;&nbsp;
+                        
+                        <div class=\"col-md-2\">
+                         <a href=\"";
+            // line 70
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("client_edit", array("id" => $this->getAttribute($context["entity"], "id", array()))), "html", null, true);
-            echo "\">edit</a>
-                    </li>
-                </ul>
+            echo "\">
+                         <button title=\"Afficher\" type=\"submit\">
+                         <img id=\"inputButtonModifier\" title=\"Modifier\" src=\"";
+            // line 72
+            echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/fdradmin/images/modifier.png"), "html", null, true);
+            echo "\" />
+                         </button>
+                         </a> 
+                        </div>
+                        &nbsp;&nbsp;
+
+                        <div class=\"col-md-2\">
+                        
+                        ";
+            // line 80
+            echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), $this->getAttribute($context["entity"], "id", array()), array(), "array"), 'widget');
+            echo "
+                        </div>
+                        &nbsp;&nbsp;
                 </td>
             </tr>
         ";
@@ -171,14 +202,14 @@ class __TwigTemplate_fd51572e39f3cc84c3d1216f9a6e89a0b01a0e6bb854d025751b05c1184
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['entity'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 63
+        // line 86
         echo "        </tbody>
     </table>
 
         <ul>
         <li>
             <a href=\"";
-        // line 68
+        // line 91
         echo $this->env->getExtension('routing')->getPath("client_new");
         echo "\">
                 Create a new entry
@@ -200,6 +231,6 @@ class __TwigTemplate_fd51572e39f3cc84c3d1216f9a6e89a0b01a0e6bb854d025751b05c1184
 
     public function getDebugInfo()
     {
-        return array (  182 => 68,  175 => 63,  163 => 57,  157 => 54,  150 => 49,  141 => 46,  138 => 45,  134 => 44,  128 => 41,  124 => 40,  120 => 39,  116 => 38,  112 => 37,  108 => 36,  104 => 35,  100 => 34,  96 => 33,  92 => 32,  88 => 31,  84 => 30,  78 => 29,  75 => 28,  71 => 27,  46 => 4,  43 => 3,  37 => 2,  11 => 1,);
+        return array (  213 => 91,  206 => 86,  194 => 80,  183 => 72,  178 => 70,  168 => 63,  163 => 61,  157 => 58,  154 => 57,  150 => 55,  146 => 53,  144 => 52,  140 => 50,  136 => 48,  132 => 46,  130 => 45,  126 => 43,  122 => 41,  118 => 39,  116 => 38,  111 => 36,  107 => 35,  103 => 34,  99 => 33,  95 => 32,  91 => 31,  87 => 30,  83 => 29,  77 => 28,  74 => 27,  70 => 26,  46 => 4,  43 => 3,  37 => 2,  11 => 1,);
     }
 }

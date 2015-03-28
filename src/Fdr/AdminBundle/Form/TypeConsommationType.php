@@ -5,7 +5,7 @@ namespace Fdr\AdminBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-
+use Fdr\AdminBundle\EventListener\ControllerAffListener;
 class TypeConsommationType extends AbstractType
 {
     /**
@@ -14,13 +14,13 @@ class TypeConsommationType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+		$subscriber = new ControllerAffListener($builder->getFormFactory());
+        $builder->addEventSubscriber($subscriber);
         $builder
             ->add('type','choice',array('choices'=>array('interne'=>'Interne','externe'=>'Externe')))
             ->add('agence','choice',array('choices'=>array('casa'=>'Agence Casa','marrakech'=>'Agence Marrakech','fes'=>'Agence Fes')))
             ->add('produit','choice',array('choices'=>array('gazoil'=>'Gazoil','essence'=>'Essence')))
             ->add('prixUnitaire', 'money', array('currency' => 'MAD', 'precision' => 2))
-//            ->add('champSup1')
-//            ->add('champSup2')
         ;
     }
     

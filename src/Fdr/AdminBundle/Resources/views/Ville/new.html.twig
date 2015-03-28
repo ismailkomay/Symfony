@@ -1,15 +1,29 @@
 {% extends '::base.html.twig' %}
-
+{% block title %}ville|New{% endblock %}
 {% block body -%}
-    <h1>Ville creation</h1>
+<div class="page-header"><h1> Ajout d'une ville</h1></div>
 
-    {{ form(form) }}
+{{ form_start(form) }}
+<div class="row">
+<span class="alert-danger ">{{ form_errors(form) }}</span>
+</div>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('ville') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+<div class="row">
+
+<div class="span6 offset3">
+
+<fieldset>
+<legend>Formulaire d'ajout</legend>
+
+<div class="row-fluid">
+<div class="span5">{{ form_label(form.libelle," Libelle ") }}</div>
+{{ form_widget(form.libelle) }}<span class="alert-danger ">{{ form_errors(form.libelle) }}</span>
+</div>
+
+</fieldset>
+
+</div>
+</div>
+{{ form_end(form) }}
 {% endblock %}
+

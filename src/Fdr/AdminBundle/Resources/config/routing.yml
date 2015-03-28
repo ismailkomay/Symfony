@@ -49,10 +49,6 @@ fdr_admin_manutentionnaire:
     resource: "@FdrAdminBundle/Resources/config/routing/manutentionnaire.yml"
     prefix:   /manutentionnaire
 
-fdr_admin_itineraire:
-    resource: "@FdrAdminBundle/Resources/config/routing/itineraire.yml"
-    prefix:   /itineraire
-
 fdr_admin_indisponibilite:
     resource: "@FdrAdminBundle/Resources/config/routing/indisponibilite.yml"
     prefix:   /indisponibilite

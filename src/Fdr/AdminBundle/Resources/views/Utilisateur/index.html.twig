@@ -31,14 +31,29 @@
                 <td>{{ entity.tel }}</td>
                 <td>{{ entity.adresse }}</td>
                 <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('utilisateur_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('utilisateur_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
+                        <div class="col-md-2">
+                         <a href="{{ path('utilisateur_show', { 'id': entity.id }) }}">
+                         <button title="Afficher" type="submit">
+                         <img id="inputButtonAfficher" title="Afficher" src="{{ asset('bundles/fdradmin/images/apercu.png') }}" />
+                         </button>
+                         </a> 
+                        </div>
+                        &nbsp;&nbsp;
+                        
+                        <div class="col-md-2">
+                         <a href="{{ path('utilisateur_edit', { 'id': entity.id }) }}">
+                         <button title="Afficher" type="submit">
+                         <img id="inputButtonModifier" title="Modifier" src="{{ asset('bundles/fdradmin/images/modifier.png') }}" />
+                         </button>
+                         </a> 
+                        </div>
+                        &nbsp;&nbsp;
+
+                        <div class="col-md-2">
+                        
+                        {{ form_widget(form[entity.id]) }}
+                        </div>
+                        &nbsp;&nbsp;
                 </td>
             </tr>
         {% endfor %}

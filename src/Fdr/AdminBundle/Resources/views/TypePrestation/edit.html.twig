@@ -1,16 +1,32 @@
 {% extends '::base.html.twig' %}
 {% block title %}TypePrestation|Edit{% endblock %}
 {% block body -%}
-    <h1>TypePrestation edit</h1>
+<div class="page-header"><h1> Modification d'un TypePrestation</h1></div>
 
-    {{ form(edit_form) }}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('typeprestation') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+
+{{ form_start(form) }}
+<div class="row">
+<span class="alert-danger ">{{ form_errors(form) }}</span>
+</div>
+
+<div class="row">
+
+<div class="span6 offset3">
+
+<fieldset>
+<legend>Formulaire de modification</legend>
+
+<div class="row-fluid">
+<div class="span5">{{ form_label(form.libelle," Libelle ") }}</div>
+{{ form_widget(form.libelle) }}<span class="alert-danger ">{{ form_errors(form.libelle) }}</span>
+</div>
+
+
+</fieldset>
+
+</div>
+</div>
+{{ form_end(form) }}
 {% endblock %}
+

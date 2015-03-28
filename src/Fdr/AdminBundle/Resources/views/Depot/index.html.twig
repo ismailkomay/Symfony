@@ -1,46 +1,64 @@
 {% extends '::base.html.twig' %}
-{% block title %}Depot|Edit{% endblock %}
+{% block title %}Depot|Accueil{% endblock %}
 {% block body -%}
-    <h1>Depot list</h1>
-
-    <table class="records_list">
+    <div class="page-header"><h2> Liste des depots</h2></div>
+  <div class="row">
+    <table>
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Libelle</th>
+                <th>Ville</th>
                 <th>Adresse</th>
-                 <th>Filiale</th>
-                <th>Actions</th>
+                <th>Filiale</th>
             </tr>
         </thead>
         <tbody>
         {% for entity in entities %}
             <tr>
                 <td><a href="{{ path('depot_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{{ entity.libelle }}</td>
-                <td>{{ entity.adresse }}</td>
+                <td>{{ entity.libelle|default('-----') }}</td>
+                <td>{{ entity.ville|default('-----') }}</td>
+                <td>{% if entity.adresse %}{{ entity.date|date('Y/m/d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.filiale|default('-----') }}</td>
+ 
                 <td>
-                {{entity.filiale}}
-                </td>
-                <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('depot_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('depot_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
+                        <div class="col-md-2">
+                         <a href="{{ path('depot_show', { 'id': entity.id }) }}">
+                         <button title="Afficher" type="submit">
+                         <img id="inputButtonAfficher" title="Afficher" src="{{ asset('bundles/fdradmin/images/apercu.png') }}" />
+                         </button>
+                         </a> 
+                        </div>
+                        &nbsp;&nbsp;
+                        
+                        <div class="col-md-2">
+                         <a href="{{ path('depot_edit', { 'id': entity.id }) }}">
+                         <button title="Afficher" type="submit">
+                         <img id="inputButtonModifier" title="Modifier" src="{{ asset('bundles/fdradmin/images/modifier.png') }}" />
+                         </button>
+                         </a> 
+                        </div>
+                        &nbsp;&nbsp;
+
+                        <div class="col-md-2">
+                        
+                        {{ form_widget(form[entity.id]) }}
+                        </div>
+                        &nbsp;&nbsp;
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
+</div>
 
+           
+              
         <ul>
         <li>
             <a href="{{ path('depot_new') }}">
-                Create a new entry
+                Ajouter
             </a>
         </li>
     </ul>

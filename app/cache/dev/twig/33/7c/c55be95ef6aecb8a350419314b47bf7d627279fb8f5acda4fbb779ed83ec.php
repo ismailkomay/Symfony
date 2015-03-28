@@ -43,42 +43,66 @@ class __TwigTemplate_337cc55be95ef6aecb8a350419314b47bf7d627279fb8f5acda4fbb779e
             <tr>
                 <th>Id</th>
                 <th>Libelle</th>
-                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         ";
-        // line 15
+        // line 14
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["entities"]) ? $context["entities"] : $this->getContext($context, "entities")));
         foreach ($context['_seq'] as $context["_key"] => $context["entity"]) {
-            // line 16
+            // line 15
             echo "            <tr>
                 <td><a href=\"";
-            // line 17
+            // line 16
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("ville_show", array("id" => $this->getAttribute($context["entity"], "id", array()))), "html", null, true);
             echo "\">";
             echo twig_escape_filter($this->env, $this->getAttribute($context["entity"], "id", array()), "html", null, true);
             echo "</a></td>
                 <td>";
-            // line 18
+            // line 17
             echo twig_escape_filter($this->env, $this->getAttribute($context["entity"], "libelle", array()), "html", null, true);
             echo "</td>
                 <td>
-                <ul>
-                    <li>
-                        <a href=\"";
-            // line 22
+                <td>
+                        <div class=\"col-md-2\">
+                         <a href=\"";
+            // line 21
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("ville_show", array("id" => $this->getAttribute($context["entity"], "id", array()))), "html", null, true);
-            echo "\">show</a>
-                    </li>
-                    <li>
-                        <a href=\"";
-            // line 25
+            echo "\">
+                         <button title=\"Afficher\" type=\"submit\">
+                         <img id=\"inputButtonAfficher\" title=\"Afficher\" src=\"";
+            // line 23
+            echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/fdradmin/images/apercu.png"), "html", null, true);
+            echo "\" />
+                         </button>
+                         </a> 
+                        </div>
+                        &nbsp;&nbsp;
+                        
+                        <div class=\"col-md-2\">
+                         <a href=\"";
+            // line 30
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("ville_edit", array("id" => $this->getAttribute($context["entity"], "id", array()))), "html", null, true);
-            echo "\">edit</a>
-                    </li>
-                </ul>
+            echo "\">
+                         <button title=\"Afficher\" type=\"submit\">
+                         <img id=\"inputButtonModifier\" title=\"Modifier\" src=\"";
+            // line 32
+            echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/fdradmin/images/modifier.png"), "html", null, true);
+            echo "\" />
+                         </button>
+                         </a> 
+                        </div>
+                        &nbsp;&nbsp;
+
+                        <div class=\"col-md-2\">
+                        
+                        ";
+            // line 40
+            echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), $this->getAttribute($context["entity"], "id", array()), array(), "array"), 'widget');
+            echo "
+                        </div>
+                        &nbsp;&nbsp;
                 </td>
             </tr>
         ";
@@ -86,14 +110,14 @@ class __TwigTemplate_337cc55be95ef6aecb8a350419314b47bf7d627279fb8f5acda4fbb779e
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['entity'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 31
+        // line 46
         echo "        </tbody>
     </table>
 
         <ul>
         <li>
             <a href=\"";
-        // line 36
+        // line 51
         echo $this->env->getExtension('routing')->getPath("ville_new");
         echo "\">
                 Create a new entry
@@ -115,6 +139,6 @@ class __TwigTemplate_337cc55be95ef6aecb8a350419314b47bf7d627279fb8f5acda4fbb779e
 
     public function getDebugInfo()
     {
-        return array (  97 => 36,  90 => 31,  78 => 25,  72 => 22,  65 => 18,  59 => 17,  56 => 16,  52 => 15,  39 => 4,  36 => 3,  11 => 1,);
+        return array (  121 => 51,  114 => 46,  102 => 40,  91 => 32,  86 => 30,  76 => 23,  71 => 21,  64 => 17,  58 => 16,  55 => 15,  51 => 14,  39 => 4,  36 => 3,  11 => 1,);
     }
 }

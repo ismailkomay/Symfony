@@ -1,16 +1,31 @@
 {% extends '::base.html.twig' %}
-
+{% block title %}ville|Edit{% endblock %}
 {% block body -%}
-    <h1>Ville edit</h1>
+<div class="page-header"><h1> Modification d'une ville</h1></div>
 
-    {{ form(edit_form) }}
+{{ form_start(edit_form) }}
+<div class="desactiver-champs">
+<div class="row">
+<span class="alert-danger ">{{ form_errors(edit_form) }}</span>
+</div>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('ville') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+<div class="row">
+
+<div class="span6 offset3">
+
+<fieldset>
+<legend>Formulaire de modification</legend>
+
+<div class="row-fluid">
+<div class="span5">{{ form_label(edit_form.libelle," Libelle ") }}</div>
+{{ form_widget(edit_form.libelle) }}<span class="alert-danger ">{{ form_errors(edit_form.libelle) }}</span>
+</div>
+
+</fieldset>
+
+</div>
+</div>
+</div>
+{{ form_end(edit_form) }}
 {% endblock %}
+

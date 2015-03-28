@@ -5,7 +5,7 @@ namespace Fdr\AdminBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-
+use Fdr\AdminBundle\EventListener\ControllerAffListener;
 class TypePrestationType extends AbstractType
 {
     /**
@@ -14,8 +14,10 @@ class TypePrestationType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+		$subscriber = new ControllerAffListener($builder->getFormFactory());
+        $builder->addEventSubscriber($subscriber);
         $builder
-            ->add('libelle')
+            ->add('libelle',null,array("attr"=>array("placeholder"=>"Libelle","title"=>"Libelle")))
         ;
     }
     

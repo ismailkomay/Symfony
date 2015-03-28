@@ -1,56 +1,64 @@
 {% extends '::base.html.twig' %}
 {% block title %}Vehicule|Show{% endblock %}
 {% block body -%}
-    <h1>Vehicule</h1>
+<div class="page-header"><h1> Affichage d'un Vehicule</h1></div>
 
-    <table class="record_properties">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ entity.id }}</td>
-            </tr>
-            <tr>
-                <th>Tonnage</th>
-                <td>{{ entity.tonnage }}</td>
-            </tr>
-            <tr>
-                <th>Type</th>
-                <td>{{ entity.type }}</td>
-            </tr>
-            <tr>
-                <th>Remorque</th>
-                <td>{{ entity.remorque }}</td>
-            </tr>
-            <tr>
-                <th>Disponibilite</th>
-                <td>{{ entity.disponibilite }}</td>
-            </tr>
-            <tr>
-                <th>Vidange</th>
-                <td>{{ entity.vidange }}</td>
-            </tr>
-            <tr>
-                <th>Compteur</th>
-                <td>{{ entity.compteur }}</td>
-            </tr>
-            <tr>
-                <th>Matricule</th>
-                <td>{{ entity.matricule }}</td>
-            </tr>
-        </tbody>
-    </table>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('vehicule') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('vehicule_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+
+{{ form_start(form) }}
+<div class="desactiver-champs">
+<div class="row">
+<span class="alert-danger ">{{ form_errors(form) }}</span>
+</div>
+
+<div class="row">
+
+<div class="span6 offset3">
+
+<fieldset>
+<legend></legend>
+
+<div class="row-fluid">
+<div class="span5">{{ form_label(form.id," Identifiant ") }}</div>
+{{ form_widget(form.id) }}<span class="alert-danger ">{{ form_errors(form.id) }}</span>
+</div>
+
+
+<div class="row-fluid">
+<div class="span5">{{ form_label(form.tonnage," Tonnage ") }}</div>
+{{ form_widget(form.tonnage) }}<span class="alert-danger ">{{ form_errors(form.tonnage) }}</span>
+</div>
+
+<div class="row-fluid">
+<div class="span5">{{ form_label(form.remorque," Remorque ") }}</div>
+{{ form_widget(form.remorque) }}<span class="alert-danger ">{{ form_errors(form.remorque) }}</span>
+</div>
+
+<div class="row-fluid">
+<div class="span5">{{ form_label(form.remorque," Tonnage ") }}</div>
+{{ form_widget(form.tonnage) }}<span class="alert-danger ">{{ form_errors(form.tonnage) }}</span>
+</div>
+
+<div class="row-fluid">
+<div class="span5">{{ form_label(form.vidange," Vidange ") }}</div>
+{{ form_widget(form.vidange) }}<span class="alert-danger ">{{ form_errors(form.vidange) }}</span>
+</div>
+
+<div class="row-fluid">
+<div class="span5">{{ form_label(form.compteur," Compteur ") }}</div>
+{{ form_widget(form.compteur) }}<span class="alert-danger ">{{ form_errors(form.compteur) }}</span>
+</div>
+
+<div class="row-fluid">
+<div class="span5">{{ form_label(form.matricule," Matricule ") }}</div>
+{{ form_widget(form.matricule) }}<span class="alert-danger ">{{ form_errors(form.matricule) }}</span>
+</div>
+
+</fieldset>
+
+</div>
+</div>
+</div>
+{{ form_end(form) }}
 {% endblock %}
+

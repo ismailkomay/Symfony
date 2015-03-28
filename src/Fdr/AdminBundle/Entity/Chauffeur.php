@@ -58,7 +58,8 @@ class Chauffeur
 
     /**
      * @var string
-     * @Assert\Type(type="digit", message="La valeur {{ value }} n'est pas valide.")
+     * @Assert\Regex("/[\d\-\ ]+/")
+     * @Assert\Length(min = "10")
      * @ORM\Column(name="tel", type="string", length=100, nullable=true)
      */
     private $tel;

@@ -5,6 +5,7 @@ namespace Fdr\AdminBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Fdr\AdminBundle\EventListener\ControllerAffListener;
 
 class ChauffeurType extends AbstractType
 {
@@ -14,13 +15,16 @@ class ChauffeurType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+		$subscriber = new ControllerAffListener($builder->getFormFactory());
+        $builder->addEventSubscriber($subscriber);
         $builder
-            ->add('nom')
-            ->add('prenom')
-            ->add('tel')
-            ->add('cin')
-            ->add('adresse')
-            ->add('dateembauche','date', array('widget' => "single_text"))
+            ->add('nom',null,array("attr"=>array("placeholder"=>"Nom","title"=>"Nom")))
+            ->add('prenom',null,array("attr"=>array("placeholder"=>"Prenom","title"=>"Prenom")))
+            ->add('tel',null,array("attr"=>array("placeholder"=>"Tel","title"=>"Tel")))
+            ->add('cin',null,array("attr"=>array("placeholder"=>"CIN","title"=>"CIN")))
+            ->add('adresse',null,array("attr"=>array("placeholder"=>"Adresse","title"=>"Adresse")))
+			->add('disponibilite')
+            ->add('dateembauche','date', array('widget' => "single_text","attr"=>array("placeholder"=>"Date d'embauche","title"=>"Date d'embauche")))
             ->add('typeconvention','choice',array('choices'=>array(
                 'cdd'=>'CDD',
                 'cdi'=>'CDI',
@@ -28,7 +32,7 @@ class ChauffeurType extends AbstractType
                 'autre'=>'Autre.'),
                 ))
             //->add('champssupp1')
-            ->add('etatContrat','choice',array('choices'=>array('ouvert'=>'Ouvert','resilie'=>'Résilié')))
+            ->add('etatContrat','choice',array('choices'=>array('ouvert'=>'Ouvert','resilie'=>'Résilié'),"placeholder"=>"Choisir ----","attr"=>array("title"=>"Choisir etat contrat")))
            // ->add('feuilleDeRoutes')
         ;
     }

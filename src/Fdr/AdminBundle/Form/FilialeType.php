@@ -5,7 +5,7 @@ namespace Fdr\AdminBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-
+use Fdr\AdminBundle\EventListener\ControllerAffListener;
 class FilialeType extends AbstractType
 {
     /**
@@ -14,9 +14,12 @@ class FilialeType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+		
+	$subscriber = new ControllerAffListener($builder->getFormFactory());
+        $builder->addEventSubscriber($subscriber);
         $builder
-            ->add('libelle')
-            ->add('adresse')
+            ->add('libelle',null,array("attr"=>array("placeholder"=>"Libelle","title"=>"Libelle")))
+            ->add('adresse',null,array("attr"=>array("placeholder"=>"Adresse","title"=>"Adresse")))
         ;
     }
     

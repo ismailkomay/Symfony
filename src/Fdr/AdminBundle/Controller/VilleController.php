@@ -24,9 +24,16 @@ class VilleController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('FdrAdminBundle:Ville')->findAll();
-
+        
+        //--
+        $form = array();
+        foreach ($entities as $entity) {
+            $form[$entity->getId()] = $this->createDeleteForm($entity->getId())->createView();
+        }     
+        //--
         return $this->render('FdrAdminBundle:Ville:index.html.twig', array(
             'entities' => $entities,
+            'form'=>$form
         ));
     }
     /**
@@ -66,9 +73,9 @@ class VilleController extends Controller
             'action' => $this->generateUrl('ville_create'),
             'method' => 'POST',
         ));
-
-        $form->add('submit', 'submit', array('label' => 'Create'));
-
+        //--
+        $form->add('submit', 'submit', array('label' => 'Enregistrer','attr'=>array('class'=>'btn-default span2 offset5')));
+       
         return $form;
     }
 
@@ -103,9 +110,16 @@ class VilleController extends Controller
 
         $deleteForm = $this->createDeleteForm($id);
 
+         //---
+        $form =  $this->createForm(new VilleType(), $entity);
+        //---
+
         return $this->render('FdrAdminBundle:Ville:show.html.twig', array(
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),
+            //--
+            'form' => $form->createView(),
+            //--
         ));
     }
 
@@ -146,9 +160,9 @@ class VilleController extends Controller
             'action' => $this->generateUrl('ville_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));
-
-        $form->add('submit', 'submit', array('label' => 'Update'));
-
+        //--
+        $form->add('submit', 'submit', array('label' => 'Modifier','attr'=>array('class'=>'btn-primary span2 offset5')));
+         //--
         return $form;
     }
     /**
@@ -212,12 +226,15 @@ class VilleController extends Controller
      *
      * @return \Symfony\Component\Form\Form The form
      */
+                  	 
     private function createDeleteForm($id)
     {
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('ville_delete', array('id' => $id)))
             ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Delete'))
+                //--
+            ->add('submit', 'submit', array('label' => ' ','attr'=>array('class'=>'btn-supp','title'=>'Supprimer')))
+                //--
             ->getForm()
         ;
     }

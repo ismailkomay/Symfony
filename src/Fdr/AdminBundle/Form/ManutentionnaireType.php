@@ -5,6 +5,7 @@ namespace Fdr\AdminBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Fdr\AdminBundle\EventListener\ControllerAffListener;
 
 class ManutentionnaireType extends AbstractType
 {
@@ -14,17 +15,17 @@ class ManutentionnaireType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+			
+	    $subscriber = new ControllerAffListener($builder->getFormFactory());
+        $builder->addEventSubscriber($subscriber);
         $builder
-            ->add('nom')
-            ->add('prenom')
-            ->add('matricule')
+            ->add('nom',null,array("attr"=>array("placeholder"=>"Nom","title"=>"Nom")))
+            ->add('prenom',null,array("attr"=>array("placeholder"=>"Prenom","title"=>"Prenom")))
+            ->add('matricule',null,array("attr"=>array("placeholder"=>"Matricule","title"=>"Matricule")))
             ->add('type','choice',array('choices'=>array('ctm'=>'CTM','interim'=>'Interim')))
-            ->add('cin')
-            ->add('tel')
-            ->add('adresse')
-//            ->add('champssupp1')
-//            ->add('champssupp2')
-//            ->add('feuilleDeRoutes')
+            ->add('cin',null,array("attr"=>array("placeholder"=>"CIN","title"=>"CIN")))
+            ->add('tel',null,array("attr"=>array("placeholder"=>"Tel.","title"=>"Téléphone")))
+            ->add('adresse',null,array("attr"=>array("placeholder"=>"Adresse","title"=>"Adresse")))
         ;
     }
     

@@ -5,6 +5,7 @@ namespace Fdr\AdminBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Fdr\AdminBundle\EventListener\ControllerAffListener;
 
 class ClientType extends AbstractType
 {
@@ -14,21 +15,21 @@ class ClientType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+		$subscriber = new ControllerAffListener($builder->getFormFactory());
+        $builder->addEventSubscriber($subscriber);
         $builder
-            ->add('nom')
-            ->add('prenom')
-            ->add('tel')
-            ->add('adresse')
-            ->add('cin')
-            ->add('email')
-            ->add('fax')
-            ->add('nomentreprise')
+            ->add('nom',null,array("attr"=>array("placeholder"=>"Nom","title"=>"Lieu de bonCarburant")))
+            ->add('prenom',null,array("attr"=>array("placeholder"=>"Prenom","title"=>"Prenom")))
+            ->add('tel',null,array("attr"=>array("placeholder"=>"Téléphone","title"=>"Téléphone")))
+            ->add('adresse',null,array("attr"=>array("placeholder"=>"Adresse","title"=>"Adresse")))
+            ->add('cin',null,array("attr"=>array("placeholder"=>"CIN","title"=>"CIN")))
+            ->add('email',null,array("attr"=>array("placeholder"=>"Email","title"=>"Email")))
+            ->add('fax',null,array("attr"=>array("placeholder"=>"Fax","title"=>"Fax")))
+            ->add('nomentreprise',null,array("attr"=>array("placeholder"=>"Nom d'entreprise","title"=>"Nom d'entreprise")))
             ->add('encompte')
             ->add('clientaffret')
             ->add('clientramass')
-            ->add('numcompte')
-            //->add('champssupp1')
-            //->add('champssupp2')
+            ->add('numcompte',null,array("attr"=>array("placeholder"=>"Num. compte","title"=>"Num. compte")))
             ->add('secteurs')
         ;
     }

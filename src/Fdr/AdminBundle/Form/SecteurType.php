@@ -5,7 +5,7 @@ namespace Fdr\AdminBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-
+use Fdr\AdminBundle\EventListener\ControllerAffListener;	
 class SecteurType extends AbstractType
 {
     /**
@@ -14,13 +14,15 @@ class SecteurType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+		
+	    $subscriber = new ControllerAffListener($builder->getFormFactory());
+        $builder->addEventSubscriber($subscriber);
         $builder
-            ->add('libelle')
-            ->add('depart')
-            ->add('arrivee')
-            ->add('ville')
+            ->add('libelle',null,array("attr"=>array("placeholder"=>"Libelle","title"=>"Libelle")))
+            ->add('depart',null,array("attr"=>array("placeholder"=>"Depart","title"=>"Depart")))
+            ->add('arrivee',null,array("attr"=>array("placeholder"=>"Arrivée","title"=>"Arrivée")))
+            ->add('ville',null,array("placeholder"=>"Choisir la ville","attr"=>array("title"=>"Choisir la ville")))
             ->add('typePrestations')
-            ->add('remarques')
         ;
     }
     

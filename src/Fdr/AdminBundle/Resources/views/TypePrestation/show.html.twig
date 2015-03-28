@@ -1,42 +1,39 @@
 {% extends '::base.html.twig' %}
 {% block title %}TypePrestation|Show{% endblock %}
 {% block body -%}
-    <h1>TypePrestation</h1>
+<div class="page-header"><h1> Affichage d'un TypePrestation</h1></div>
 
-    <table class="record_properties">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ entity.id }}</td>
-            </tr>
-            <tr>
-                <th>Libelle</th>
-                <td>{{ entity.libelle }}</td>
-            </tr>
-            <tr>
-                <th>Secteurs</th>
-                <td>
-                    <ul>
-                    {% for item in entity.secteurs %}
-                        <li> {{ item }}</li>
-                    {% endfor %}
-                    </ul>
-                </td>
-            </tr>
-        </tbody>
-    </table>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('typeprestation') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('typeprestation_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+
+{{ form_start(form) }}
+<div class="desactiver-champs">
+<div class="row">
+<span class="alert-danger ">{{ form_errors(form) }}</span>
+</div>
+
+<div class="row">
+
+<div class="span6 offset3">
+
+<fieldset>
+<legend></legend>
+
+<div class="row-fluid">
+<div class="span5">{{ form_label(form.id," Identifiant ") }}</div>
+{{ form_widget(form.id) }}<span class="alert-danger ">{{ form_errors(form.id) }}</span>
+</div>
+
+<div class="row-fluid">
+<div class="span5">{{ form_label(form.libelle," Libelle ") }}</div>
+{{ form_widget(form.libelle) }}<span class="alert-danger ">{{ form_errors(form.libelle) }}</span>
+</div>
+
+
+</fieldset>
+
+</div>
+</div>
+</div>
+{{ form_end(form) }}
 {% endblock %}
+

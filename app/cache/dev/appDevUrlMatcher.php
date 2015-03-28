@@ -1083,126 +1083,63 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        if (0 === strpos($pathinfo, '/i')) {
-            if (0 === strpos($pathinfo, '/itineraire')) {
-                // itineraire
-                if (rtrim($pathinfo, '/') === '/itineraire') {
-                    if (substr($pathinfo, -1) !== '/') {
-                        return $this->redirect($pathinfo.'/', 'itineraire');
-                    }
-
-                    return array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\ItineraireController::indexAction',  '_route' => 'itineraire',);
+        if (0 === strpos($pathinfo, '/indisponibilite')) {
+            // indisponibilite
+            if (rtrim($pathinfo, '/') === '/indisponibilite') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'indisponibilite');
                 }
 
-                // itineraire_show
-                if (preg_match('#^/itineraire/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'itineraire_show')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\ItineraireController::showAction',));
-                }
-
-                // itineraire_new
-                if ($pathinfo === '/itineraire/new') {
-                    return array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\ItineraireController::newAction',  '_route' => 'itineraire_new',);
-                }
-
-                // itineraire_create
-                if ($pathinfo === '/itineraire/create') {
-                    if ($this->context->getMethod() != 'POST') {
-                        $allow[] = 'POST';
-                        goto not_itineraire_create;
-                    }
-
-                    return array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\ItineraireController::createAction',  '_route' => 'itineraire_create',);
-                }
-                not_itineraire_create:
-
-                // itineraire_edit
-                if (preg_match('#^/itineraire/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'itineraire_edit')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\ItineraireController::editAction',));
-                }
-
-                // itineraire_update
-                if (preg_match('#^/itineraire/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
-                    if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
-                        $allow = array_merge($allow, array('POST', 'PUT'));
-                        goto not_itineraire_update;
-                    }
-
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'itineraire_update')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\ItineraireController::updateAction',));
-                }
-                not_itineraire_update:
-
-                // itineraire_delete
-                if (preg_match('#^/itineraire/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
-                    if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
-                        $allow = array_merge($allow, array('POST', 'DELETE'));
-                        goto not_itineraire_delete;
-                    }
-
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'itineraire_delete')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\ItineraireController::deleteAction',));
-                }
-                not_itineraire_delete:
-
+                return array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\IndisponibiliteController::indexAction',  '_route' => 'indisponibilite',);
             }
 
-            if (0 === strpos($pathinfo, '/indisponibilite')) {
-                // indisponibilite
-                if (rtrim($pathinfo, '/') === '/indisponibilite') {
-                    if (substr($pathinfo, -1) !== '/') {
-                        return $this->redirect($pathinfo.'/', 'indisponibilite');
-                    }
-
-                    return array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\IndisponibiliteController::indexAction',  '_route' => 'indisponibilite',);
-                }
-
-                // indisponibilite_show
-                if (preg_match('#^/indisponibilite/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'indisponibilite_show')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\IndisponibiliteController::showAction',));
-                }
-
-                // indisponibilite_new
-                if ($pathinfo === '/indisponibilite/new') {
-                    return array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\IndisponibiliteController::newAction',  '_route' => 'indisponibilite_new',);
-                }
-
-                // indisponibilite_create
-                if ($pathinfo === '/indisponibilite/create') {
-                    if ($this->context->getMethod() != 'POST') {
-                        $allow[] = 'POST';
-                        goto not_indisponibilite_create;
-                    }
-
-                    return array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\IndisponibiliteController::createAction',  '_route' => 'indisponibilite_create',);
-                }
-                not_indisponibilite_create:
-
-                // indisponibilite_edit
-                if (preg_match('#^/indisponibilite/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'indisponibilite_edit')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\IndisponibiliteController::editAction',));
-                }
-
-                // indisponibilite_update
-                if (preg_match('#^/indisponibilite/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
-                    if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
-                        $allow = array_merge($allow, array('POST', 'PUT'));
-                        goto not_indisponibilite_update;
-                    }
-
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'indisponibilite_update')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\IndisponibiliteController::updateAction',));
-                }
-                not_indisponibilite_update:
-
-                // indisponibilite_delete
-                if (preg_match('#^/indisponibilite/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
-                    if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
-                        $allow = array_merge($allow, array('POST', 'DELETE'));
-                        goto not_indisponibilite_delete;
-                    }
-
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'indisponibilite_delete')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\IndisponibiliteController::deleteAction',));
-                }
-                not_indisponibilite_delete:
-
+            // indisponibilite_show
+            if (preg_match('#^/indisponibilite/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'indisponibilite_show')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\IndisponibiliteController::showAction',));
             }
+
+            // indisponibilite_new
+            if ($pathinfo === '/indisponibilite/new') {
+                return array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\IndisponibiliteController::newAction',  '_route' => 'indisponibilite_new',);
+            }
+
+            // indisponibilite_create
+            if ($pathinfo === '/indisponibilite/create') {
+                if ($this->context->getMethod() != 'POST') {
+                    $allow[] = 'POST';
+                    goto not_indisponibilite_create;
+                }
+
+                return array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\IndisponibiliteController::createAction',  '_route' => 'indisponibilite_create',);
+            }
+            not_indisponibilite_create:
+
+            // indisponibilite_edit
+            if (preg_match('#^/indisponibilite/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'indisponibilite_edit')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\IndisponibiliteController::editAction',));
+            }
+
+            // indisponibilite_update
+            if (preg_match('#^/indisponibilite/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
+                    $allow = array_merge($allow, array('POST', 'PUT'));
+                    goto not_indisponibilite_update;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'indisponibilite_update')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\IndisponibiliteController::updateAction',));
+            }
+            not_indisponibilite_update:
+
+            // indisponibilite_delete
+            if (preg_match('#^/indisponibilite/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
+                    $allow = array_merge($allow, array('POST', 'DELETE'));
+                    goto not_indisponibilite_delete;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'indisponibilite_delete')), array (  '_controller' => 'Fdr\\AdminBundle\\Controller\\IndisponibiliteController::deleteAction',));
+            }
+            not_indisponibilite_delete:
 
         }
 

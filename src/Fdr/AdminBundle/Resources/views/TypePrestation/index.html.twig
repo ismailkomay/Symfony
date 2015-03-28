@@ -8,7 +8,6 @@
             <tr>
                 <th>Id</th>
                 <th>Libelle</th>
-                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -16,15 +15,30 @@
             <tr>
                 <td><a href="{{ path('typeprestation_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
                 <td>{{ entity.libelle }}</td>
-                <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('typeprestation_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('typeprestation_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
+				<td>
+                        <div class="col-md-2">
+                         <a href="{{ path('typeprestation_show', { 'id': entity.id }) }}">
+                         <button title="Afficher" type="submit">
+                         <img id="inputButtonAfficher" title="Afficher" src="{{ asset('bundles/fdradmin/images/apercu.png') }}" />
+                         </button>
+                         </a> 
+                        </div>
+                        &nbsp;&nbsp;
+                        
+                        <div class="col-md-2">
+                         <a href="{{ path('typeprestation_edit', { 'id': entity.id }) }}">
+                         <button title="Afficher" type="submit">
+                         <img id="inputButtonModifier" title="Modifier" src="{{ asset('bundles/fdradmin/images/modifier.png') }}" />
+                         </button>
+                         </a> 
+                        </div>
+                        &nbsp;&nbsp;
+
+                        <div class="col-md-2">
+                        
+                        {{ form_widget(form[entity.id]) }}
+                        </div>
+                        &nbsp;&nbsp;
                 </td>
             </tr>
         {% endfor %}

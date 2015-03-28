@@ -19,8 +19,7 @@
                 <th>Clientaffret</th>
                 <th>Clientramass</th>
                 <th>Numcompte</th>
-                <th>Secteur(s) d'appartenance</th>
-                <th>Actions</th>
+                <th>Secteur(s)</th>
             </tr>
         </thead>
         <tbody>
@@ -35,28 +34,52 @@
                 <td>{{ entity.email }}</td>
                 <td>{{ entity.fax }}</td>
                 <td>{{ entity.nomentreprise }}</td>
-                <td>{{ entity.encompte }}</td>
-                <td>{{ entity.clientaffret }}</td>
-                <td>{{ entity.clientramass }}</td>
+                <td>
+				{% if entity.encompte %}
+                <input type="checkbox" disabled readonly checked />
+                {%else %}
+                <input type="checkbox" disabled readonly />
+                {%endif %}
+				</td>
+				<td>
+				{% if entity.clientaffret %}
+                <input type="checkbox" disabled readonly checked />
+                {%else %}
+                <input type="checkbox" disabled readonly />
+                {%endif %}
+				</td>
+				<td>
+				{% if entity.clientramass %}
+                <input type="checkbox" disabled readonly checked />
+                {%else %}
+                <input type="checkbox" disabled readonly />
+                {%endif %}
+				</td>
                 <td>{{ entity.numcompte }}</td>
                 <td>
-                    <ul>
-                        {% for item in entity.secteurs %}
-                        <li>
-                        {{ item }}
-                        </li>
-                          {% endfor %}
-                    </ul>
-                </td>
-                <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('client_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('client_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
+                        <div class="col-md-2">
+                         <a href="{{ path('client_show', { 'id': entity.id }) }}">
+                         <button title="Afficher" type="submit">
+                         <img id="inputButtonAfficher" title="Afficher" src="{{ asset('bundles/fdradmin/images/apercu.png') }}" />
+                         </button>
+                         </a> 
+                        </div>
+                        &nbsp;&nbsp;
+                        
+                        <div class="col-md-2">
+                         <a href="{{ path('client_edit', { 'id': entity.id }) }}">
+                         <button title="Afficher" type="submit">
+                         <img id="inputButtonModifier" title="Modifier" src="{{ asset('bundles/fdradmin/images/modifier.png') }}" />
+                         </button>
+                         </a> 
+                        </div>
+                        &nbsp;&nbsp;
+
+                        <div class="col-md-2">
+                        
+                        {{ form_widget(form[entity.id]) }}
+                        </div>
+                        &nbsp;&nbsp;
                 </td>
             </tr>
         {% endfor %}

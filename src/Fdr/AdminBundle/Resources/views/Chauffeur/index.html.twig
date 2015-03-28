@@ -1,56 +1,79 @@
 {% extends '::base.html.twig' %}
 {% block title %}Chauffeur|Accueil{% endblock %}
 {% block body -%}
-    <h1>Chauffeur list</h1>
-
-    <table class="records_list">
+    <div class="page-header"><h2> Liste des Chauffeurs</h2></div>
+  <div class="row">
+    <table>
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Nom</th>
                 <th>Prenom</th>
-                <th>Tel</th>
-                <th>Cin</th>
+                <th>Telephone</th>
+                <th>CIN</th>
                 <th>Adresse</th>
-                <th>Dateembauche</th>
-                <th>Disponibilite</th>
-                <th>Typeconvention</th>
-                <th>Etatcontrat</th>
-                <th>Actions</th>
+				<th>Disponibilite</th>
+                <th>Date d'embauche</th>
+                <th>Type de Convention</th>
+				<th>Etat de contrat</th>
             </tr>
         </thead>
         <tbody>
         {% for entity in entities %}
             <tr>
                 <td><a href="{{ path('chauffeur_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{{ entity.nom }}</td>
-                <td>{{ entity.prenom }}</td>
-                <td>{{ entity.tel }}</td>
-                <td>{{ entity.cin }}</td>
-                <td>{{ entity.adresse }}</td>
-                <td>{% if entity.dateembauche %}{{ entity.dateembauche|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{{ entity.disponibilite }}</td>
-                <td>{{ entity.typeconvention }}</td>
-                <td>{{ entity.etatContrat }}</td>
+                <td>{{ entity.nom|default('-----') }}</td>
+                <td>{{ entity.prenom|default('-----') }}</td>
+                <td>{% if entity.tel %}{{ entity.date|date('Y/m/d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.cin|default('-----') }}</td>
+                <td>{{ entity.adresse|default('-----')  }}</td>               
                 <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('chauffeur_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('chauffeur_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
+                {% if entity.disponibilite %}
+                <input type="checkbox" disabled readonly checked />
+                {%else %}
+                <input type="checkbox" disabled readonly />
+                {%endif %}
+                </td>
+                <td>{{ entity.dateembauche }}</td>
+                <td>{{ entity.typeConvention|default('-----') }}</td> 
+                <td>{{ entity.etatContrat|default('-----') }}</td> 
+				
+                <td>
+                        <div class="col-md-2">
+                         <a href="{{ path('chauffeur_show', { 'id': entity.id }) }}">
+                         <button title="Afficher" type="submit">
+                         <img id="inputButtonAfficher" title="Afficher" src="{{ asset('bundles/fdradmin/images/apercu.png') }}" />
+                         </button>
+                         </a> 
+                        </div>
+                        &nbsp;&nbsp;
+                        
+                        <div class="col-md-2">
+                         <a href="{{ path('chauffeur_edit', { 'id': entity.id }) }}">
+                         <button title="Afficher" type="submit">
+                         <img id="inputButtonModifier" title="Modifier" src="{{ asset('bundles/fdradmin/images/modifier.png') }}" />
+                         </button>
+                         </a> 
+                        </div>
+                        &nbsp;&nbsp;
+
+                        <div class="col-md-2">
+                        
+                        {{ form_widget(form[entity.id]) }}
+                        </div>
+                        &nbsp;&nbsp;
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
+</div>
 
+              
         <ul>
         <li>
             <a href="{{ path('chauffeur_new') }}">
-                Create a new entry
+                Ajouter
             </a>
         </li>
     </ul>

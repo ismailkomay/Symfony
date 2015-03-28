@@ -18,6 +18,7 @@ class __TwigTemplate_8d5a553da9a5f0afcaa25be045a2f6a8c85052ed230adca5b42ea3576a4
         }
 
         $this->blocks = array(
+            'title' => array($this, 'block_title'),
             'body' => array($this, 'block_body'),
         );
     }
@@ -32,27 +33,57 @@ class __TwigTemplate_8d5a553da9a5f0afcaa25be045a2f6a8c85052ed230adca5b42ea3576a4
         $this->parent->display($context, array_merge($this->blocks, $blocks));
     }
 
+    // line 2
+    public function block_title($context, array $blocks = array())
+    {
+        echo "ville|New";
+    }
+
     // line 3
     public function block_body($context, array $blocks = array())
     {
         // line 4
-        echo "<h1>Ville creation</h1>
+        echo "<div class=\"page-header\"><h1> Ajout d'une ville</h1></div>
 
-    ";
+";
         // line 6
-        echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form');
+        echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form_start');
         echo "
+<div class=\"row\">
+<span class=\"alert-danger \">";
+        // line 8
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'errors');
+        echo "</span>
+</div>
 
-        <ul class=\"record_actions\">
-    <li>
-        <a href=\"";
-        // line 10
-        echo $this->env->getExtension('routing')->getPath("ville");
-        echo "\">
-            Back to the list
-        </a>
-    </li>
-</ul>
+<div class=\"row\">
+
+<div class=\"span6 offset3\">
+
+<fieldset>
+<legend>Formulaire d'ajout</legend>
+
+<div class=\"row-fluid\">
+<div class=\"span5\">";
+        // line 19
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "libelle", array()), 'label', array("label" => " Libelle "));
+        echo "</div>
+";
+        // line 20
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "libelle", array()), 'widget');
+        echo "<span class=\"alert-danger \">";
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "libelle", array()), 'errors');
+        echo "</span>
+</div>
+
+</fieldset>
+
+</div>
+</div>
+";
+        // line 27
+        echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form_end');
+        echo "
 ";
     }
 
@@ -68,6 +99,6 @@ class __TwigTemplate_8d5a553da9a5f0afcaa25be045a2f6a8c85052ed230adca5b42ea3576a4
 
     public function getDebugInfo()
     {
-        return array (  50 => 10,  43 => 6,  39 => 4,  36 => 3,  11 => 1,);
+        return array (  85 => 27,  73 => 20,  69 => 19,  55 => 8,  50 => 6,  46 => 4,  43 => 3,  37 => 2,  11 => 1,);
     }
 }
